@@ -10,7 +10,7 @@
 
 # production
 /build
-#/dist
+/dist
 
 # misc
 .DS_Store
@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # webstorm
-#/.idea
+/.idea
