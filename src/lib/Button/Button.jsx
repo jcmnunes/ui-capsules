@@ -119,8 +119,7 @@ const StyledButton = styled.button`
 
   &:focus {
     outline: none;
-    box-shadow: ${props =>
-      props.intent === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`};
+    box-shadow: ${props => (props.intent === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`)};
   }
 
   &:hover {
