@@ -1,0 +1,24 @@
+{
+  "extends": ["airbnb", "react-app", "plugin:prettier/recommended", "plugin:import/errors"],
+  "rules": {
+    "no-debugger": 2,
+    "no-alert": 2,
+    "no-console": 2,
+    "react/destructuring-assignment": 0,
+    "no-underscore-dangle": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "import/no-extraneous-dependencies": [
+      2,
+      {
+        "devDependencies": [".storybook/**", "src/components/UI/**/*.stories.jsx"]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  }
+}

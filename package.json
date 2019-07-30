@@ -1,0 +1,72 @@
+{
+  "name": "@binarycapsule/ui-capsules",
+  "version": "0.0.0-development",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:components": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "semantic-release": "semantic-release"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "prop-types": "15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "styled-components": "4.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.5.5",
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-react": "7.0.0",
+    "babel-cli": "6.26.0",
+    "babel-plugin-styled-components": "1.10.6",
+    "babel-preset-react-app": "9.0.0",
+    "eslint-config-airbnb": "17.1.1",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jest": "22.14.0",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-react": "7.14.3",
+    "prettier": "1.18.2",
+    "semantic-release": "^15.13.18"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "UI kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcmnunes/ui-capsules.git"
+  },
+  "keywords": [
+    "ui",
+    "kit",
+    "components",
+    "react"
+  ],
+  "author": "Jose C. Nunes <jn@josenunes.xyz> (https://josenunes.xyz/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jcmnunes/ui-capsules/issues"
+  },
+  "homepage": "https://github.com/jcmnunes/ui-capsules#readme"
+}
