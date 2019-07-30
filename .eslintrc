@@ -7,12 +7,7 @@
     "react/destructuring-assignment": 0,
     "no-underscore-dangle": 0,
     "react/jsx-one-expression-per-line": 0,
-    "import/no-extraneous-dependencies": [
-      2,
-      {
-        "devDependencies": [".storybook/**", "src/components/UI/**/*.stories.jsx"]
-      }
-    ]
+    "import/no-extraneous-dependencies": 0
   },
   "settings": {
     "import/resolver": {

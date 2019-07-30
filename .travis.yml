@@ -9,6 +9,7 @@ notifications:
   email: false
 before_script:
   - npm prune
+  - npm run test
 script:
   - npm run build
 after_success:
