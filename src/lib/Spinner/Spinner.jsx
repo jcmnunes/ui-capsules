@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 import theme from '../theme';
 
@@ -36,22 +37,22 @@ const Spinner = styled.span`
   animation: ${spin} 500ms infinite linear;
 `;
 
-// Spinner.defaultProps = {
-//   size: 'small',
-//   intent: 'neutral',
-// };
-//
-// Spinner.propTypes = {
-//   size: PropTypes.oneOf(['small', 'medium', 'large']),
-//   intent: PropTypes.oneOf([
-//     'primary',
-//     'success',
-//     'warning',
-//     'error',
-//     'secondary',
-//     'neutral',
-//     'dropdown',
-//   ]),
-// };
+Spinner.defaultProps = {
+  size: 'small',
+  intent: 'neutral',
+};
+
+Spinner.propTypes = {
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  intent: PropTypes.oneOf([
+    'primary',
+    'success',
+    'warning',
+    'error',
+    'secondary',
+    'neutral',
+    'dropdown',
+  ]),
+};
 
 export default Spinner;
