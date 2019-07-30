@@ -1,7 +1,6 @@
 {
   "name": "@binarycapsule/ui-capsules",
   "version": "0.0.0-development",
-  "private": true,
   "main": "dist/index.js",
   "scripts": {
     "start": "react-scripts start",
