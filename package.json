@@ -5,23 +5,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build:app": "react-scripts build",
-    "test:watch": "react-scripts test",
-    "test": "jest",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist",
+    "build": "rimraf dist && babel src/lib --out-dir dist",
     "semantic-release": "semantic-release"
   },
   "files": [
     "dist",
     "README.md"
   ],
-  "dependencies": {
-    "prop-types": "15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "styled-components": "4.3.2"
-  },
   "devDependencies": {
     "@babel/cli": "7.5.5",
     "@babel/core": "7.5.5",
@@ -36,9 +28,18 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-react": "7.14.3",
-    "jest": "24.8.0",
     "prettier": "1.18.2",
-    "semantic-release": "15.13.19"
+    "rimraf": "2.6.3",
+    "semantic-release": "15.13.19",
+    "prop-types": "15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "styled-components": "4.3.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "browserslist": {
     "production": [
