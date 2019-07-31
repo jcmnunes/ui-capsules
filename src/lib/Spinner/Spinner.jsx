@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import theme from '../theme';
 
 const getColors = props => {
-  switch (props.intent) {
+  switch (props.appearance) {
     case 'primary':
     case 'success':
     case 'warning':
@@ -39,12 +39,12 @@ const Spinner = styled.span`
 
 Spinner.defaultProps = {
   size: 'small',
-  intent: 'neutral',
+  appearance: 'neutral',
 };
 
 Spinner.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  intent: PropTypes.oneOf([
+  appearance: PropTypes.oneOf([
     'primary',
     'success',
     'warning',

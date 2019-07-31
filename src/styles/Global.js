@@ -148,6 +148,12 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     box-shadow: none;
   }
+  
+  pre {
+    font-family: Hack, monospace;
+    font-size: 14px;
+    font-weight: 400;
+  }
 `;
 
 export default GlobalStyle;

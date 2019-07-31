@@ -7,8 +7,15 @@
     "build:app": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint ./src/lib/**/*.{js,jsx}",
+    "format": "pretty-quick --staged",
     "build": "rimraf dist && babel src/lib --out-dir dist",
     "semantic-release": "semantic-release"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run lint"
+    }
   },
   "files": [
     "dist",
@@ -20,6 +27,7 @@
     "@babel/plugin-proposal-class-properties": "7.5.5",
     "@babel/preset-env": "7.5.5",
     "@babel/preset-react": "7.0.0",
+    "@types/styled-components": "4.1.18",
     "babel-plugin-styled-components": "1.10.6",
     "babel-preset-react-app": "9.0.0",
     "eslint-config-airbnb": "17.1.1",
@@ -29,10 +37,13 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-react": "7.14.3",
+    "husky": "3.0.2",
     "prettier": "1.18.2",
+    "pretty-quick": "1.11.1",
     "prop-types": "15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-element-to-jsx-string": "14.0.3",
     "react-scripts": "3.0.1",
     "rimraf": "2.6.3",
     "semantic-release": "15.13.19",
@@ -70,5 +81,8 @@
   "bugs": {
     "url": "https://github.com/jcmnunes/ui-capsules/issues"
   },
-  "homepage": "https://github.com/jcmnunes/ui-capsules#readme"
+  "homepage": "https://github.com/jcmnunes/ui-capsules#readme",
+  "dependencies": {
+    "react-router-dom": "5.0.1"
+  }
 }

@@ -6,7 +6,7 @@ import theme from '../theme';
 
 const getButtonColors = props => {
   const colors = {
-    text: props.disabled ? '#CAD2D9' : theme.neutral600,
+    text: props.isDisabled ? '#CAD2D9' : theme.neutral600,
     gradient: {
       top: theme.neutral100,
       topHover: '#D7DBE0',
@@ -16,7 +16,7 @@ const getButtonColors = props => {
     active: theme.neutral200,
     disabled: '#F5F7FA',
   };
-  switch (props.intent) {
+  switch (props.appearance) {
     case 'primary':
       colors.text = '#FFF';
       colors.gradient.top = theme.blue500;
@@ -106,20 +106,21 @@ const StyledButton = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: ${props => (props.intent === 'dropdown' ? 'flex-start' : 'center')};
-  width: ${props => (props.block ? '100%' : 'auto')};
+  justify-content: ${props => (props.appearance === 'dropdown' ? 'flex-start' : 'center')};
+  width: ${props => (props.isBlock ? '100%' : 'auto')};
   background: ${props => `linear-gradient(to bottom,
     ${getButtonColors(props).gradient.top},
     ${getButtonColors(props).gradient.bottom}
   )`};
 
   &::placeholder {
-    color: ${props => theme.neutral300};
+    color: ${theme.neutral300};
   }
 
   &:focus {
     outline: none;
-    box-shadow: ${props => (props.intent === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`)};
+    box-shadow: ${props =>
+      props.appearance === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`};
   }
 
   &:hover {
@@ -161,10 +162,10 @@ const StyledButton = styled.button`
 
 const Button = ({
   isLoading,
-  disabled,
+  isDisabled,
   iconBefore,
   iconAfter,
-  intent,
+  appearance,
   size,
   onClick,
   children,
@@ -184,9 +185,9 @@ const Button = ({
   };
   return (
     <StyledButton
-      disabled={disabled || isLoading}
+      disabled={isDisabled || isLoading}
       isLoading={isLoading}
-      intent={intent}
+      appearance={appearance}
       size={size}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -196,7 +197,7 @@ const Button = ({
     >
       {isLoading && (
         <span className="spinner">
-          <Spinner size={size} intent={intent} />
+          <Spinner size={size} appearance={appearance} />
         </span>
       )}
       <div className="content">
@@ -210,26 +211,26 @@ const Button = ({
 
 Button.defaultProps = {
   isLoading: false,
-  disabled: false,
+  isDisabled: false,
   iconBefore: null,
   iconAfter: null,
-  intent: 'secondary',
+  appearance: 'secondary',
   size: 'medium',
   type: 'button',
-  block: false,
+  isBlock: false,
   children: '',
   onClick: null,
 };
 
 Button.propTypes = {
-  intent: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'error', 'dropdown']),
+  appearance: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'error', 'dropdown']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   isLoading: PropTypes.bool,
-  disabled: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   iconBefore: PropTypes.element,
   iconAfter: PropTypes.element,
   type: PropTypes.string,
-  block: PropTypes.bool,
+  isBlock: PropTypes.bool,
   children: PropTypes.node,
   onClick: PropTypes.func,
 };
