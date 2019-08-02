@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledShowcase, Title, SubTitle, Paragraph } from '../common';
 import ButtonLive from './ButtonLive';
+import Usage from './Usage';
 
 const ButtonShowcase = () => {
   return (
@@ -14,8 +15,7 @@ const ButtonShowcase = () => {
         amet fermentum.
       </Paragraph>
       <SubTitle>Usage</SubTitle>
-      <pre>{"import { Button } from '@binarycapsule/ui-capsules';"}</pre>
-      <button>copy to clipboard</button>
+      <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
       <SubTitle>Showcase</SubTitle>
       <ButtonLive />
     </StyledShowcase>

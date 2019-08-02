@@ -50,7 +50,7 @@ const CustomCheckbox = styled.span`
 `;
 
 const Label = styled.label`
-  display: flex;
+  display: inline-flex;
   height: 25px;
   align-items: center;
   position: relative;

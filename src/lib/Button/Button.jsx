@@ -61,6 +61,15 @@ const getButtonColors = props => {
       colors.active = theme.neutral100;
       colors.disabled = 'none';
       break;
+    case 'link':
+      colors.gradient.top = 'none';
+      colors.gradient.topHover = 'none';
+      colors.gradient.bottom = 'none';
+      colors.gradient.bottomHover = 'none';
+      colors.active = 'none';
+      colors.disabled = 'none';
+      colors.text = props.color;
+      break;
     default:
       break;
   }
@@ -74,6 +83,14 @@ const getDimensions = props => {
     padding: '0 4px',
     spinnerHeight: '16px',
   };
+
+  if (props.appearance === 'link') {
+    return {
+      ...dimensions,
+      height: 'auto',
+      padding: 0,
+    };
+  }
 
   switch (props.size) {
     case 'medium':
@@ -94,7 +111,7 @@ const getDimensions = props => {
   return dimensions;
 };
 
-const StyledButton = styled.button`
+const StyledButton = styled.span`
   position: relative;
   height: ${props => getDimensions(props).height};
   color: ${props => getButtonColors(props).text};
@@ -104,7 +121,7 @@ const StyledButton = styled.button`
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   padding: ${props => getDimensions(props).padding};
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: ${props => (props.appearance === 'dropdown' ? 'flex-start' : 'center')};
   width: ${props => (props.isBlock ? '100%' : 'auto')};
@@ -128,6 +145,7 @@ const StyledButton = styled.button`
       ${getButtonColors(props).gradient.topHover},
       ${getButtonColors(props).gradient.bottomHover}
     )`};
+    text-decoration: ${props => (props.appearance === 'link' ? 'underline' : 'none')};
   }
 
   &:active {
@@ -141,7 +159,7 @@ const StyledButton = styled.button`
 
   .content {
     visibility: ${props => (props.isLoading ? 'hidden' : 'visible')};
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     .button-text {
@@ -220,16 +238,28 @@ Button.defaultProps = {
   isBlock: false,
   children: '',
   onClick: null,
+  as: 'button',
+  color: theme.blue400,
 };
 
 Button.propTypes = {
-  appearance: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'error', 'dropdown']),
+  appearance: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'error',
+    'dropdown',
+    'link',
+  ]),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  as: PropTypes.oneOf(['button', 'a']),
   isLoading: PropTypes.bool,
   isDisabled: PropTypes.bool,
   iconBefore: PropTypes.element,
   iconAfter: PropTypes.element,
   type: PropTypes.string,
+  color: PropTypes.string,
   isBlock: PropTypes.bool,
   children: PropTypes.node,
   onClick: PropTypes.func,

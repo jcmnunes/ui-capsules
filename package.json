@@ -42,9 +42,11 @@
     "pretty-quick": "1.11.1",
     "prop-types": "15.7.2",
     "react": "^16.8.6",
+    "react-copy-to-clipboard": "5.0.1",
     "react-dom": "^16.8.6",
     "react-element-to-jsx-string": "14.0.3",
     "react-scripts": "3.0.1",
+    "react-toast-notifications": "2.2.1",
     "rimraf": "2.6.3",
     "semantic-release": "15.13.19",
     "styled-components": "4.3.2"
