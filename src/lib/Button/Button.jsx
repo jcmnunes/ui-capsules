@@ -6,15 +6,10 @@ import theme from '../theme';
 
 const getButtonColors = props => {
   const colors = {
-    text: props.isDisabled ? '#CAD2D9' : theme.neutral600,
-    gradient: {
-      top: theme.neutral100,
-      topHover: '#D7DBE0',
-      bottom: theme.neutral100,
-      bottomHover: '#D7DBE0',
-    },
-    active: theme.neutral200,
-    disabled: '#F5F7FA',
+    text: '',
+    gradient: {},
+    active: '',
+    disabled: '',
   };
   switch (props.appearance) {
     case 'primary':
@@ -26,6 +21,16 @@ const getButtonColors = props => {
       colors.active = theme.blue700;
       colors.disabled = '#A8D1EB';
       break;
+    case 'secondary': {
+      colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
+      colors.gradient.top = theme.neutral100;
+      colors.gradient.topHover = '#D7DBE0';
+      colors.gradient.bottom = theme.neutral100;
+      colors.gradient.bottomHover = '#D7DBE0';
+      colors.active = theme.neutral200;
+      colors.disabled = '#F5F7FA';
+      break;
+    }
     case 'error':
       colors.text = '#FFF';
       colors.gradient.top = theme.red500;
@@ -71,7 +76,9 @@ const getButtonColors = props => {
       colors.text = props.color;
       break;
     default:
-      break;
+      throw new Error(
+        `The appearance value "${props.appearance}" is not allowed. It must be one of: 'primary', 'secondary', 'success', 'warning', 'error', 'dropdown', 'link',`,
+      );
   }
   return colors;
 };
@@ -158,7 +165,8 @@ const StyledButton = styled.span`
   }
 
   .content {
-    visibility: ${props => (props.isLoading ? 'hidden' : 'visible')};
+    visibility: ${props =>
+      props.isLoading && !(props.appearance === 'link') ? 'hidden' : 'visible'};
     display: inline-flex;
     align-items: center;
 
@@ -179,6 +187,8 @@ const StyledButton = styled.span`
 `;
 
 const Button = ({
+  as,
+  color,
   isLoading,
   isDisabled,
   iconBefore,
@@ -203,6 +213,8 @@ const Button = ({
   };
   return (
     <StyledButton
+      as={as}
+      color={color}
       disabled={isDisabled || isLoading}
       isLoading={isLoading}
       appearance={appearance}
@@ -213,7 +225,7 @@ const Button = ({
       iconAfter={iconAfter}
       {...other}
     >
-      {isLoading && (
+      {isLoading && !(appearance === 'link') && (
         <span className="spinner">
           <Spinner size={size} appearance={appearance} />
         </span>

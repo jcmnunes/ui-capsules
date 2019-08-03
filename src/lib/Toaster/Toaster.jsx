@@ -6,12 +6,25 @@ import theme from '../theme';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 
-const transitionStates = {
-  entering: { transform: 'translate3d(120%, 0, 0)' },
+function getTranslate(placement) {
+  const pos = placement.split('-');
+  const relevantPlacement = pos[1] === 'center' ? pos[0] : pos[1];
+  const translateMap = {
+    right: 'translate3d(120%, 0, 0)',
+    left: 'translate3d(-120%, 0, 0)',
+    bottom: 'translate3d(0, 120%, 0)',
+    top: 'translate3d(0, -120%, 0)',
+  };
+
+  return translateMap[relevantPlacement];
+}
+
+const transitionStates = placement => ({
+  entering: { transform: getTranslate(placement) },
   entered: { transform: 'translate3d(0,0,0)' },
   exiting: { transform: 'scale(0.66)', opacity: 0 },
   exited: { transform: 'scale(0.66)', opacity: 0 },
-};
+});
 
 const colors = {
   info: {
@@ -52,6 +65,7 @@ const titleColors = {
 };
 
 const StyledToast = styled.div`
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.175);
   border-radius: 4px;
   margin-bottom: 8px;
   min-width: 288px;
@@ -66,7 +80,7 @@ const StyledToast = styled.div`
   transition: transform ${props => props.transitionDuration}ms cubic-bezier(0.2, 0, 0, 1),
     opacity ${props => props.transitionDuration}ms;
   ${props => ({ ...colors[props.appearance] })};
-  ${props => ({ ...transitionStates[props.transitionState] })};
+  ${props => ({ ...transitionStates(props.placement)[props.transitionState] })};
 `;
 
 const IconClose = styled(Icon).attrs({
@@ -101,7 +115,14 @@ const Message = styled.p`
   font-size: 16px;
 `;
 
-export const Toast = ({ appearance, children, transitionDuration, transitionState, onDismiss }) => {
+export const Toast = ({
+  appearance,
+  children,
+  placement,
+  transitionDuration,
+  transitionState,
+  onDismiss,
+}) => {
   const title = typeof children === 'string' ? null : children.title;
   const message = typeof children === 'string' ? children : children.message;
   return (
@@ -109,6 +130,7 @@ export const Toast = ({ appearance, children, transitionDuration, transitionStat
       appearance={appearance}
       transitionDuration={transitionDuration}
       transitionState={transitionState}
+      placement={placement}
     >
       {title && <Title>{title}</Title>}
       {message && <Message>{message}</Message>}
@@ -119,9 +141,24 @@ export const Toast = ({ appearance, children, transitionDuration, transitionStat
 
 Toast.propTypes = {
   appearance: PropTypes.oneOf(['info', 'warning', 'success', 'error']).isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      title: PropTypes.string,
+      message: PropTypes.string,
+    }),
+    PropTypes.element,
+  ]).isRequired,
   transitionDuration: PropTypes.number.isRequired,
   transitionState: PropTypes.oneOf(['entering', 'entered', 'exiting', 'exited']).isRequired,
+  placement: PropTypes.oneOf([
+    'bottom-left',
+    'bottom-center',
+    'bottom-right',
+    'top-left',
+    'top-center',
+    'top-right',
+  ]).isRequired,
   onDismiss: PropTypes.func.isRequired,
 };
 
@@ -147,6 +184,10 @@ export default class Toaster extends Component {
 
   static info(notification) {
     Toaster._instance._info(notification);
+  }
+
+  static getToasts() {
+    return Toaster._instance._getToasts();
   }
 
   static parseNotification(...args) {
@@ -204,19 +245,30 @@ export default class Toaster extends Component {
     });
   };
 
+  _getToasts = () => {
+    const {
+      toastManager: { toasts },
+    } = this.props;
+    return toasts;
+  };
+
   render() {
     return null;
   }
 }
 
 Toaster.propTypes = {
-  toastManager: PropTypes.func.isRequired,
+  toastManager: PropTypes.shape({
+    add: PropTypes.func,
+    remove: PropTypes.func,
+    toasts: PropTypes.array,
+  }).isRequired,
 };
 
 export const WithToasts = ({ children }) => {
   const EnhancedToaster = withToastManager(Toaster);
   return (
-    <ToastProvider placement="bottom-right" components={{ Toast }}>
+    <ToastProvider components={{ Toast }} placement="bottom-right">
       <>
         {children}
         <EnhancedToaster />
@@ -226,5 +278,12 @@ export const WithToasts = ({ children }) => {
 };
 
 WithToasts.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      title: PropTypes.string,
+      message: PropTypes.string,
+    }),
+    PropTypes.element,
+  ]).isRequired,
 };

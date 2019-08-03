@@ -38,12 +38,14 @@ const Usage = ({ children }) => {
       <Actions>
         <CopyToClipboard
           text={children}
-          onCopy={() =>
-            Toaster.success({
-              title: 'Done!!!!',
-              message: 'Task title copied',
-            })
-          }
+          onCopy={() => {
+            if (Toaster.getToasts().length === 0) {
+              Toaster.success({
+                title: 'Done!',
+                message: 'Text copied to clipboard',
+              });
+            }
+          }}
         >
           <Button as="button" appearance="link" size="small" color={theme.pink600}>
             Copy to clipboard

@@ -52,6 +52,7 @@ const ButtonLive = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [appearance, setAppearance] = useState('secondary');
   const [size, setSize] = useState('medium');
+  const [as, setAs] = useState('button');
   const Component = (
     <Button
       isLoading={isLoading}
@@ -59,6 +60,7 @@ const ButtonLive = () => {
       isDisabled={isDisabled}
       appearance={appearance}
       size={size}
+      as={as}
     >
       Hello
     </Button>
@@ -118,6 +120,13 @@ const ButtonLive = () => {
               <option value="small">small</option>
               <option value="medium">medium</option>
               <option value="large">large</option>
+            </select>
+          </div>
+          <div>
+            <pre>as</pre>
+            <select value={as} onChange={ev => setAs(ev.target.value)}>
+              <option value="button">button</option>
+              <option value="a">a</option>
             </select>
           </div>
         </PropAdjuster>
