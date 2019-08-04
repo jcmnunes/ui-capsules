@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyledShowcase, Title, SubTitle, Paragraph } from '../common';
-import ButtonLive from './ButtonLive';
-import Usage from './Usage';
+import Demo from './Button.demo';
+import Usage from '../common/Usage';
+import { Paragraph, SubTitle, Title } from '../common/Typography';
+import Wrapper from '../common/Wrapper';
 
-const ButtonShowcase = () => {
+const ButtonDemo = () => {
   return (
-    <StyledShowcase>
+    <Wrapper>
       <Title>Button</Title>
       <Paragraph>
         Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla non metus auctor
@@ -16,10 +17,10 @@ const ButtonShowcase = () => {
       </Paragraph>
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
-      <SubTitle>Showcase</SubTitle>
-      <ButtonLive />
-    </StyledShowcase>
+      <SubTitle>Demo</SubTitle>
+      <Demo />
+    </Wrapper>
   );
 };
 
-export default ButtonShowcase;
+export default ButtonDemo;

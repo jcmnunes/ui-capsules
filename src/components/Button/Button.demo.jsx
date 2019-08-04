@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import Usage from './Usage';
-import { ActionsBar, ComponentDisplay, PropAdjuster, LiveComponent } from '../common';
-import SubSubTitle from '../common/SubSubTitle';
+import Select from 'react-select';
 import Button from '../../lib/Button/Button';
 import Checkbox from '../../lib/Checkbox/Checkbox';
 import Icon from '../../lib/Icon/Icon';
-
-const githubUrl = 'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Button/Button.jsx';
+import { ActionsBar, DemoWrapper, Display, PropAdjuster } from '../common/Demo';
+import Usage from '../common/Usage';
+import { SubSubTitle } from '../common/Typography';
+import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL } from './Button.constants';
 
 const StyledCheckbox = styled(Checkbox)`
   margin: 8px 0;
+`;
+
+const StyledSelect = styled.div`
+  margin: 8px 0;
+  max-width: 200px;
 `;
 
 export const Booleans = styled.div`
@@ -50,40 +55,35 @@ const ButtonLive = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isBlock, setIsBlock] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [appearance, setAppearance] = useState('secondary');
-  const [size, setSize] = useState('medium');
-  const [as, setAs] = useState('button');
+  const [appearance, setAppearance] = useState(APPEARANCE_OPTS[1]);
+  const [size, setSize] = useState(SIZE_OPTS[1]);
+  const [as, setAs] = useState(AS_OPTS[0]);
+
   const Component = (
     <Button
+      as={as.value}
       isLoading={isLoading}
       isBlock={isBlock}
       isDisabled={isDisabled}
-      appearance={appearance}
-      size={size}
-      as={as}
+      appearance={appearance.value}
+      size={size.value}
     >
       Hello
     </Button>
   );
+
   return (
     <>
-      <LiveComponent>
-        <ComponentDisplay width="200px">{Component}</ComponentDisplay>
+      <DemoWrapper>
+        <Display width="400px">{Component}</Display>
         <PropAdjuster>
-          <SubSubTitle>
-            Lab{' '}
-            <span role="img" aria-label="male scientist emoji">
-              👨‍🔬
-            </span>{' '}
-            <span role="img" aria-label="male scientist emoji">
-              👩‍🔬
-            </span>
-          </SubSubTitle>
+          <SubSubTitle>Button props</SubSubTitle>
           <Booleans>
             <StyledCheckbox
               checked={isLoading}
               onChange={() => setIsLoading(!isLoading)}
               intent="success"
+              disabled={as.value === 'a'}
             >
               <pre>isLoading</pre>
             </StyledCheckbox>
@@ -91,6 +91,7 @@ const ButtonLive = () => {
               checked={isDisabled}
               onChange={() => setIsDisabled(!isDisabled)}
               intent="success"
+              disabled={as.value === 'a'}
             >
               <pre>isDisabled</pre>
             </StyledCheckbox>
@@ -102,45 +103,38 @@ const ButtonLive = () => {
               <pre>isBlock</pre>
             </StyledCheckbox>
           </Booleans>
-          <div>
+          <StyledSelect>
             <pre>appearance</pre>
-            <select value={appearance} onChange={ev => setAppearance(ev.target.value)}>
-              <option value="primary">primary</option>
-              <option value="secondary">secondary</option>
-              <option value="success">success</option>
-              <option value="warning">warning</option>
-              <option value="error">error</option>
-              <option value="dropdown">dropdown</option>
-              <option value="link">link</option>
-            </select>
-          </div>
-          <div>
+            <Select
+              defaultValue={APPEARANCE_OPTS[1]}
+              options={APPEARANCE_OPTS}
+              onChange={opt => setAppearance(opt)}
+            />
+          </StyledSelect>
+          <StyledSelect>
             <pre>size</pre>
-            <select value={size} onChange={ev => setSize(ev.target.value)}>
-              <option value="small">small</option>
-              <option value="medium">medium</option>
-              <option value="large">large</option>
-            </select>
-          </div>
-          <div>
+            <Select
+              defaultValue={SIZE_OPTS[0]}
+              options={SIZE_OPTS}
+              onChange={opt => setSize(opt)}
+            />
+          </StyledSelect>
+          <StyledSelect>
             <pre>as</pre>
-            <select value={as} onChange={ev => setAs(ev.target.value)}>
-              <option value="button">button</option>
-              <option value="a">a</option>
-            </select>
-          </div>
+            <Select defaultValue={AS_OPTS[0]} options={AS_OPTS} onChange={opt => setAs(opt)} />
+          </StyledSelect>
         </PropAdjuster>
         <ActionsBar>
           <Button
             as="a"
-            href={githubUrl}
+            href={GITHUB_URL}
             target="_blank"
             size="medium"
             appearance="link"
             iconAfter={<IconCode />}
           />
         </ActionsBar>
-      </LiveComponent>
+      </DemoWrapper>
       <SubSubTitle>Generated code</SubSubTitle>
       <Usage>
         {reactElementToJSXString(Component, {

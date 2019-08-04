@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import HomeComponent from './components/HomeComponent/HomeComponent';
-import ButtonShowcase from './components/ButtonShowcase/ButtonShowcase';
+import Button from './components/Button/Button.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -29,7 +29,7 @@ const App = () => (
     </SidebarWrapper>
     <ShowcaseWrapper>
       <Route exact path="/" component={HomeComponent} />
-      <Route path="/button" component={ButtonShowcase} />
+      <Route path="/button" component={Button} />
     </ShowcaseWrapper>
   </AppWrapper>
 );

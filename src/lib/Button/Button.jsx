@@ -59,6 +59,7 @@ const getButtonColors = props => {
       colors.disabled = '#AFE1D5';
       break;
     case 'dropdown':
+      colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
       colors.gradient.top = 'none';
       colors.gradient.topHover = theme.neutral050;
       colors.gradient.bottom = 'none';
