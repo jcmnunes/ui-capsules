@@ -6,17 +6,12 @@ import theme from '../theme';
 
 const getButtonColors = props => {
   const colors = {
-    text: props.disabled ? '#CAD2D9' : theme.neutral600,
-    gradient: {
-      top: theme.neutral100,
-      topHover: '#D7DBE0',
-      bottom: theme.neutral100,
-      bottomHover: '#D7DBE0',
-    },
-    active: theme.neutral200,
-    disabled: '#F5F7FA',
+    text: '',
+    gradient: {},
+    active: '',
+    disabled: '',
   };
-  switch (props.intent) {
+  switch (props.appearance) {
     case 'primary':
       colors.text = '#FFF';
       colors.gradient.top = theme.blue500;
@@ -26,6 +21,16 @@ const getButtonColors = props => {
       colors.active = theme.blue700;
       colors.disabled = '#A8D1EB';
       break;
+    case 'secondary': {
+      colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
+      colors.gradient.top = theme.neutral100;
+      colors.gradient.topHover = '#D7DBE0';
+      colors.gradient.bottom = theme.neutral100;
+      colors.gradient.bottomHover = '#D7DBE0';
+      colors.active = theme.neutral200;
+      colors.disabled = '#F5F7FA';
+      break;
+    }
     case 'error':
       colors.text = '#FFF';
       colors.gradient.top = theme.red500;
@@ -54,6 +59,7 @@ const getButtonColors = props => {
       colors.disabled = '#AFE1D5';
       break;
     case 'dropdown':
+      colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
       colors.gradient.top = 'none';
       colors.gradient.topHover = theme.neutral050;
       colors.gradient.bottom = 'none';
@@ -61,8 +67,19 @@ const getButtonColors = props => {
       colors.active = theme.neutral100;
       colors.disabled = 'none';
       break;
-    default:
+    case 'link':
+      colors.gradient.top = 'none';
+      colors.gradient.topHover = 'none';
+      colors.gradient.bottom = 'none';
+      colors.gradient.bottomHover = 'none';
+      colors.active = 'none';
+      colors.disabled = 'none';
+      colors.text = props.color;
       break;
+    default:
+      throw new Error(
+        `The appearance value "${props.appearance}" is not allowed. It must be one of: 'primary', 'secondary', 'success', 'warning', 'error', 'dropdown', 'link',`,
+      );
   }
   return colors;
 };
@@ -74,6 +91,14 @@ const getDimensions = props => {
     padding: '0 4px',
     spinnerHeight: '16px',
   };
+
+  if (props.appearance === 'link') {
+    return {
+      ...dimensions,
+      height: 'auto',
+      padding: 0,
+    };
+  }
 
   switch (props.size) {
     case 'medium':
@@ -94,7 +119,7 @@ const getDimensions = props => {
   return dimensions;
 };
 
-const StyledButton = styled.button`
+const StyledButton = styled.span`
   position: relative;
   height: ${props => getDimensions(props).height};
   color: ${props => getButtonColors(props).text};
@@ -104,22 +129,23 @@ const StyledButton = styled.button`
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   padding: ${props => getDimensions(props).padding};
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: ${props => (props.intent === 'dropdown' ? 'flex-start' : 'center')};
-  width: ${props => (props.block ? '100%' : 'auto')};
+  justify-content: ${props => (props.appearance === 'dropdown' ? 'flex-start' : 'center')};
+  width: ${props => (props.isBlock ? '100%' : 'auto')};
   background: ${props => `linear-gradient(to bottom,
     ${getButtonColors(props).gradient.top},
     ${getButtonColors(props).gradient.bottom}
   )`};
 
   &::placeholder {
-    color: ${props => theme.neutral300};
+    color: ${theme.neutral300};
   }
 
   &:focus {
     outline: none;
-    box-shadow: ${props => (props.intent === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`)};
+    box-shadow: ${props =>
+      props.appearance === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`};
   }
 
   &:hover {
@@ -127,6 +153,7 @@ const StyledButton = styled.button`
       ${getButtonColors(props).gradient.topHover},
       ${getButtonColors(props).gradient.bottomHover}
     )`};
+    text-decoration: ${props => (props.appearance === 'link' ? 'underline' : 'none')};
   }
 
   &:active {
@@ -139,8 +166,9 @@ const StyledButton = styled.button`
   }
 
   .content {
-    visibility: ${props => (props.isLoading ? 'hidden' : 'visible')};
-    display: flex;
+    visibility: ${props =>
+      props.isLoading && !(props.appearance === 'link') ? 'hidden' : 'visible'};
+    display: inline-flex;
     align-items: center;
 
     .button-text {
@@ -160,11 +188,13 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({
+  as,
+  color,
   isLoading,
-  disabled,
+  isDisabled,
   iconBefore,
   iconAfter,
-  intent,
+  appearance,
   size,
   onClick,
   children,
@@ -184,9 +214,11 @@ const Button = ({
   };
   return (
     <StyledButton
-      disabled={disabled || isLoading}
+      as={as}
+      color={color}
+      disabled={isDisabled || isLoading}
       isLoading={isLoading}
-      intent={intent}
+      appearance={appearance}
       size={size}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -194,9 +226,9 @@ const Button = ({
       iconAfter={iconAfter}
       {...other}
     >
-      {isLoading && (
+      {isLoading && !(appearance === 'link') && (
         <span className="spinner">
-          <Spinner size={size} intent={intent} />
+          <Spinner size={size} appearance={appearance} />
         </span>
       )}
       <div className="content">
@@ -210,26 +242,38 @@ const Button = ({
 
 Button.defaultProps = {
   isLoading: false,
-  disabled: false,
+  isDisabled: false,
   iconBefore: null,
   iconAfter: null,
-  intent: 'secondary',
+  appearance: 'secondary',
   size: 'medium',
   type: 'button',
-  block: false,
+  isBlock: false,
   children: '',
   onClick: null,
+  as: 'button',
+  color: theme.blue400,
 };
 
 Button.propTypes = {
-  intent: PropTypes.oneOf(['primary', 'secondary', 'success', 'warning', 'error', 'dropdown']),
+  appearance: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'error',
+    'dropdown',
+    'link',
+  ]),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
+  as: PropTypes.oneOf(['button', 'a']),
   isLoading: PropTypes.bool,
-  disabled: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   iconBefore: PropTypes.element,
   iconAfter: PropTypes.element,
   type: PropTypes.string,
-  block: PropTypes.bool,
+  color: PropTypes.string,
+  isBlock: PropTypes.bool,
   children: PropTypes.node,
   onClick: PropTypes.func,
 };

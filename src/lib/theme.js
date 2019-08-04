@@ -64,6 +64,17 @@ export default {
   red800: '#8A041A',
   red900: '#610316',
   redDisabled: '#FFBCC2',
+  // Pink
+  pink050: '#FFE0F0',
+  pink100: '#FAB8D9',
+  pink200: '#F191C1',
+  pink300: '#E668A7',
+  pink400: '#DA4A91',
+  pink500: '#C42D78',
+  pink600: '#AD2167',
+  pink700: '#9B1B5A',
+  pink800: '#781244',
+  pink900: '#5C0B33',
 
   /* Breakpoints */
   bp_xxlarge: '1500px',
