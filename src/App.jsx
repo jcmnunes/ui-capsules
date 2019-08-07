@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import HomeComponent from './components/HomeComponent/HomeComponent';
 import Button from './components/Button/Button.view';
+import Icon20 from './components/Icon20/Icon20.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -30,6 +31,7 @@ const App = () => (
     <ShowcaseWrapper>
       <Route exact path="/" component={HomeComponent} />
       <Route path="/button" component={Button} />
+      <Route path="/icon20" component={Icon20} />
     </ShowcaseWrapper>
   </AppWrapper>
 );

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { ToastProvider, withToastManager } from 'react-toast-notifications';
 import theme from '../theme';
 import Button from '../Button/Button';
-import Icon from '../Icon/Icon';
 
 function getTranslate(placement) {
   const pos = placement.split('-');
@@ -83,25 +82,11 @@ const StyledToast = styled.div`
   ${props => ({ ...transitionStates(props.placement)[props.transitionState] })};
 `;
 
-const IconClose = styled(Icon).attrs({
-  icon: Icon.CLOSE,
-})`
-  .primary {
-    fill: ${props => props.theme.neutral600};
-    transition: fill 0.2s ease;
-  }
-
-  &:hover {
-    .primary {
-      fill: ${props => props.theme.neutral800};
-    }
-  }
-`;
-
 const StyledButton = styled(Button)`
   position: absolute;
   top: 4px;
   right: 4px;
+  color: ${theme.green700};
 `;
 
 const Title = styled.h4`
@@ -134,7 +119,7 @@ export const Toast = ({
     >
       {title && <Title>{title}</Title>}
       {message && <Message>{message}</Message>}
-      <StyledButton appearance="link" onClick={onDismiss} iconAfter={<IconClose />} />
+      <StyledButton appearance="link" onClick={onDismiss} iconAfter="CLOSE" />
     </StyledToast>
   );
 };

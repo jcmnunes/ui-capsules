@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Spinner from '../Spinner/Spinner';
+import Icon20 from '../Icon20/Icon20';
 import theme from '../theme';
 
 const getButtonColors = props => {
@@ -67,6 +68,15 @@ const getButtonColors = props => {
       colors.active = theme.neutral100;
       colors.disabled = 'none';
       break;
+    case 'minimal':
+      colors.text = 'inherit';
+      colors.gradient.top = 'none';
+      colors.gradient.topHover = 'none';
+      colors.gradient.bottom = 'none';
+      colors.gradient.bottomHover = 'none';
+      colors.active = 'none';
+      colors.disabled = 'none';
+      break;
     case 'link':
       colors.gradient.top = 'none';
       colors.gradient.topHover = 'none';
@@ -104,7 +114,7 @@ const getDimensions = props => {
     case 'medium':
       dimensions.height = '32px';
       dimensions.fontSize = '16px';
-      dimensions.padding = '4px 12px';
+      dimensions.padding = '4px 6px';
       dimensions.spinnerHeight = '18px';
       break;
     case 'large':
@@ -232,9 +242,9 @@ const Button = ({
         </span>
       )}
       <div className="content">
-        {iconBefore && iconBefore}
+        {iconBefore && <Icon20 icon={iconBefore} />}
         {children.length > 0 && <span className="button-text">{children}</span>}
-        {iconAfter && iconAfter}
+        {iconAfter && <Icon20 icon={iconAfter} />}
       </div>
     </StyledButton>
   );
@@ -245,7 +255,6 @@ Button.defaultProps = {
   isDisabled: false,
   iconBefore: null,
   iconAfter: null,
-  appearance: 'secondary',
   size: 'medium',
   type: 'button',
   isBlock: false,
@@ -257,25 +266,26 @@ Button.defaultProps = {
 
 Button.propTypes = {
   appearance: PropTypes.oneOf([
+    'dropdown',
+    'error',
+    'link',
     'primary',
     'secondary',
     'success',
     'warning',
-    'error',
-    'dropdown',
-    'link',
-  ]),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  as: PropTypes.oneOf(['button', 'a']),
-  isLoading: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  iconBefore: PropTypes.element,
-  iconAfter: PropTypes.element,
-  type: PropTypes.string,
-  color: PropTypes.string,
-  isBlock: PropTypes.bool,
+    'minimal',
+  ]).isRequired,
+  as: PropTypes.oneOf(['a', 'button']),
   children: PropTypes.node,
+  color: PropTypes.string,
+  iconAfter: PropTypes.string,
+  iconBefore: PropTypes.string,
+  isBlock: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
   onClick: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  type: PropTypes.string,
 };
 
 export default Button;
