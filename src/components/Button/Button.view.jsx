@@ -21,7 +21,6 @@ const ButtonDemo = () => {
       </Paragraph>
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
-      <SubTitle>Demo</SubTitle>
       <Demo />
       <SubTitle>Props</SubTitle>
       <PropsTable props={BUTTON_PROPS} />

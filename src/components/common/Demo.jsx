@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { SubSubTitle } from './Typography';
+import { SubSubTitle, SubTitle } from './Typography';
 import Button from '../../lib/Button/Button';
 import Usage from './Usage';
 
@@ -15,9 +15,9 @@ export const DemoWrapper = styled.div`
 `;
 
 export const Display = styled.div`
+  flex: 1;
   background: white;
   border-radius: 8px;
-  width: ${props => props.width};
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,44 +27,55 @@ export const Display = styled.div`
 
 export const PropAdjuster = styled.div`
   flex: 1;
-  padding: 0 48px 0 18px;
+  padding: 0 6px 0 18px;
 `;
 
-export const ActionsBar = styled.div`
+const HeaderWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: row;
+  align-items: flex-end;
+
+  ${SubTitle} {
+    flex: 1;
+  }
+`;
+
+const Actions = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   color: ${props => props.theme.neutral400};
-  transition: color 0.2s ease;
+  margin-bottom: 12px;
 
   &:hover {
     color: ${props => props.theme.neutral700};
-  }
-
-  & > * {
-    margin-top: 8px;
   }
 `;
 
 const Demo = ({ component, codeURL, children }) => {
   return (
     <>
-      <DemoWrapper>
-        <Display width="400px">{component}</Display>
-        <PropAdjuster>
-          <SubSubTitle>Button props</SubSubTitle>
-          {children}
-        </PropAdjuster>
-        <ActionsBar>
+      <HeaderWrapper>
+        <SubTitle>Demo</SubTitle>
+        <Actions>
           <Button
             as="a"
             href={codeURL}
             target="_blank"
-            size="medium"
+            size="small"
             appearance="minimal"
-            iconAfter="GITHUB"
-          />
-        </ActionsBar>
+            iconBefore="CODE"
+          >
+            View source on GitHub
+          </Button>
+        </Actions>
+      </HeaderWrapper>
+      <DemoWrapper>
+        <Display width="300px">{component}</Display>
+        <PropAdjuster>
+          <SubSubTitle>Button props</SubSubTitle>
+          {children}
+        </PropAdjuster>
       </DemoWrapper>
       <SubSubTitle>Generated code</SubSubTitle>
       <Usage>

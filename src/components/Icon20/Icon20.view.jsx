@@ -23,7 +23,6 @@ const ButtonDemo = () => {
       </Paragraph>
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Icon20 } from '@binarycapsule/ui-capsules';"}</Usage>
-      <SubTitle>Demo</SubTitle>
       <Demo />
       <SubTitle>Props</SubTitle>
       <PropsTable props={ICON20_PROPS} />

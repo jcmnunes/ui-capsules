@@ -11,6 +11,7 @@ const Table = styled.table`
   border-radius: 12px;
   border-style: hidden;
   box-shadow: 0 0 0 1px ${props => props.theme.neutral200};
+  overflow: hidden;
 `;
 
 Table.Head = Head;

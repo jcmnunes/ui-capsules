@@ -20,7 +20,7 @@ export const Booleans = styled.div`
   flex-direction: column;
 `;
 
-const ButtonLive = () => {
+const ButtonDemo = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isBlock, setIsBlock] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -115,4 +115,4 @@ const ButtonLive = () => {
   );
 };
 
-export default ButtonLive;
+export default ButtonDemo;
