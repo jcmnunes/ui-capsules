@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
-import Button from '../../lib/Button/Button';
-import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL, ICON_OPTS } from './Button.constants';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../common/Demo';
+import Button from '../../lib/Button/Button';
+import Select from '../../lib/Select/Select';
+import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL, ICON_OPTS } from './Button.constants';
 
 const ButtonDemo = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +37,7 @@ const ButtonDemo = () => {
           <StyledCheckbox
             checked={isLoading}
             onChange={() => setIsLoading(!isLoading)}
-            intent="success"
+            appearance="success"
             disabled={as.value === 'a'}
           >
             <pre>isLoading</pre>
@@ -45,12 +45,16 @@ const ButtonDemo = () => {
           <StyledCheckbox
             checked={isDisabled}
             onChange={() => setIsDisabled(!isDisabled)}
-            intent="success"
+            appearance="success"
             disabled={as.value === 'a'}
           >
             <pre>isDisabled</pre>
           </StyledCheckbox>
-          <StyledCheckbox checked={isBlock} onChange={() => setIsBlock(!isBlock)} intent="success">
+          <StyledCheckbox
+            checked={isBlock}
+            onChange={() => setIsBlock(!isBlock)}
+            appearance="success"
+          >
             <pre>isBlock</pre>
           </StyledCheckbox>
         </Booleans>

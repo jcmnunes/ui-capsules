@@ -107,6 +107,7 @@ const getDimensions = props => {
       ...dimensions,
       height: 'auto',
       padding: 0,
+      fontSize: 'inherit',
     };
   }
 

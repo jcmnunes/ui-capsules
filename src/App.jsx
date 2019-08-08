@@ -5,6 +5,7 @@ import HomeComponent from './components/HomeComponent/HomeComponent';
 import Button from './components/Button/Button.view';
 import Icon20 from './components/Icon20/Icon20.view';
 import Checkbox from './components/Checkbox/Checkbox.view';
+import Select from './components/Select/Select.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -34,6 +35,7 @@ const App = () => (
       <Route path="/button" component={Button} />
       <Route path="/icon20" component={Icon20} />
       <Route path="/checkbox" component={Checkbox} />
+      <Route path="/select" component={Select} />
     </ShowcaseWrapper>
   </AppWrapper>
 );

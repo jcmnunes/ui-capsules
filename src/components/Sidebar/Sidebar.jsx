@@ -13,6 +13,7 @@ const Sidebar = () => (
       <SidebarLink to="/button">Button</SidebarLink>
       <SidebarLink to="/icon20">Icon20</SidebarLink>
       <SidebarLink to="/checkbox">Checkbox</SidebarLink>
+      <SidebarLink to="/select">Select</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );

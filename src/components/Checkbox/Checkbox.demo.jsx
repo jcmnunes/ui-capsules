@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
-import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../common/Demo';
+import Select from '../../lib/Select/Select';
 import Checkbox from '../../lib/Checkbox/Checkbox';
+import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../common/Demo';
 import { GITHUB_URL, SIZE_OPTS, APPEARANCE_OPTS } from './Checkbox.constants';
 
 const CheckboxDemo = () => {
