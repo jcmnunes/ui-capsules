@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import { SubSubTitle, SubTitle } from './Typography';
@@ -73,7 +74,12 @@ const Demo = ({ component, codeURL, children }) => {
       <DemoWrapper>
         <Display width="300px">{component}</Display>
         <PropAdjuster>
-          <SubSubTitle>Knobs 🎛️</SubSubTitle>
+          <SubSubTitle>
+            Knobs{' '}
+            <span role="img" aria-label="knobs emoji">
+              🎛
+            </span>
+          </SubSubTitle>
           {children}
         </PropAdjuster>
       </DemoWrapper>
@@ -85,6 +91,12 @@ const Demo = ({ component, codeURL, children }) => {
       </Usage>
     </>
   );
+};
+
+Demo.propTypes = {
+  component: PropTypes.node.isRequired,
+  codeURL: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Demo;
