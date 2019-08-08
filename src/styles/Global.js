@@ -103,8 +103,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 16px;
+    line-height: 24px;
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     height: 100%;
     color: ${props => props.theme.neutral700};

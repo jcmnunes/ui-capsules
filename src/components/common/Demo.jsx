@@ -73,7 +73,7 @@ const Demo = ({ component, codeURL, children }) => {
       <DemoWrapper>
         <Display width="300px">{component}</Display>
         <PropAdjuster>
-          <SubSubTitle>Button props</SubSubTitle>
+          <SubSubTitle>Knobs 🎛️</SubSubTitle>
           {children}
         </PropAdjuster>
       </DemoWrapper>

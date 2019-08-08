@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledHead = styled.thead`
+  font-size: 14px;
   text-align: left;
   border-bottom: 1px solid ${props => props.theme.neutral200};
   font-weight: 700;
