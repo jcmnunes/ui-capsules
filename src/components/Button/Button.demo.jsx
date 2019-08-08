@@ -1,24 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Select from 'react-select';
 import Button from '../../lib/Button/Button';
-import Checkbox from '../../lib/Checkbox/Checkbox';
 import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL, ICON_OPTS } from './Button.constants';
-import Demo from '../common/Demo';
-
-const StyledCheckbox = styled(Checkbox)`
-  margin: 8px 0;
-`;
-
-const StyledSelect = styled.div`
-  margin: 8px 0;
-  max-width: 200px;
-`;
-
-export const Booleans = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-`;
+import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../common/Demo';
 
 const ButtonDemo = () => {
   const [isLoading, setIsLoading] = useState(false);

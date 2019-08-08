@@ -24,6 +24,7 @@ export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
   &.active {
     background: ${props => props.theme.neutral075};
     font-weight: 600;
+    color: ${props => props.theme.pink700};
 
     &:hover {
       background: ${props => props.theme.neutral100};

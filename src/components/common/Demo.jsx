@@ -5,6 +5,21 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 import { SubSubTitle, SubTitle } from './Typography';
 import Button from '../../lib/Button/Button';
 import Usage from './Usage';
+import Checkbox from '../../lib/Checkbox/Checkbox';
+
+export const StyledCheckbox = styled(Checkbox)`
+  margin: 8px 0;
+`;
+
+export const StyledSelect = styled.div`
+  margin: 8px 0;
+  max-width: 200px;
+`;
+
+export const Booleans = styled.div`
+  display: inline-flex;
+  flex-direction: column;
+`;
 
 export const DemoWrapper = styled.div`
   border-radius: 12px;

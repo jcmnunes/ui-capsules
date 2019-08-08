@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Select from 'react-select';
-import Demo from '../common/Demo';
+import Demo, { StyledSelect } from '../common/Demo';
 import Icon20 from '../../lib/Icon20/Icon20';
 import { GITHUB_URL, ICON_OPTS } from './Icon20.constants';
-
-const StyledSelect = styled.div`
-  margin: 8px 0;
-  max-width: 200px;
-`;
 
 const Icon20Demo = () => {
   const [icon, setIcon] = useState(ICON_OPTS[0]);
