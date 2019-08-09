@@ -27,6 +27,13 @@ export const CHECKBOX_PROPS = [
     description: 'The function to handle the onChange event.',
   },
   {
+    name: 'isDisabled',
+    isRequired: false,
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'The disabled state of the checkbox.',
+  },
+  {
     name: 'size',
     isRequired: false,
     type: '"small" | "medium" | "large"',

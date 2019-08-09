@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
+import theme from '../theme';
 
-const colors = theme => ({
+const colors = {
   primary: {
     background: theme.blue500,
+    backgroundDisabled: theme.blueDisabled,
   },
   success: {
     background: theme.green500,
+    backgroundDisabled: theme.greenDisabled,
   },
   neutral: {
     background: theme.neutral300,
+    backgroundDisabled: theme.neutral100,
   },
-});
+};
 
 const dimensions = {
   small: {
@@ -57,9 +61,9 @@ const CustomCheckbox = styled.span`
   left: 0;
   width: ${props => dimensions[props.size].width};
   height: ${props => dimensions[props.size].height};
-  background-color: #fff;
+  background-color: ${props => (props.isDisabled ? theme.neutral050 : '#fff')};
   transition: background-color 0.2s ease;
-  border: 1px solid ${props => props.theme.neutral100};
+  border: 1px solid ${props => (props.isDisabled ? theme.neutral075 : theme.neutral100)};
 
   &:after {
     content: '';
@@ -85,9 +89,10 @@ const Label = styled.label`
   align-items: center;
   position: relative;
   padding-left: ${props => dimensions[props.size].padding};
-  cursor: pointer;
+  cursor: ${props => (props.isDisabled ? 'not-allowed' : 'pointer')};
   font-size: ${props => dimensions[props.size].fontSize};
   user-select: none;
+  color: ${props => (props.isDisabled ? theme.neutral300 : 'inherit')};
 `;
 
 const StyledInput = styled.input`
@@ -106,21 +111,43 @@ const StyledInput = styled.input`
 
   &:checked {
     & ~ ${CustomCheckbox} {
-      background-color: ${props => colors(props.theme)[props.appearance].background};
-      border-color: ${props => colors(props.theme)[props.appearance].background};
+      background-color: ${props => colors[props.appearance].background};
+      border-color: ${props => colors[props.appearance].background};
 
       &:after {
         display: block;
       }
     }
+
+    &:disabled {
+      & ~ ${CustomCheckbox} {
+        background-color: ${props => colors[props.appearance].backgroundDisabled};
+        border-color: ${props => colors[props.appearance].backgroundDisabled};
+      }
+    }
   }
 `;
 
-const Checkbox = ({ checked, onChange, children, appearance, size, onClick, ...other }) => (
-  <Label onClick={onClick} size={size} {...other}>
+const Checkbox = ({
+  checked,
+  isDisabled,
+  onChange,
+  children,
+  appearance,
+  size,
+  onClick,
+  ...other
+}) => (
+  <Label onClick={onClick} size={size} isDisabled={isDisabled} {...other}>
     {children}
-    <StyledInput type="checkbox" checked={checked} onChange={onChange} appearance={appearance} />
-    <CustomCheckbox size={size} />
+    <StyledInput
+      type="checkbox"
+      checked={checked}
+      onChange={onChange}
+      appearance={appearance}
+      disabled={isDisabled}
+    />
+    <CustomCheckbox size={size} isDisabled={isDisabled} />
   </Label>
 );
 
@@ -129,10 +156,12 @@ Checkbox.defaultProps = {
   appearance: 'neutral',
   onClick: null,
   size: 'small',
+  isDisabled: false,
 };
 
 Checkbox.propTypes = {
   checked: PropTypes.bool.isRequired,
+  isDisabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   children: PropTypes.node,
   appearance: PropTypes.oneOf(['primary', 'success', 'neutral']),

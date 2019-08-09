@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
-import HomeComponent from './components/HomeComponent/HomeComponent';
-import Button from './components/Button/Button.view';
-import Icon20 from './components/Icon20/Icon20.view';
-import Checkbox from './components/Checkbox/Checkbox.view';
-import Select from './components/Select/Select.view';
-import Input from './components/Input/Input.view';
+import Home from './components/Home/Home';
+import Button from './demos/Button/Button.view';
+import Icon20 from './demos/Icon20/Icon20.view';
+import Checkbox from './demos/Checkbox/Checkbox.view';
+import Select from './demos/Select/Select.view';
+import Input from './demos/Input/Input.view';
+import Toaster from './demos/Toaster/Toaster.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -32,12 +33,13 @@ const App = () => (
       <Sidebar />
     </SidebarWrapper>
     <ShowcaseWrapper>
-      <Route exact path="/" component={HomeComponent} />
+      <Route exact path="/" component={Home} />
       <Route path="/button" component={Button} />
       <Route path="/icon20" component={Icon20} />
       <Route path="/checkbox" component={Checkbox} />
       <Route path="/select" component={Select} />
       <Route path="/input" component={Input} />
+      <Route path="/toaster" component={Toaster} />
     </ShowcaseWrapper>
   </AppWrapper>
 );

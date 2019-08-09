@@ -22,11 +22,11 @@ const dimensions = {
   },
 };
 
-const customStyles = {
+const customStyles = size => ({
   control: (provided, state) => ({
     ...provided,
     boxShadow: state.isFocused ? `0 0 0 2px ${theme.blue100}` : 'none',
-    cursor: 'pointer',
+    cursor: state.isDisabled ? 'not-allowed' : 'pointer',
     border: `1px solid ${theme.neutral200}`,
     ':hover': {
       border: `1px solid ${theme.neutral300}`,
@@ -44,12 +44,16 @@ const customStyles = {
   }),
   singleValue: (provided, state) => ({
     ...provided,
-    color: theme.neutral600,
+    color: state.isDisabled ? theme.neutral300 : theme.neutral600,
+  }),
+  valueContainer: (provided, state) => ({
+    ...provided,
+    padding: size === 'medium' ? '1px 8px' : '2px 12px',
   }),
   indicatorSeparator: () => ({
     display: 'none',
   }),
-};
+});
 
 export const customTheme = (rsTheme, size) => ({
   ...rsTheme,
@@ -86,7 +90,7 @@ const Select = ({ size, ...other }) => {
   return (
     <StyledSelect
       size={size}
-      styles={customStyles}
+      styles={customStyles(size)}
       theme={rsTheme => customTheme(rsTheme, size)}
       {...other}
     />

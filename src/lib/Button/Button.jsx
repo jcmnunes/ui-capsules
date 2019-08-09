@@ -227,13 +227,6 @@ const Button = ({
     onClick();
   };
 
-  const handleKeyDown = e => {
-    if (!onClick) return;
-    if (e.key === 'Enter') {
-      onClick();
-    }
-  };
-
   if (appearance === 'link') {
     return (
       <Anchor color={color} {...other}>
@@ -252,7 +245,6 @@ const Button = ({
       appearance={appearance}
       size={size}
       onClick={handleClick}
-      onKeyDown={handleKeyDown}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       {...other}

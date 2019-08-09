@@ -1,9 +1,9 @@
 import React from 'react';
 import Demo from './Icon20.demo';
-import Usage from '../common/Usage';
-import { Paragraph, SubTitle, Title, UL } from '../common/Typography';
-import Wrapper from '../common/Wrapper';
-import PropsTable from '../common/PropsTable';
+import Usage from '../../components/common/Usage';
+import { Paragraph, SubTitle, Title, UL } from '../../components/common/Typography';
+import Wrapper from '../../components/common/Wrapper';
+import PropsTable from '../../components/common/PropsTable';
 import { ICON20_PROPS } from './Icon20.constants';
 
 const ButtonDemo = () => {

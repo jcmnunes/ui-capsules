@@ -68,7 +68,7 @@ const Actions = styled.div`
   }
 `;
 
-const Demo = ({ component, codeURL, children }) => {
+const Demo = ({ component, code, codeURL, children }) => {
   return (
     <>
       <HeaderWrapper>
@@ -100,16 +100,23 @@ const Demo = ({ component, codeURL, children }) => {
       </DemoWrapper>
       <SubSubTitle>Generated code</SubSubTitle>
       <Usage>
-        {reactElementToJSXString(component, {
-          showDefaultProps: false,
-        })}
+        {code ||
+          reactElementToJSXString(component, {
+            showDefaultProps: false,
+            functionValue: () => 'function',
+          })}
       </Usage>
     </>
   );
 };
 
+Demo.defaultProps = {
+  code: null,
+};
+
 Demo.propTypes = {
   component: PropTypes.node.isRequired,
+  code: PropTypes.string,
   codeURL: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };

@@ -86,7 +86,7 @@ const StyledButton = styled(Button)`
   position: absolute;
   top: 4px;
   right: 4px;
-  color: ${theme.green700};
+  color: ${({ isSuccess }) => (isSuccess ? theme.green700 : 'inherit')};
 `;
 
 const Title = styled.h4`
@@ -119,7 +119,13 @@ export const Toast = ({
     >
       {title && <Title>{title}</Title>}
       {message && <Message>{message}</Message>}
-      <StyledButton appearance="minimal" size="small" onClick={onDismiss} iconAfter="CLOSE" />
+      <StyledButton
+        appearance="minimal"
+        isSuccess={appearance === 'success'}
+        size="small"
+        onClick={onDismiss}
+        iconAfter="CLOSE"
+      />
     </StyledToast>
   );
 };
@@ -151,7 +157,7 @@ export default class Toaster extends Component {
   static defaultOptions = {
     placement: 'bottom-right',
     autoDismiss: true,
-    autoDismissTimeout: 5000,
+    autoDismissTimeout: 4000,
     pauseOnHover: false,
   };
 
@@ -159,16 +165,16 @@ export default class Toaster extends Component {
     Toaster._instance._success(args);
   }
 
-  static error(notification) {
-    Toaster._instance._error(notification);
+  static error(...args) {
+    Toaster._instance._error(args);
   }
 
-  static warning(notification) {
-    Toaster._instance._warning(notification);
+  static warning(...args) {
+    Toaster._instance._warning(args);
   }
 
-  static info(notification) {
-    Toaster._instance._info(notification);
+  static info(...args) {
+    Toaster._instance._info(args);
   }
 
   static getToasts() {
@@ -209,23 +215,29 @@ export default class Toaster extends Component {
     });
   };
 
-  _error = notification => {
+  _error = args => {
     const { toastManager } = this.props;
-    toastManager.add(notification, {
+    const { content, options } = Toaster.parseNotification(...args);
+    toastManager.add(content, {
+      ...options,
       appearance: 'error',
     });
   };
 
-  _warning = notification => {
+  _warning = args => {
     const { toastManager } = this.props;
-    toastManager.add(notification, {
+    const { content, options } = Toaster.parseNotification(...args);
+    toastManager.add(content, {
+      ...options,
       appearance: 'warning',
     });
   };
 
-  _info = notification => {
+  _info = args => {
     const { toastManager } = this.props;
-    toastManager.add(notification, {
+    const { content, options } = Toaster.parseNotification(...args);
+    toastManager.add(content, {
+      ...options,
       appearance: 'info',
     });
   };

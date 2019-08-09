@@ -1,9 +1,9 @@
 import React from 'react';
 import Demo from './Input.demo';
-import Usage from '../common/Usage';
-import { Paragraph, SubTitle, Title } from '../common/Typography';
-import Wrapper from '../common/Wrapper';
-import PropsTable from '../common/PropsTable';
+import Usage from '../../components/common/Usage';
+import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
+import Wrapper from '../../components/common/Wrapper';
+import PropsTable from '../../components/common/PropsTable';
 import { INPUT_PROPS } from './Input.constants';
 
 const ButtonDemo = () => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import Demo from './Select.demo';
-import Usage from '../common/Usage';
-import { Paragraph, SubSubTitle, SubTitle, Title } from '../common/Typography';
-import Wrapper from '../common/Wrapper';
-import PropsTable from '../common/PropsTable';
+import Usage from '../../components/common/Usage';
+import { Paragraph, SubSubTitle, SubTitle, Title } from '../../components/common/Typography';
+import Wrapper from '../../components/common/Wrapper';
+import PropsTable from '../../components/common/PropsTable';
 import { SELECT_PROPS } from './Select.constants';
 import Button from '../../lib/Button/Button';
 

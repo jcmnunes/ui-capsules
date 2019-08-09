@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
-import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../common/Demo';
+import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/common/Demo';
 import Select from '../../lib/Select/Select';
 import { SIZE_OPTS, GITHUB_URL } from './Input.constants';
 import Input from '../../lib/Input/Input';
 
 const InputDemo = () => {
   const [isDisabled, setIsDisabled] = useState(false);
-  const [isBlock, setIsBlock] = useState(false);
   const [value, setValue] = useState('Hello world');
   const [placeholder, setPlaceholder] = useState('Placeholder');
   const [size, setSize] = useState(SIZE_OPTS[1]);
+  const [error, setError] = useState('');
 
   const Component = (
     <Input
       value={value}
+      onChange={ev => setValue(ev.target.value)}
       size={size.value}
+      error={error}
       placeholder={placeholder}
       isDisabled={isDisabled}
-      isBlock={isBlock}
     />
   );
 
@@ -32,13 +33,6 @@ const InputDemo = () => {
           >
             <pre>isDisabled</pre>
           </StyledCheckbox>
-          <StyledCheckbox
-            checked={isBlock}
-            onChange={() => setIsBlock(!isBlock)}
-            appearance="success"
-          >
-            <pre>isBlock</pre>
-          </StyledCheckbox>
         </Booleans>
         <StyledSelect>
           <pre>value</pre>
@@ -50,7 +44,11 @@ const InputDemo = () => {
         </StyledSelect>
         <StyledSelect>
           <pre>size</pre>
-          <Select defaultValue={SIZE_OPTS[1]} options={SIZE_OPTS} onChange={opt => setSize(opt)} />
+          <Select value={size} options={SIZE_OPTS} onChange={opt => setSize(opt)} />
+        </StyledSelect>
+        <StyledSelect>
+          <pre>error</pre>
+          <Input type="text" value={error} onChange={ev => setError(ev.target.value)} />
         </StyledSelect>
       </>
     </Demo>

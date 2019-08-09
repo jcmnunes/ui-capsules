@@ -4,44 +4,54 @@ import styled from 'styled-components/macro';
 
 const dimensions = {
   small: {
-    height: '24px',
     fontSize: '14px',
+    helperFontSize: '12px',
+    height: '24px',
     padding: '4px 4px',
   },
   medium: {
-    height: '32px',
     fontSize: '16px',
-    padding: '4px 4px',
+    helperFontSize: '14px',
+    height: '32px',
+    padding: '4px 8px',
   },
   large: {
-    height: '48px',
     fontSize: '18px',
-    padding: '12px 8px',
+    helperFontSize: '16px',
+    height: '48px',
+    padding: '12px 12px',
   },
 };
 
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+`;
+
 const StyledInput = styled.input`
   height: ${props => dimensions[props.size].height};
-  background: #fff;
+  background: ${props => (props.error ? props.theme.red050 : '#fff')};
   color: ${props => props.theme.neutral600};
   border-radius: 4px;
-  border: 1px solid ${props => props.theme.neutral200};
+  border: 1px solid ${props => (props.error ? props.theme.red500 : props.theme.neutral200)};
   font-size: ${props => dimensions[props.size].fontSize};
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   padding: ${props => dimensions[props.size].padding};
-  width: ${props => (props.isBlock ? '100%' : 'auto')};
+  width: 100%;
 
   &::placeholder {
     color: ${props => props.theme.neutral200};
   }
 
   &:hover {
-    border-color: ${props => props.theme.neutral300};
+    border-color: ${props => (props.error ? props.theme.red700 : props.theme.neutral300)};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${props => props.theme.blue100};
+    box-shadow: 0 0 0 2px ${props => (props.error ? props.theme.red100 : props.theme.blue100)};
   }
 
   &:disabled {
@@ -52,20 +62,34 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ size, isDisabled, isBlock, ...other }) => (
-  <StyledInput size={size} disabled={isDisabled} isBlock={isBlock} {...other} />
+const Error = styled.div`
+  font-size: ${props => dimensions[props.size].helperFontSize};
+  color: ${props => props.theme.red600};
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2px 4px;
+  line-height: 16px;
+`;
+
+const Input = ({ size, error, isDisabled, ...other }) => (
+  <InputWrapper>
+    <StyledInput size={size} disabled={isDisabled} error={error} {...other} />
+    {error && <Error size={size}>{error}</Error>}
+  </InputWrapper>
 );
 
 Input.defaultProps = {
   size: 'medium',
   isDisabled: false,
-  isBlock: false,
+  error: null,
 };
 
 Input.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   isDisabled: PropTypes.bool,
-  isBlock: PropTypes.bool,
+  error: PropTypes.string,
 };
 
 export default Input;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../common/Demo';
+import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/common/Demo';
 import Button from '../../lib/Button/Button';
 import Select from '../../lib/Select/Select';
 import Input from '../../lib/Input/Input';
@@ -39,7 +39,7 @@ const ButtonDemo = () => {
             checked={isLoading}
             onChange={() => setIsLoading(!isLoading)}
             appearance="success"
-            disabled={as.value === 'a'}
+            isDisabled={as.value === 'a' || appearance.value === 'link'}
           >
             <pre>isLoading</pre>
           </StyledCheckbox>
@@ -47,7 +47,7 @@ const ButtonDemo = () => {
             checked={isDisabled}
             onChange={() => setIsDisabled(!isDisabled)}
             appearance="success"
-            disabled={as.value === 'a'}
+            isDisabled={as.value === 'a' || appearance.value === 'link'}
           >
             <pre>isDisabled</pre>
           </StyledCheckbox>
@@ -62,7 +62,6 @@ const ButtonDemo = () => {
         <StyledSelect>
           <pre>children</pre>
           <Input
-            isBlock
             type="text"
             value={buttonChildren}
             onChange={ev => setButtonChildren(ev.target.value)}
@@ -71,33 +70,35 @@ const ButtonDemo = () => {
         <StyledSelect>
           <pre>appearance</pre>
           <Select
-            defaultValue={APPEARANCE_OPTS[1]}
+            value={appearance}
             options={APPEARANCE_OPTS}
             onChange={opt => setAppearance(opt)}
           />
         </StyledSelect>
         <StyledSelect>
           <pre>size</pre>
-          <Select defaultValue={SIZE_OPTS[1]} options={SIZE_OPTS} onChange={opt => setSize(opt)} />
+          <Select value={size} options={SIZE_OPTS} onChange={opt => setSize(opt)} />
         </StyledSelect>
         <StyledSelect>
           <pre>as</pre>
-          <Select defaultValue={AS_OPTS[0]} options={AS_OPTS} onChange={opt => setAs(opt)} />
+          <Select value={as} options={AS_OPTS} onChange={opt => setAs(opt)} />
         </StyledSelect>
         <StyledSelect>
           <pre>iconBefore</pre>
           <Select
-            defaultValue={ICON_OPTS[0]}
+            value={iconBefore}
             options={ICON_OPTS}
             onChange={opt => setIconBefore(opt)}
+            isDisabled={appearance.value === 'link'}
           />
         </StyledSelect>
         <StyledSelect>
           <pre>iconAfter</pre>
           <Select
-            defaultValue={ICON_OPTS[0]}
+            value={iconAfter}
             options={ICON_OPTS}
             onChange={opt => setIconAfter(opt)}
+            isDisabled={appearance.value === 'link'}
           />
         </StyledSelect>
       </>

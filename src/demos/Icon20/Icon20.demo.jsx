@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Select from '../../lib/Select/Select';
-import Demo, { StyledSelect } from '../common/Demo';
+import Demo, { StyledSelect } from '../../components/common/Demo';
 import Icon20 from '../../lib/Icon20/Icon20';
 import { GITHUB_URL, ICON_OPTS } from './Icon20.constants';
 
@@ -14,7 +14,7 @@ const Icon20Demo = () => {
       <>
         <StyledSelect>
           <pre>icon</pre>
-          <Select defaultValue={ICON_OPTS[0]} options={ICON_OPTS} onChange={opt => setIcon(opt)} />
+          <Select value={icon} options={ICON_OPTS} onChange={opt => setIcon(opt)} />
         </StyledSelect>
       </>
     </Demo>
