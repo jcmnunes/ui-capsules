@@ -10,11 +10,6 @@ const StyledSelect = styled(RSelect)`
 `;
 
 const dimensions = {
-  small: {
-    baseUnit: 2,
-    minHeight: 24,
-    fontSize: '14px',
-  },
   medium: {
     baseUnit: 2,
     minHeight: 32,
@@ -32,19 +27,27 @@ const customStyles = {
     ...provided,
     boxShadow: state.isFocused ? `0 0 0 2px ${theme.blue100}` : 'none',
     cursor: 'pointer',
+    border: `1px solid ${theme.neutral200}`,
+    ':hover': {
+      border: `1px solid ${theme.neutral300}`,
+    },
   }),
   option: (provided, state) => ({
     ...provided,
     cursor: 'pointer',
     color: theme.neutral600,
-    background: state.isSelected ? theme.blue050 : '#fff',
+    // eslint-disable-next-line no-nested-ternary
+    background: state.isSelected ? theme.blue050 : state.isFocused ? theme.neutral075 : '#fff',
     ':hover': {
-      background: state.isSelected ? theme.blue050 : theme.neutral050,
+      background: state.isSelected ? theme.blue050 : theme.neutral075,
     },
   }),
   singleValue: (provided, state) => ({
     ...provided,
     color: theme.neutral600,
+  }),
+  indicatorSeparator: () => ({
+    display: 'none',
   }),
 };
 
@@ -95,7 +98,7 @@ Select.defaultProps = {
 };
 
 Select.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['medium', 'large']),
 };
 
 export default Select;

@@ -111,7 +111,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
-    color: black;
+    color: ${props => props.theme.neutral700};
   }
   button {
     border: none;
@@ -139,8 +139,8 @@ const GlobalStyle = createGlobalStyle`
 
     /* Remove excess padding and border in Firefox 4+ */
     &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
+      border: 0;
+      padding: 0;
     }
   }
   

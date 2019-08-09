@@ -1,21 +1,21 @@
 import React from 'react';
-import Demo from './Checkbox.demo';
+import Demo from './Input.demo';
 import Usage from '../common/Usage';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Wrapper from '../common/Wrapper';
 import PropsTable from '../common/PropsTable';
-import { CHECKBOX_PROPS } from './Checkbox.constants';
+import { INPUT_PROPS } from './Input.constants';
 
 const ButtonDemo = () => {
   return (
     <Wrapper>
-      <Title>Checkbox</Title>
-      <Paragraph>Renders a custom checkbox with an optional label.</Paragraph>
+      <Title>Input</Title>
+      <Paragraph>Renders a custom input component.</Paragraph>
       <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Checkbox } from '@binarycapsule/ui-capsules';"}</Usage>
+      <Usage>{"import { Input } from '@binarycapsule/ui-capsules';"}</Usage>
       <Demo />
       <SubTitle>Props</SubTitle>
-      <PropsTable props={CHECKBOX_PROPS} />
+      <PropsTable props={INPUT_PROPS} />
     </Wrapper>
   );
 };

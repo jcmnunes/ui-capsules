@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../common/Demo';
 import Button from '../../lib/Button/Button';
 import Select from '../../lib/Select/Select';
+import Input from '../../lib/Input/Input';
 import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL, ICON_OPTS } from './Button.constants';
 
 const ButtonDemo = () => {
@@ -60,7 +61,8 @@ const ButtonDemo = () => {
         </Booleans>
         <StyledSelect>
           <pre>children</pre>
-          <input
+          <Input
+            isBlock
             type="text"
             value={buttonChildren}
             onChange={ev => setButtonChildren(ev.target.value)}

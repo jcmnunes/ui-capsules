@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from '../../lib/Button/Button';
-import theme from '../../lib/theme';
 import Toaster from '../../lib/Toaster/Toaster';
 
 export const StyledUsage = styled.div`
@@ -25,6 +24,11 @@ const Code = styled.pre`
 export const Actions = styled.div`
   margin-top: 4px;
   padding: 0 8px;
+  color: ${props => props.theme.neutral400};
+
+  &:hover {
+    color: ${props => props.theme.neutral700};
+  }
 `;
 
 const Usage = ({ children }) => {
@@ -47,7 +51,7 @@ const Usage = ({ children }) => {
             }
           }}
         >
-          <Button as="button" appearance="link" size="small" color={theme.pink600}>
+          <Button size="small" appearance="minimal" iconBefore="COPY">
             Copy to clipboard
           </Button>
         </CopyToClipboard>

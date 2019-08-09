@@ -7,17 +7,13 @@ export const OPTIONS = [
   { value: 'dolor', label: 'Dolor' },
 ];
 
-export const SIZE_OPTS = [
-  { value: 'small', label: 'small' },
-  { value: 'medium', label: 'medium' },
-  { value: 'large', label: 'large' },
-];
+export const SIZE_OPTS = [{ value: 'medium', label: 'medium' }, { value: 'large', label: 'large' }];
 
 export const SELECT_PROPS = [
   {
     name: 'size',
     isRequired: false,
-    type: '"small" | "medium" | "large"',
+    type: '"medium" | "large"',
     defaultValue: '"medium"',
     description: 'Controls the size of the select.',
   },

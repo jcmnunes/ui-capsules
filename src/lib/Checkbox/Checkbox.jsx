@@ -16,6 +16,17 @@ const colors = theme => ({
 
 const dimensions = {
   small: {
+    width: '16px',
+    height: '16px',
+    checkmarkWidth: '5px',
+    checkmarkHeight: '9px',
+    checkmarkTop: '2px',
+    checkmarkLeft: '5px',
+    checkmarkBorderWidth: '0 2px 2px 0',
+    fontSize: '16px',
+    padding: '22px',
+  },
+  medium: {
     width: '20px',
     height: '20px',
     checkmarkWidth: '7px',
@@ -23,10 +34,10 @@ const dimensions = {
     checkmarkTop: '2px',
     checkmarkLeft: '6px',
     checkmarkBorderWidth: '0 3px 3px 0',
-    fontSize: '16px',
+    fontSize: '18px',
     padding: '28px',
   },
-  medium: {
+  large: {
     width: '25px',
     height: '25px',
     checkmarkWidth: '8px',
@@ -34,19 +45,8 @@ const dimensions = {
     checkmarkTop: '4px',
     checkmarkLeft: '8px',
     checkmarkBorderWidth: '0 3px 3px 0',
-    fontSize: '18px',
-    padding: '35px',
-  },
-  large: {
-    width: '30px',
-    height: '30px',
-    checkmarkWidth: '10px',
-    checkmarkHeight: '18px',
-    checkmarkTop: '3px',
-    checkmarkLeft: '9px',
-    checkmarkBorderWidth: '0 4px 4px 0',
     fontSize: '20px',
-    padding: '44px',
+    padding: '35px',
   },
 };
 
@@ -100,7 +100,7 @@ const StyledInput = styled.input`
   &:focus {
     & ~ ${CustomCheckbox} {
       outline: none;
-      box-shadow: 0 0 0 4px ${props => props.theme.blue100};
+      box-shadow: 0 0 0 2px ${props => props.theme.blue100};
     }
   }
 

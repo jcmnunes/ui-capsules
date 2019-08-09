@@ -1,3 +1,4 @@
+import 'focus-visible/dist/focus-visible';
 import React from 'react';
 import { ThemeProvider } from 'styled-components/macro';
 import ReactDOM from 'react-dom';

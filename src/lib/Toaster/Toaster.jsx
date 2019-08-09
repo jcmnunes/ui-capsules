@@ -119,7 +119,7 @@ export const Toast = ({
     >
       {title && <Title>{title}</Title>}
       {message && <Message>{message}</Message>}
-      <StyledButton appearance="link" onClick={onDismiss} iconAfter="CLOSE" />
+      <StyledButton appearance="minimal" size="small" onClick={onDismiss} iconAfter="CLOSE" />
     </StyledToast>
   );
 };
