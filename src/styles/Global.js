@@ -103,15 +103,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 16px;
+    line-height: 24px;
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     height: 100%;
     color: ${props => props.theme.neutral700};
   }
   a {
     text-decoration: none;
-    color: black;
+    color: ${props => props.theme.neutral700};
   }
   button {
     border: none;
@@ -139,8 +139,8 @@ const GlobalStyle = createGlobalStyle`
 
     /* Remove excess padding and border in Firefox 4+ */
     &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
+      border: 0;
+      padding: 0;
     }
   }
   

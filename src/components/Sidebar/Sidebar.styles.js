@@ -8,12 +8,13 @@ export const StyledSidebar = styled.div`
 `;
 
 export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
+  font-size: 16px;
   height: 32px;
   border-radius: 4px;
   background: ${props => props.theme.neutral050};
   color: ${props => props.theme.neutral600};
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 3px 12px;
   transition: background 0.2s ease;
 
   &:hover {
@@ -23,6 +24,7 @@ export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
   &.active {
     background: ${props => props.theme.neutral075};
     font-weight: 600;
+    color: ${props => props.theme.pink700};
 
     &:hover {
       background: ${props => props.theme.neutral100};
