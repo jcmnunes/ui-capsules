@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Spinner from '../Spinner/Spinner';
+import Icon20 from '../Icon20/Icon20';
 import theme from '../theme';
 
 const getButtonColors = props => {
@@ -61,10 +62,19 @@ const getButtonColors = props => {
     case 'dropdown':
       colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
       colors.gradient.top = 'none';
-      colors.gradient.topHover = theme.neutral050;
+      colors.gradient.topHover = theme.neutral075;
       colors.gradient.bottom = 'none';
-      colors.gradient.bottomHover = theme.neutral050;
+      colors.gradient.bottomHover = theme.neutral075;
       colors.active = theme.neutral100;
+      colors.disabled = 'none';
+      break;
+    case 'minimal':
+      colors.text = 'inherit';
+      colors.gradient.top = 'none';
+      colors.gradient.topHover = 'none';
+      colors.gradient.bottom = 'none';
+      colors.gradient.bottomHover = 'none';
+      colors.active = 'none';
       colors.disabled = 'none';
       break;
     case 'link':
@@ -97,6 +107,7 @@ const getDimensions = props => {
       ...dimensions,
       height: 'auto',
       padding: 0,
+      fontSize: 'inherit',
     };
   }
 
@@ -104,7 +115,7 @@ const getDimensions = props => {
     case 'medium':
       dimensions.height = '32px';
       dimensions.fontSize = '16px';
-      dimensions.padding = '4px 12px';
+      dimensions.padding = '4px 6px';
       dimensions.spinnerHeight = '18px';
       break;
     case 'large':
@@ -118,6 +129,26 @@ const getDimensions = props => {
   }
   return dimensions;
 };
+
+export const SpinnerWrapper = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: ${props => getDimensions(props).spinnerHeight};
+`;
+
+export const Content = styled.div`
+  visibility: ${props => (props.isLoading ? 'hidden' : 'visible')};
+  display: inline-flex;
+  align-items: center;
+`;
+
+export const Text = styled.span`
+  white-space: nowrap;
+  margin-left: ${props => (props.iconBefore ? '8px' : 'auto')};
+  margin-right: ${props => (props.iconAfter ? '8px' : 'auto')};
+`;
 
 const StyledButton = styled.span`
   position: relative;
@@ -133,7 +164,13 @@ const StyledButton = styled.span`
   align-items: center;
   justify-content: ${props => (props.appearance === 'dropdown' ? 'flex-start' : 'center')};
   width: ${props => (props.isBlock ? '100%' : 'auto')};
-  background: ${props => `linear-gradient(to bottom,
+  background: ${props =>
+    props.highlighted
+      ? `linear-gradient(to bottom,
+    ${getButtonColors(props).gradient.topHover},
+    ${getButtonColors(props).gradient.bottomHover}
+  )`
+      : `linear-gradient(to bottom,
     ${getButtonColors(props).gradient.top},
     ${getButtonColors(props).gradient.bottom}
   )`};
@@ -144,8 +181,7 @@ const StyledButton = styled.span`
 
   &:focus {
     outline: none;
-    box-shadow: ${props =>
-      props.appearance === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`};
+    box-shadow: 0 0 0 4px ${theme.blue100}};
   }
 
   &:hover {
@@ -164,33 +200,23 @@ const StyledButton = styled.span`
     background: ${props => getButtonColors(props).disabled};
     cursor: not-allowed;
   }
+`;
 
-  .content {
-    visibility: ${props =>
-      props.isLoading && !(props.appearance === 'link') ? 'hidden' : 'visible'};
-    display: inline-flex;
-    align-items: center;
+const Anchor = styled.a`
+  color: ${props => props.color};
+  cursor: pointer;
 
-    .button-text {
-      white-space: nowrap;
-      margin-left: ${props => (props.iconBefore ? '8px' : 'auto')};
-      margin-right: ${props => (props.iconAfter ? '8px' : 'auto')};
-    }
-  }
-
-  .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: ${props => getDimensions(props).spinnerHeight};
+  &:hover {
+    box-shadow: inset 0 -2px 0 0 ${props => props.color};
   }
 `;
 
 const Button = ({
   as,
   color,
+  type,
   isLoading,
+  isBlock,
   isDisabled,
   iconBefore,
   iconAfter,
@@ -198,44 +224,52 @@ const Button = ({
   size,
   onClick,
   children,
+  handleAction,
   ...other
 }) => {
   const handleClick = e => {
     e.stopPropagation();
     if (!onClick) return;
-    onClick();
+    onClick(e);
   };
 
-  const handleKeyDown = e => {
-    if (!onClick) return;
-    if (e.key === 'Enter') {
-      onClick();
-    }
-  };
+  if (appearance === 'link') {
+    return (
+      <Anchor color={color} {...other}>
+        {children}
+      </Anchor>
+    );
+  }
+
   return (
     <StyledButton
       as={as}
       color={color}
       disabled={isDisabled || isLoading}
       isLoading={isLoading}
+      isBlock={isBlock}
       appearance={appearance}
       size={size}
       onClick={handleClick}
-      onKeyDown={handleKeyDown}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
+      handleAction={handleAction}
       {...other}
     >
-      {isLoading && !(appearance === 'link') && (
-        <span className="spinner">
+      {isLoading && (
+        <SpinnerWrapper>
           <Spinner size={size} appearance={appearance} />
-        </span>
+        </SpinnerWrapper>
       )}
-      <div className="content">
-        {iconBefore && iconBefore}
-        {children.length > 0 && <span className="button-text">{children}</span>}
-        {iconAfter && iconAfter}
-      </div>
+      <Content isLoading={isLoading}>
+        {iconBefore && <Icon20 icon={iconBefore} />}
+        {children.length > 0 && (
+          <Text iconBefore={iconBefore} iconAfter={iconAfter}>
+            {children}
+          </Text>
+        )}
+        {iconAfter && <Icon20 icon={iconAfter} />}
+      </Content>
     </StyledButton>
   );
 };
@@ -245,37 +279,39 @@ Button.defaultProps = {
   isDisabled: false,
   iconBefore: null,
   iconAfter: null,
-  appearance: 'secondary',
   size: 'medium',
   type: 'button',
   isBlock: false,
   children: '',
   onClick: null,
+  handleAction: null,
   as: 'button',
-  color: theme.blue400,
+  color: theme.blue600,
 };
 
 Button.propTypes = {
   appearance: PropTypes.oneOf([
+    'dropdown',
+    'error',
+    'link',
     'primary',
     'secondary',
     'success',
     'warning',
-    'error',
-    'dropdown',
-    'link',
-  ]),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  as: PropTypes.oneOf(['button', 'a']),
-  isLoading: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  iconBefore: PropTypes.element,
-  iconAfter: PropTypes.element,
-  type: PropTypes.string,
-  color: PropTypes.string,
-  isBlock: PropTypes.bool,
+    'minimal',
+  ]).isRequired,
+  as: PropTypes.oneOf(['a', 'button']),
   children: PropTypes.node,
+  color: PropTypes.string,
+  iconAfter: PropTypes.string,
+  iconBefore: PropTypes.string,
+  isBlock: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
   onClick: PropTypes.func,
+  handleAction: PropTypes.func,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  type: PropTypes.string,
 };
 
 export default Button;

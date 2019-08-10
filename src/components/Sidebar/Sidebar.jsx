@@ -11,7 +11,13 @@ const Sidebar = () => (
     <SidebarGroup>
       <GroupHeading>Components</GroupHeading>
       <SidebarLink to="/button">Button</SidebarLink>
-      <SidebarLink to="/spinner">Spinner</SidebarLink>
+      <SidebarLink to="/icon20">Icon20</SidebarLink>
+      <SidebarLink to="/checkbox">Checkbox</SidebarLink>
+      <SidebarLink to="/select">Select</SidebarLink>
+      <SidebarLink to="/input">Input</SidebarLink>
+      <SidebarLink to="/toaster">Toaster</SidebarLink>
+      <SidebarLink to="/dropdown">Dropdown</SidebarLink>
+      <SidebarLink to="/loading-mask">LoadingMask</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );

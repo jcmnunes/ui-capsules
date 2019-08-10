@@ -27,4 +27,16 @@ export const Paragraph = styled.p`
   color: ${props => props.theme.neutral600};
   font-size: 16px;
   font-weight: 400;
+  line-height: 24px;
+`;
+
+export const UL = styled.ul`
+  list-style: disc outside none;
+  padding-left: 18px;
+  margin: 16px 0;
+  line-height: 1.5em;
+
+  li {
+    margin-bottom: 6px;
+  }
 `;
