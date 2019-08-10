@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import theme from '../theme';
 
 const Row = styled.tr`
   &:nth-child(odd) {
-    background: ${props => props.theme.neutral050};
+    background: ${theme.neutral050};
   }
 `;
 
