@@ -37,7 +37,7 @@ const DropdownDemo = () => {
         </li>
       </UL>
       <SubTitle>Usage</SubTitle>
-      <Usage>{"import Dropdown, { DropdownItem } from '@binarycapsule/ui-capsules';"}</Usage>
+      <Usage>{"import { Dropdown, DropdownItem } from '@binarycapsule/ui-capsules';"}</Usage>
       <Demo />
       <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
