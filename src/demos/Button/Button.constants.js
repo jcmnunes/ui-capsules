@@ -30,7 +30,7 @@ export const ICON_OPTS = [
   { value: 'CLOSE', label: 'CLOSE' },
 ];
 
-export const BUTTON_PROPS = [
+export const PROPS = [
   {
     name: 'appearance',
     isRequired: true,

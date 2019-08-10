@@ -4,7 +4,7 @@ import Usage from '../../components/common/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/common/PropsTable';
-import { BUTTON_PROPS } from './Button.constants';
+import { PROPS } from './Button.constants';
 
 const ButtonDemo = () => {
   return (
@@ -23,7 +23,7 @@ const ButtonDemo = () => {
       <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
       <Demo />
       <SubTitle>Props</SubTitle>
-      <PropsTable props={BUTTON_PROPS} />
+      <PropsTable props={PROPS} />
     </Wrapper>
   );
 };
