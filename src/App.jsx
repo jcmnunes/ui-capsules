@@ -9,6 +9,7 @@ import Select from './demos/Select/Select.view';
 import Input from './demos/Input/Input.view';
 import Toaster from './demos/Toaster/Toaster.view';
 import Dropdown from './demos/Dropdown/Dropdown.view';
+import LoadingElement from './demos/LoadingMask/LoadingMask.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -42,6 +43,7 @@ const App = () => (
       <Route path="/input" component={Input} />
       <Route path="/toaster" component={Toaster} />
       <Route path="/dropdown" component={Dropdown} />
+      <Route path="/loading-mask" component={LoadingElement} />
     </ShowcaseWrapper>
   </AppWrapper>
 );

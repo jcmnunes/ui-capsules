@@ -21,7 +21,7 @@ const DropdownDemo = () => {
         </li>
         <li>
           <code>iconBefore</code>: &quot;string&quot; - The icon to render before the text (from the
-          Icon20 collection
+          Icon20 collection)
         </li>
         <li>
           <code>iconAfter</code>: &quot;string&quot; - The icon to render after the text (from the
