@@ -62,9 +62,9 @@ const getButtonColors = props => {
     case 'dropdown':
       colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
       colors.gradient.top = 'none';
-      colors.gradient.topHover = theme.neutral050;
+      colors.gradient.topHover = theme.neutral075;
       colors.gradient.bottom = 'none';
-      colors.gradient.bottomHover = theme.neutral050;
+      colors.gradient.bottomHover = theme.neutral075;
       colors.active = theme.neutral100;
       colors.disabled = 'none';
       break;
@@ -164,7 +164,13 @@ const StyledButton = styled.span`
   align-items: center;
   justify-content: ${props => (props.appearance === 'dropdown' ? 'flex-start' : 'center')};
   width: ${props => (props.isBlock ? '100%' : 'auto')};
-  background: ${props => `linear-gradient(to bottom,
+  background: ${props =>
+    props.highlighted
+      ? `linear-gradient(to bottom,
+    ${getButtonColors(props).gradient.topHover},
+    ${getButtonColors(props).gradient.bottomHover}
+  )`
+      : `linear-gradient(to bottom,
     ${getButtonColors(props).gradient.top},
     ${getButtonColors(props).gradient.bottom}
   )`};
@@ -175,8 +181,7 @@ const StyledButton = styled.span`
 
   &:focus {
     outline: none;
-    box-shadow: ${props =>
-      props.appearance === 'dropdown' ? 'none' : `0 0 0 4px ${theme.blue100}`};
+    box-shadow: 0 0 0 4px ${theme.blue100}};
   }
 
   &:hover {
@@ -219,12 +224,13 @@ const Button = ({
   size,
   onClick,
   children,
+  handleAction,
   ...other
 }) => {
   const handleClick = e => {
     e.stopPropagation();
     if (!onClick) return;
-    onClick();
+    onClick(e);
   };
 
   if (appearance === 'link') {
@@ -247,6 +253,7 @@ const Button = ({
       onClick={handleClick}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
+      handleAction={handleAction}
       {...other}
     >
       {isLoading && (
@@ -277,6 +284,7 @@ Button.defaultProps = {
   isBlock: false,
   children: '',
   onClick: null,
+  handleAction: null,
   as: 'button',
   color: theme.blue600,
 };
@@ -301,6 +309,7 @@ Button.propTypes = {
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
   onClick: PropTypes.func,
+  handleAction: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.string,
 };
