@@ -4,13 +4,14 @@ import Body from './Body';
 import Row from './Row';
 import Cell from './Cell';
 import HeaderCell from './HeaderCell';
+import theme from '../theme';
 
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-radius: 12px;
   border-style: hidden;
-  box-shadow: 0 0 0 1px ${props => props.theme.neutral200};
+  box-shadow: 0 0 0 1px ${theme.neutral200};
   overflow: hidden;
 `;
 

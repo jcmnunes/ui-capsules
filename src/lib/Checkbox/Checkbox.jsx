@@ -79,7 +79,7 @@ const CustomCheckbox = styled.span`
   }
 
   &:hover {
-    background-color: ${props => props.theme.neutral050};
+    background-color: ${theme.neutral050};
   }
 `;
 
@@ -105,7 +105,7 @@ const StyledInput = styled.input`
   &:focus {
     & ~ ${CustomCheckbox} {
       outline: none;
-      box-shadow: 0 0 0 2px ${props => props.theme.blue100};
+      box-shadow: 0 0 0 2px ${theme.blue100};
     }
   }
 

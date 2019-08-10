@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import theme from '../theme';
 
 const dimensions = {
   small: {
@@ -31,40 +32,40 @@ const InputWrapper = styled.div`
 `;
 
 const StyledInput = styled.input`
-  height: ${props => dimensions[props.size].height};
-  background: ${props => (props.error ? props.theme.red050 : '#fff')};
-  color: ${props => props.theme.neutral600};
-  border-radius: 4px;
-  border: 1px solid ${props => (props.error ? props.theme.red500 : props.theme.neutral200)};
-  font-size: ${props => dimensions[props.size].fontSize};
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  height: ${props => dimensions[props.size].height};
+  background: ${props => (props.error ? theme.red050 : '#fff')};
+  color: ${theme.neutral600};
+  border-radius: 4px;
+  border: 1px solid ${props => (props.error ? theme.red500 : theme.neutral200)};
+  font-size: ${props => dimensions[props.size].fontSize};
   padding: ${props => dimensions[props.size].padding};
   width: 100%;
 
   &::placeholder {
-    color: ${props => props.theme.neutral200};
+    color: ${props => theme.neutral200};
   }
 
   &:hover {
-    border-color: ${props => (props.error ? props.theme.red700 : props.theme.neutral300)};
+    border-color: ${props => (props.error ? theme.red700 : theme.neutral300)};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${props => (props.error ? props.theme.red100 : props.theme.blue100)};
+    box-shadow: 0 0 0 2px ${props => (props.error ? theme.red100 : theme.blue100)};
   }
 
   &:disabled {
-    color: ${props => props.theme.neutral200};
-    background: ${props => props.theme.neutral050};
+    color: ${theme.neutral200};
+    background: ${theme.neutral050};
     cursor: not-allowed;
-    border-color: ${props => props.theme.neutral200};
+    border-color: ${theme.neutral200};
   }
 `;
 
 const Error = styled.div`
   font-size: ${props => dimensions[props.size].helperFontSize};
-  color: ${props => props.theme.red600};
+  color: ${theme.red600};
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
