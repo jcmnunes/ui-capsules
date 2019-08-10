@@ -16,6 +16,7 @@ const Sidebar = () => (
       <SidebarLink to="/select">Select</SidebarLink>
       <SidebarLink to="/input">Input</SidebarLink>
       <SidebarLink to="/toaster">Toaster</SidebarLink>
+      <SidebarLink to="/dropdown">Dropdown</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );

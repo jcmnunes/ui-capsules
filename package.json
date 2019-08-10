@@ -30,6 +30,7 @@
     "@types/styled-components": "4.1.18",
     "babel-plugin-styled-components": "1.10.6",
     "babel-preset-react-app": "9.0.0",
+    "downshift": "3.2.12",
     "eslint-config-airbnb": "17.1.1",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-import": "2.18.2",

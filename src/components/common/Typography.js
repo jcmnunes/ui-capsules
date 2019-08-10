@@ -31,7 +31,12 @@ export const Paragraph = styled.p`
 `;
 
 export const UL = styled.ul`
-  list-style: disc inside none;
-  padding: 12px;
+  list-style: disc outside none;
+  padding-left: 18px;
+  margin: 16px 0;
   line-height: 1.5em;
+
+  li {
+    margin-bottom: 6px;
+  }
 `;

@@ -8,6 +8,7 @@ import Checkbox from './demos/Checkbox/Checkbox.view';
 import Select from './demos/Select/Select.view';
 import Input from './demos/Input/Input.view';
 import Toaster from './demos/Toaster/Toaster.view';
+import Dropdown from './demos/Dropdown/Dropdown.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -40,6 +41,7 @@ const App = () => (
       <Route path="/select" component={Select} />
       <Route path="/input" component={Input} />
       <Route path="/toaster" component={Toaster} />
+      <Route path="/dropdown" component={Dropdown} />
     </ShowcaseWrapper>
   </AppWrapper>
 );

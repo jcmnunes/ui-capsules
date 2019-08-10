@@ -149,7 +149,8 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: none;
   }
   
-  pre {
+  pre,
+  code {
     font-family: Hack, monospace;
     font-size: 14px;
     font-weight: 400;
