@@ -257,7 +257,7 @@ const Button = ({
       {...other}
     >
       {isLoading && (
-        <SpinnerWrapper>
+        <SpinnerWrapper size={size}>
           <Spinner size={size} appearance={appearance} />
         </SpinnerWrapper>
       )}
