@@ -5,11 +5,17 @@ import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/common/PropsTable';
 import { PROPS } from './Button.constants';
+import Button from '../../lib/Button/Button';
 
 const ButtonDemo = () => {
   return (
     <Wrapper>
-      <Title>Button</Title>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Title>Button</Title>
+        <Button as="a" href="#" target="_blank" size="small" appearance="minimal" iconBefore="CODE">
+          View source on GitHub
+        </Button>
+      </div>
       <Paragraph>
         The button is one of the most ubiquitous components in any UI. As usual, it must be used to
         trigger user actions. This button is a versatile component. It exists in several variants
