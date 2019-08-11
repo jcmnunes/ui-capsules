@@ -9,7 +9,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src/lib/**/*.{js,jsx}",
     "format": "pretty-quick --staged",
-    "build": "rimraf dist && babel src/lib --out-dir dist",
+    "build": "rimraf dist && babel src/lib --out-dir dist --copy-files",
     "semantic-release": "semantic-release"
   },
   "husky": {
