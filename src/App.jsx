@@ -11,6 +11,7 @@ import Toaster from './demos/Toaster/Toaster.view';
 import Dropdown from './demos/Dropdown/Dropdown.view';
 import LoadingElement from './demos/LoadingMask/LoadingMask.view';
 import Spinner from './demos/Spinner/Spinner.view';
+import Message from './demos/Message/Message.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -46,6 +47,7 @@ const App = () => (
       <Route path="/dropdown" component={Dropdown} />
       <Route path="/loading-mask" component={LoadingElement} />
       <Route path="/spinner" component={Spinner} />
+      <Route path="/message" component={Message} />
     </ShowcaseWrapper>
   </AppWrapper>
 );
