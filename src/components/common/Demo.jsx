@@ -108,6 +108,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
           reactElementToJSXString(component, {
             showDefaultProps: false,
             functionValue: () => 'function',
+            filterProps: ['key'],
           })}
       </Usage>
     </>
