@@ -19,6 +19,7 @@ const Sidebar = () => (
       <SidebarLink to="/dropdown">Dropdown</SidebarLink>
       <SidebarLink to="/loading-mask">LoadingMask</SidebarLink>
       <SidebarLink to="/spinner">Spinner</SidebarLink>
+      <SidebarLink to="/message">Message</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );
