@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { SubSubTitle, SubTitle } from './Typography';
-import Button from '../../lib/Button/Button';
 import Usage from './Usage';
+import Button from '../../lib/Button/Button';
 import Checkbox from '../../lib/Checkbox/Checkbox';
+import theme from '../../lib/theme';
+import { SubSubTitle, SubTitle } from './Typography';
 
 export const StyledCheckbox = styled(Checkbox)`
   margin: 8px 0;
@@ -32,13 +33,14 @@ export const DemoWrapper = styled.div`
 
 export const Display = styled.div`
   flex: 1;
-  background: white;
+  background: ${props => (props.isDark ? theme.neutral400 : 'white')};
   border-radius: 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 12px;
+  transition: background-color 0.2s ease;
 `;
 
 export const PropAdjuster = styled.div`
@@ -68,7 +70,7 @@ const Actions = styled.div`
   }
 `;
 
-const Demo = ({ component, code, codeURL, children }) => {
+const Demo = ({ component, code, isDark, codeURL, children }) => {
   return (
     <>
       <HeaderWrapper>
@@ -87,7 +89,9 @@ const Demo = ({ component, code, codeURL, children }) => {
         </Actions>
       </HeaderWrapper>
       <DemoWrapper>
-        <Display width="300px">{component}</Display>
+        <Display width="300px" isDark={isDark}>
+          {component}
+        </Display>
         <PropAdjuster>
           <SubSubTitle>
             Knobs{' '}
@@ -112,11 +116,13 @@ const Demo = ({ component, code, codeURL, children }) => {
 
 Demo.defaultProps = {
   code: null,
+  isDark: false,
 };
 
 Demo.propTypes = {
   component: PropTypes.node.isRequired,
   code: PropTypes.string,
+  isDark: PropTypes.bool,
   codeURL: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
