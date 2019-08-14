@@ -14,8 +14,8 @@ const getColors = props => {
       };
     default:
       return {
-        border: `${theme.neutral100}`,
-        accent: `${theme.neutral200}`,
+        border: theme.neutral100,
+        accent: theme.neutral200,
       };
   }
 };
@@ -29,13 +29,20 @@ const spin = keyframes`
 const Spinner = styled.span`
   display: inline-block;
   box-sizing: border-box;
-  width: ${props => (props.size === 'large' ? '24px' : '18px')};
-  height: ${props => (props.size === 'large' ? '24px' : '18px')};
+  width: ${props =>
+    (props.size === 'small' && '14px') ||
+    (props.size === 'medium' && '18px') ||
+    (props.size === 'large' && '24px')};
+  height: ${props =>
+    (props.size === 'small' && '14px') ||
+    (props.size === 'medium' && '18px') ||
+    (props.size === 'large' && '24px')};
   border-radius: 100%;
   border: ${props => `3px solid ${getColors(props).border}`};
   border-top-color: ${props => getColors(props).accent};
   animation: ${spin} 500ms infinite linear;
 `;
+Spinner.displayName = 'Spinner';
 
 Spinner.defaultProps = {
   size: 'small',
