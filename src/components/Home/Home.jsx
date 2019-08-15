@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../Svgs/Logo';
 import { Paragraph, SubTitle } from '../common/Typography';
-import Usage from '../common/Usage';
+import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
 import Button from '../../lib/Button/Button';
 import Message from '../../lib/Message/Message';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/common/Demo';
+import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import Button from '../../lib/Button/Button';
 import Select from '../../lib/Select/Select';
 import Input from '../../lib/Input/Input';

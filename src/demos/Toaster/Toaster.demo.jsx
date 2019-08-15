@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Demo, { StyledSelect } from '../../components/common/Demo';
+import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, TOAST_TYPE_OPTS } from './Toaster.constants';
 import Toaster from '../../lib/Toaster/Toaster';
 import Button from '../../lib/Button/Button';
