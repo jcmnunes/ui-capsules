@@ -44,6 +44,18 @@ import 'focus-visible/dist/focus-visible';
 Please refer to the [Components demo](https://uic.binarycapsule.tech) to get
 further instructions on how to use each component.
 
+## Development
+
+This repo is [commitizen-friendly](https://github.com/commitizen/cz-cli). Use
+the following command to commit changes:
+
+```
+$ npm run ci
+```
+
+Note: commit messages are important since releases are automated by the
+[semantic release package](https://github.com/semantic-release/semantic-release).
+
 ## Licensing
 
 Licensed under the [MIT License](./LICENSE).
