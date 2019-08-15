@@ -81,7 +81,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
             href={codeURL}
             target="_blank"
             size="small"
-            appearance="minimal"
+            appearance="dropdown"
             iconBefore="CODE"
           >
             View source on GitHub
