@@ -20,6 +20,7 @@ const Sidebar = () => (
       <SidebarLink to="/loading-mask">LoadingMask</SidebarLink>
       <SidebarLink to="/spinner">Spinner</SidebarLink>
       <SidebarLink to="/message">Message</SidebarLink>
+      <SidebarLink to="/page-spinner">PageSpinner</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );
