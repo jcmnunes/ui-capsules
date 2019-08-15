@@ -73,6 +73,7 @@ const Message = ({ appearance, children, ...other }) => (
     <MessageBody>{children}</MessageBody>
   </StyledMessage>
 );
+Message.displayName = 'Message';
 
 Message.propTypes = {
   appearance: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,

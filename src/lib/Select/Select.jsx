@@ -96,6 +96,7 @@ const Select = ({ size, ...other }) => {
     />
   );
 };
+Select.displayName = 'Select';
 
 Select.defaultProps = {
   size: 'medium',

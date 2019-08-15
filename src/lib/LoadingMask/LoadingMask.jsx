@@ -31,6 +31,7 @@ const StyledLoadingElement = styled.div.attrs(({ background }) => ({
 `;
 
 const LoadingMask = props => <StyledLoadingElement {...props} />;
+LoadingMask.displayName = 'LoadingMask';
 
 LoadingMask.defaultProps = {
   circular: false,

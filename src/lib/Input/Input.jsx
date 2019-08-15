@@ -80,6 +80,7 @@ const Input = ({ size, error, isDisabled, ...other }) => (
     {error && <Error size={size}>{error}</Error>}
   </InputWrapper>
 );
+Input.displayName = 'Input';
 
 Input.defaultProps = {
   size: 'medium',

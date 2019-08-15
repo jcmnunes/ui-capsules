@@ -17,6 +17,7 @@ const Glyph = ({ color, size, icon }) => (
     <path fill={color} d={icons[icon]} />
   </svg>
 );
+Glyph.displayName = 'Glyph';
 
 Glyph.defaultProps = {
   size: 16,
