@@ -14,9 +14,8 @@ export const StyledPill = styled.span`
   font-weight: 600;
 `;
 
-const Pill = ({ children }) => {
-  return <StyledPill>{children}</StyledPill>;
-};
+const Pill = ({ children }) => <StyledPill>{children}</StyledPill>;
+Pill.displayName = 'Pill';
 
 Pill.propTypes = {
   children: PropTypes.string.isRequired,

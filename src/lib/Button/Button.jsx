@@ -273,6 +273,7 @@ const Button = ({
     </StyledButton>
   );
 };
+Button.displayName = 'Button';
 
 Button.defaultProps = {
   isLoading: false,

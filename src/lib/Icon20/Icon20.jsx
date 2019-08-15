@@ -9,6 +9,7 @@ const Icon20 = ({ icon }) => {
     </svg>
   );
 };
+Icon20.displayName = 'Icon20';
 
 Icon20.propTypes = {
   icon: PropTypes.string.isRequired,
