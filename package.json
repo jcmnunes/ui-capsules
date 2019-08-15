@@ -73,6 +73,11 @@
       "last 1 safari version"
     ]
   },
+  "babelMacros": {
+    "styledComponents": {
+      "pure": true
+    }
+  },
   "description": "UI kit",
   "repository": {
     "type": "git",
@@ -88,6 +93,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jcmnunes/ui-capsules/issues"
-  },
-  "homepage": "https://github.com/jcmnunes/ui-capsules#readme"
+  }
 }

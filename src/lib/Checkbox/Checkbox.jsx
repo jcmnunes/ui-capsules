@@ -150,6 +150,7 @@ const Checkbox = ({
     <CustomCheckbox size={size} isDisabled={isDisabled} />
   </Label>
 );
+Checkbox.displayName = 'Checkbox';
 
 Checkbox.defaultProps = {
   children: '',

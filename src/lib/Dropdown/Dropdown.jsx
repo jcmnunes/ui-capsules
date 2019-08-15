@@ -54,6 +54,7 @@ export const DropdownItem = ({
     {children}
   </Button>
 );
+DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.defaultProps = {
   children: null,
@@ -124,6 +125,7 @@ const Dropdown = ({ trigger, placement, children }) => {
     </Wrapper>
   );
 };
+Dropdown.displayName = 'Dropdown';
 
 Dropdown.defaultProps = {
   placement: 'left',

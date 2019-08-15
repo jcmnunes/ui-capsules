@@ -13,6 +13,7 @@ const Icon = ({ icon, size, primaryColor, secondaryColor, className }) => (
     <path fill={secondaryColor || 'currentColor'} className="secondary" d={icon[1]} />
   </svg>
 );
+Icon.displayName = 'Icon';
 
 Icon.defaultProps = {
   size: '24px',

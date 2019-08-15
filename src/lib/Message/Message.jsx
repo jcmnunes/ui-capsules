@@ -11,9 +11,9 @@ const colors = {
     text: '#FFF',
   },
   warning: {
-    background: theme.yellow700,
+    background: theme.yellow100,
     border: theme.yellow800,
-    text: '#FFF',
+    text: theme.yellow800,
   },
   error: {
     background: theme.red400,
@@ -68,11 +68,12 @@ export const MessageBody = styled.span`
 const Message = ({ appearance, children, ...other }) => (
   <StyledMessage appearance={appearance} {...other}>
     <Icon>
-      <Glyph icon={appearance} />
+      <Glyph icon={appearance} color={colors[appearance].text} />
     </Icon>
     <MessageBody>{children}</MessageBody>
   </StyledMessage>
 );
+Message.displayName = 'Message';
 
 Message.propTypes = {
   appearance: PropTypes.oneOf(['success', 'warning', 'error']).isRequired,

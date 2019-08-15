@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { GroupHeading, SidebarGroup, SidebarLink, StyledSidebar } from './Sidebar.styles';
-import logo from '../../img/logo.svg';
+import Logo from '../Svgs/Logo';
 
 const Sidebar = () => (
   <StyledSidebar>
     <Link to="/">
-      <img src={logo} width="200px" alt="logo" />
+      <Logo />
     </Link>
     <SidebarGroup>
       <GroupHeading>Components</GroupHeading>
