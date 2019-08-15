@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import Usage from './Usage';
+import Usage from '../Usage/Usage';
 import Button from '../../lib/Button/Button';
 import Checkbox from '../../lib/Checkbox/Checkbox';
 import theme from '../../lib/theme';
-import { SubSubTitle, SubTitle } from './Typography';
+import { SubSubTitle, SubTitle } from '../common/Typography';
 
 export const StyledCheckbox = styled(Checkbox)`
   margin: 8px 0;

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Dropdown, { DropdownItem } from '../../lib/Dropdown/Dropdown';
 import Select from '../../lib/Select/Select';
 import Button from '../../lib/Button/Button';
-import Demo, { StyledSelect } from '../../components/common/Demo';
+import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS } from './Dropdown.constants';
 
 const DropdownDemo = () => {

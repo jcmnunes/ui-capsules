@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Demo, { StyledSelect } from '../../components/common/Demo';
+import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import PageSpinner from '../../lib/PageSpinner/PageSpinner';
 import Input from '../../lib/Input/Input';
 import Button from '../../lib/Button/Button';
