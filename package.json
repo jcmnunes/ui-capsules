@@ -10,7 +10,8 @@
     "lint": "eslint ./src/lib/**/*.{js,jsx}",
     "format": "pretty-quick --staged",
     "build": "rimraf dist && babel src/lib --out-dir dist --copy-files",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "ci": "git-cz"
   },
   "husky": {
     "hooks": {
@@ -39,6 +40,8 @@
     "@types/styled-components": "^4.1.18",
     "babel-plugin-styled-components": "^1.10.6",
     "babel-preset-react-app": "^9.0.1",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "eslint-config-airbnb": "^18.0.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
@@ -52,10 +55,10 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-element-to-jsx-string": "^14.0.3",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "^3.1.0",
     "rimraf": "^2.6.3",
-    "semantic-release": "^15.13.19",
-    "react-router-dom": "^5.0.1"
+    "semantic-release": "^15.13.19"
   },
   "peerDependencies": {
     "react": "^16.9.0",
@@ -93,5 +96,10 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jcmnunes/ui-capsules/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
