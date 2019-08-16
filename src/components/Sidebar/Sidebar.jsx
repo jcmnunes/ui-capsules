@@ -21,6 +21,7 @@ const Sidebar = () => (
       <SidebarLink to="/spinner">Spinner</SidebarLink>
       <SidebarLink to="/message">Message</SidebarLink>
       <SidebarLink to="/page-spinner">PageSpinner</SidebarLink>
+      <SidebarLink to="/radio">Radio</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );
