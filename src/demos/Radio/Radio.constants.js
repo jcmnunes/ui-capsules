@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Checkbox/Checkbox.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Radio/Radio.jsx';
 
 export const SIZE_OPTS = [
   { value: 'small', label: 'small' },
@@ -13,12 +13,12 @@ export const APPEARANCE_OPTS = [
   { value: 'neutral', label: 'neutral' },
 ];
 
-export const CHECKBOX_PROPS = [
+export const PROPS = [
   {
     name: 'checked',
     isRequired: true,
     type: 'boolean',
-    description: 'The checked state of the checkbox.',
+    description: 'The checked state of the radio.',
   },
   {
     name: 'onChange',
@@ -31,14 +31,14 @@ export const CHECKBOX_PROPS = [
     isRequired: false,
     type: 'boolean',
     defaultValue: 'false',
-    description: 'The disabled state of the checkbox.',
+    description: 'The disabled state of the radio.',
   },
   {
     name: 'size',
     isRequired: false,
     type: '"small" | "medium" | "large"',
     defaultValue: '"small"',
-    description: 'The size of the checkbox.',
+    description: 'The size of the radio.',
   },
   {
     name: 'children',
@@ -52,13 +52,6 @@ export const CHECKBOX_PROPS = [
     isRequired: false,
     type: '"primary" | "success" | "neutral"',
     defaultValue: '"neutral"',
-    description: 'The appearance of the checkbox.',
-  },
-  {
-    name: 'onClick',
-    isRequired: false,
-    type: 'function',
-    defaultValue: 'null',
-    description: 'Function to be called when clicking the checkbox.',
+    description: 'The appearance of the radio.',
   },
 ];

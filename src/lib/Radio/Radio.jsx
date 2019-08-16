@@ -22,60 +22,50 @@ const dimensions = {
   small: {
     width: '16px',
     height: '16px',
-    checkmarkWidth: '5px',
-    checkmarkHeight: '9px',
-    checkmarkTop: '2px',
-    checkmarkLeft: '5px',
-    checkmarkBorderWidth: '0 2px 2px 0',
+    bulletSize: '6px',
+    displacement: '4px',
     fontSize: '16px',
     padding: '22px',
   },
   medium: {
     width: '20px',
     height: '20px',
-    checkmarkWidth: '7px',
-    checkmarkHeight: '12px',
-    checkmarkTop: '2px',
-    checkmarkLeft: '6px',
-    checkmarkBorderWidth: '0 3px 3px 0',
+    bulletSize: '8px',
+    displacement: '5px',
     fontSize: '18px',
     padding: '28px',
   },
   large: {
     width: '25px',
     height: '25px',
-    checkmarkWidth: '8px',
-    checkmarkHeight: '13px',
-    checkmarkTop: '4px',
-    checkmarkLeft: '8px',
-    checkmarkBorderWidth: '0 3px 3px 0',
+    bulletSize: '9px',
+    displacement: '7px',
     fontSize: '20px',
     padding: '35px',
   },
 };
 
-const CustomCheckbox = styled.span`
+const CustomRadio = styled.span`
   position: absolute;
-  border-radius: 4px;
   top: 0;
   left: 0;
-  width: ${props => dimensions[props.size].width};
   height: ${props => dimensions[props.size].height};
+  width: ${props => dimensions[props.size].height};
   background-color: ${props => (props.isDisabled ? theme.neutral050 : '#fff')};
-  transition: background-color 0.2s ease;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, border 0.2s ease;
   border: 1px solid ${props => (props.isDisabled ? theme.neutral075 : theme.neutral100)};
 
   &:after {
-    content: '';
     position: absolute;
+    content: '';
+    top: ${props => dimensions[props.size].displacement};
+    left: ${props => dimensions[props.size].displacement};
+    width: ${props => dimensions[props.size].bulletSize};
+    height: ${props => dimensions[props.size].bulletSize};
+    border-radius: 50%;
+    background-color: white;
     display: none;
-    left: ${props => dimensions[props.size].checkmarkLeft};
-    top: ${props => dimensions[props.size].checkmarkTop};
-    width: ${props => dimensions[props.size].checkmarkWidth};
-    height: ${props => dimensions[props.size].checkmarkHeight};
-    border: solid white;
-    border-width: ${props => dimensions[props.size].checkmarkBorderWidth};
-    transform: rotate(45deg);
   }
 
   &:hover {
@@ -103,14 +93,14 @@ const StyledInput = styled.input`
   width: 0;
 
   &:focus {
-    & ~ ${CustomCheckbox} {
+    & ~ ${CustomRadio} {
       outline: none;
       box-shadow: 0 0 0 2px ${theme.blue100};
     }
   }
 
   &:checked {
-    & ~ ${CustomCheckbox} {
+    ~ ${CustomRadio} {
       background-color: ${props => colors[props.appearance].background};
       border-color: ${props => colors[props.appearance].background};
 
@@ -120,7 +110,7 @@ const StyledInput = styled.input`
     }
 
     &:disabled {
-      & ~ ${CustomCheckbox} {
+      & ~ ${CustomRadio} {
         background-color: ${props => colors[props.appearance].backgroundDisabled};
         border-color: ${props => colors[props.appearance].backgroundDisabled};
       }
@@ -128,46 +118,38 @@ const StyledInput = styled.input`
   }
 `;
 
-const Checkbox = ({
-  checked,
-  isDisabled,
-  onChange,
-  children,
-  appearance,
-  size,
-  onClick,
-  ...other
-}) => (
-  <Label onClick={onClick} size={size} isDisabled={isDisabled} {...other}>
-    {children}
-    <StyledInput
-      type="checkbox"
-      checked={checked}
-      onChange={onChange}
-      appearance={appearance}
-      disabled={isDisabled}
-    />
-    <CustomCheckbox size={size} isDisabled={isDisabled} />
-  </Label>
-);
-Checkbox.displayName = 'Checkbox';
+const Radio = ({ checked, appearance, onChange, isDisabled, size, children, ...other }) => {
+  return (
+    <Label size={size} isDisabled={isDisabled}>
+      {children}
+      <StyledInput
+        checked={checked}
+        onChange={onChange}
+        appearance={appearance}
+        type="radio"
+        disabled={isDisabled}
+        {...other}
+      />
+      <CustomRadio size={size} isDisabled={isDisabled} />
+    </Label>
+  );
+};
+Radio.displayName = 'Radio';
 
-Checkbox.defaultProps = {
-  children: null,
+Radio.defaultProps = {
   appearance: 'neutral',
-  onClick: null,
   size: 'small',
+  children: null,
   isDisabled: false,
 };
 
-Checkbox.propTypes = {
+Radio.propTypes = {
   checked: PropTypes.bool.isRequired,
-  isDisabled: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
-  children: PropTypes.node,
   appearance: PropTypes.oneOf(['primary', 'success', 'neutral']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  onClick: PropTypes.func,
+  children: PropTypes.string,
+  isDisabled: PropTypes.bool,
 };
 
-export default Checkbox;
+export default Radio;
