@@ -13,6 +13,7 @@ import LoadingElement from './demos/LoadingMask/LoadingMask.view';
 import Spinner from './demos/Spinner/Spinner.view';
 import Message from './demos/Message/Message.view';
 import PageSpinner from './demos/PageSpinner/PageSpinner.view';
+import Radio from './demos/Radio/Radio.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -50,6 +51,7 @@ const App = () => (
       <Route path="/spinner" component={Spinner} />
       <Route path="/message" component={Message} />
       <Route path="/page-spinner" component={PageSpinner} />
+      <Route path="/radio" component={Radio} />
     </ShowcaseWrapper>
   </AppWrapper>
 );
