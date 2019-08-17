@@ -6,9 +6,10 @@ import { GITHUB_URL } from './Icon20.constants';
 import { ICONS } from '../../lib/Icon20/Icon20.constants';
 
 const Icon20Demo = () => {
-  const iconOpts = useMemo(() => Object.keys(ICONS).map(icon => ({ value: icon, label: icon })), [
-    ICONS,
-  ]);
+  const iconOpts = useMemo(
+    () => Object.keys(ICONS).map(icon => ({ value: icon, label: icon })),
+    [],
+  );
   const [icon, setIcon] = useState(iconOpts[0]);
   const Component = <Icon20 icon={icon.value} />;
 
