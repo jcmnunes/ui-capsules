@@ -22,13 +22,8 @@ const ToasterDemo = () => {
     <Button
       appearance={toastType2Appearance[toastType.value]}
       isDisabled={toastTitle.length === 0 && toastMessage.length === 0}
-      onClick={() =>
-        Toaster[toastType.value]({
-          title: toastTitle,
-          message: toastMessage,
-        })
-      }
       iconBefore="BELL"
+      onClick={() => Toaster[toastType.value]({ title: toastTitle, message: toastMessage })}
     >
       Give me a toast
     </Button>

@@ -19,7 +19,7 @@ export const DefaultValue = styled.span`
   }
 `;
 
-const PropsTable = ({ props }) => {
+const PropsTable = ({ props: propsArray }) => {
   return (
     <Table>
       <Table.Head>
@@ -27,7 +27,7 @@ const PropsTable = ({ props }) => {
         <Table.HeaderCell>Description</Table.HeaderCell>
       </Table.Head>
       <Table.Body>
-        {props.map(({ name, isRequired, type, defaultValue, description }) => (
+        {propsArray.map(({ name, isRequired, type, defaultValue, description }) => (
           <Table.Row key={name}>
             <Table.Cell>
               <pre>{name}</pre>
