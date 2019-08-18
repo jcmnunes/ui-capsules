@@ -99,13 +99,6 @@ export const PROPS = [
       'If set to true, the button will be disabled and it will display a loading indicator.',
   },
   {
-    name: 'onClick',
-    isRequired: false,
-    type: 'function',
-    defaultValue: 'null',
-    description: 'Function to be called when clicking the button.',
-  },
-  {
     name: 'size',
     isRequired: false,
     type: '"small" | "medium" | "large"',

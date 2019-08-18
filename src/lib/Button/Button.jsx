@@ -222,17 +222,10 @@ const Button = ({
   iconAfter,
   appearance,
   size,
-  onClick,
   children,
   handleAction,
   ...other
 }) => {
-  const handleClick = e => {
-    e.stopPropagation();
-    if (!onClick) return;
-    onClick(e);
-  };
-
   if (appearance === 'link') {
     return (
       <Anchor color={color} {...other}>
@@ -250,7 +243,6 @@ const Button = ({
       isBlock={isBlock}
       appearance={appearance}
       size={size}
-      onClick={handleClick}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       handleAction={handleAction}
@@ -284,7 +276,6 @@ Button.defaultProps = {
   type: 'button',
   isBlock: false,
   children: '',
-  onClick: null,
   handleAction: null,
   as: 'button',
   color: theme.blue600,
@@ -309,7 +300,6 @@ Button.propTypes = {
   isBlock: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
-  onClick: PropTypes.func,
   handleAction: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.string,
