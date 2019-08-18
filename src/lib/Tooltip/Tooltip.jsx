@@ -155,6 +155,7 @@ const Tooltip = ({ children, tooltip, hideArrow, ...props }) => (
     )}
   </TooltipTrigger>
 );
+Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
   hideArrow: true,
