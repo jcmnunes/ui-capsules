@@ -27,6 +27,7 @@
     "focus-visible": "^5.0.2",
     "prop-types": "^15.7.2",
     "react-copy-to-clipboard": "^5.0.1",
+    "react-popper-tooltip": "^2.8.3",
     "react-select": "^3.0.4",
     "react-toast-notifications": "^2.2.4",
     "styled-components": "^4.3.2"

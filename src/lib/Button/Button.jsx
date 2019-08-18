@@ -227,12 +227,6 @@ const Button = ({
   handleAction,
   ...other
 }) => {
-  const handleClick = e => {
-    e.stopPropagation();
-    if (!onClick) return;
-    onClick(e);
-  };
-
   if (appearance === 'link') {
     return (
       <Anchor color={color} {...other}>
@@ -250,7 +244,6 @@ const Button = ({
       isBlock={isBlock}
       appearance={appearance}
       size={size}
-      onClick={handleClick}
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       handleAction={handleAction}
