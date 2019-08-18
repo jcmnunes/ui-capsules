@@ -14,6 +14,7 @@ import Spinner from './demos/Spinner/Spinner.view';
 import Message from './demos/Message/Message.view';
 import PageSpinner from './demos/PageSpinner/PageSpinner.view';
 import Radio from './demos/Radio/Radio.view';
+import Tooltip from './demos/Tooltip/Tooltip.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -52,6 +53,7 @@ const App = () => (
       <Route path="/message" component={Message} />
       <Route path="/page-spinner" component={PageSpinner} />
       <Route path="/radio" component={Radio} />
+      <Route path="/tooltip" component={Tooltip} />
     </ShowcaseWrapper>
   </AppWrapper>
 );
