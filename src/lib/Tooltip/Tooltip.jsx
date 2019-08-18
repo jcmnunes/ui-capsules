@@ -121,7 +121,9 @@ const TooltipArrow = styled.div`
   }
 `;
 
-const Trigger = styled.span``;
+const Trigger = styled.span`
+  display: inline-block;
+`;
 
 const Tooltip = ({ children, tooltip, hideArrow, ...props }) => (
   <TooltipTrigger
