@@ -9,7 +9,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{js,jsx}",
     "format": "pretty-quick --staged",
-    "build": "rimraf dist && babel src/lib --out-dir dist --copy-files",
+    "build": "rimraf dist && babel src/lib --out-dir dist",
+    "postbuild": "babel-node tools/copyFiles.js",
     "semantic-release": "semantic-release",
     "ci": "git-cz"
   },
@@ -54,6 +55,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.4",
+    "ncp": "^2.0.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
     "react": "^16.9.0",
