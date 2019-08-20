@@ -9,8 +9,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{js,jsx}",
     "format": "pretty-quick --staged",
-    "build": "rimraf dist && babel src/lib --out-dir dist",
-    "postbuild": "babel-node tools/copyFiles.js",
+    "build": "rm -rf dist && babel src/lib --out-dir dist && cp -rf src/lib/styles dist",
     "semantic-release": "semantic-release",
     "ci": "git-cz"
   },
@@ -55,7 +54,6 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.4",
-    "ncp": "^2.0.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
     "react": "^16.9.0",
@@ -63,7 +61,6 @@
     "react-element-to-jsx-string": "^14.0.3",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.1.1",
-    "rimraf": "^3.0.0",
     "semantic-release": "^15.13.21"
   },
   "peerDependencies": {
