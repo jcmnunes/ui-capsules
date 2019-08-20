@@ -138,7 +138,7 @@ const Checkbox = ({
   onClick,
   ...other
 }) => (
-  <Label onClick={onClick} size={size} isDisabled={isDisabled} {...other}>
+  <Label onClick={onClick} size={size} isDisabled={isDisabled} data-testid="label" {...other}>
     {children}
     <StyledInput
       type="checkbox"
