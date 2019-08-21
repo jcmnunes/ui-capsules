@@ -255,13 +255,13 @@ const Button = ({
         </SpinnerWrapper>
       )}
       <Content isLoading={isLoading}>
-        {iconBefore && <Icon20 icon={iconBefore} />}
+        {iconBefore && <Icon20 icon={iconBefore} size={size} />}
         {children.length > 0 && (
           <Text iconBefore={iconBefore} iconAfter={iconAfter}>
             {children}
           </Text>
         )}
-        {iconAfter && <Icon20 icon={iconAfter} />}
+        {iconAfter && <Icon20 icon={iconAfter} size={size} />}
       </Content>
     </StyledButton>
   );

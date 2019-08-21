@@ -80,7 +80,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
             as="a"
             href={codeURL}
             target="_blank"
-            size="small"
+            size="medium"
             appearance="dropdown"
             iconBefore="CODE"
           >
