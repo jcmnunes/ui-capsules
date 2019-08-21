@@ -94,15 +94,15 @@ const getButtonColors = props => {
   return colors;
 };
 
-const getDimensions = props => {
+const getDimensions = ({ appearance, size, hasChildren }) => {
   const dimensions = {
-    height: '22px',
+    height: '24px',
     fontSize: '14px',
     padding: '0 4px',
     spinnerHeight: '16px',
   };
 
-  if (props.appearance === 'link') {
+  if (appearance === 'link') {
     return {
       ...dimensions,
       height: 'auto',
@@ -111,17 +111,17 @@ const getDimensions = props => {
     };
   }
 
-  switch (props.size) {
+  switch (size) {
     case 'medium':
       dimensions.height = '32px';
       dimensions.fontSize = '16px';
-      dimensions.padding = '4px 6px';
+      dimensions.padding = hasChildren > 0 ? '4px 8px' : '4px 6px';
       dimensions.spinnerHeight = '18px';
       break;
     case 'large':
       dimensions.height = '48px';
       dimensions.fontSize = '18px';
-      dimensions.padding = '12px 16px';
+      dimensions.padding = '12px';
       dimensions.spinnerHeight = '24px';
       break;
     default:
@@ -246,6 +246,7 @@ const Button = ({
       iconBefore={iconBefore}
       iconAfter={iconAfter}
       handleAction={handleAction}
+      hasChildren={children.length > 0}
       {...other}
     >
       {isLoading && (
@@ -268,6 +269,7 @@ const Button = ({
 Button.displayName = 'Button';
 
 Button.defaultProps = {
+  appearance: 'secondary',
   isLoading: false,
   isDisabled: false,
   iconBefore: null,
@@ -291,7 +293,7 @@ Button.propTypes = {
     'success',
     'warning',
     'minimal',
-  ]).isRequired,
+  ]),
   as: PropTypes.oneOf(['a', 'button']),
   children: PropTypes.node,
   color: PropTypes.string,
