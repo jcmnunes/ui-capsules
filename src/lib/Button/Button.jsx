@@ -181,7 +181,7 @@ const StyledButton = styled.span`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 4px ${theme.blue100}};
+    box-shadow: 0 0 0 2px ${theme.blue100}};
   }
 
   &:hover {

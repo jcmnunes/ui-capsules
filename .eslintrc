@@ -8,7 +8,8 @@
     "no-underscore-dangle": 0,
     "react/jsx-one-expression-per-line": 0,
     "import/no-extraneous-dependencies": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "react/state-in-constructor": 0
   },
   "settings": {
     "import/resolver": {
