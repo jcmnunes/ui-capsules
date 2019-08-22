@@ -16,3 +16,4 @@ export { default as Spinner } from './Spinner/Spinner';
 export { default as Table } from './Table/Table';
 export { default as Toaster } from './Toaster/Toaster';
 export { default as Tooltip } from './Tooltip/Tooltip';
+export { default as EditableInput } from './EditableInput/EditableInput';

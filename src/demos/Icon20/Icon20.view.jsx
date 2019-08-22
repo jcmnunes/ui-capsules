@@ -37,7 +37,7 @@ const ButtonDemo = () => {
         {Object.keys(ICONS)
           .sort()
           .map((icon, index) => (
-            <IconCard label={icon} isLastInRow={(index + 1) % 5 === 0}>
+            <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 5 === 0}>
               <Icon20 icon={icon} />
             </IconCard>
           ))}

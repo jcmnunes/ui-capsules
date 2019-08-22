@@ -23,6 +23,7 @@ const Sidebar = () => (
       <SidebarLink to="/page-spinner">PageSpinner</SidebarLink>
       <SidebarLink to="/radio">Radio</SidebarLink>
       <SidebarLink to="/tooltip">Tooltip</SidebarLink>
+      <SidebarLink to="/editable-input">Editable Input</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );

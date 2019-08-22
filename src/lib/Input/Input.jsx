@@ -8,7 +8,7 @@ const dimensions = {
     fontSize: '14px',
     helperFontSize: '12px',
     height: '24px',
-    padding: '4px',
+    padding: '2px 4px',
   },
   medium: {
     fontSize: '16px',
