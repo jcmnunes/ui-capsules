@@ -15,6 +15,7 @@ import Message from './demos/Message/Message.view';
 import PageSpinner from './demos/PageSpinner/PageSpinner.view';
 import Radio from './demos/Radio/Radio.view';
 import Tooltip from './demos/Tooltip/Tooltip.view';
+import EditableInput from './demos/EditableInput/EditableInput.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -54,6 +55,7 @@ const App = () => (
       <Route path="/page-spinner" component={PageSpinner} />
       <Route path="/radio" component={Radio} />
       <Route path="/tooltip" component={Tooltip} />
+      <Route path="/editable-input" component={EditableInput} />
     </ShowcaseWrapper>
   </AppWrapper>
 );
