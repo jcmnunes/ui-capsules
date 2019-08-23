@@ -43,7 +43,7 @@ const StyledInput = styled.input`
   width: 100%;
 
   &::placeholder {
-    color: ${props => theme.neutral200};
+    color: ${theme.neutral200};
   }
 
   &:hover {
@@ -52,7 +52,8 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${props => (props.error ? theme.red100 : theme.blue100)};
+    box-shadow: 0 0 0 3px ${props => (props.error ? theme.red100 : theme.blue100)};
+    border: 1px solid ${props => (props.error ? theme.red400 : theme.blue400)};
   }
 
   &:disabled {

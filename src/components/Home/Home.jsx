@@ -36,7 +36,7 @@ const Home = () => (
         target="_blank"
         size="medium"
         appearance="dropdown"
-        iconBefore="CODE"
+        iconBefore="GITHUB"
       >
         View source on GitHub
       </Button>

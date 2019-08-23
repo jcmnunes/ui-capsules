@@ -25,9 +25,9 @@ const dimensions = {
 const customStyles = size => ({
   control: (provided, state) => ({
     ...provided,
-    boxShadow: state.isFocused ? `0 0 0 2px ${theme.blue100}` : 'none',
+    boxShadow: state.isFocused ? `0 0 0 3px ${theme.blue100}` : 'none',
     cursor: state.isDisabled ? 'not-allowed' : 'pointer',
-    border: `1px solid ${theme.neutral200}`,
+    border: state.isFocused ? `1px solid ${theme.blue400}` : `1px solid ${theme.neutral200}`,
     ':hover': {
       border: `1px solid ${theme.neutral300}`,
     },

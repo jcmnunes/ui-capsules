@@ -20,16 +20,6 @@ export const SIZE_OPTS = [
 
 export const AS_OPTS = [{ value: 'button', label: 'button' }, { value: 'a', label: 'a' }];
 
-export const ICON_OPTS = [
-  { value: null, label: 'none' },
-  { value: 'AREA_GRAPH', label: 'AREA_GRAPH' },
-  { value: 'BAR_GRAPH', label: 'BAR_GRAPH' },
-  { value: 'PLUS', label: 'PLUS' },
-  { value: 'CODE', label: 'CODE' },
-  { value: 'COPY', label: 'COPY' },
-  { value: 'CLOSE', label: 'CLOSE' },
-];
-
 export const PROPS = [
   {
     name: 'appearance',
