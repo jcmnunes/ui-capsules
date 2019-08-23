@@ -24,6 +24,7 @@ const Sidebar = () => (
       <SidebarLink to="/radio">Radio</SidebarLink>
       <SidebarLink to="/tooltip">Tooltip</SidebarLink>
       <SidebarLink to="/editable-input">Editable Input</SidebarLink>
+      <SidebarLink to="/modal">Modal</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );

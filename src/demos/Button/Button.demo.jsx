@@ -3,9 +3,12 @@ import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/D
 import Button from '../../lib/Button/Button';
 import Select from '../../lib/Select/Select';
 import Input from '../../lib/Input/Input';
-import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL, ICON_OPTS } from './Button.constants';
+import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL } from './Button.constants';
+import { useIconOpts } from '../Icon20/Icon20.hooks';
 
 const ButtonDemo = () => {
+  const iconOpts = [{ value: null, label: 'none' }, ...useIconOpts()];
+
   const [isLoading, setIsLoading] = useState(false);
   const [isBlock, setIsBlock] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -13,8 +16,8 @@ const ButtonDemo = () => {
   const [appearance, setAppearance] = useState(APPEARANCE_OPTS[1]);
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [as, setAs] = useState(AS_OPTS[0]);
-  const [iconBefore, setIconBefore] = useState(ICON_OPTS[0]);
-  const [iconAfter, setIconAfter] = useState(ICON_OPTS[0]);
+  const [iconBefore, setIconBefore] = useState(iconOpts[0]);
+  const [iconAfter, setIconAfter] = useState(iconOpts[0]);
 
   const Component = (
     <Button
@@ -87,7 +90,7 @@ const ButtonDemo = () => {
           <pre>iconBefore</pre>
           <Select
             value={iconBefore}
-            options={ICON_OPTS}
+            options={iconOpts}
             onChange={opt => setIconBefore(opt)}
             isDisabled={appearance.value === 'link'}
           />
@@ -96,7 +99,7 @@ const ButtonDemo = () => {
           <pre>iconAfter</pre>
           <Select
             value={iconAfter}
-            options={ICON_OPTS}
+            options={iconOpts}
             onChange={opt => setIconAfter(opt)}
             isDisabled={appearance.value === 'link'}
           />

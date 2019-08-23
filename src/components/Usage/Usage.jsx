@@ -5,7 +5,11 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from '../../lib/Button/Button';
 import Toaster from '../../lib/Toaster/Toaster';
 
-export const StyledUsage = styled.div`
+const Wrapper = styled.div`
+  margin: 24px 0;
+`;
+
+const StyledUsage = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -21,9 +25,9 @@ const Code = styled.pre`
   overflow-x: auto;
 `;
 
-export const Actions = styled.div`
+const Actions = styled.div`
   margin-top: 4px;
-  padding: 0 8px;
+  padding: 0 8px 0;
   color: ${props => props.theme.neutral400};
 
   &:hover {
@@ -33,7 +37,7 @@ export const Actions = styled.div`
 
 const Usage = ({ children }) => {
   return (
-    <>
+    <Wrapper>
       <StyledUsage>
         <Code>
           <code>{children}</code>
@@ -56,7 +60,7 @@ const Usage = ({ children }) => {
           </Button>
         </CopyToClipboard>
       </Actions>
-    </>
+    </Wrapper>
   );
 };
 
