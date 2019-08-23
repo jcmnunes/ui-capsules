@@ -24,8 +24,8 @@ const getButtonColors = props => {
       break;
     case 'secondary': {
       colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
-      colors.gradient.top = theme.neutral100;
-      colors.gradient.topHover = '#D7DBE0';
+      colors.gradient.top = theme.neutral050;
+      colors.gradient.topHover = '#E2E7EC';
       colors.gradient.bottom = theme.neutral100;
       colors.gradient.bottomHover = '#D7DBE0';
       colors.active = theme.neutral200;
@@ -84,7 +84,7 @@ const getButtonColors = props => {
       colors.gradient.bottomHover = 'none';
       colors.active = 'none';
       colors.disabled = 'none';
-      colors.text = props.color;
+      colors.text = theme.blue600;
       break;
     default:
       throw new Error(
@@ -156,6 +156,7 @@ const StyledButton = styled.span`
   color: ${props => getButtonColors(props).text};
   border-radius: 4px;
   border: none;
+  border: ${props => (props.appearance === 'secondary' ? '1px solid #C0C2C6' : 'none')};
   font-size: ${props => getDimensions(props).fontSize};
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   padding: ${props => getDimensions(props).padding};
@@ -179,11 +180,6 @@ const StyledButton = styled.span`
     color: ${theme.neutral300};
   }
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px ${theme.blue100}};
-  }
-
   &:hover {
     background: ${props => `linear-gradient(to bottom,
       ${getButtonColors(props).gradient.topHover},
@@ -203,7 +199,7 @@ const StyledButton = styled.span`
 `;
 
 const Anchor = styled.a`
-  color: ${props => props.color};
+  color: ${theme.blue600};
   cursor: pointer;
 
   &:hover {
@@ -213,7 +209,6 @@ const Anchor = styled.a`
 
 const Button = ({
   as,
-  color,
   type,
   isLoading,
   isBlock,
@@ -228,7 +223,7 @@ const Button = ({
 }) => {
   if (appearance === 'link') {
     return (
-      <Anchor color={color} {...other}>
+      <Anchor target="_blank" rel="noreferrer noopener" {...other}>
         {children}
       </Anchor>
     );
@@ -237,7 +232,6 @@ const Button = ({
   return (
     <StyledButton
       as={as}
-      color={color}
       disabled={isDisabled || isLoading}
       isLoading={isLoading}
       isBlock={isBlock}
@@ -247,6 +241,8 @@ const Button = ({
       iconAfter={iconAfter}
       handleAction={handleAction}
       hasChildren={children.length > 0}
+      target={as === 'a' ? '_blank' : undefined}
+      rel={as === 'a' ? 'noreferrer noopener' : undefined}
       {...other}
     >
       {isLoading && (
@@ -280,7 +276,6 @@ Button.defaultProps = {
   children: '',
   handleAction: null,
   as: 'button',
-  color: theme.blue600,
 };
 
 Button.propTypes = {
@@ -296,7 +291,6 @@ Button.propTypes = {
   ]),
   as: PropTypes.oneOf(['a', 'button']),
   children: PropTypes.node,
-  color: PropTypes.string,
   iconAfter: PropTypes.string,
   iconBefore: PropTypes.string,
   isBlock: PropTypes.bool,

@@ -215,7 +215,12 @@ button::-moz-focus-inner {
 
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
-  box-shadow: none;
+}
+
+:focus {
+  outline: 2px auto #4098d7;
+  outline-offset: 2px;
+  z-index: 2;
 }
 
 pre,
@@ -223,4 +228,8 @@ code {
   font-family: Hack, monospace;
   font-size: 14px;
   font-weight: 400;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
 }

@@ -82,7 +82,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
             target="_blank"
             size="medium"
             appearance="dropdown"
-            iconBefore="CODE"
+            iconBefore="GITHUB"
           >
             View source on GitHub
           </Button>

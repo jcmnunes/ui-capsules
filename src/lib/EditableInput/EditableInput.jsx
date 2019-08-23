@@ -134,7 +134,7 @@ class EditableInput extends Component {
               autoFocus
             />
             <StyledButton size={size} appearance="primary" iconBefore="CHECK" />
-            <StyledButton size={size} appearance="secondary" iconBefore="CLOSE" />
+            <StyledButton size={size} appearance="secondary" iconBefore="CROSS" />
           </>
         ) : (
           <Value size={size} canEdit={!isDisabled} onClick={this.startEditing}>

@@ -6,6 +6,7 @@
     "start": "react-scripts start",
     "build:app": "react-scripts build",
     "test": "react-scripts test",
+    "test:nowatch": "CI=true npm run test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{js,jsx}",
     "format": "pretty-quick --staged",
@@ -15,7 +16,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format && npm run lint"
+      "pre-commit": "npm run format && npm run lint && npm run test:nowatch"
     }
   },
   "files": [
@@ -28,6 +29,7 @@
     "jest-styled-components": "^6.3.3",
     "prop-types": "^15.7.2",
     "react-copy-to-clipboard": "^5.0.1",
+    "react-modal": "^3.10.1",
     "react-popper-tooltip": "^2.8.3",
     "react-select": "^3.0.4",
     "react-toast-notifications": "^2.2.4",
