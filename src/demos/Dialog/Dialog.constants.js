@@ -1,12 +1,19 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Modal/Modal.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Dialog/Dialog.jsx';
 
 export const PROPS = [
   {
     name: 'isOpen',
     isRequired: true,
     type: 'boolean',
-    description: 'The open state of the modal.',
+    description: 'The open state of the dialog.',
+  },
+  {
+    name: 'actions',
+    isRequired: true,
+    type: 'array',
+    description:
+      'An array of objects. Each object represents an action in the Dialog footer (see example above).',
   },
   {
     name: 'contentLabel',
@@ -23,11 +30,10 @@ export const PROPS = [
       'Function that will be run when the modal is requested to be closed (either by clicking on overlay or pressing ESC). Note: It is not called if isOpen is changed by other means.',
   },
   {
-    name: 'width',
-    isRequired: false,
+    name: 'children',
+    isRequired: true,
     type: 'string',
-    defaultValue: '"640px"',
-    description: 'The width of the modal window.',
+    description: 'The message that is displayed inside the dialog.',
   },
 ];
 
