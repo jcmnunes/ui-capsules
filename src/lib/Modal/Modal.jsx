@@ -11,7 +11,8 @@ const StyledModal = styled(ReactModal)`
   left: 16px;
   right: 16px;
   bottom: auto;
-  transform: translate(0, -50%);
+  transform: translate(0, -50%) scale(0.5);
+  transition: transform 200ms ease;
   background: #fff;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -23,6 +24,10 @@ const StyledModal = styled(ReactModal)`
   border-style: solid;
   border-color: ${theme.neutral200};
   border-image: initial;
+
+  &.ReactModal__Content--after-open {
+    transform: translate(0, -50%) scale(1);
+  }
 
   @media (min-width: ${theme.bp_mobile}) {
     left: 40px;
@@ -36,7 +41,11 @@ const StyledModal = styled(ReactModal)`
     bottom: auto;
     margin-right: -50%;
     width: ${props => props.width || '640px'};
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.5);
+
+    &.ReactModal__Content--after-open {
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 `;
 
@@ -76,6 +85,7 @@ const Modal = ({ isOpen, onRequestClose, contentLabel, width, children, ...other
     onRequestClose={onRequestClose}
     contentLabel={contentLabel}
     width={width}
+    closeTimeoutMS={200}
     {...other}
   >
     <ModalHeader>

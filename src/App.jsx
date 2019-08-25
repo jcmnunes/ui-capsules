@@ -17,6 +17,7 @@ import Radio from './demos/Radio/Radio.view';
 import Tooltip from './demos/Tooltip/Tooltip.view';
 import EditableInput from './demos/EditableInput/EditableInput.view';
 import Modal from './demos/Modal/Modal.view';
+import Dialog from './demos/Dialog/Dialog.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -58,6 +59,7 @@ const App = () => (
       <Route path="/tooltip" component={Tooltip} />
       <Route path="/editable-input" component={EditableInput} />
       <Route path="/modal" component={Modal} />
+      <Route path="/dialog" component={Dialog} />
     </ShowcaseWrapper>
   </AppWrapper>
 );
