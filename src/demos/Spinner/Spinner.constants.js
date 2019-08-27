@@ -13,7 +13,7 @@ export const APPEARANCE_OPTS = [
   { value: 'success', label: 'success' },
   { value: 'warning', label: 'warning' },
   { value: 'error', label: 'error' },
-  { value: 'dropdown', label: 'dropdown' },
+  { value: 'minimal', label: 'minimal' },
 ];
 
 export const PROPS = [
@@ -27,7 +27,7 @@ export const PROPS = [
   {
     name: 'appearance',
     isRequired: false,
-    type: '"primary" | "secondary" | "success" | "warning" | "error" | "dropdown"',
+    type: '"primary" | "secondary" | "success" | "warning" | "error" | "minimal"',
     defaultValue: 'secondary',
     description: 'Changes the appearance of the spinner.',
   },

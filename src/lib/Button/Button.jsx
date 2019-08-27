@@ -59,7 +59,7 @@ const getButtonColors = props => {
       colors.active = theme.green700;
       colors.disabled = '#AFE1D5';
       break;
-    case 'dropdown':
+    case 'minimal':
       colors.text = props.disabled ? '#CAD2D9' : theme.neutral600;
       colors.gradient.top = 'none';
       colors.gradient.topHover = theme.neutral075;
@@ -68,7 +68,7 @@ const getButtonColors = props => {
       colors.active = theme.neutral100;
       colors.disabled = 'none';
       break;
-    case 'minimal':
+    case 'none':
       colors.text = 'inherit';
       colors.gradient.top = 'none';
       colors.gradient.topHover = 'none';
@@ -88,7 +88,7 @@ const getButtonColors = props => {
       break;
     default:
       throw new Error(
-        `The appearance value "${props.appearance}" is not allowed. It must be one of: 'primary', 'secondary', 'success', 'warning', 'error', 'dropdown', 'link',`,
+        `The appearance value "${props.appearance}" is not allowed. It must be one of: 'primary', 'secondary', 'success', 'warning', 'error', 'minimal', 'link' or 'none'`,
       );
   }
   return colors;
@@ -163,7 +163,7 @@ const StyledButton = styled.span`
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  justify-content: ${props => (props.appearance === 'dropdown' ? 'flex-start' : 'center')};
+  justify-content: ${props => (props.appearance === 'minimal' ? 'flex-start' : 'center')};
   width: ${props => (props.isBlock ? '100%' : 'auto')};
   background: ${props =>
     props.highlighted
@@ -280,14 +280,14 @@ Button.defaultProps = {
 
 Button.propTypes = {
   appearance: PropTypes.oneOf([
-    'dropdown',
+    'minimal',
     'error',
     'link',
     'primary',
     'secondary',
     'success',
     'warning',
-    'minimal',
+    'none',
   ]),
   as: PropTypes.oneOf(['a', 'button']),
   children: PropTypes.node,
