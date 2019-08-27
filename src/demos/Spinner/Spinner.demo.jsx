@@ -14,7 +14,7 @@ const SpinnerDemo = () => {
     <Demo
       codeURL={GITHUB_URL}
       component={Component}
-      isDark={appearance.value !== 'secondary' && appearance.value !== 'dropdown'}
+      isDark={appearance.value !== 'secondary' && appearance.value !== 'minimal'}
     >
       <>
         <StyledSelect>

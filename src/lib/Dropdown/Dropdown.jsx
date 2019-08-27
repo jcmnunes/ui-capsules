@@ -43,7 +43,7 @@ export const DropdownItem = ({
 }) => (
   <Button
     isBlock
-    appearance="dropdown"
+    appearance="minimal"
     iconBefore={iconBefore}
     iconAfter={iconAfter}
     handleAction={handleAction}

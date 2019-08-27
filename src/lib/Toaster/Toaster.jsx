@@ -120,7 +120,7 @@ export const Toast = ({
       {title && <Title>{title}</Title>}
       {message && <Message>{message}</Message>}
       <StyledButton
-        appearance="minimal"
+        appearance="none"
         isSuccess={appearance === 'success'}
         size="small"
         onClick={onDismiss}
