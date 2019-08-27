@@ -55,7 +55,7 @@ const Usage = ({ children }) => {
             }
           }}
         >
-          <Button size="small" appearance="dropdown" iconBefore="COPY">
+          <Button size="small" appearance="minimal" iconBefore="COPY">
             Copy to clipboard
           </Button>
         </CopyToClipboard>

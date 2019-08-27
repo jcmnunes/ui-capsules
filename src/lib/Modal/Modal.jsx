@@ -89,7 +89,7 @@ const Modal = ({ isOpen, onRequestClose, contentLabel, width, children, ...other
     {...other}
   >
     <ModalHeader>
-      <Button appearance="minimal" size="medium" iconBefore="CLOSE" onClick={onRequestClose} />
+      <Button appearance="none" size="medium" iconBefore="CLOSE" onClick={onRequestClose} />
     </ModalHeader>
     {children}
   </StyledModal>

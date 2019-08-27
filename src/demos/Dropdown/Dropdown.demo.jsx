@@ -10,7 +10,7 @@ const DropdownDemo = () => {
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
 
   const Trigger = (
-    <Button appearance="dropdown" iconAfter="CHEVRON_DOWN">
+    <Button appearance="minimal" iconAfter="CHEVRON_DOWN">
       Open dropdown
     </Button>
   );

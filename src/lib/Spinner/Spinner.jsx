@@ -58,7 +58,7 @@ Spinner.propTypes = {
     'error',
     'secondary',
     'neutral',
-    'dropdown',
+    'minimal',
   ]),
 };
 

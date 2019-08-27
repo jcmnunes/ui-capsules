@@ -7,9 +7,9 @@ export const APPEARANCE_OPTS = [
   { value: 'success', label: 'success' },
   { value: 'warning', label: 'warning' },
   { value: 'error', label: 'error' },
-  { value: 'dropdown', label: 'dropdown' },
-  { value: 'link', label: 'link' },
   { value: 'minimal', label: 'minimal' },
+  { value: 'link', label: 'link' },
+  { value: 'none', label: 'none' },
 ];
 
 export const SIZE_OPTS = [
@@ -24,33 +24,22 @@ export const PROPS = [
   {
     name: 'appearance',
     isRequired: true,
-    type:
-      '"primary" | "secondary" | "success" | "warning" | "error" | "dropdown" | "link" | "minimal"',
-    description:
-      'Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
+    type: '"primary" | "secondary" | "success" | "warning" | "error" | "minimal" | "link" | "none"',
+    description: 'Controls the overall look and feel of the button.',
   },
   {
     name: 'as',
     isRequired: false,
     type: '"a" | "button"',
     defaultValue: '"button"',
-    description:
-      'Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
+    description: 'Controls which tag gets rendered (button or a).',
   },
   {
     name: 'children',
     isRequired: false,
     type: 'string',
     defaultValue: '""',
-    description:
-      'Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.',
-  },
-  {
-    name: 'color',
-    isRequired: false,
-    type: 'string',
-    defaultValue: 'theme.blue400',
-    description: 'Use this prop to give links a different color.',
+    description: 'The text of the button.',
   },
   {
     name: 'iconAfter',

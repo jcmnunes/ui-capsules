@@ -35,7 +35,7 @@ const Home = () => (
         href="https://github.com/jcmnunes/ui-capsules"
         target="_blank"
         size="medium"
-        appearance="dropdown"
+        appearance="minimal"
         iconBefore="GITHUB"
       >
         View source on GitHub
