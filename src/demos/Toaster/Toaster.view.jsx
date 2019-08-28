@@ -12,7 +12,7 @@ ReactDOM.render(
   <WithToasts>
     <App />
   </WithToasts>,
-document.getElementById('root'),
+  document.getElementById('root'),
 );
 
 // Launch toasts everywhere else in your app by using
