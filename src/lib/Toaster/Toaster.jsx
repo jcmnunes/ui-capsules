@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ToastProvider, withToastManager } from 'react-toast-notifications';
 import theme from '../theme';
 import Button from '../Button/Button';
+import Icon20 from '../Icon20/Icon20';
 
 function getTranslate(placement) {
   const pos = placement.split('-');
@@ -26,41 +27,47 @@ const transitionStates = placement => ({
 });
 
 const colors = {
-  info: {
-    border: `1px solid ${theme.blue800}`,
-    'background-color': theme.blue100,
-    color: theme.blue800,
+  error: {
+    background: theme.red500,
+    border: theme.red500,
+    ring: theme.red100,
+    ringBorder: theme.red500,
+    text: '#fff',
+    accentBorder: theme.red500,
+    icon: theme.red500,
   },
   success: {
-    border: `1px solid ${theme.green600}`,
-    'background-color': theme.green500,
-    color: '#fff',
+    background: theme.green500,
+    border: theme.green500,
+    ring: theme.green100,
+    ringBorder: theme.green500,
+    text: '#fff',
+    accentBorder: theme.green500,
+    icon: theme.green500,
   },
   warning: {
-    border: `1px solid ${theme.yellow800}`,
-    'background-color': theme.yellow100,
-    color: theme.yellow800,
+    background: theme.yellow100,
+    border: theme.yellow300,
+    ring: theme.yellow500,
+    ringBorder: theme.yellow500,
+    text: theme.yellow700,
+    accentBorder: theme.yellow500,
   },
-  error: {
-    border: `1px solid ${theme.red800}`,
-    'background-color': theme.red100,
-    color: theme.red800,
+  info: {
+    background: theme.blue100,
+    border: theme.blue300,
+    ring: theme.blue300,
+    ringBorder: theme.blue300,
+    text: theme.blue700,
+    accentBorder: theme.blue300,
   },
 };
 
-const titleColors = {
-  info: {
-    color: theme.blue800,
-  },
-  success: {
-    color: '#fff',
-  },
-  warning: {
-    color: theme.yellow800,
-  },
-  error: {
-    color: theme.red800,
-  },
+const icons = {
+  info: 'INFO',
+  success: 'CHECK',
+  warning: 'EXCLAMATION',
+  error: 'EXCLAMATION',
 };
 
 const StyledToast = styled.div`
@@ -69,7 +76,7 @@ const StyledToast = styled.div`
   margin-bottom: 8px;
   min-width: 288px;
   max-width: 568px;
-  padding: 14px;
+  padding: 14px 24px 14px 14px;
   pointer-events: initial;
   transition-property: transform;
   transition-duration: ${props => props.transitionDuration}ms;
@@ -78,26 +85,77 @@ const StyledToast = styled.div`
   z-index: 2;
   transition: transform ${props => props.transitionDuration}ms cubic-bezier(0.2, 0, 0, 1),
     opacity ${props => props.transitionDuration}ms;
-  ${props => ({ ...colors[props.appearance] })};
+  background: ${props => colors[props.appearance].background};
+  border: 1px solid ${props => colors[props.appearance].border};
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  color: ${props => colors[props.appearance].text};
   ${props => ({ ...transitionStates(props.placement)[props.transitionState] })};
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    background: ${props => colors[props.appearance].accentBorder};
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
 `;
 
 const StyledButton = styled(Button)`
   position: absolute;
   top: 4px;
   right: 4px;
-  color: ${({ isSuccess }) => (isSuccess ? theme.green700 : 'inherit')};
+  color: inherit;
+`;
+
+const Icon = styled.div`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: ${props => colors[props.appearance].ring};
+  position: relative;
+  margin: 0 10px 0 6px;
+
+  &::after {
+    content: '';
+    background: white;
+    border: 1px solid ${props => colors[props.appearance].ringBorder};
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: ${props => colors[props.appearance].icon};
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h4`
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 4px;
-  ${props => ({ ...titleColors[props.appearance] })};
+  color: ${props => colors[props.appearance].text};
 `;
 
 const Message = styled.p`
   font-size: 16px;
+  color: ${props => colors[props.appearance].text};
 `;
 
 export const Toast = ({
@@ -117,8 +175,13 @@ export const Toast = ({
       transitionState={transitionState}
       placement={placement}
     >
-      {title && <Title>{title}</Title>}
-      {message && <Message>{message}</Message>}
+      <Icon appearance={appearance}>
+        <Icon20 icon={icons[appearance]} />
+      </Icon>
+      <Wrapper>
+        {title && <Title appearance={appearance}>{title}</Title>}
+        {message && <Message appearance={appearance}>{message}</Message>}
+      </Wrapper>
       <StyledButton
         appearance="none"
         isSuccess={appearance === 'success'}
