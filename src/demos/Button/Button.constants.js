@@ -23,8 +23,9 @@ export const AS_OPTS = [{ value: 'button', label: 'button' }, { value: 'a', labe
 export const PROPS = [
   {
     name: 'appearance',
-    isRequired: true,
+    isRequired: false,
     type: '"primary" | "secondary" | "success" | "warning" | "error" | "minimal" | "link" | "none"',
+    defaultValue: '"secondary"',
     description: 'Controls the overall look and feel of the button.',
   },
   {
