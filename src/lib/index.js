@@ -18,3 +18,4 @@ export { default as Toaster } from './Toaster/Toaster';
 export { default as Tooltip } from './Tooltip/Tooltip';
 export { default as EditableInput } from './EditableInput/EditableInput';
 export { default as Modal, ModalTitle, ModalBody, ModalFooter } from './Modal/Modal';
+export { default as Anchor } from './Anchor/Anchor';

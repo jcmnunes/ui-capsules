@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build:app": "react-scripts build",
+    "build:app": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
     "test": "react-scripts test",
     "test:nowatch": "CI=true npm run test",
     "eject": "react-scripts eject",

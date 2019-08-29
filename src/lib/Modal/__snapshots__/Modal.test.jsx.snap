@@ -77,12 +77,9 @@ exports[`should render with no errors 1`] = `
   left: 16px;
   right: 16px;
   bottom: auto;
-  -webkit-transform: translate(0,-50%) scale(0.5);
-  -ms-transform: translate(0,-50%) scale(0.5);
-  transform: translate(0,-50%) scale(0.5);
-  -webkit-transition: -webkit-transform 200ms ease;
-  -webkit-transition: transform 200ms ease;
-  transition: transform 200ms ease;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
   background: #fff;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -94,12 +91,6 @@ exports[`should render with no errors 1`] = `
   border-style: solid;
   border-color: #CBD2D8;
   border-image: initial;
-}
-
-.c0.ReactModal__Content--after-open {
-  -webkit-transform: translate(0,-50%) scale(1);
-  -ms-transform: translate(0,-50%) scale(1);
-  transform: translate(0,-50%) scale(1);
 }
 
 .c1 {
@@ -161,15 +152,9 @@ exports[`should render with no errors 1`] = `
     bottom: auto;
     margin-right: -50%;
     width: 640px;
-    -webkit-transform: translate(-50%,-50%) scale(0.5);
-    -ms-transform: translate(-50%,-50%) scale(0.5);
-    transform: translate(-50%,-50%) scale(0.5);
-  }
-
-  .c0.ReactModal__Content--after-open {
-    -webkit-transform: translate(-50%,-50%) scale(1);
-    -ms-transform: translate(-50%,-50%) scale(1);
-    transform: translate(-50%,-50%) scale(1);
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
   }
 }
 
