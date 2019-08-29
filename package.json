@@ -12,7 +12,7 @@
     "format": "pretty-quick --staged",
     "build": "rm -rf dist && babel src/lib --out-dir dist && cp -rf src/lib/styles dist",
     "semantic-release": "semantic-release",
-    "ci": "git-cz"
+    "commit": "git-cz"
   },
   "husky": {
     "hooks": {
