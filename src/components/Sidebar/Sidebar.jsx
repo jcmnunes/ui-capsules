@@ -26,6 +26,7 @@ const Sidebar = () => (
       <SidebarLink to="/editable-input">Editable Input</SidebarLink>
       <SidebarLink to="/modal">Modal</SidebarLink>
       <SidebarLink to="/dialog">Dialog</SidebarLink>
+      <SidebarLink to="/anchor">Anchor</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );
