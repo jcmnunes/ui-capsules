@@ -9,6 +9,7 @@ const Anchor = ({ href, children, ...other }) => {
     </Button>
   );
 };
+Anchor.displayName = 'Anchor';
 
 Anchor.propTypes = {
   href: PropTypes.string.isRequired,
