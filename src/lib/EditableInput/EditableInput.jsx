@@ -51,7 +51,7 @@ const Value = styled.button`
     background-color: ${({ canEdit }) => (canEdit ? theme.neutral075 : 'initial')};
   }
 
-  :focus {
+  &:focus {
     outline: none;
     box-shadow: 0 0 0 2px ${theme.blue100}};
   }
@@ -137,7 +137,12 @@ class EditableInput extends Component {
             <StyledButton size={size} appearance="secondary" iconBefore="CROSS" />
           </>
         ) : (
-          <Value size={size} canEdit={!isDisabled} onClick={this.startEditing}>
+          <Value
+            as={isDisabled ? 'span' : 'button'}
+            size={size}
+            canEdit={!isDisabled}
+            onClick={this.startEditing}
+          >
             {value}
           </Value>
         )}
