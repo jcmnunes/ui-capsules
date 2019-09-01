@@ -6,7 +6,9 @@
   "files": [
     "commonjs",
     "esm",
-    "README.md"
+    "assets",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "start": "react-scripts start",
