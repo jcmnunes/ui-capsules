@@ -13,6 +13,7 @@
 /dist
 /commonjs
 /esm
+/assets
 
 # misc
 .DS_Store

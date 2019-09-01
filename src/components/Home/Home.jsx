@@ -51,7 +51,7 @@ const Home = () => (
         UI-Capsules sets some global styles and does a CSS reset. In order for the components to
         work correctly in your app import the global CSS file at the entry point.
       </StyledParagraph>
-      <Usage>import &apos;@binarycapsule/ui-capsules/dist/styles/global.css&apos;;</Usage>
+      <Usage>import &apos;@binarycapsule/ui-capsules/assets/global.css&apos;;</Usage>
       <StyledParagraph>To improve A11y, import the focus-visible polyfill as well:</StyledParagraph>
       <Usage>import &apos;focus-visible/dist/focus-visible&apos;;</Usage>
     </div>
