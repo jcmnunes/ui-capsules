@@ -154,7 +154,7 @@ const StyledButton = styled.span`
   position: relative;
   height: ${props => getDimensions(props).height};
   color: ${props => getButtonColors(props).text};
-  border-radius: 4px;
+  border-radius: ${props => (props.appearance === 'link' ? 0 : '4px')};
   border: none;
   border: ${props => (props.appearance === 'secondary' ? '1px solid #C0C2C6' : 'none')};
   font-size: ${props => getDimensions(props).fontSize};
@@ -185,7 +185,7 @@ const StyledButton = styled.span`
       ${getButtonColors(props).gradient.topHover},
       ${getButtonColors(props).gradient.bottomHover}
     )`};
-    text-decoration: ${props => (props.appearance === 'link' ? 'underline' : 'none')};
+    box-shadow: ${props => props.appearance === 'link' && 'inset 0 -2px 0 0'};
   }
 
   &:active {
@@ -203,7 +203,7 @@ const Anchor = styled.a`
   cursor: pointer;
 
   &:hover {
-    box-shadow: inset 0 -2px 0 0 ${props => props.color};
+    box-shadow: inset 0 -2px 0 0;
   }
 `;
 
@@ -221,9 +221,9 @@ const Button = ({
   handleAction,
   ...other
 }) => {
-  if (appearance === 'link') {
+  if (appearance === 'link' && as === 'a') {
     return (
-      <Anchor target="_blank" rel="noreferrer noopener" {...other}>
+      <Anchor as={as} target="_blank" rel="noreferrer noopener" {...other}>
         {children}
       </Anchor>
     );

@@ -58,8 +58,6 @@ exports[`should render with no errors 1`] = `
 
 .c2:hover {
   background: linear-gradient(to bottom, none, none );
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .c2:active {

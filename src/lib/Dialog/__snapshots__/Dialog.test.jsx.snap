@@ -64,8 +64,6 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 
 .c3:hover {
   background: linear-gradient(to bottom, none, none );
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .c3:active {
@@ -122,8 +120,6 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 
 .c8:hover {
   background: linear-gradient(to bottom, #E2E7EC, #D7DBE0 );
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .c8:active {
@@ -180,8 +176,6 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 
 .c10:hover {
   background: linear-gradient(to bottom, #CF1124, #AB091E );
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .c10:active {
