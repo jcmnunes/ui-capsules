@@ -11,6 +11,8 @@
 # production
 /build
 /dist
+/commonjs
+/esm
 
 # misc
 .DS_Store
