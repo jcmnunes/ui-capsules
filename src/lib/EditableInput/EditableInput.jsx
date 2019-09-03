@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Input from '../Input/Input';
@@ -27,6 +27,7 @@ const StyledEditableInput = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
+  position: relative;
 `;
 
 const Value = styled.button`
@@ -70,97 +71,146 @@ const StyledButton = styled(Button)`
   }
 `;
 
-class EditableInput extends Component {
-  state = {
-    internalValue: this.props.value,
-    editing: false,
-    prevValue: '',
+const Buttons = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+`;
+
+const Text = styled.div`
+  width: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const initialState = {
+  isInEditMode: false,
+  internalValue: '',
+  previousValue: '',
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'START_EDITING':
+      return {
+        isInEditMode: true,
+        internalValue: action.value,
+        previousValue: action.value,
+      };
+    case 'UPDATE_INTERNAL_VALUE':
+      return {
+        ...state,
+        internalValue: action.value,
+      };
+    case 'CANCEL_EDITING':
+      return {
+        ...state,
+        isInEditMode: false,
+        internalValue: state.previousValue,
+      };
+    case 'STOP_EDITING':
+      return {
+        ...state,
+        isInEditMode: false,
+      };
+    default:
+      throw new Error();
+  }
+}
+
+const EditableInput = ({ value, action, size, isEditable, hasButtons }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const startEditing = () => {
+    if (!isEditable) return;
+    dispatch({ type: 'START_EDITING', value });
   };
 
-  startEditing = () => {
-    const { value, isDisabled } = this.props;
-    if (isDisabled) return;
-    this.setState(prevState => ({
-      editing: true,
-      prevValue: prevState.value,
-      internalValue: value,
-    }));
+  const handleOnChange = ev => {
+    const newValue = ev.target.value;
+    dispatch({ type: 'UPDATE_INTERNAL_VALUE', value: newValue });
   };
 
-  handleOnChange = ev => {
-    const { value } = ev.target;
-    this.setState({ internalValue: value });
+  const handleCancel = () => {
+    dispatch({ type: 'CANCEL_EDITING', value });
   };
 
-  handleCancel = () => {
-    this.setState(prevState => ({ editing: false, internalValue: prevState.prevValue }));
-  };
-
-  handleSubmit = ev => {
+  const handleSubmit = ev => {
     ev.preventDefault();
-    const { value, action } = this.props;
-    const { internalValue } = this.state;
+    const { internalValue } = state;
     if (!internalValue) {
-      this.handleCancel();
+      return handleCancel();
     }
     internalValue !== value && action(internalValue);
-    this.setState({ editing: false });
+    return dispatch({ type: 'STOP_EDITING' });
   };
 
-  handleKeyDown = ev => {
-    const { editing } = this.state;
-    if (editing) {
+  const handleKeyDown = ev => {
+    const { isInEditMode } = state;
+    if (isInEditMode) {
       if (ev.key === 'Escape') {
-        this.handleCancel();
+        handleCancel();
       }
     }
   };
 
-  render() {
-    const { value, size, isDisabled } = this.props;
-    const { editing, internalValue } = this.state;
-    return (
-      <StyledEditableInput
-        onSubmit={this.handleSubmit}
-        onKeyDown={this.handleKeyDown}
-        onBlur={this.handleSubmit}
-      >
-        {editing ? (
-          <>
-            <StyledInput
-              value={internalValue}
-              size={size}
-              onChange={this.handleOnChange}
-              autoFocus
-            />
-            <StyledButton size={size} appearance="primary" iconBefore="CHECK" />
-            <StyledButton size={size} appearance="secondary" iconBefore="CROSS" />
-          </>
-        ) : (
-          <Value
-            as={isDisabled ? 'span' : 'button'}
+  const handleOnBlur = ev => {
+    if (hasButtons) {
+      return undefined;
+    }
+    return handleSubmit(ev);
+  };
+
+  return (
+    <StyledEditableInput onSubmit={handleSubmit} onKeyDown={handleKeyDown} onBlur={handleOnBlur}>
+      {state.isInEditMode ? (
+        <>
+          <StyledInput
+            value={state.internalValue}
             size={size}
-            canEdit={!isDisabled}
-            onClick={this.startEditing}
-          >
-            {value}
-          </Value>
-        )}
-      </StyledEditableInput>
-    );
-  }
-}
+            onChange={handleOnChange}
+            autoFocus
+          />
+          {hasButtons && (
+            <Buttons>
+              <StyledButton type="submit" size="small" appearance="primary" iconBefore="CHECK" />
+              <StyledButton
+                size="small"
+                appearance="secondary"
+                iconBefore="CROSS"
+                onClick={handleCancel}
+              />
+            </Buttons>
+          )}
+        </>
+      ) : (
+        <Value
+          as={isEditable ? 'button' : 'span'}
+          size={size}
+          canEdit={isEditable}
+          onClick={startEditing}
+        >
+          <Text title={value}>{value}</Text>
+        </Value>
+      )}
+    </StyledEditableInput>
+  );
+};
 
 EditableInput.defaultProps = {
   size: 'medium',
-  isDisabled: false,
+  isEditable: true,
+  hasButtons: false,
 };
 
 EditableInput.propTypes = {
   value: PropTypes.string.isRequired,
   action: PropTypes.func.isRequired,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  isDisabled: PropTypes.bool,
+  isEditable: PropTypes.bool,
+  hasButtons: PropTypes.bool,
 };
 
 export default EditableInput;

@@ -6,7 +6,8 @@ import { SIZE_OPTS, GITHUB_URL } from './EditableInput.constants';
 import Input from '../../lib/Input/Input';
 
 const EditableInputDemo = () => {
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [isEditable, setIsEditable] = useState(true);
+  const [hasButtons, setHasButtons] = useState(false);
   const [value, setValue] = useState('Hello world');
   const [size, setSize] = useState(SIZE_OPTS[1]);
 
@@ -14,8 +15,9 @@ const EditableInputDemo = () => {
     <EditableInput
       value={value}
       size={size.value}
-      isDisabled={isDisabled}
-      action={newValue => alert(`New value ➜ ${newValue}`)} // eslint-disable-line no-alert
+      isEditable={isEditable}
+      hasButtons={hasButtons}
+      action={newValue => setValue(newValue)}
     />
   );
 
@@ -24,11 +26,18 @@ const EditableInputDemo = () => {
       <>
         <Booleans>
           <StyledCheckbox
-            checked={isDisabled}
-            onChange={() => setIsDisabled(!isDisabled)}
+            checked={isEditable}
+            onChange={() => setIsEditable(!isEditable)}
             appearance="success"
           >
-            <pre>isDisabled</pre>
+            <pre>isEditable</pre>
+          </StyledCheckbox>
+          <StyledCheckbox
+            checked={hasButtons}
+            onChange={() => setHasButtons(!hasButtons)}
+            appearance="success"
+          >
+            <pre>hasButtons</pre>
           </StyledCheckbox>
         </Booleans>
         <StyledSelect>
