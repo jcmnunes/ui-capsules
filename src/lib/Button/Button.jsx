@@ -232,6 +232,7 @@ const Button = ({
   return (
     <StyledButton
       as={as}
+      type={type}
       disabled={isDisabled || isLoading}
       isLoading={isLoading}
       isBlock={isBlock}

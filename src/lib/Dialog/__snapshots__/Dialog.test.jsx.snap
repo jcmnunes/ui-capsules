@@ -309,6 +309,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   >
     <button
       class="c3"
+      type="button"
     >
       <div
         class="c4"
@@ -341,6 +342,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   >
     <button
       class="c8"
+      type="button"
     >
       <div
         class="c4"
@@ -354,6 +356,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
     </button>
     <button
       class="c10"
+      type="button"
     >
       <div
         class="c4"
