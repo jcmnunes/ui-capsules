@@ -18,9 +18,10 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{js,jsx}",
     "format": "pretty-quick --staged",
+    "clean": "rm -rf commonjs && rm -rf esm && rm -rf assets",
     "build-commonjs": "BABEL_ENV=commonjs babel src/lib --out-dir commonjs --source-maps inline",
     "build-esm": "BABEL_ENV=esm babel src/lib --out-dir esm --source-maps inline",
-    "build": "rm -rf dist && npm run build-commonjs && npm run build-esm && cp -rf src/lib/styles assets",
+    "build": "npm run clean && npm run build-commonjs && npm run build-esm && cp -rf src/lib/styles assets",
     "semantic-release": "semantic-release",
     "commit": "git-cz"
   },

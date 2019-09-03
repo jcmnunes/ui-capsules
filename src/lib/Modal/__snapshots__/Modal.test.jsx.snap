@@ -167,6 +167,7 @@ exports[`should render with no errors 1`] = `
   >
     <button
       class="c2"
+      type="button"
     >
       <div
         class="c3"

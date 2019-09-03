@@ -9,7 +9,7 @@ import { PROPS } from './EditableInput.constants';
 const EditableInputDemo = () => {
   return (
     <Wrapper>
-      <Title>Input</Title>
+      <Title>Editable Input</Title>
       <Paragraph>Renders text that can be edited in place by clicking on it.</Paragraph>
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { EditableInput } from '@binarycapsule/ui-capsules';"}</Usage>

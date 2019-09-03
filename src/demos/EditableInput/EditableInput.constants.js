@@ -29,10 +29,17 @@ export const PROPS = [
     description: 'Changes the size of the editable input.',
   },
   {
-    name: 'isDisabled',
+    name: 'isEditable',
+    isRequired: false,
+    type: 'boolean',
+    defaultValue: 'true',
+    description: 'If set to false, the text is read-only.',
+  },
+  {
+    name: 'hasButtons',
     isRequired: false,
     type: 'boolean',
     defaultValue: 'false',
-    description: 'If set to true, the text is read-only.',
+    description: 'If set to true, an "Ok-Cancel" button pair will be rendered.',
   },
 ];

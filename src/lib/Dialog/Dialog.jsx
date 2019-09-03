@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../Button/Button';
-import { Modal, ModalBody, ModalFooter } from '..';
+import Modal, { ModalBody, ModalFooter } from '../Modal/Modal';
 import theme from '../theme';
 
 export const StyledModal = styled(Modal)`
