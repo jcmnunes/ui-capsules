@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import Glyph from '../Glyph/Glyph';
+import Icon20 from '../Icon20/Icon20';
 import theme from '../theme';
+
+const iconDict = {
+  success: 'CHECK',
+  warning: 'WARNING',
+  error: 'ERROR',
+};
 
 const colors = {
   success: {
@@ -68,7 +74,7 @@ export const MessageBody = styled.span`
 const Message = ({ appearance, children, ...other }) => (
   <StyledMessage appearance={appearance} {...other}>
     <Icon>
-      <Glyph icon={appearance} color={colors[appearance].text} />
+      <Icon20 icon={iconDict[appearance]} />
     </Icon>
     <MessageBody>{children}</MessageBody>
   </StyledMessage>

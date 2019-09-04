@@ -187,7 +187,7 @@ export const Toast = ({
         isSuccess={appearance === 'success'}
         size="small"
         onClick={onDismiss}
-        iconAfter="CLOSE"
+        iconAfter="CROSS"
       />
     </StyledToast>
   );

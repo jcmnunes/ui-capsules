@@ -17,15 +17,11 @@ const DropdownDemo = () => {
       </Paragraph>
       <UL>
         <li>
-          <code>children</code>: &quot;string&quot; - The text to render
+          <code>text</code>: &quot;string&quot; - The text to render
         </li>
         <li>
-          <code>iconBefore</code>: &quot;string&quot; - The icon to render before the text (from the
-          Icon20 collection)
-        </li>
-        <li>
-          <code>iconAfter</code>: &quot;string&quot; - The icon to render after the text (from the
-          Icon20 collection)
+          <code>icon</code>: &quot;string&quot; - The icon to render before the text (from the
+          Icon24 collection)
         </li>
         <li>
           <code>closeOnAction</code>: &quot;boolean&quot; (default: true) - Whether dropdown should
