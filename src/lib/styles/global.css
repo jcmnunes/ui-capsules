@@ -246,3 +246,11 @@ code {
 .ReactModal__Overlay--before-close {
   opacity: 0;
 }
+
+.ui-capsules-icon-primary {
+  color: #cbd2d8;
+}
+
+.ui-capsules-icon-secondary {
+  color: #52616d;
+}

@@ -3,7 +3,9 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home/Home';
 import Button from './demos/Button/Button.view';
+import Icon24 from './demos/Icon24/Icon24.view';
 import Icon20 from './demos/Icon20/Icon20.view';
+import Icon16 from './demos/Icon16/Icon16.view';
 import Checkbox from './demos/Checkbox/Checkbox.view';
 import Select from './demos/Select/Select.view';
 import Input from './demos/Input/Input.view';
@@ -19,6 +21,7 @@ import EditableInput from './demos/EditableInput/EditableInput.view';
 import Modal from './demos/Modal/Modal.view';
 import Dialog from './demos/Dialog/Dialog.view';
 import Anchor from './demos/Anchor/Anchor.view';
+import IconButton from './demos/IconButton/IconButton.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -46,7 +49,10 @@ const App = () => (
     <ShowcaseWrapper>
       <Route exact path="/" component={Home} />
       <Route path="/button" component={Button} />
+      <Route path="/icon-button" component={IconButton} />
+      <Route path="/icon24" component={Icon24} />
       <Route path="/icon20" component={Icon20} />
+      <Route path="/icon16" component={Icon16} />
       <Route path="/checkbox" component={Checkbox} />
       <Route path="/select" component={Select} />
       <Route path="/input" component={Input} />

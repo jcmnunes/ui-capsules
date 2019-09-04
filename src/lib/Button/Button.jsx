@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Spinner from '../Spinner/Spinner';
 import Icon20 from '../Icon20/Icon20';
 import theme from '../theme';
+import Icon16 from '../Icon16/Icon16';
 
 const getButtonColors = props => {
   const colors = {
@@ -130,7 +131,7 @@ const getDimensions = ({ appearance, size, hasChildren }) => {
   return dimensions;
 };
 
-export const SpinnerWrapper = styled.span`
+const SpinnerWrapper = styled.span`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -138,13 +139,13 @@ export const SpinnerWrapper = styled.span`
   height: ${props => getDimensions(props).spinnerHeight};
 `;
 
-export const Content = styled.div`
+const Content = styled.div`
   visibility: ${props => (props.isLoading ? 'hidden' : 'visible')};
   display: inline-flex;
   align-items: center;
 `;
 
-export const Text = styled.span`
+const Text = styled.span`
   white-space: nowrap;
   margin-left: ${props => (props.iconBefore ? '8px' : 'auto')};
   margin-right: ${props => (props.iconAfter ? '8px' : 'auto')};
@@ -252,13 +253,15 @@ const Button = ({
         </SpinnerWrapper>
       )}
       <Content isLoading={isLoading}>
-        {iconBefore && <Icon20 icon={iconBefore} size={size} />}
+        {iconBefore &&
+          (size === 'small' ? <Icon16 icon={iconBefore} /> : <Icon20 icon={iconBefore} />)}
         {children.length > 0 && (
           <Text iconBefore={iconBefore} iconAfter={iconAfter}>
             {children}
           </Text>
         )}
-        {iconAfter && <Icon20 icon={iconAfter} size={size} />}
+        {iconAfter &&
+          (size === 'small' ? <Icon16 icon={iconAfter} /> : <Icon20 icon={iconAfter} />)}
       </Content>
     </StyledButton>
   );

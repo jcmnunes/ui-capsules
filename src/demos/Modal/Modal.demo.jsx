@@ -12,7 +12,7 @@ const ModalDemo = () => {
   const [width, setWidth] = useState('');
 
   const Component = (
-    <Button appearance="primary" iconBefore="APP_WINDOW" onClick={() => setIsOpen(true)}>
+    <Button appearance="primary" iconBefore="APP" onClick={() => setIsOpen(true)}>
       Open Modal
     </Button>
   );

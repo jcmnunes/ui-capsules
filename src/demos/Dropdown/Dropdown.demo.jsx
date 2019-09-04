@@ -10,29 +10,39 @@ const DropdownDemo = () => {
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
 
   const Trigger = (
-    <Button appearance="minimal" iconAfter="CHEVRON_DOWN">
+    <Button appearance="minimal" iconAfter="CHEV_DOWN">
       Open dropdown
     </Button>
   );
 
   const Component = (
     <Dropdown trigger={Trigger} placement={placement.value}>
-      <DropdownItem iconBefore="CODE" handleAction={() => alert('Clicked on "Show code"')}>
-        Show code
-      </DropdownItem>
-      <DropdownItem iconBefore="BELL" handleAction={() => alert('Clicked on "Notify"')}>
-        Notify
-      </DropdownItem>
-      <DropdownItem iconBefore="GITHUB" handleAction={() => alert('Clicked on "View on Github"')}>
-        View on Github
-      </DropdownItem>
       <DropdownItem
-        iconBefore="CLOSE"
+        text="Copy text"
+        icon="COPY"
+        handleAction={() => alert('Clicked on "Copy text"')}
+      />
+      <DropdownItem
+        text="Edit profile"
+        icon="USER"
+        handleAction={() => alert('Clicked on "Edit profile"')}
+      />
+      <DropdownItem
+        text="Settings"
+        icon="SETTINGS"
+        handleAction={() => alert('Clicked on "Settings"')}
+      />
+      <DropdownItem
+        text="Log out"
+        icon="LOGOUT"
+        handleAction={() => alert('Clicked on "Log out"')}
+      />
+      <DropdownItem
+        text="Do not close on action"
+        icon="TRASH"
         handleAction={() => alert('Clicked on "Do not close on action"')}
         closeOnAction={false}
-      >
-        Do not close on action
-      </DropdownItem>
+      />
     </Dropdown>
   );
 

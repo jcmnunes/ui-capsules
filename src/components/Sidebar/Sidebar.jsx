@@ -11,7 +11,10 @@ const Sidebar = () => (
     <SidebarGroup>
       <GroupHeading>Components</GroupHeading>
       <SidebarLink to="/button">Button</SidebarLink>
+      <SidebarLink to="/icon-button">IconButton</SidebarLink>
+      <SidebarLink to="/icon16">Icon16</SidebarLink>
       <SidebarLink to="/icon20">Icon20</SidebarLink>
+      <SidebarLink to="/icon24">Icon24</SidebarLink>
       <SidebarLink to="/checkbox">Checkbox</SidebarLink>
       <SidebarLink to="/select">Select</SidebarLink>
       <SidebarLink to="/input">Input</SidebarLink>
