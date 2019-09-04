@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import styled from 'styled-components';
-import Button from '../Button/Button';
 import theme from '../theme';
+import IconButton from '../IconButton/IconButton';
+import { ICONS } from '../Icon24/Icon24.constants';
 
 const Wrapper = styled.div`
   display: block;
@@ -33,38 +34,29 @@ export const MenuWrapper = styled.div`
   align-items: flex-start;
 `;
 
-export const DropdownItem = ({
-  children,
-  iconBefore,
-  iconAfter,
-  closeOnAction,
-  handleAction,
-  ...other
-}) => (
-  <Button
+export const DropdownItem = ({ icon, text, closeOnAction, handleAction, ...other }) => (
+  <IconButton
     isBlock
-    appearance="minimal"
-    iconBefore={iconBefore}
-    iconAfter={iconAfter}
+    icon={icon}
+    text={text}
     handleAction={handleAction}
     closeOnAction={closeOnAction}
     tabIndex={-1}
     {...other}
-  >
-    {children}
-  </Button>
+  />
 );
 DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.defaultProps = {
-  children: null,
+  text: '',
   iconBefore: null,
   iconAfter: null,
   closeOnAction: true,
 };
 
 DropdownItem.propTypes = {
-  children: PropTypes.string,
+  icon: PropTypes.oneOf(Object.keys(ICONS)).isRequired,
+  text: PropTypes.string,
   iconBefore: PropTypes.string,
   iconAfter: PropTypes.string,
   closeOnAction: PropTypes.bool,

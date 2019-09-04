@@ -28,7 +28,7 @@ const TooltipDemo = () => {
       followCursor={followCursor}
       trigger={trigger.value}
     >
-      <Button appearance="primary" iconBefore="TAG">
+      <Button appearance="primary" iconBefore="EYE">
         {trigger2ButtonText[trigger.value]}
       </Button>
     </Tooltip>

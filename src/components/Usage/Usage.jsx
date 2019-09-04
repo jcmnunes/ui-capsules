@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from '../../lib/Button/Button';
-import Toaster from '../../lib/Toaster/Toaster';
+import Tooltip from '../../lib/Tooltip/Tooltip';
 
 const Wrapper = styled.div`
   margin: 24px 0;
@@ -36,6 +36,8 @@ const Actions = styled.div`
 `;
 
 const Usage = ({ children }) => {
+  const [tooltipShown, setTooltipShown] = useState(false);
+
   return (
     <Wrapper>
       <StyledUsage>
@@ -44,21 +46,21 @@ const Usage = ({ children }) => {
         </Code>
       </StyledUsage>
       <Actions>
-        <CopyToClipboard
-          text={children}
-          onCopy={() => {
-            if (Toaster.getToasts().length === 0) {
-              Toaster.success({
-                title: 'Done!',
-                message: 'Text copied to clipboard',
-              });
-            }
-          }}
-        >
-          <Button size="small" appearance="minimal" iconBefore="COPY">
-            Copy to clipboard
-          </Button>
-        </CopyToClipboard>
+        <Tooltip tooltipShown={tooltipShown} tooltip="Copied!">
+          <CopyToClipboard
+            text={children}
+            onCopy={() => {
+              if (!tooltipShown) {
+                setTooltipShown(true);
+                setTimeout(() => setTooltipShown(false), 2000);
+              }
+            }}
+          >
+            <Button size="small" appearance="minimal" iconBefore="COPY">
+              Copy to clipboard
+            </Button>
+          </CopyToClipboard>
+        </Tooltip>
       </Actions>
     </Wrapper>
   );
