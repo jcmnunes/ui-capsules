@@ -48,7 +48,12 @@ const InputDemo = () => {
         </StyledSelect>
         <StyledSelect>
           <pre>error</pre>
-          <Input type="text" value={error} onChange={ev => setError(ev.target.value)} />
+          <Input
+            type="text"
+            placeholder="Enter some error text"
+            value={error}
+            onChange={ev => setError(ev.target.value)}
+          />
         </StyledSelect>
       </>
     </Demo>
