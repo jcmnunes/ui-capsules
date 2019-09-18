@@ -21,3 +21,4 @@ export { default as Modal, ReactModal, ModalTitle, ModalBody, ModalFooter } from
 export { default as Dialog } from './Dialog/Dialog';
 export { default as Anchor } from './Anchor/Anchor';
 export { default as IconButton } from './IconButton/IconButton';
+export { default as theme } from './theme';
