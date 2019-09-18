@@ -89,6 +89,7 @@ const IconButton = ({
   isRound,
   hasChev,
   textColor,
+  size,
   ...other
 }) => (
   <StyledButton
@@ -115,7 +116,7 @@ const IconButton = ({
       isLoading={isLoading}
       isDisabled={isDisabled}
     >
-      {<StyledIcon24 icon={icon} colors={colors} />}
+      {<StyledIcon24 icon={icon} colors={colors} size={size} />}
       {!!text && <Text>{text}</Text>}
       {hasChev && <Icon24 icon="CHEV_DOWN" />}
     </Content>
@@ -134,6 +135,7 @@ IconButton.defaultProps = {
   text: '',
   textColor: theme.neutral700,
   colors: [],
+  size: '24px',
 };
 
 IconButton.propTypes = {
@@ -148,6 +150,7 @@ IconButton.propTypes = {
   hasBackground: PropTypes.bool,
   colors: PropTypes.arrayOf(PropTypes.string),
   textColor: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default IconButton;

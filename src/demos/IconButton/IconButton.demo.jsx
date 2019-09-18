@@ -26,6 +26,7 @@ const IconButtonDemo = () => {
   const [hasChev, setHasChev] = useState(false);
   const [hasBackground, setHasBackground] = useState(false);
   const [text, setText] = useState('');
+  const [size, setSize] = useState('24px');
 
   const Component = (
     <IconButton
@@ -39,6 +40,7 @@ const IconButtonDemo = () => {
       isRound={isRound}
       hasChev={hasChev}
       hasBackground={hasBackground}
+      size={size}
       onClick={() => alert('You clicked the (icon) button 😎✌️')}
     />
   );
@@ -101,6 +103,15 @@ const IconButtonDemo = () => {
             type="text"
             value={text}
             onChange={ev => setText(ev.target.value)}
+          />
+        </StyledSelect>
+        <StyledSelect>
+          <pre>size</pre>
+          <Input
+            placeholder="Insert the size of the IconButton"
+            type="text"
+            value={size}
+            onChange={ev => setSize(ev.target.value)}
           />
         </StyledSelect>
         <StyledSelect>
