@@ -79,6 +79,14 @@ export const PROPS = [
     description: 'If set to true, renders a background on hover.',
   },
   {
+    name: 'size',
+    isRequired: false,
+    type: 'text',
+    defaultValue: '24px',
+    description:
+      "The size of the IconButton. Don't set this prop if you want the button to have some text.",
+  },
+  {
     name: 'colors',
     isRequired: false,
     type: 'array',
