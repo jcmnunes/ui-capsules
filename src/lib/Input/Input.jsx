@@ -29,6 +29,7 @@ const InputWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  height: ${props => dimensions[props.size].height};
 `;
 
 const StyledInput = styled.input`
@@ -76,7 +77,7 @@ const Error = styled.div`
 `;
 
 const Input = ({ size, error, isDisabled, ...other }) => (
-  <InputWrapper>
+  <InputWrapper size={size}>
     <StyledInput size={size} disabled={isDisabled} error={error} {...other} />
     {error && <Error size={size}>{error}</Error>}
   </InputWrapper>
