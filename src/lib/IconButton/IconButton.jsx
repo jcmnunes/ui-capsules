@@ -82,7 +82,6 @@ const IconButton = ({
   text,
   icon,
   colors,
-  onClick,
   isLoading,
   isDisabled,
   isBlock,
@@ -90,10 +89,10 @@ const IconButton = ({
   isRound,
   hasChev,
   textColor,
+  ...other
 }) => (
   <StyledButton
     type={type}
-    onClick={onClick}
     text={text}
     disabled={isDisabled || isLoading}
     isBlock={isBlock}
@@ -102,6 +101,7 @@ const IconButton = ({
     isRound={isRound}
     colors={colors}
     textColor={textColor}
+    {...other}
   >
     {isLoading && (
       <SpinnerWrapper size="medium">
@@ -138,7 +138,6 @@ IconButton.defaultProps = {
 
 IconButton.propTypes = {
   icon: PropTypes.oneOf(Object.keys(ICONS)).isRequired,
-  onClick: PropTypes.func.isRequired,
   text: PropTypes.string,
   type: PropTypes.oneOf(['button', 'submit']),
   isLoading: PropTypes.bool,
