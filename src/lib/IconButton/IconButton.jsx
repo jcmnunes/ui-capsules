@@ -17,8 +17,8 @@ const StyledIcon24 = styled(Icon24)`
 `;
 
 const StyledButton = styled.button`
-  height: ${({ text, hasBackground, isRound }) =>
-    isRound ? '36px' : text || hasBackground ? '32px' : '24px'};
+  height: ${({ text, hasBackground, isRound, size }) =>
+    size !== '24px' ? size : isRound ? '36px' : text || hasBackground ? '32px' : '24px'};
   padding: ${({ text, hasBackground, isRound }) =>
     isRound || text ? '0 8px' : hasBackground ? '0 4px' : 0};
   color: ${({ textColor }) => textColor};
@@ -95,6 +95,7 @@ const IconButton = ({
   <StyledButton
     type={type}
     text={text}
+    size={size}
     disabled={isDisabled || isLoading}
     isBlock={isBlock}
     isLoading={isLoading}
