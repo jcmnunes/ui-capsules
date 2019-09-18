@@ -21,12 +21,6 @@ export const PROPS = [
     description: 'Name of the icon to render (from the 24x24 collection).',
   },
   {
-    name: 'onClick',
-    isRequired: true,
-    type: 'function',
-    description: 'The function to attach to the onClick prop of the button.',
-  },
-  {
     name: 'text',
     isRequired: false,
     type: 'string',
