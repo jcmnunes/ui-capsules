@@ -76,7 +76,6 @@ const stateReducer = (state, changes) => {
   switch (changes.type) {
     case Downshift.stateChangeTypes.keyDownEnter:
     case Downshift.stateChangeTypes.clickItem:
-    case Downshift.stateChangeTypes.keyDownSpaceButton:
       changes.selectedItem.handleAction();
       return {
         ...changes,
