@@ -34,7 +34,14 @@ export const MenuWrapper = styled.div`
   align-items: flex-start;
 `;
 
-export const DropdownItem = ({ icon, text, closeOnAction, handleAction, ...other }) => (
+export const DropdownItem = ({
+  icon,
+  text,
+  closeOnAction,
+  handleAction,
+  highlighted,
+  ...other
+}) => (
   <IconButton
     isBlock
     icon={icon}
@@ -42,6 +49,7 @@ export const DropdownItem = ({ icon, text, closeOnAction, handleAction, ...other
     handleAction={handleAction}
     closeOnAction={closeOnAction}
     tabIndex={-1}
+    style={{ background: highlighted ? theme.neutral075 : 'inherit' }}
     {...other}
   />
 );
@@ -61,6 +69,7 @@ DropdownItem.propTypes = {
   iconAfter: PropTypes.string,
   closeOnAction: PropTypes.bool,
   handleAction: PropTypes.func.isRequired,
+  highlighted: PropTypes.bool.isRequired,
 };
 
 const stateReducer = (state, changes) => {
