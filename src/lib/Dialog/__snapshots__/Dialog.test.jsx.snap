@@ -187,7 +187,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   cursor: not-allowed;
 }
 
-.c1 {
+.c0 {
   position: absolute;
   top: 50%;
   left: 16px;
@@ -230,7 +230,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   padding: 12px 32px 32px;
 }
 
-.c0 {
+.c1 {
   width: auto;
 }
 
@@ -263,14 +263,14 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 }
 
 @media (min-width:450px) {
-  .c1 {
+  .c0 {
     left: 40px;
     right: 40px;
   }
 }
 
 @media (min-width:720px) {
-  .c1 {
+  .c0 {
     top: 50%;
     left: 50%;
     right: auto;
@@ -284,14 +284,14 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 }
 
 @media (min-width:450px) {
-  .c0 {
+  .c1 {
     left: 60px;
     right: 60px;
   }
 }
 
 @media (min-width:720px) {
-  .c0 {
+  .c1 {
     width: 400px;
     left: 50%;
     right: auto;
