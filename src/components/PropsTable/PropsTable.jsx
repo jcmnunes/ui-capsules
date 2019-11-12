@@ -38,9 +38,7 @@ const PropsTable = ({ props: propsArray }) => {
                 <PropType>{type}</PropType>
                 {!isRequired && (
                   <DefaultValue>
-                    {'(Default: '}
-                    <span>{defaultValue}</span>
-                    {')'}
+                    (Default: <span>{defaultValue}</span>)
                   </DefaultValue>
                 )}
               </div>
