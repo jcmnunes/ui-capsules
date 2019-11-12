@@ -217,6 +217,7 @@ Toast.propTypes = {
 };
 
 export default class Toaster extends Component {
+  // eslint-disable-next-line react/sort-comp
   static defaultOptions = {
     placement: 'bottom-right',
     autoDismiss: true,
