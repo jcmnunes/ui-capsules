@@ -10,26 +10,26 @@ const Sidebar = () => (
     </Link>
     <SidebarGroup>
       <GroupHeading>Components</GroupHeading>
+      <SidebarLink to="/anchor">Anchor</SidebarLink>
       <SidebarLink to="/button">Button</SidebarLink>
+      <SidebarLink to="/checkbox">Checkbox</SidebarLink>
+      <SidebarLink to="/dialog">Dialog</SidebarLink>
+      <SidebarLink to="/dropdown">Dropdown</SidebarLink>
+      <SidebarLink to="/editable-input">Editable Input</SidebarLink>
       <SidebarLink to="/icon-button">IconButton</SidebarLink>
       <SidebarLink to="/icon16">Icon16</SidebarLink>
       <SidebarLink to="/icon20">Icon20</SidebarLink>
       <SidebarLink to="/icon24">Icon24</SidebarLink>
-      <SidebarLink to="/checkbox">Checkbox</SidebarLink>
-      <SidebarLink to="/select">Select</SidebarLink>
       <SidebarLink to="/input">Input</SidebarLink>
-      <SidebarLink to="/toaster">Toaster</SidebarLink>
-      <SidebarLink to="/dropdown">Dropdown</SidebarLink>
       <SidebarLink to="/loading-mask">LoadingMask</SidebarLink>
-      <SidebarLink to="/spinner">Spinner</SidebarLink>
       <SidebarLink to="/message">Message</SidebarLink>
+      <SidebarLink to="/modal">Modal</SidebarLink>
       <SidebarLink to="/page-spinner">PageSpinner</SidebarLink>
       <SidebarLink to="/radio">Radio</SidebarLink>
+      <SidebarLink to="/select">Select</SidebarLink>
+      <SidebarLink to="/spinner">Spinner</SidebarLink>
+      <SidebarLink to="/toaster">Toaster</SidebarLink>
       <SidebarLink to="/tooltip">Tooltip</SidebarLink>
-      <SidebarLink to="/editable-input">Editable Input</SidebarLink>
-      <SidebarLink to="/modal">Modal</SidebarLink>
-      <SidebarLink to="/dialog">Dialog</SidebarLink>
-      <SidebarLink to="/anchor">Anchor</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );
