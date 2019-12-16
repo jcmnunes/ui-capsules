@@ -53,6 +53,9 @@ const customStyles = size => ({
   indicatorSeparator: () => ({
     display: 'none',
   }),
+  placeholder: () => ({
+    color: theme.neutral200,
+  }),
 });
 
 export const customTheme = (rsTheme, size) => ({
