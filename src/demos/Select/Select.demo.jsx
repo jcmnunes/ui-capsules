@@ -5,7 +5,7 @@ import { GITHUB_URL, OPTIONS, SIZE_OPTS } from './Select.constants';
 
 const SelectDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[0]);
-  const [option, setOption] = useState(OPTIONS[0]);
+  const [option, setOption] = useState(null);
 
   const Component = (
     <Select value={option} options={OPTIONS} onChange={opt => setOption(opt)} size={size.value} />
