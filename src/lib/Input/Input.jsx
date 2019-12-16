@@ -8,18 +8,21 @@ const dimensions = {
     fontSize: '14px',
     helperFontSize: '12px',
     height: '24px',
+    heightWithError: '44px',
     padding: '2px 4px',
   },
   medium: {
     fontSize: '16px',
     helperFontSize: '14px',
     height: '32px',
+    heightWithError: '52px',
     padding: '4px 8px',
   },
   large: {
     fontSize: '18px',
     helperFontSize: '16px',
     height: '48px',
+    heightWithError: '68px',
     padding: '12px',
   },
 };
@@ -29,13 +32,14 @@ const InputWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: ${props => dimensions[props.size].height};
+  height: ${props =>
+    props.error ? dimensions[props.size].heightWithError : dimensions[props.size].height};
 `;
 
 const StyledInput = styled.input`
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   height: ${props => dimensions[props.size].height};
-  background: ${props => (props.error ? theme.red050 : '#fff')};
+  background: ${props => (props.error ? '#fffafa' : '#fff')};
   color: ${theme.neutral600};
   border-radius: 4px;
   border: 1px solid ${props => (props.error ? theme.red500 : theme.neutral200)};
@@ -77,7 +81,7 @@ const Error = styled.div`
 `;
 
 const Input = ({ size, error, isDisabled, ...other }) => (
-  <InputWrapper size={size}>
+  <InputWrapper size={size} error={error}>
     <StyledInput size={size} disabled={isDisabled} error={error} {...other} />
     {error && <Error size={size}>{error}</Error>}
   </InputWrapper>
