@@ -5,6 +5,7 @@ export { DropdownItem } from './Dropdown/Dropdown';
 export { default as Glyph } from './Glyph/Glyph';
 export { default as Icon24 } from './Icon24/Icon24';
 export { default as Icon20 } from './Icon20/Icon20';
+export { default as Icon16 } from './Icon16/Icon16';
 export { default as Input } from './Input/Input';
 export { default as LoadingMask } from './LoadingMask/LoadingMask';
 export { default as Message } from './Message/Message';
