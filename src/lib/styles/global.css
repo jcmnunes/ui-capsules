@@ -182,6 +182,9 @@ a {
   text-decoration: none;
   color: #3e4c59;
 }
+input {
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
 button {
   border: none;
   margin: 0;
