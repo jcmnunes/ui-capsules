@@ -7,6 +7,12 @@ import theme from '../theme';
 const StyledSelect = styled(RSelect)`
   width: 100%;
   font-size: ${props => dimensions[props.size].fontSize};
+
+  // This hack is needed to avoid the cursor being in front of the placeholder
+  // https://stackoverflow.com/questions/52865076/react-select-async-places-the-cursorcaret-at-the-end-of-the-placeholder-when-i
+  .react-select__placeholder {
+    color: ${theme.neutral200};
+  }
 `;
 
 const dimensions = {
@@ -53,9 +59,6 @@ const customStyles = size => ({
   indicatorSeparator: () => ({
     display: 'none',
   }),
-  placeholder: () => ({
-    color: theme.neutral200,
-  }),
 });
 
 export const customTheme = (rsTheme, size) => ({
@@ -95,6 +98,7 @@ const Select = ({ size, ...other }) => {
       size={size}
       styles={customStyles(size)}
       theme={rsTheme => customTheme(rsTheme, size)}
+      classNamePrefix="react-select"
       {...other}
     />
   );
