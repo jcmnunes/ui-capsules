@@ -3,13 +3,18 @@ import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/D
 import Select from '../../lib/Select/Select';
 import { SIZE_OPTS, GITHUB_URL } from './Input.constants';
 import Input from '../../lib/Input/Input';
+import { useIconOpts } from '../Icon20/Icon20.hooks';
 
 const InputDemo = () => {
+  const iconOpts = [{ value: null, label: 'none' }, ...useIconOpts()];
+
   const [isDisabled, setIsDisabled] = useState(false);
   const [value, setValue] = useState('Hello world');
   const [placeholder, setPlaceholder] = useState('Placeholder');
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [error, setError] = useState('');
+  const [iconBefore, setIconBefore] = useState(iconOpts[0]);
+  const [iconAfter, setIconAfter] = useState(iconOpts[0]);
 
   const Component = (
     <Input
@@ -19,6 +24,8 @@ const InputDemo = () => {
       error={error}
       placeholder={placeholder}
       isDisabled={isDisabled}
+      iconBefore={iconBefore.value}
+      iconAfter={iconAfter.value}
     />
   );
 
@@ -45,6 +52,14 @@ const InputDemo = () => {
         <StyledSelect>
           <pre>size</pre>
           <Select value={size} options={SIZE_OPTS} onChange={opt => setSize(opt)} />
+        </StyledSelect>
+        <StyledSelect>
+          <pre>iconBefore</pre>
+          <Select value={iconBefore} options={iconOpts} onChange={opt => setIconBefore(opt)} />
+        </StyledSelect>
+        <StyledSelect>
+          <pre>iconAfter</pre>
+          <Select value={iconAfter} options={iconOpts} onChange={opt => setIconAfter(opt)} />
         </StyledSelect>
         <StyledSelect>
           <pre>error</pre>
