@@ -60,6 +60,7 @@ DropdownItem.defaultProps = {
   iconBefore: null,
   iconAfter: null,
   closeOnAction: true,
+  highlighted: false,
 };
 
 DropdownItem.propTypes = {
@@ -69,7 +70,7 @@ DropdownItem.propTypes = {
   iconAfter: PropTypes.string,
   closeOnAction: PropTypes.bool,
   handleAction: PropTypes.func.isRequired,
-  highlighted: PropTypes.bool.isRequired,
+  highlighted: PropTypes.bool,
 };
 
 const stateReducer = (state, changes) => {
