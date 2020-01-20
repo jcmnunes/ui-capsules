@@ -34,6 +34,10 @@ export const MenuWrapper = styled.div`
   align-items: flex-start;
 `;
 
+const StyledIconButton = styled(IconButton)`
+  height: 40px;
+`;
+
 export const DropdownItem = ({
   icon,
   text,
@@ -42,7 +46,7 @@ export const DropdownItem = ({
   highlighted,
   ...other
 }) => (
-  <IconButton
+  <StyledIconButton
     isBlock
     icon={icon}
     text={text}
