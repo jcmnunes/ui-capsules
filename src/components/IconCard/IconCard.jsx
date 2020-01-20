@@ -27,7 +27,7 @@ const Icon = styled.div`
 const Label = styled.div`
   color: ${theme.neutral300};
   background: ${theme.neutral050};
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
