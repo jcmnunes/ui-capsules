@@ -69,6 +69,12 @@ exports[`should render with no errors 1`] = `
   cursor: not-allowed;
 }
 
+.c2:focus {
+  outline: none;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
 .c0 {
   position: absolute;
   top: 50%;
