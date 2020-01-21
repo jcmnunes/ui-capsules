@@ -1,0 +1,18 @@
+export const GITHUB_URL =
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Table/Table.js';
+
+export const TEXT_ALIGN_OPTS = [
+  { value: 'left', label: 'left' },
+  { value: 'center', label: 'center' },
+  { value: 'right', label: 'right' },
+];
+
+export const PROPS = [
+  {
+    name: 'textAlign',
+    type: '"left" | "center" | "right"',
+    defaultValue: '"left"',
+    description:
+      'Text alignment in the cells. This prop should be passed to Table.Cell and Table.HeaderCell',
+  },
+];
