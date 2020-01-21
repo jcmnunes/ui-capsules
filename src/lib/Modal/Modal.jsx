@@ -80,7 +80,9 @@ const Modal = ({ isOpen, onRequestClose, contentLabel, width, children, ...other
     {...other}
   >
     <ModalHeader>
-      <Button appearance="none" size="medium" iconBefore="CLOSE" onClick={onRequestClose} />
+      {!!onRequestClose && (
+        <Button appearance="none" size="medium" iconBefore="CLOSE" onClick={onRequestClose} />
+      )}
     </ModalHeader>
     {children}
   </StyledModal>
@@ -89,12 +91,13 @@ Modal.displayName = 'Modal';
 
 Modal.defaultProps = {
   width: '640px',
+  onRequestClose: null,
 };
 
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  onRequestClose: PropTypes.func.isRequired,
   contentLabel: PropTypes.string.isRequired,
+  onRequestClose: PropTypes.func,
   width: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
