@@ -17,10 +17,11 @@ export const PROPS = [
   },
   {
     name: 'onRequestClose',
-    isRequired: true,
+    isRequired: false,
     type: 'function',
+    defaultValue: 'null',
     description:
-      'Function that will be run when the modal is requested to be closed (either by clicking on overlay or pressing ESC). Note: It is not called if isOpen is changed by other means.',
+      "Function that will be run when the modal is requested to be closed (either by clicking on overlay or pressing ESC). Note: It is not called if isOpen is changed by other means. If omitted, the modal can't be closed by the user (the close button will also not be rendered).  ",
   },
   {
     name: 'width',
