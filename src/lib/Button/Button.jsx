@@ -197,6 +197,11 @@ const StyledButton = styled.span`
     background: ${props => getButtonColors(props).disabled};
     cursor: not-allowed;
   }
+
+  &:focus {
+    outline: ${props => props.appearance === 'none' && 'none'};
+    text-decoration: ${props => props.appearance === 'none' && 'underline'};
+  }
 `;
 
 const Anchor = styled.a`
