@@ -5,6 +5,7 @@ const HeaderCell = styled.th`
   vertical-align: middle;
   padding: 0 18px;
   text-align: ${({ textAlign }) => textAlign};
+  white-space: ${({ noWrap }) => noWrap && 'nowrap'};
 `;
 
 export default HeaderCell;

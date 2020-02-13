@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Demo, { StyledSelect } from '../../components/Demo/Demo';
+import Demo, { StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, TEXT_ALIGN_OPTS } from './Table.constants';
 import Table from '../../lib/Table/Table';
 import Select from '../../lib/Select/Select';
 
 const TableDemo = () => {
   const [textAlign, setTextAlign] = useState(TEXT_ALIGN_OPTS[0]);
+  const [noWrap, setNoWrap] = useState(false);
 
   const Component = (
     <Table>
@@ -16,11 +17,11 @@ const TableDemo = () => {
       <Table.Body>
         <Table.Row>
           <Table.Cell textAlign={textAlign.value}>Fringilla</Table.Cell>
-          <Table.Cell>Justo</Table.Cell>
+          <Table.Cell noWrap={noWrap}>Justo</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell textAlign={textAlign.value}>Parturient</Table.Cell>
-          <Table.Cell>Tellus</Table.Cell>
+          <Table.Cell noWrap={noWrap}>Etiam Mattis Condimentum</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
@@ -43,8 +44,8 @@ const TableDemo = () => {
     <Table.Row>
       <Table.Cell${
         textAlign.value === 'left' ? '' : ` textAlign="${textAlign.value}"`
-      }>Parturient</Table.Cell>
-      <Table.Cell>Tellus</Table.Cell>
+      }>Parturient Lorem</Table.Cell>
+      <Table.Cell${noWrap ? ` noWrap` : ''}>Tellus</Table.Cell>
     </Table.Row>
   </Table.Body>
 </Table>
@@ -57,6 +58,9 @@ const TableDemo = () => {
           <pre>textAlign</pre>
           <Select value={textAlign} options={TEXT_ALIGN_OPTS} onChange={opt => setTextAlign(opt)} />
         </StyledSelect>
+        <StyledCheckbox checked={noWrap} onChange={() => setNoWrap(!noWrap)} appearance="success">
+          <pre>noWrap</pre>
+        </StyledCheckbox>
       </>
     </Demo>
   );
