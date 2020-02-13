@@ -13,6 +13,13 @@ export const PROPS = [
     type: '"left" | "center" | "right"',
     defaultValue: '"left"',
     description:
-      'Text alignment in the cells. This prop should be passed to Table.Cell and Table.HeaderCell',
+      'Text alignment in the cells. This prop should be passed to Table.Cell and Table.HeaderCell.',
+  },
+  {
+    name: 'noWrap',
+    type: 'boolean',
+    defaultValue: '"false"',
+    description:
+      'If true, the text does not wrap. This prop should be passed to Table.Cell and Table.HeaderCell. Do not use it for long text.',
   },
 ];

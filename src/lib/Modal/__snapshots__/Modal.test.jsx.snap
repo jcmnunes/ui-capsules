@@ -95,6 +95,7 @@ exports[`should render with no errors 1`] = `
   border-style: solid;
   border-color: #CBD2D8;
   border-image: initial;
+  z-index: 999999;
 }
 
 .c1 {
