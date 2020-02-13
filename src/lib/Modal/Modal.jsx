@@ -46,12 +46,12 @@ const ModalHeader = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   height: 40px;
-  padding: 16px;
+  padding: 16px 16px 0;
   color: ${theme.neutral200};
 `;
 
 export const ModalBody = styled.div`
-  padding: 12px 32px 32px;
+  padding: 32px;
 `;
 
 export const ModalTitle = styled.h2`
