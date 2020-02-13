@@ -229,12 +229,12 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   height: 40px;
-  padding: 16px;
+  padding: 16px 16px 0;
   color: #CBD2D8;
 }
 
 .c5 {
-  padding: 12px 32px 32px;
+  padding: 32px;
 }
 
 .c1 {

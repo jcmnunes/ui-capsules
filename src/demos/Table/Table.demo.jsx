@@ -44,8 +44,8 @@ const TableDemo = () => {
     <Table.Row>
       <Table.Cell${
         textAlign.value === 'left' ? '' : ` textAlign="${textAlign.value}"`
-      }>Parturient Lorem</Table.Cell>
-      <Table.Cell${noWrap ? ` noWrap` : ''}>Tellus</Table.Cell>
+      }>Parturient</Table.Cell>
+      <Table.Cell${noWrap ? ` noWrap` : ''}>Etiam Mattis Condimentum</Table.Cell>
     </Table.Row>
   </Table.Body>
 </Table>
