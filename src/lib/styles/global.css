@@ -240,6 +240,7 @@ code {
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 200ms ease;
+  z-index: 999999;
 }
 
 .ReactModal__Overlay--after-open {
