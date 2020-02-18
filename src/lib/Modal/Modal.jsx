@@ -23,7 +23,7 @@ const StyledModal = styled(ReactModal)`
   border-style: solid;
   border-color: ${theme.neutral200};
   border-image: initial;
-  z-index: 999999;
+  z-index: ${theme.modalZIndex};
 
   @media (min-width: ${theme.bp_mobile}) {
     left: 40px;
