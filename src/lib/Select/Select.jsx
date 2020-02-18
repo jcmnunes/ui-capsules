@@ -59,6 +59,10 @@ const customStyles = size => ({
   indicatorSeparator: () => ({
     display: 'none',
   }),
+  menuPortal: base => ({
+    ...base,
+    zIndex: theme.selectZIndex,
+  }),
 });
 
 export const customTheme = (rsTheme, size) => ({

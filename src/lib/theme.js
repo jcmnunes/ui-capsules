@@ -86,4 +86,9 @@ export default {
 
   /* Transitions */
   transitionAll: 'all 0.2s ease',
+
+  /* z-Index */
+  modalZIndex: 2718281,
+  selectZIndex: 3141592,
+  // 4669201
 };
