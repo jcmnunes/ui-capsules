@@ -7,7 +7,7 @@ import Select from '../../lib/Select/Select';
 import Input from '../../lib/Input/Input';
 
 const trigger2ButtonText = {
-  hover: 'Hover on me',
+  hover: 'Hover over me',
   click: 'Click me',
   'right-click': 'Right click me',
   none: "No tooltip :'(",
