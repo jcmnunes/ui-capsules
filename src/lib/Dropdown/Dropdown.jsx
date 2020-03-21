@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
+import { Manager, Reference, Popper } from 'react-popper';
 import styled from 'styled-components';
 import theme from '../theme';
 import IconButton from '../IconButton/IconButton';
@@ -12,13 +13,12 @@ const Wrapper = styled.div`
 `;
 
 const Menu = styled.div`
-  position: absolute;
   width: auto;
   min-width: 200px;
   border: 1px solid mistyrose;
   border: 1px solid ${theme.neutral100};
   border-radius: 4px;
-  margin: 6px 0 0;
+  margin: 6px 0;
   padding: 0;
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
   background: white;
@@ -92,7 +92,7 @@ const stateReducer = (state, changes) => {
   }
 };
 
-const Dropdown = ({ trigger, placement, children }) => {
+const Dropdown = ({ trigger: Trigger, placement, children }) => {
   return (
     <Wrapper>
       <Downshift
@@ -101,29 +101,45 @@ const Dropdown = ({ trigger, placement, children }) => {
       >
         {({ getMenuProps, getToggleButtonProps, getItemProps, highlightedIndex, isOpen }) => (
           <div>
-            {React.cloneElement(trigger, {
-              ...getToggleButtonProps(),
-            })}
-            {isOpen ? (
-              <Menu {...getMenuProps()} placement={placement}>
-                <MenuWrapper>
-                  {React.Children.toArray(children).map((child, index) =>
-                    React.cloneElement(child, {
-                      highlighted: highlightedIndex === index,
-                      ...getItemProps({
-                        key: index,
-                        index,
-                        item: {
-                          name: index,
-                          closeOnAction: child.props.closeOnAction,
-                          handleAction: child.props.handleAction,
-                        },
-                      }),
-                    }),
+            <Manager>
+              <Reference>
+                {({ ref }) => (
+                  <div ref={ref} {...getToggleButtonProps()}>
+                    {Trigger}
+                  </div>
+                )}
+              </Reference>
+              {isOpen ? (
+                <Popper placement={`bottom-${placement === 'left' ? 'start' : 'end'}`}>
+                  {({ ref, style, placement: popperPlacement }) => (
+                    <div
+                      ref={ref}
+                      style={{ zIndex: theme.modalZIndex, ...style }}
+                      data-placement={popperPlacement}
+                    >
+                      <Menu {...getMenuProps()} placement={placement}>
+                        <MenuWrapper>
+                          {React.Children.toArray(children).map((child, index) =>
+                            React.cloneElement(child, {
+                              highlighted: highlightedIndex === index,
+                              ...getItemProps({
+                                key: index,
+                                index,
+                                item: {
+                                  name: index,
+                                  closeOnAction: child.props.closeOnAction,
+                                  handleAction: child.props.handleAction,
+                                },
+                              }),
+                            }),
+                          )}
+                        </MenuWrapper>
+                      </Menu>
+                    </div>
                   )}
-                </MenuWrapper>
-              </Menu>
-            ) : null}
+                </Popper>
+              ) : null}
+            </Manager>
           </div>
         )}
       </Downshift>
