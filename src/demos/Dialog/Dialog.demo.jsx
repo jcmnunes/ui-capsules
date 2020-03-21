@@ -7,7 +7,7 @@ import Dialog from '../../lib/Dialog/Dialog';
 
 const DialogDemo = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [children, setChildren] = useState('Are you sure you want to delete?');
+  const [children, setChildren] = useState('Are you sure you want to delete this file?');
   const [contentLabel, setContentLabel] = useState('Example dialog');
 
   const Component = (
@@ -70,7 +70,7 @@ const DialogDemo = () => {
             action: () => setIsOpen(false),
           },
           {
-            name: 'Delete',
+            name: 'Delete file',
             appearance: 'error',
             // eslint-disable-next-line no-alert
             action: () => alert('Delete action called'),

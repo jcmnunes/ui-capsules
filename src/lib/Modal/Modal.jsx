@@ -5,6 +5,12 @@ import styled from 'styled-components';
 import Button from '../Button/Button';
 import theme from '../theme';
 
+const styles = {
+  overlay: {
+    backgroundColor: 'rgba(180, 180, 180, 0.75)',
+  },
+};
+
 const StyledModal = styled(ReactModal)`
   position: absolute;
   top: 50%;
@@ -19,9 +25,8 @@ const StyledModal = styled(ReactModal)`
   width: auto;
   min-width: 300px;
   box-shadow: rgba(0, 0, 0, 0.15) 0 10px 20px, rgba(0, 0, 0, 0.1) 0 3px 6px;
-  border-width: 6px;
-  border-style: solid;
-  border-color: ${theme.neutral200};
+  border: none;
+  border-radius: 16px;
   border-image: initial;
   z-index: ${theme.modalZIndex};
 
@@ -51,7 +56,7 @@ const ModalHeader = styled.div`
 `;
 
 export const ModalBody = styled.div`
-  padding: 32px;
+  padding: 32px 32px 48px;
 `;
 
 export const ModalTitle = styled.h2`
@@ -71,17 +76,26 @@ export const ModalFooter = styled.div`
   }
 `;
 
-const Modal = ({ isOpen, onRequestClose, contentLabel, width, children, ...other }) => (
+const Modal = ({
+  isOpen,
+  onRequestClose,
+  contentLabel,
+  width,
+  showCloseButton,
+  children,
+  ...other
+}) => (
   <StyledModal
     isOpen={isOpen}
     onRequestClose={onRequestClose}
     contentLabel={contentLabel}
     width={width}
     closeTimeoutMS={200}
+    style={styles}
     {...other}
   >
     <ModalHeader>
-      {!!onRequestClose && (
+      {!!onRequestClose && showCloseButton && (
         <Button appearance="none" size="medium" iconBefore="CLOSE" onClick={onRequestClose} />
       )}
     </ModalHeader>
@@ -93,6 +107,7 @@ Modal.displayName = 'Modal';
 Modal.defaultProps = {
   width: '640px',
   onRequestClose: null,
+  showCloseButton: true,
 };
 
 Modal.propTypes = {
@@ -101,6 +116,7 @@ Modal.propTypes = {
   onRequestClose: PropTypes.func,
   width: PropTypes.string,
   children: PropTypes.node.isRequired,
+  showCloseButton: PropTypes.bool,
 };
 
 export default Modal;

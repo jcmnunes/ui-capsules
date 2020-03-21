@@ -23,17 +23,22 @@ export const StyledModal = styled(Modal)`
 const Message = styled.h1`
   font-size: 18px;
   color: ${theme.neutral600};
-  text-align: center;
+  text-align: left;
 `;
 
 const StyledModalFooter = styled(ModalFooter)`
-  justify-content: center;
-  background: #fff;
+  justify-content: flex-end;
+  background: ${theme.neutral050};
 `;
 
 const Dialog = ({ isOpen, actions, contentLabel, onRequestClose, children }) => {
   return (
-    <StyledModal isOpen={isOpen} contentLabel={contentLabel} onRequestClose={onRequestClose}>
+    <StyledModal
+      isOpen={isOpen}
+      contentLabel={contentLabel}
+      onRequestClose={onRequestClose}
+      showCloseButton={false}
+    >
       <ModalBody>
         <Message>{children}</Message>
       </ModalBody>

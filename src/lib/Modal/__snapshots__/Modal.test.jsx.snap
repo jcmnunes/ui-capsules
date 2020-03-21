@@ -91,9 +91,8 @@ exports[`should render with no errors 1`] = `
   width: auto;
   min-width: 300px;
   box-shadow: rgba(0,0,0,0.15) 0 10px 20px,rgba(0,0,0,0.1) 0 3px 6px;
-  border-width: 6px;
-  border-style: solid;
-  border-color: #CBD2D8;
+  border: none;
+  border-radius: 16px;
   border-image: initial;
   z-index: 2718281;
 }
@@ -116,7 +115,7 @@ exports[`should render with no errors 1`] = `
 }
 
 .c4 {
-  padding: 32px;
+  padding: 32px 32px 48px;
 }
 
 .c5 {
