@@ -27,11 +27,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run test:nowatch && lint-staged"
     }
   },
   "lint-staged": {
-    "*.+(js|jsx|ts|tsx)": "eslint --fix && npm run test:nowatch",
+    "*.+(js|jsx|ts|tsx)": "eslint --fix",
     "*.+(js|jsx|ts|tsx|json|md)": "prettier --write"
   },
   "dependencies": {
