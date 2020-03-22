@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS, TRIGGER_OPTS } from './Tooltip.constants';
-import Tooltip from '../../lib/Tooltip/Tooltip';
-import Button from '../../lib/Button/Button';
-import Select from '../../lib/Select/Select';
-import Input from '../../lib/Input/Input';
+import { Tooltip } from '../../lib/Tooltip/Tooltip';
+import { Button } from '../../lib/Button/Button';
+import { Select } from '../../lib/Select/Select';
+import { Input } from '../../lib/Input/Input';
 
 const trigger2ButtonText = {
   hover: 'Hover over me',

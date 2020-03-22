@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Spinner from '../../lib/Spinner/Spinner';
-import Select from '../../lib/Select/Select';
+import { Spinner } from '../../lib/Spinner/Spinner';
+import { Select } from '../../lib/Select/Select';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, SIZE_OPTS, APPEARANCE_OPTS } from './Spinner.constants';
 

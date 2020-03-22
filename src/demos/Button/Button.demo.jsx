@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
-import Button from '../../lib/Button/Button';
-import Select from '../../lib/Select/Select';
-import Input from '../../lib/Input/Input';
+import { Button } from '../../lib/Button/Button';
+import { Select } from '../../lib/Select/Select';
+import { Input } from '../../lib/Input/Input';
 import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon20/Icon20.hooks';
 
 const ButtonDemo = () => {
-  const iconOpts = [{ value: null, label: 'none' }, ...useIconOpts()];
+  const iconOpts = [{ value: undefined, label: 'none' }, ...useIconOpts()];
 
   const [isLoading, setIsLoading] = useState(false);
   const [isBlock, setIsBlock] = useState(false);

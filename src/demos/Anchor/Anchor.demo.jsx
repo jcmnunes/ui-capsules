@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import Anchor from '../../lib/Anchor/Anchor';
-import Input from '../../lib/Input/Input';
+import { Anchor } from '../../lib/Anchor/Anchor';
+import { Input } from '../../lib/Input/Input';
+import { Select } from '../../lib/Select/Select';
 import { GITHUB_URL, HREF_OPTS } from './Anchor.constants';
-import Select from '../../lib/Select/Select';
 
 const AnchorDemo = () => {
   const [href, setHref] = useState(HREF_OPTS[0]);

@@ -4,7 +4,7 @@ import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubSubTitle, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
-import Anchor from '../../lib/Anchor/Anchor';
+import { Anchor } from '../../lib/Anchor/Anchor';
 import { exampleAppElement, PROPS } from './Modal.constants';
 
 const ModalDemo = () => {

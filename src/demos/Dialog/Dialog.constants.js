@@ -30,7 +30,14 @@ export const PROPS = [
       'Function that will be run when the modal is requested to be closed (either by clicking on overlay or pressing ESC). Note: It is not called if isOpen is changed by other means.',
   },
   {
-    name: 'children',
+    name: 'title',
+    isRequired: false,
+    type: 'string',
+    description: 'The title of the dialog.',
+    defaultValue: 'undefined',
+  },
+  {
+    name: 'message',
     isRequired: true,
     type: 'string',
     description: 'The message that is displayed inside the dialog.',

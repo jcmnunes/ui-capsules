@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import LoadingMask from '../../lib/LoadingMask/LoadingMask';
-import Input from '../../lib/Input/Input';
+import { LoadingMask } from '../../lib/LoadingMask/LoadingMask';
+import { Input } from '../../lib/Input/Input';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './LoadingMask.constants';
-import theme from '../../lib/theme';
+import { theme } from '../../lib/theme';
 
 const LoadingMaskDemo = () => {
   const [circular, setCircular] = useState(false);

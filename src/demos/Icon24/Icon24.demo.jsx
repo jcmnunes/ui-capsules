@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Select from '../../lib/Select/Select';
+import { Select } from '../../lib/Select/Select';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import Icon24 from '../../lib/Icon24/Icon24';
+import { Icon24 } from '../../lib/Icon24/Icon24';
 import { useIconOpts } from './Icon24.hooks';
 import { GITHUB_URL } from './Icon24.constants';
-import theme from '../../lib/theme';
+import { theme } from '../../lib/theme';
 
 const Icon24Demo = () => {
   const iconOpts = useIconOpts();

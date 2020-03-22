@@ -2,19 +2,13 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { useIconOpts } from '../Icon24/Icon24.hooks';
-import IconButton from '../../lib/IconButton/IconButton';
-import Select from '../../lib/Select/Select';
-import Input from '../../lib/Input/Input';
-import Button from '../../lib/Button/Button';
+import { IconButton } from '../../lib/IconButton/IconButton';
+import { Select } from '../../lib/Select/Select';
+import { Input } from '../../lib/Input/Input';
+import { Button } from '../../lib/Button/Button';
 import { DEFAULT_COLORS, DEFAULT_TEXT_COLOR, GITHUB_URL } from './IconButton.constants';
 
 const IconButtonDemo = () => {
-  const getNewColorsArray = (index, newValue) => {
-    const newArr = [...colors];
-    newArr[index] = newValue;
-    return newArr;
-  };
-
   const iconOpts = useIconOpts();
   const [colors, setColors] = useState(DEFAULT_COLORS);
   const [textColor, setTextColor] = useState(DEFAULT_TEXT_COLOR);
@@ -27,6 +21,12 @@ const IconButtonDemo = () => {
   const [hasBackground, setHasBackground] = useState(false);
   const [text, setText] = useState('');
   const [size, setSize] = useState('24px');
+
+  const getNewColorsArray = (index, newValue) => {
+    const newArr = [...colors];
+    newArr[index] = newValue;
+    return newArr;
+  };
 
   const Component = (
     <IconButton
