@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
-import Select from '../../lib/Select/Select';
+import { Select } from '../../lib/Select/Select';
 import { SIZE_OPTS, GITHUB_URL } from './Input.constants';
-import Input from '../../lib/Input/Input';
+import { Input } from '../../lib/Input/Input';
 import { useIconOpts } from '../Icon20/Icon20.hooks';
 
 const InputDemo = () => {
-  const iconOpts = [{ value: null, label: 'none' }, ...useIconOpts()];
+  const iconOpts = [{ value: undefined, label: 'none' }, ...useIconOpts()];
 
   const [isDisabled, setIsDisabled] = useState(false);
   const [value, setValue] = useState('Hello world');
   const [placeholder, setPlaceholder] = useState('Placeholder');
   const [size, setSize] = useState(SIZE_OPTS[1]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(undefined);
   const [iconBefore, setIconBefore] = useState(iconOpts[0]);
   const [iconAfter, setIconAfter] = useState(iconOpts[0]);
 

@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components/macro';
 import Modal from 'react-modal';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import theme from './lib/theme';
+import { theme } from './lib/theme';
 import { WithToasts } from './lib/Toaster/Toaster';
 
 Modal.setAppElement('#root');

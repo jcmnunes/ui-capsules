@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Modal, { ModalBody, ModalTitle, ModalFooter } from '../../lib/Modal/Modal';
-import Button from '../../lib/Button/Button';
-import Input from '../../lib/Input/Input';
+import { Modal, ModalBody, ModalTitle, ModalFooter } from '../../lib/Modal/Modal';
+import { Button } from '../../lib/Button/Button';
+import { Input } from '../../lib/Input/Input';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Modal.constants';
 

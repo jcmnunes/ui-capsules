@@ -4,8 +4,8 @@ import Logo from '../Svgs/Logo';
 import { Paragraph, SubTitle } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
-import Button from '../../lib/Button/Button';
-import Message from '../../lib/Message/Message';
+import { Button } from '../../lib/Button/Button';
+import { Message } from '../../lib/Message/Message';
 
 export const Description = styled.div`
   display: flex;

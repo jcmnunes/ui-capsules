@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import Button from '../../lib/Button/Button';
-import Input from '../../lib/Input/Input';
+import { Button } from '../../lib/Button/Button';
+import { Input } from '../../lib/Input/Input';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Dialog.constants';
-import Dialog from '../../lib/Dialog/Dialog';
+import { Dialog } from '../../lib/Dialog/Dialog';
 
 const DialogDemo = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [children, setChildren] = useState('Are you sure you want to delete this file?');
+  const [title, setTitle] = useState('Delete file');
+  const [message, setMessage] = useState('Are you sure you want to delete this file?');
   const [contentLabel, setContentLabel] = useState('Example dialog');
 
   const Component = (
@@ -17,7 +18,7 @@ const DialogDemo = () => {
   );
 
   const code = `<Dialog
-  isOpen={isOpen}
+  isOpen={${isOpen}}
   onRequestClose={() => setIsOpen(false)}
   contentLabel="${contentLabel}"
   actions={[
@@ -32,9 +33,9 @@ const DialogDemo = () => {
       action: () => alert('Delete action called'),
     },
   ]}
->
-  ${children}
-</Dialog>
+  title={${title}}
+  message={${message}}
+/>
 `;
 
   return (
@@ -46,8 +47,12 @@ const DialogDemo = () => {
           </StyledCheckbox>
         </Booleans>
         <StyledSelect>
-          <pre>children</pre>
-          <Input type="text" value={children} onChange={ev => setChildren(ev.target.value)} />
+          <pre>title</pre>
+          <Input type="text" value={title} onChange={ev => setTitle(ev.target.value)} />
+        </StyledSelect>
+        <StyledSelect>
+          <pre>message</pre>
+          <Input type="text" value={message} onChange={ev => setMessage(ev.target.value)} />
         </StyledSelect>
         <StyledSelect>
           <pre>contentLabel</pre>
@@ -76,9 +81,9 @@ const DialogDemo = () => {
             action: () => alert('Delete action called'),
           },
         ]}
-      >
-        {children}
-      </Dialog>
+        title={title}
+        message={message}
+      />
     </Demo>
   );
 };

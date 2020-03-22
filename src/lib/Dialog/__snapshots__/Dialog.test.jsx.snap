@@ -170,12 +170,9 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   color: #CBD2D8;
 }
 
-.c3 {
-  padding: 32px 32px 48px;
-}
-
 .c1 {
   width: auto;
+  border-radius: 8px;
 }
 
 .c4 {
@@ -204,6 +201,10 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 
 .c5 > * {
   margin-left: 16px;
+}
+
+.c3 {
+  padding: 32px 32px 48px;
 }
 
 @media (min-width:450px) {
@@ -236,7 +237,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 
 @media (min-width:720px) {
   .c1 {
-    width: 400px;
+    width: 500px;
     left: 50%;
     right: auto;
   }
@@ -252,13 +253,13 @@ exports[`Dialog with two actions should render with no errors 1`] = `
     class="c2"
   />
   <div
-    class="c3"
+    class="sc-AxmLO c3"
   >
-    <h1
+    <p
       class="c4"
     >
       Are you sure you want to delete?
-    </h1>
+    </p>
   </div>
   <div
     class="sc-fzoLsD c5"

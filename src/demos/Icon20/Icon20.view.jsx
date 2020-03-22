@@ -7,7 +7,7 @@ import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ICON20_PROPS } from './Icon20.constants';
-import Icon20 from '../../lib/Icon20/Icon20';
+import { Icon20 } from '../../lib/Icon20/Icon20';
 import IconCard from '../../components/IconCard/IconCard';
 
 const ButtonDemo = () => {

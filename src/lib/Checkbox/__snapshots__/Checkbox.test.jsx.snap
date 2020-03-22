@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render with no errors 1`] = `
+exports[`Checkbox should render with no errors 1`] = `
 .c3 {
   position: absolute;
   border-radius: 4px;

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import Button from '../../lib/Button/Button';
-import Tooltip from '../../lib/Tooltip/Tooltip';
+import { Button } from '../../lib/Button/Button';
+import { Tooltip } from '../../lib/Tooltip/Tooltip';
 
 const Wrapper = styled.div`
   margin: 24px 0;

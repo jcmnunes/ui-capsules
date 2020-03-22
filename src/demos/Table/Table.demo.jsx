@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Demo, { StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, TEXT_ALIGN_OPTS } from './Table.constants';
-import Table from '../../lib/Table/Table';
-import Select from '../../lib/Select/Select';
+import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '../../lib/Table';
+import { Select } from '../../lib/Select/Select';
 
 const TableDemo = () => {
   const [textAlign, setTextAlign] = useState(TEXT_ALIGN_OPTS[0]);
@@ -10,44 +10,44 @@ const TableDemo = () => {
 
   const Component = (
     <Table>
-      <Table.Head>
-        <Table.HeaderCell textAlign={textAlign.value}>Lorem</Table.HeaderCell>
-        <Table.HeaderCell>Ipsum</Table.HeaderCell>
-      </Table.Head>
-      <Table.Body>
-        <Table.Row>
-          <Table.Cell textAlign={textAlign.value}>Fringilla</Table.Cell>
-          <Table.Cell noWrap={noWrap}>Justo</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell textAlign={textAlign.value}>Parturient</Table.Cell>
-          <Table.Cell noWrap={noWrap}>Etiam Mattis Condimentum</Table.Cell>
-        </Table.Row>
-      </Table.Body>
+      <TableHead>
+        <TableHeaderCell textAlign={textAlign.value}>Lorem</TableHeaderCell>
+        <TableHeaderCell>Ipsum</TableHeaderCell>
+      </TableHead>
+      <TableBody>
+        <TableRow>
+          <TableCell textAlign={textAlign.value}>Fringilla</TableCell>
+          <TableCell noWrap={noWrap}>Justo</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell textAlign={textAlign.value}>Parturient</TableCell>
+          <TableCell noWrap={noWrap}>Etiam Mattis Condimentum</TableCell>
+        </TableRow>
+      </TableBody>
     </Table>
   );
 
   const code = `<Table>
-  <Table.Head>
-    <Table.HeaderCell${
+  <TableHead>
+    <TableHeaderCell${
       textAlign.value === 'left' ? '' : ` textAlign="${textAlign.value}"`
-    }>Lorem</Table.HeaderCell>
-    <Table.HeaderCell>Ipsum</Table.HeaderCell>
-  </Table.Head>
-  <Table.Body>
-    <Table.Row>
-      <Table.Cell${
+    }>Lorem</TableHeaderCell>
+    <TableHeaderCell>Ipsum</TableHeaderCell>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell${
         textAlign.value === 'left' ? '' : ` textAlign="${textAlign.value}"`
-      }>Fringilla</Table.Cell>
-      <Table.Cell>Justo</Table.Cell>
-    </Table.Row>
-    <Table.Row>
-      <Table.Cell${
+      }>Fringilla</TableCell>
+      <TableCell>Justo</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell${
         textAlign.value === 'left' ? '' : ` textAlign="${textAlign.value}"`
-      }>Parturient</Table.Cell>
-      <Table.Cell${noWrap ? ` noWrap` : ''}>Etiam Mattis Condimentum</Table.Cell>
-    </Table.Row>
-  </Table.Body>
+      }>Parturient</TableCell>
+      <TableCell${noWrap ? ` noWrap` : ''}>Etiam Mattis Condimentum</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>
 `;
 

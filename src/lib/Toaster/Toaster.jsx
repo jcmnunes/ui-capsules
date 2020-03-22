@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ToastProvider, withToastManager } from 'react-toast-notifications';
-import theme from '../theme';
-import Button from '../Button/Button';
-import Icon20 from '../Icon20/Icon20';
+import { Button } from '../Button/Button';
+import { Icon20 } from '../Icon20/Icon20';
+import { theme } from '../theme';
 
 function getTranslate(placement) {
   const pos = placement.split('-');
@@ -216,7 +216,7 @@ Toast.propTypes = {
   onDismiss: PropTypes.func.isRequired,
 };
 
-export default class Toaster extends Component {
+export class Toaster extends Component {
   // eslint-disable-next-line react/sort-comp
   static defaultOptions = {
     placement: 'bottom-right',

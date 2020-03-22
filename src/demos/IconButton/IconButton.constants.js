@@ -1,4 +1,4 @@
-import theme from '../../lib/theme';
+import { theme } from '../../lib/theme';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/IconButton/IconButton.jsx';

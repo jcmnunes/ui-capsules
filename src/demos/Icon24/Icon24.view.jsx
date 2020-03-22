@@ -7,7 +7,7 @@ import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ICON24_PROPS } from './Icon24.constants';
-import Icon24 from '../../lib/Icon24/Icon24';
+import { Icon24 } from '../../lib/Icon24/Icon24';
 import IconCard from '../../components/IconCard/IconCard';
 
 const Icon24View = () => {

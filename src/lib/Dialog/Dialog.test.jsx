@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import RModal from 'react-modal';
-import Dialog from './Dialog';
+import { Dialog } from './Dialog';
 
 const bindApp = () => {
   const app = document.createElement('div');
@@ -51,9 +51,8 @@ describe('Dialog with two actions', () => {
       onRequestClose={cancelAction}
       contentLabel="Example Dialog"
       actions={actions}
-    >
-      {DIALOG_TEXT}
-    </Dialog>
+      message={DIALOG_TEXT}
+    />
   );
 
   beforeEach(() => {
