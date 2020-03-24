@@ -23,7 +23,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test:nowatch && lint-staged"
+      "pre-commit": "npm run test:nowatch && npm run build && lint-staged"
     }
   },
   "lint-staged": {
