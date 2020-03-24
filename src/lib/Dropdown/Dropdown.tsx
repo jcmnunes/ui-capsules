@@ -140,20 +140,22 @@ export const Dropdown: React.FC<Props> = ({ trigger: Trigger, placement, childre
                     >
                       <Menu {...getMenuProps()} placement={placement}>
                         <MenuWrapper>
-                          {React.Children.map(children, (child, index) =>
-                            React.cloneElement(child, {
-                              highlighted: highlightedIndex === index,
-                              ...getItemProps({
-                                key: index,
-                                index,
-                                item: {
-                                  name: index.toString(),
-                                  closeOnAction: child.props.closeOnAction || false,
-                                  handleAction: child.props.handleAction,
-                                },
-                              }),
-                            }),
-                          )}
+                          {React.Children.map(children, (child, index) => {
+                            if (child) {
+                              React.cloneElement(child, {
+                                highlighted: highlightedIndex === index,
+                                ...getItemProps({
+                                  key: index,
+                                  index,
+                                  item: {
+                                    name: index.toString(),
+                                    closeOnAction: child.props.closeOnAction || false,
+                                    handleAction: child.props.handleAction,
+                                  },
+                                }),
+                              });
+                            }
+                          })}
                         </MenuWrapper>
                       </Menu>
                     </div>
