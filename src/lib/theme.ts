@@ -1,6 +1,4 @@
 export const theme = {
-  /* Colors */
-  // Primary I
   yellow050: '#FFFBEA',
   yellow075: '#FCF6E1',
   yellow100: '#FFF3C4',
@@ -13,7 +11,7 @@ export const theme = {
   yellow800: '#B44D12',
   yellow900: '#8D2B0B',
   yellowDisabled: '#F4D2B5',
-  // Primary II
+
   blue025: '#EDF6FC',
   blue050: '#DCEEFB',
   blue100: '#B6E0FE',
@@ -26,7 +24,7 @@ export const theme = {
   blue800: '#0A558C',
   blue900: '#003E6B',
   blueDisabled: '#A8D1EB',
-  // Neutral
+
   neutral025: '#F7F9FC',
   neutral050: '#F5F7FA',
   neutral075: '#EBEEF2',
@@ -40,7 +38,7 @@ export const theme = {
   neutral800: '#323F4B',
   neutral900: '#1F2933',
   neutralDisabled: '#F5F7FA',
-  // Green
+
   green050: '#EFFCF6',
   green100: '#C6F7E2',
   green200: '#8EEDC7',
@@ -52,7 +50,7 @@ export const theme = {
   green800: '#0C6B58',
   green900: '#014D40',
   greenDisabled: '#AFE1D5',
-  // Red
+
   red050: '#FFE3E3',
   red100: '#FFBDBD',
   red200: '#FF9B9B',
@@ -64,7 +62,7 @@ export const theme = {
   red800: '#8A041A',
   red900: '#610316',
   redDisabled: '#FFBCC2',
-  // Pink
+
   pink050: '#FFE0F0',
   pink100: '#FAB8D9',
   pink200: '#F191C1',
@@ -76,7 +74,6 @@ export const theme = {
   pink800: '#781244',
   pink900: '#5C0B33',
 
-  /* Breakpoints */
   breakpoints: {
     xxl: '1500px',
     xl: '1220px',
@@ -86,10 +83,8 @@ export const theme = {
     mobile: '450px',
   },
 
-  /* Transitions */
   transitionAll: 'all 0.2s ease',
 
-  /* z-Index */
   modalZIndex: 2718281,
   selectZIndex: 3141592,
   // 4669201
