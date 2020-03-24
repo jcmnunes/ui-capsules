@@ -88,5 +88,4 @@ export const theme = {
   modalZIndex: 2718281,
   selectZIndex: 3141592,
   // 4669201
-  //
 };
