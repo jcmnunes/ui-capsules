@@ -17,6 +17,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   white-space: nowrap;
   margin-left: auto;
   margin-right: auto;
+  line-height: 24px;
 }
 
 .c6 {
@@ -28,7 +29,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   border: 1px solid #C0C2C6;
   font-size: 18px;
   font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
-  padding: 12px;
+  padding: 10px 12px;
   cursor: pointer;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -84,7 +85,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
   border: none;
   font-size: 18px;
   font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
-  padding: 12px;
+  padding: 10px 12px;
   cursor: pointer;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;

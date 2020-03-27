@@ -11,11 +11,7 @@ const SpinnerDemo = () => {
   const Component = <Spinner size={size.value} appearance={appearance.value} />;
 
   return (
-    <Demo
-      codeURL={GITHUB_URL}
-      component={Component}
-      isDark={appearance.value !== 'secondary' && appearance.value !== 'minimal'}
-    >
+    <Demo codeURL={GITHUB_URL} component={Component} isDark={appearance.value === 'light'}>
       <>
         <StyledSelect>
           <pre>size</pre>

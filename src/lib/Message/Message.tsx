@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Icon20 } from '../Icon20/Icon20';
+import { Icon } from '../Icon/Icon';
 import { theme } from '../theme';
 
 enum IconEnum {
-  success = 'CHECK',
-  warning = 'WARNING',
-  error = 'ERROR',
+  success = 'CHECK_C',
+  warning = 'EXCLAMATION_T',
+  error = 'EXCLAMATION_C',
 }
 
 const colors = {
@@ -59,15 +59,15 @@ const StyledMessage = styled.div<{ appearance: 'success' | 'warning' | 'error' }
     appearance === 'error' || appearance === 'warning' ? '500ms' : 0};
 `;
 
-export const Icon = styled.span`
+export const IconContainer = styled.span`
   margin-top: 2px;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
 `;
 
 export const MessageBody = styled.span`
   text-align: left;
-  line-height: 22px;
+  line-height: 24px;
 `;
 
 interface Props {
@@ -76,9 +76,9 @@ interface Props {
 
 export const Message: React.FC<Props> = ({ appearance, children, ...other }) => (
   <StyledMessage appearance={appearance} {...other}>
-    <Icon>
-      <Icon20 icon={IconEnum[appearance]} />
-    </Icon>
+    <IconContainer>
+      <Icon icon={IconEnum[appearance]} />
+    </IconContainer>
     <MessageBody>{children}</MessageBody>
   </StyledMessage>
 );

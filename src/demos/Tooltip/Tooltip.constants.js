@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Tooltip/Tooltip.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Tooltip/Tooltip.tsx';
 
 export const PLACEMENT_OPTS = [
   { value: 'bottom', label: 'bottom' },

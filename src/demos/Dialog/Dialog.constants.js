@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Dialog/Dialog.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Dialog/Dialog.tsx';
 
 export const PROPS = [
   {

@@ -1,7 +1,7 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Icon16/Icon16.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Icon/Icon.tsx';
 
-export const ICON16_PROPS = [
+export const ICON_PROPS = [
   {
     name: 'icon',
     isRequired: true,

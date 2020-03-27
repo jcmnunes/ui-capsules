@@ -16,10 +16,9 @@ const Sidebar = () => (
       <SidebarLink to="/dialog">Dialog</SidebarLink>
       <SidebarLink to="/dropdown">Dropdown</SidebarLink>
       <SidebarLink to="/editable-input">Editable Input</SidebarLink>
+      <SidebarLink to="/icon">Icon</SidebarLink>
+      <SidebarLink to="/iconis">Iconis</SidebarLink>
       <SidebarLink to="/icon-button">IconButton</SidebarLink>
-      <SidebarLink to="/icon16">Icon16</SidebarLink>
-      <SidebarLink to="/icon20">Icon20</SidebarLink>
-      <SidebarLink to="/icon24">Icon24</SidebarLink>
       <SidebarLink to="/input">Input</SidebarLink>
       <SidebarLink to="/loading-mask">LoadingMask</SidebarLink>
       <SidebarLink to="/message">Message</SidebarLink>

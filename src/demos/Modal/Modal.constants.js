@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Modal/Modal.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Modal/Modal.tsx';
 
 export const PROPS = [
   {

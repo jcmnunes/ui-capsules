@@ -4,7 +4,7 @@ import { Button } from '../../lib/Button/Button';
 import { Select } from '../../lib/Select/Select';
 import { Input } from '../../lib/Input/Input';
 import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL } from './Button.constants';
-import { useIconOpts } from '../Icon20/Icon20.hooks';
+import { useIconOpts } from '../Icon/Icon.hooks';
 
 const ButtonDemo = () => {
   const iconOpts = [{ value: undefined, label: 'none' }, ...useIconOpts()];

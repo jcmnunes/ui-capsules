@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Table/Table.js';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Table/Table.ts';
 
 export const TEXT_ALIGN_OPTS = [
   { value: 'left', label: 'left' },

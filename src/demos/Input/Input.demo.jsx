@@ -3,7 +3,7 @@ import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/D
 import { Select } from '../../lib/Select/Select';
 import { SIZE_OPTS, GITHUB_URL } from './Input.constants';
 import { Input } from '../../lib/Input/Input';
-import { useIconOpts } from '../Icon20/Icon20.hooks';
+import { useIconOpts } from '../Icon/Icon.hooks';
 
 const InputDemo = () => {
   const iconOpts = [{ value: undefined, label: 'none' }, ...useIconOpts()];

@@ -106,7 +106,7 @@ export const Modal: React.FC<Props> = ({
   >
     <ModalHeader>
       {!!onRequestClose && showCloseButton && (
-        <Button appearance="none" size="medium" iconBefore="CLOSE" onClick={onRequestClose} />
+        <Button appearance="none" size="medium" iconBefore="X" onClick={onRequestClose} />
       )}
     </ModalHeader>
     {children}

@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Spinner/Spinner.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Spinner/Spinner.tsx';
 
 export const PROPS = [
   {

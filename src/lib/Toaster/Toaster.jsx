@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ToastProvider, withToastManager } from 'react-toast-notifications';
 import { Button } from '../Button/Button';
-import { Icon20 } from '../Icon20/Icon20';
+import { Icon } from '../Icon/Icon';
 import { theme } from '../theme';
 
 function getTranslate(placement) {
@@ -65,7 +65,7 @@ const colors = {
 
 const icons = {
   info: 'INFO',
-  success: 'CHECK',
+  success: 'CHECK_SM',
   warning: 'EXCLAMATION',
   error: 'EXCLAMATION',
 };
@@ -111,7 +111,7 @@ const StyledButton = styled(Button)`
   color: inherit;
 `;
 
-const Icon = styled.div`
+const IconContainer = styled.div`
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -175,9 +175,9 @@ export const Toast = ({
       transitionState={transitionState}
       placement={placement}
     >
-      <Icon appearance={appearance}>
-        <Icon20 icon={icons[appearance]} />
-      </Icon>
+      <IconContainer appearance={appearance}>
+        <Icon icon={icons[appearance]} size="32px" />
+      </IconContainer>
       <Wrapper>
         {title && <Title appearance={appearance}>{title}</Title>}
         {message && <Message appearance={appearance}>{message}</Message>}
@@ -328,12 +328,11 @@ Toaster.propTypes = {
 
 export const WithToasts = ({ children }) => {
   const EnhancedToaster = withToastManager(Toaster);
+
   return (
     <ToastProvider components={{ Toast }} placement="bottom-right">
-      <>
-        {children}
-        <EnhancedToaster />
-      </>
+      {children}
+      <EnhancedToaster />
     </ToastProvider>
   );
 };
