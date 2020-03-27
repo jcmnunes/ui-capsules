@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Icon24 } from '../Icon24/Icon24';
+import { Iconis } from '../Iconis/Iconis';
 import { Spinner } from '../Spinner/Spinner';
 import { theme } from '../theme';
-import { Icon24Type } from '../typings';
+import { IconisType } from '../types';
 
-const StyledIcon24 = styled(Icon24)<{ colors: string[] }>`
+const StyledIconis = styled(Iconis)<{ colors: string[] }>`
   .ui-capsules-icon-primary {
     fill: ${({ colors }) => colors[0]};
   }
@@ -96,7 +96,7 @@ const Text = styled.span`
 `;
 
 interface Props {
-  icon: Icon24Type;
+  icon: IconisType;
   type?: 'button' | 'submit';
   text?: string;
   isLoading?: boolean;
@@ -140,7 +140,7 @@ export const IconButton: React.FC<Props> = ({
   >
     {isLoading && (
       <SpinnerWrapper>
-        <Spinner size="medium" appearance="secondary" />
+        <Spinner size="medium" appearance="light" />
       </SpinnerWrapper>
     )}
     <Content
@@ -150,9 +150,9 @@ export const IconButton: React.FC<Props> = ({
       isLoading={isLoading}
       isDisabled={isDisabled}
     >
-      <StyledIcon24 icon={icon} colors={colors} size={size} />
+      <StyledIconis icon={icon} colors={colors} size={size} />
       {!!text && <Text>{text}</Text>}
-      {hasChev && <Icon24 icon="CHEV_DOWN" />}
+      {hasChev && <Iconis icon="CHEV_DOWN" />}
     </Content>
   </StyledButton>
 );

@@ -15,10 +15,9 @@ export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
   color: ${props => props.theme.neutral600};
   cursor: pointer;
   padding: 3px 12px;
-  transition: background 0.2s ease;
 
   &:hover {
-    background: ${props => props.theme.neutral100};
+    background: ${props => props.theme.neutral075};
   }
 
   &.active {
@@ -27,7 +26,7 @@ export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
     color: ${props => props.theme.pink700};
 
     &:hover {
-      background: ${props => props.theme.neutral100};
+      background: ${props => props.theme.neutral075};
     }
   }
 `;

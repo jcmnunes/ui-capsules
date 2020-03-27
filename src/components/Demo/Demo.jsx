@@ -76,14 +76,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
       <HeaderWrapper>
         <SubTitle>Demo</SubTitle>
         <Actions>
-          <Button
-            as="a"
-            href={codeURL}
-            target="_blank"
-            size="medium"
-            appearance="minimal"
-            iconBefore="GITHUB"
-          >
+          <Button as="a" href={codeURL} appearance="minimal" iconBefore="GITHUB">
             View source on GitHub
           </Button>
         </Actions>

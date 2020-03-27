@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Button } from '../Button/Button';
 import { Modal, ModalBody, ModalFooter } from '../Modal/Modal';
 import { theme } from '../theme';
-import { ButtonAppearance } from '../typings';
+import { ButtonAppearance } from '../types';
 
 const StyledModal = styled(Modal)`
   width: auto;

@@ -21,7 +21,7 @@ const DropdownDemo = () => {
         </li>
         <li>
           <code>icon</code>: &quot;string&quot; - The icon to render before the text (from the
-          Icon24 collection)
+          Iconis collection)
         </li>
         <li>
           <code>closeOnAction</code>: &quot;boolean&quot; (default: true) - Whether dropdown should

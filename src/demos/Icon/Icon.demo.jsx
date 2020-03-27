@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Select } from '../../lib/Select/Select';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import { Icon16 } from '../../lib/Icon16/Icon16';
-import { useIconOpts } from './Icon16.hooks';
-import { GITHUB_URL } from './Icon16.constants';
+import { Icon } from '../../lib/Icon/Icon';
+import { useIconOpts } from './Icon.hooks';
+import { GITHUB_URL } from './Icon.constants';
 
-const Icon16Demo = () => {
+const IconDemo = () => {
   const iconOpts = useIconOpts();
   const [icon, setIcon] = useState(iconOpts[0]);
-  const Component = <Icon16 icon={icon.value} />;
+  const Component = <Icon icon={icon.value} />;
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
@@ -20,4 +20,4 @@ const Icon16Demo = () => {
   );
 };
 
-export default Icon16Demo;
+export default IconDemo;

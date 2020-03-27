@@ -1,7 +1,7 @@
 import { theme } from '../../lib/theme';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/IconButton/IconButton.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/IconButton/IconButton.tsx';
 
 export const DEFAULT_COLORS = [
   theme.neutral200,
@@ -92,7 +92,7 @@ export const PROPS = [
     type: 'array',
     defaultValue: '[theme.neutral200, theme.neutral600, theme.neutral300, theme.neutral700]',
     description:
-      'Array of four colors. The colors are primaryColor, secondaryColor, primaryColor on hover, secondaryColor on hover (see the Icon24 demo).',
+      'Array of four colors. The colors are primaryColor, secondaryColor, primaryColor on hover, secondaryColor on hover (see the Iconis demo).',
   },
   {
     name: 'textColor',

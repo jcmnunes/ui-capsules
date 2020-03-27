@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Select/Select.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Select/Select.tsx';
 
 export const OPTIONS = [
   { value: 'lorem', label: 'Lorem' },

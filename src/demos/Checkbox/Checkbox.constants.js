@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Checkbox/Checkbox.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Checkbox/Checkbox.tsx';
 
 export const SIZE_OPTS = [
   { value: 'small', label: 'small' },

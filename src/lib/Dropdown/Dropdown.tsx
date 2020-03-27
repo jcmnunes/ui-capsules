@@ -4,7 +4,7 @@ import { Manager, Reference, Popper } from 'react-popper';
 import styled from 'styled-components';
 import { theme } from '../theme';
 import { IconButton } from '../IconButton/IconButton';
-import { ICONS } from '../Icon24/Icon24.constants';
+import { ICONIS } from '../Iconis/Iconis.constants';
 
 const Wrapper = styled.div`
   display: block;
@@ -41,7 +41,7 @@ const StyledIconButton = styled(({ handleAction, ...other }) => <IconButton {...
 `;
 
 interface DropdownItemProps {
-  icon: keyof typeof ICONS;
+  icon: keyof typeof ICONIS;
   handleAction(): void;
   text?: string;
   iconBefore?: string;
@@ -142,7 +142,7 @@ export const Dropdown: React.FC<Props> = ({ trigger: Trigger, placement, childre
                         <MenuWrapper>
                           {React.Children.map(children, (child, index) => {
                             if (child) {
-                              React.cloneElement(child, {
+                              return React.cloneElement(child, {
                                 highlighted: highlightedIndex === index,
                                 ...getItemProps({
                                   key: index,
@@ -155,6 +155,7 @@ export const Dropdown: React.FC<Props> = ({ trigger: Trigger, placement, childre
                                 }),
                               });
                             }
+                            return null;
                           })}
                         </MenuWrapper>
                       </Menu>

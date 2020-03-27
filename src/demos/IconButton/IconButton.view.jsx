@@ -10,7 +10,7 @@ const AnchorDemo = () => {
   return (
     <Wrapper>
       <Title>IconButton</Title>
-      <Paragraph>Renders an IconButton using icons from the Icon24 collection.</Paragraph>
+      <Paragraph>Renders an IconButton using icons from the Iconis collection.</Paragraph>
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { IconButton } from '@binarycapsule/ui-capsules';"}</Usage>
       <Demo />

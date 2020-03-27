@@ -10,11 +10,11 @@ const Card = styled.div`
   border: 1px solid ${theme.neutral200};
   border-radius: 8px;
   overflow: hidden;
-  color: ${theme.neutral500};
-  width: 100px;
+  color: ${theme.neutral700};
+  width: 132px;
   height: 100px;
-  margin-bottom: 25px;
-  margin-right: ${props => (props.isLastInRow ? 0 : '25px')};
+  margin-bottom: 24px;
+  margin-right: ${props => (props.isLastInRow ? 0 : '24px')};
 `;
 
 const Icon = styled.div`
@@ -25,9 +25,9 @@ const Icon = styled.div`
 `;
 
 const Label = styled.div`
-  color: ${theme.neutral300};
+  color: ${theme.neutral500};
   background: ${theme.neutral050};
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;

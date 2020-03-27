@@ -1,9 +1,8 @@
 import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
-import { Icon16 } from '../Icon16/Icon16';
-import { Icon20 } from '../Icon20/Icon20';
 import { theme } from '../theme';
-import { Icon16Type, Icon20Type, Size } from '../typings';
+import { IconType, Size } from '../types';
+import { Icon } from '../Icon/Icon';
 
 const dimensions = {
   small: {
@@ -43,17 +42,17 @@ const getIconPosition = (size: Size) => {
   switch (size) {
     case 'small':
       return {
-        top: '2px',
+        top: '3px',
         side: '6px',
       };
     case 'medium':
       return {
-        top: '6px',
+        top: '4px',
         side: '8px',
       };
     case 'large':
       return {
-        top: '14px',
+        top: '12px',
         side: '14px',
       };
     default:
@@ -88,6 +87,7 @@ const IconBeforeWrapper = styled.div<IconWrapperProps>`
   left: ${({ size }) => getIconPosition(size).side};
   z-index: 3;
   color: ${props => props.theme.neutral500};
+  height: ${({ size }) => (size === 'small' ? '18px' : '24px')};
 `;
 
 const IconAfterWrapper = styled.div<IconWrapperProps>`
@@ -101,8 +101,8 @@ const IconAfterWrapper = styled.div<IconWrapperProps>`
 interface StyledInputProps {
   inputSize: Size;
   error?: string;
-  iconBefore?: Icon16Type | Icon20Type;
-  iconAfter?: Icon16Type | Icon20Type;
+  iconBefore?: IconType;
+  iconAfter?: IconType;
 }
 const StyledInput = styled.input<StyledInputProps>`
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
@@ -156,8 +156,8 @@ interface Props {
   size?: Size;
   isDisabled?: boolean;
   error?: string;
-  iconBefore?: Icon16Type | Icon20Type;
-  iconAfter?: Icon16Type | Icon20Type;
+  iconBefore?: IconType;
+  iconAfter?: IconType;
   value?: string;
   onChange?(ev?: ChangeEvent<HTMLInputElement>): void;
   autoFocus?: boolean;
@@ -174,11 +174,7 @@ export const Input: React.FC<Props> = ({
   <InputWrapper size={size} error={error}>
     {iconBefore && (
       <IconBeforeWrapper size={size}>
-        {size === 'small' ? (
-          <Icon16 icon={iconBefore as Icon16Type} />
-        ) : (
-          <Icon20 icon={iconBefore as Icon20Type} />
-        )}
+        <Icon icon={iconBefore as IconType} size={size === 'small' ? '18px' : '24px'} />
       </IconBeforeWrapper>
     )}
     <StyledInput
@@ -191,11 +187,7 @@ export const Input: React.FC<Props> = ({
     />
     {iconAfter && (
       <IconAfterWrapper size={size}>
-        {size === 'small' ? (
-          <Icon16 icon={iconAfter as Icon16Type} />
-        ) : (
-          <Icon20 icon={iconAfter as Icon20Type} />
-        )}
+        <Icon icon={iconAfter as IconType} size={size === 'small' ? '18px' : '24px'} />
       </IconAfterWrapper>
     )}
     {error && <Error size={size}>{error}</Error>}

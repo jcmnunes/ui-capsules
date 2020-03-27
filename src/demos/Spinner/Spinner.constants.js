@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Spinner/Spinner.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Spinner/Spinner.tsx';
 
 export const SIZE_OPTS = [
   { value: 'small', label: 'small' },
@@ -8,12 +8,8 @@ export const SIZE_OPTS = [
 ];
 
 export const APPEARANCE_OPTS = [
-  { value: 'primary', label: 'primary' },
-  { value: 'secondary', label: 'secondary' },
-  { value: 'success', label: 'success' },
-  { value: 'warning', label: 'warning' },
-  { value: 'error', label: 'error' },
-  { value: 'minimal', label: 'minimal' },
+  { value: 'light', label: 'light' },
+  { value: 'dark', label: 'dark' },
 ];
 
 export const PROPS = [

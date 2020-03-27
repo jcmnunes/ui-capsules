@@ -1,10 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spinner } from '../Spinner/Spinner';
-import { Icon20 } from '../Icon20/Icon20';
-import { Icon16 } from '../Icon16/Icon16';
 import { theme } from '../theme';
-import { ButtonAppearance, Icon16Type, Icon20Type } from '../typings';
+import { ButtonAppearance, IconType, Size } from '../types';
+import { Icon } from '../Icon/Icon';
+
+const getSpinnerAppearance = (appearance: ButtonAppearance) => {
+  switch (appearance) {
+    case 'primary':
+    case 'success':
+    case 'warning':
+    case 'error':
+      return 'light';
+    default:
+      return 'dark';
+  }
+};
 
 interface ColorsObject {
   text: string;
@@ -138,13 +149,13 @@ const getDimensions = ({ appearance, size, hasChildren }: DimensionsInput): Dime
     case 'medium':
       dimensions.height = '32px';
       dimensions.fontSize = '16px';
-      dimensions.padding = hasChildren ? '4px 8px' : '4px 6px';
+      dimensions.padding = hasChildren ? '2px 8px' : '2px 6px';
       dimensions.spinnerHeight = '18px';
       break;
     case 'large':
       dimensions.height = '48px';
       dimensions.fontSize = '18px';
-      dimensions.padding = '12px';
+      dimensions.padding = '10px 12px';
       dimensions.spinnerHeight = '24px';
       break;
     default:
@@ -167,10 +178,12 @@ const Content = styled.div<{ isLoading?: boolean }>`
   align-items: center;
 `;
 
-const Text = styled.span<{ iconBefore?: string; iconAfter?: string }>`
+const Text = styled.span<{ iconBefore?: string; iconAfter?: string; size: Size }>`
   white-space: nowrap;
-  margin-left: ${({ iconBefore }): string => (iconBefore ? '8px' : 'auto')};
+  margin-left: ${({ iconBefore, size }): string =>
+    iconBefore ? (size === 'small' ? '2px' : '8px') : 'auto'};
   margin-right: ${({ iconAfter }): string => (iconAfter ? '8px' : 'auto')};
+  line-height: ${({ size }) => size === 'large' && '24px'};
 `;
 
 interface StyledButtonProps extends Props {
@@ -244,7 +257,7 @@ const Anchor = styled.a`
 interface Props {
   appearance?: ButtonAppearance;
   as?: 'a' | 'button';
-  iconAfter?: Icon16Type | Icon20Type;
+  iconAfter?: IconType;
   iconBefore?: string;
   isBlock?: boolean;
   isDisabled?: boolean;
@@ -298,32 +311,27 @@ export const Button: React.FC<Props> = ({
       hasChildren={typeof children === 'string' && children.length > 0}
       target={as === 'a' ? '_blank' : undefined}
       rel={as === 'a' ? 'noreferrer noopener' : undefined}
+      href={as === 'a' ? href : undefined}
       onClick={onClick}
       {...other}
     >
       {isLoading && (
         <SpinnerWrapper size={size}>
-          <Spinner size={size} appearance={appearance} />
+          <Spinner size={size} appearance={getSpinnerAppearance(appearance)} />
         </SpinnerWrapper>
       )}
       <Content isLoading={isLoading}>
-        {iconBefore &&
-          (size === 'small' ? (
-            <Icon16 icon={iconBefore as Icon16Type} />
-          ) : (
-            <Icon20 icon={iconBefore as Icon20Type} />
-          ))}
+        {iconBefore && (
+          <Icon icon={iconBefore as IconType} size={size === 'small' ? '18px' : '24px'} />
+        )}
         {typeof children === 'string' && children.length > 0 && (
-          <Text iconBefore={iconBefore} iconAfter={iconAfter}>
+          <Text iconBefore={iconBefore} iconAfter={iconAfter} size={size}>
             {children}
           </Text>
         )}
-        {iconAfter &&
-          (size === 'small' ? (
-            <Icon16 icon={iconAfter as Icon16Type} />
-          ) : (
-            <Icon20 icon={iconAfter as Icon20Type} />
-          ))}
+        {iconAfter && (
+          <Icon icon={iconAfter as IconType} size={size === 'small' ? '18px' : '24px'} />
+        )}
       </Content>
     </StyledButton>
   );

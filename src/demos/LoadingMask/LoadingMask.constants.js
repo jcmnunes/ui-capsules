@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/LoadingMask/LoadingMask.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/LoadingMask/LoadingMask.tsx';
 
 export const PROPS = [
   {

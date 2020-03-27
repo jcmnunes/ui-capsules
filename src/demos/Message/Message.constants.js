@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Message/Message.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Message/Message.tsx';
 
 export const APPEARANCE_OPTS = [
   { value: 'success', label: 'success' },

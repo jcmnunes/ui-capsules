@@ -11,8 +11,8 @@ const ButtonDemo = () => {
     <Wrapper>
       <Title>Button</Title>
       <Paragraph>
-        Button must be used to trigger user actions. It can render both <code>&lt;button&gt;</code>{' '}
-        and <code>&lt;a&gt;</code> tags (by using the prop &quot;as&quot;).
+        This component can render a large variety of buttons. Use the Demo below to generate the
+        desired button type.
       </Paragraph>
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>

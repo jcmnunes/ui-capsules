@@ -12,7 +12,7 @@ const DialogDemo = () => {
   const [contentLabel, setContentLabel] = useState('Example dialog');
 
   const Component = (
-    <Button appearance="primary" iconBefore="APP" onClick={() => setIsOpen(true)}>
+    <Button appearance="primary" iconBefore="EYE" onClick={() => setIsOpen(true)}>
       Open Dialog
     </Button>
   );

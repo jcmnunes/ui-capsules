@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Dropdown/Dropdown.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Dropdown/Dropdown.tsx';
 
 export const PLACEMENT_OPTS = [
   { value: 'left', label: 'left' },

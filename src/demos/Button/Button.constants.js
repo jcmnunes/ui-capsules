@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Button/Button.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Button/Button.tsx';
 
 export const APPEARANCE_OPTS = [
   { value: 'primary', label: 'primary' },
@@ -18,7 +18,10 @@ export const SIZE_OPTS = [
   { value: 'large', label: 'large' },
 ];
 
-export const AS_OPTS = [{ value: 'button', label: 'button' }, { value: 'a', label: 'a' }];
+export const AS_OPTS = [
+  { value: 'button', label: 'button' },
+  { value: 'a', label: 'a' },
+];
 
 export const PROPS = [
   {

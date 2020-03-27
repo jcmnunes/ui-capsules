@@ -3,9 +3,8 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home/Home';
 import Button from './demos/Button/Button.view';
-import Icon24 from './demos/Icon24/Icon24.view';
-import Icon20 from './demos/Icon20/Icon20.view';
-import Icon16 from './demos/Icon16/Icon16.view';
+import Iconis from './demos/Iconis/Iconis.view';
+import Icon from './demos/Icon/Icon.view';
 import Checkbox from './demos/Checkbox/Checkbox.view';
 import Select from './demos/Select/Select.view';
 import Input from './demos/Input/Input.view';
@@ -51,9 +50,8 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/button" component={Button} />
       <Route path="/icon-button" component={IconButton} />
-      <Route path="/icon24" component={Icon24} />
-      <Route path="/icon20" component={Icon20} />
-      <Route path="/icon16" component={Icon16} />
+      <Route path="/iconis" component={Iconis} />
+      <Route path="/icon" component={Icon} />
       <Route path="/checkbox" component={Checkbox} />
       <Route path="/select" component={Select} />
       <Route path="/input" component={Input} />

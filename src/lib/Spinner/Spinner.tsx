@@ -1,23 +1,18 @@
 import styled, { keyframes } from 'styled-components';
 import { theme } from '../theme';
-import { Size, ButtonAppearance } from '../typings';
+import { Size } from '../types';
 
 const getColors = (props: SpinnerProps) => {
-  switch (props.appearance) {
-    case 'primary':
-    case 'success':
-    case 'warning':
-    case 'error':
-      return {
-        border: '#FFFFFF32',
-        accent: '#FFF',
-      };
-    default:
-      return {
-        border: theme.neutral100,
-        accent: theme.neutral200,
-      };
+  if (props.appearance === 'light') {
+    return {
+      border: '#FFFFFF32',
+      accent: '#FFF',
+    };
   }
+  return {
+    border: theme.neutral100,
+    accent: theme.neutral200,
+  };
 };
 
 const spin = keyframes`
@@ -28,7 +23,7 @@ const spin = keyframes`
 
 interface SpinnerProps {
   size: Size;
-  appearance?: ButtonAppearance;
+  appearance?: 'light' | 'dark';
 }
 export const Spinner = styled.span<SpinnerProps>`
   display: inline-block;
@@ -46,5 +41,5 @@ Spinner.displayName = 'Spinner';
 
 Spinner.defaultProps = {
   size: 'medium',
-  appearance: 'secondary',
+  appearance: 'dark',
 };

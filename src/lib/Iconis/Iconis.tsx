@@ -1,16 +1,16 @@
 import React from 'react';
-import { ICONS } from './Icon24.constants';
-import { Icon24Type } from '../typings';
+import { ICONIS } from './Iconis.constants';
+import { IconisType } from '../types';
 
 interface Props {
-  icon: Icon24Type;
+  icon: IconisType;
   size?: string;
   primaryColor?: string;
   secondaryColor?: string;
   className?: string;
 }
 
-export const Icon24: React.FC<Props> = ({
+export const Iconis: React.FC<Props> = ({
   icon,
   size,
   primaryColor,
@@ -27,20 +27,20 @@ export const Icon24: React.FC<Props> = ({
     <path
       fill={primaryColor}
       className="ui-capsules-icon-primary"
-      d={ICONS[icon][0]}
+      d={ICONIS[icon][0]}
       data-testid="first-path"
     />
     <path
       fill={secondaryColor}
       className="ui-capsules-icon-secondary"
-      d={ICONS[icon][1]}
+      d={ICONIS[icon][1]}
       data-testid="second-path"
     />
   </svg>
 );
-Icon24.displayName = 'Icon';
+Iconis.displayName = 'Iconis';
 
-Icon24.defaultProps = {
+Iconis.defaultProps = {
   size: '24px',
   primaryColor: 'currentColor',
   secondaryColor: 'currentColor',

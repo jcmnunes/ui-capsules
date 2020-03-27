@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { theme } from '../theme';
-import { Size } from '../typings';
+import { Size } from '../types';
 
 const dimensions = {
   small: {
