@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Iconis } from '../Iconis/Iconis';
 import { Spinner } from '../Spinner/Spinner';
@@ -110,7 +110,7 @@ interface Props {
   size?: string;
 }
 
-export const IconButton: React.FC<Props> = ({
+export const IconButton: FC<Props> = ({
   icon,
   type = 'button',
   text = '',

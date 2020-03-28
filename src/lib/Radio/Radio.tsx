@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
 import { Size } from '../types';
@@ -137,7 +137,7 @@ interface Props {
   isDisabled?: boolean;
 }
 
-export const Radio: React.FC<Props> = ({
+export const Radio: FC<Props> = ({
   checked,
   onChange,
   appearance = 'neutral',

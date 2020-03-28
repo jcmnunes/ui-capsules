@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
 
@@ -148,7 +148,7 @@ interface Props {
   onClick?(): void;
 }
 
-export const Checkbox: React.FC<Props> = ({
+export const Checkbox: FC<Props> = ({
   checked,
   isDisabled = false,
   appearance = 'neutral',

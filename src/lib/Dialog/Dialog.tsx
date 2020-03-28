@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button/Button';
 import { Modal, ModalBody, ModalFooter } from '../Modal/Modal';
@@ -59,7 +59,7 @@ interface Props {
   message: string;
 }
 
-export const Dialog: React.FC<Props> = ({
+export const Dialog: FC<Props> = ({
   isOpen,
   actions,
   contentLabel,

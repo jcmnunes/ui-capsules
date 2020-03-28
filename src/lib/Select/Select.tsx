@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import RSelect, { StylesConfig, Theme } from 'react-select';
 import styled from 'styled-components';
 import { theme } from '../theme';
@@ -110,7 +110,7 @@ interface Props {
   size?: 'medium' | 'large';
 }
 
-export const Select: React.FC<Props> = ({ size = 'medium', ...other }) => {
+export const Select: FC<Props> = ({ size = 'medium', ...other }) => {
   return (
     <StyledSelect
       size={size}

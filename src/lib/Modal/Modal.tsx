@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
 import { Button } from '../Button/Button';
@@ -86,7 +86,7 @@ interface Props {
   showCloseButton?: boolean;
 }
 
-export const Modal: React.FC<Props> = ({
+export const Modal: FC<Props> = ({
   isOpen,
   onRequestClose,
   contentLabel,

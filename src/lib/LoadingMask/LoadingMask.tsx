@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { theme } from '../theme';
 
@@ -35,7 +35,7 @@ const StyledLoadingElement = styled.div.attrs<Props>(({ background }) => ({
   }
 `;
 
-export const LoadingMask: React.FC<Props> = props => <StyledLoadingElement {...props} />;
+export const LoadingMask: FC<Props> = props => <StyledLoadingElement {...props} />;
 LoadingMask.displayName = 'LoadingMask';
 
 LoadingMask.defaultProps = {

@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
 import { IconType, Size } from '../types';
@@ -163,7 +163,7 @@ interface Props {
   autoFocus?: boolean;
 }
 
-export const Input: React.FC<Props> = ({
+export const Input: FC<Props> = ({
   size = 'medium',
   error,
   isDisabled = false,
