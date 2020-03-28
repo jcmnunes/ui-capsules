@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ICONS } from './Icon.constants';
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
   size?: string;
 }
 
-export const Icon: React.FC<Props> = ({ icon, size = '24px' }) => (
+export const Icon: FC<Props> = ({ icon, size = '24px' }) => (
   <svg
     width={size}
     height={size}

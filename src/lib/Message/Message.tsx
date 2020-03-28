@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Icon } from '../Icon/Icon';
 import { theme } from '../theme';
@@ -74,7 +74,7 @@ interface Props {
   appearance: 'success' | 'warning' | 'error';
 }
 
-export const Message: React.FC<Props> = ({ appearance, children, ...other }) => (
+export const Message: FC<Props> = ({ appearance, children, ...other }) => (
   <StyledMessage appearance={appearance} {...other}>
     <IconContainer>
       <Icon icon={IconEnum[appearance]} />

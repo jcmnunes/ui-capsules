@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, ReactElement } from 'react';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled from 'styled-components';
@@ -50,7 +50,7 @@ interface DropdownItemProps {
   highlighted?: boolean;
 }
 
-export const DropdownItem: React.FC<DropdownItemProps> = ({
+export const DropdownItem: FC<DropdownItemProps> = ({
   icon,
   closeOnAction = true,
   highlighted = false,
@@ -104,10 +104,10 @@ const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<I
 interface Props {
   trigger: JSX.Element;
   placement?: 'left' | 'right';
-  children: React.ReactElement<DropdownItemProps>[];
+  children: ReactElement<DropdownItemProps>[];
 }
 
-export const Dropdown: React.FC<Props> = ({ trigger: Trigger, placement, children }) => {
+export const Dropdown: FC<Props> = ({ trigger: Trigger, placement, children }) => {
   return (
     <Wrapper>
       <Downshift

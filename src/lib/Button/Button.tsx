@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Spinner } from '../Spinner/Spinner';
 import { theme } from '../theme';
@@ -258,7 +258,7 @@ interface Props {
   appearance?: ButtonAppearance;
   as?: 'a' | 'button';
   iconAfter?: IconType;
-  iconBefore?: string;
+  iconBefore?: IconType;
   isBlock?: boolean;
   isDisabled?: boolean;
   isLoading?: boolean;
@@ -270,7 +270,7 @@ interface Props {
   href?: string;
 }
 
-export const Button: React.FC<Props> = ({
+export const Button: FC<Props> = ({
   as = 'button',
   type = 'button',
   appearance = 'secondary',

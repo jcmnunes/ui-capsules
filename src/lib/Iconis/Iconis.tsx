@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ICONIS } from './Iconis.constants';
 import { IconisType } from '../types';
 
@@ -10,13 +10,7 @@ interface Props {
   className?: string;
 }
 
-export const Iconis: React.FC<Props> = ({
-  icon,
-  size,
-  primaryColor,
-  secondaryColor,
-  className,
-}) => (
+export const Iconis: FC<Props> = ({ icon, size, primaryColor, secondaryColor, className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}

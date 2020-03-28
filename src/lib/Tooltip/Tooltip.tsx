@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import TooltipTrigger from 'react-popper-tooltip';
 import { theme } from '../theme';
@@ -133,7 +133,7 @@ interface Props {
   followCursor?: boolean;
 }
 
-export const Tooltip: React.FC<Props> = ({ children, tooltip, hideArrow, ...props }) => (
+export const Tooltip: FC<Props> = ({ children, tooltip, hideArrow, ...props }) => (
   <TooltipTrigger
     {...props}
     tooltip={({ arrowRef, tooltipRef, getArrowProps, getTooltipProps, placement }) => (

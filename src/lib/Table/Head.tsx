@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
 
@@ -14,7 +14,7 @@ const StyledHead = styled.thead`
 
 interface Props {}
 
-export const Head: React.FC<Props> = ({ children }) => {
+export const Head: FC<Props> = ({ children }) => {
   return (
     <StyledHead>
       <tr>{children}</tr>

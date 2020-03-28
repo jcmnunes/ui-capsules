@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import styled from 'styled-components';
 import { Spinner } from '../Spinner/Spinner';
 import { theme } from '../theme';
@@ -32,7 +32,7 @@ const LargeText = styled.div`
 
 interface Props {}
 
-export const PageSpinner: React.FC<Props> = ({ children }) => {
+export const PageSpinner: FC<Props> = ({ children }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {

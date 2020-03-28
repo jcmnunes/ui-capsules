@@ -1,4 +1,12 @@
-import React, { ChangeEvent, FormEvent, KeyboardEvent, FocusEvent, useReducer } from 'react';
+import React, {
+  useReducer,
+  ChangeEvent,
+  FormEvent,
+  KeyboardEvent,
+  FocusEvent,
+  FC,
+  Reducer,
+} from 'react';
 import styled from 'styled-components';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
@@ -143,14 +151,14 @@ interface Props {
   hasButtons?: boolean;
 }
 
-export const EditableInput: React.FC<Props> = ({
+export const EditableInput: FC<Props> = ({
   value,
   action,
   size = 'medium',
   isEditable = true,
   hasButtons = false,
 }) => {
-  const [state, dispatch] = useReducer<React.Reducer<State, Action>>(reducer, initialState);
+  const [state, dispatch] = useReducer<Reducer<State, Action>>(reducer, initialState);
 
   const startEditing = () => {
     if (!isEditable) return;
@@ -208,7 +216,7 @@ export const EditableInput: React.FC<Props> = ({
               <StyledButton
                 size="small"
                 appearance="secondary"
-                iconBefore="CROSS"
+                iconBefore="X"
                 onClick={handleCancel}
               />
             </Buttons>

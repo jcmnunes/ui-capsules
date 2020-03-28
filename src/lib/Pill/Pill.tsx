@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { theme } from '../theme';
@@ -16,7 +16,7 @@ export const StyledPill = styled.span`
 
 interface Props {}
 
-export const Pill: React.FC<Props> = ({ children }) => <StyledPill>{children}</StyledPill>;
+export const Pill: FC<Props> = ({ children }) => <StyledPill>{children}</StyledPill>;
 Pill.displayName = 'Pill';
 
 Pill.propTypes = {

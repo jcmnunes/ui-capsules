@@ -9,5 +9,3 @@ export const Table = styled.table`
   box-shadow: 0 0 0 1px ${theme.neutral200};
   overflow: hidden;
 `;
-
-export default Table;
