@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch should render an unchecked switch 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<label
+  class="c0"
+>
+  <div
+    style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+  >
+    <div
+      class="react-switch-bg"
+      style="height: 20px; width: 35px; margin: 0px; position: relative; background: rgb(154, 165, 177); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+    />
+    <div
+      class="react-switch-handle"
+      style="height: 16px; width: 16px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(2px); top: 2px; outline: 0; border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+    />
+    <input
+      role="switch"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+      type="checkbox"
+    />
+  </div>
+</label>
+`;
+
+exports[`Switch should render without errors 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+<label
+  class="c0"
+>
+  <div
+    style="position: relative; display: inline-block; text-align: left; opacity: 1; direction: ltr; border-radius: 10px; transition: opacity 0.25s; user-select: none;"
+  >
+    <div
+      class="react-switch-bg"
+      style="height: 20px; width: 35px; margin: 0px; position: relative; background: rgb(39, 171, 131); border-radius: 10px; cursor: pointer; transition: background 0.25s;"
+    />
+    <div
+      class="react-switch-handle"
+      style="height: 16px; width: 16px; background: rgb(255, 255, 255); display: inline-block; cursor: pointer; border-radius: 50%; position: absolute; transform: translateX(17px); top: 2px; outline: 0; border: 0px; transition: background-color 0.25s, transform 0.25s, box-shadow 0.15s;"
+    />
+    <input
+      checked=""
+      role="switch"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px;"
+      type="checkbox"
+    />
+  </div>
+</label>
+`;

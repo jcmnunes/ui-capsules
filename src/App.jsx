@@ -22,6 +22,7 @@ import Dialog from './demos/Dialog/Dialog.view';
 import Anchor from './demos/Anchor/Anchor.view';
 import IconButton from './demos/IconButton/IconButton.view';
 import Table from './demos/Table/Table.view';
+import Switch from './demos/Switch/Switch.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -68,6 +69,7 @@ const App = () => (
       <Route path="/dialog" component={Dialog} />
       <Route path="/anchor" component={Anchor} />
       <Route path="/table" component={Table} />
+      <Route path="/switch" component={Switch} />
     </ShowcaseWrapper>
   </AppWrapper>
 );
