@@ -140,7 +140,7 @@ export const IconButton: FC<Props> = ({
   >
     {isLoading && (
       <SpinnerWrapper>
-        <Spinner size="medium" appearance="light" />
+        <Spinner size="medium" appearance="dark" />
       </SpinnerWrapper>
     )}
     <Content
