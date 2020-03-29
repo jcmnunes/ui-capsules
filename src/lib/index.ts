@@ -17,6 +17,7 @@ export { Pill } from './Pill/Pill';
 export { Radio } from './Radio/Radio';
 export { Select } from './Select/Select';
 export { Spinner } from './Spinner/Spinner';
+export { Switch } from './Switch/Switch';
 export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from './Table';
 export { Toaster, WithToasts } from './Toaster/Toaster';
 export { Tooltip } from './Tooltip/Tooltip';
