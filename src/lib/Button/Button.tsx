@@ -207,6 +207,7 @@ const StyledButton = styled.span<StyledButtonProps>`
   align-items: center;
   justify-content: ${props => (props.appearance === 'minimal' ? 'flex-start' : 'center')};
   width: ${props => (props.isBlock ? '100%' : 'auto')};
+  box-shadow: ${props => props.appearance === 'link' && 'inset 0 -2px 0 0'};
   background: ${props =>
     props.highlighted
       ? `linear-gradient(to bottom,
@@ -227,7 +228,7 @@ const StyledButton = styled.span<StyledButtonProps>`
       ${getButtonColors(props).gradient.topHover},
       ${getButtonColors(props).gradient.bottomHover}
     )`};
-    box-shadow: ${props => props.appearance === 'link' && 'inset 0 -2px 0 0'};
+    box-shadow: ${props => props.appearance === 'link' && 'none'};
   }
 
   &:active {
@@ -248,9 +249,10 @@ const StyledButton = styled.span<StyledButtonProps>`
 const Anchor = styled.a`
   color: ${theme.blue600};
   cursor: pointer;
+  box-shadow: inset 0 -2px 0 0;
 
   &:hover {
-    box-shadow: inset 0 -2px 0 0;
+    box-shadow: none;
   }
 `;
 
