@@ -17,7 +17,7 @@ const Sidebar = () => (
       <SidebarLink to="/dropdown">Dropdown</SidebarLink>
       <SidebarLink to="/editable-input">Editable Input</SidebarLink>
       <SidebarLink to="/icon">Icon</SidebarLink>
-      <SidebarLink to="/iconis">Iconis</SidebarLink>
+      <SidebarLink to="/illustrated-icon">IllustratedIcon</SidebarLink>
       <SidebarLink to="/icon-button">IconButton</SidebarLink>
       <SidebarLink to="/input">Input</SidebarLink>
       <SidebarLink to="/loading-mask">LoadingMask</SidebarLink>

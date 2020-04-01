@@ -6,7 +6,7 @@ export { Dropdown } from './Dropdown/Dropdown';
 export { DropdownItem } from './Dropdown/Dropdown';
 export { EditableInput } from './EditableInput/EditableInput';
 export { Icon } from './Icon/Icon';
-export { Iconis } from './Iconis/Iconis';
+export { IllustratedIcon } from './IllustratedIcon/IllustratedIcon';
 export { IconButton } from './IconButton/IconButton';
 export { Input } from './Input/Input';
 export { LoadingMask } from './LoadingMask/LoadingMask';

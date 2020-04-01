@@ -1,12 +1,12 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Iconis/Iconis.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/IllustratedIcon/IllustratedIcon.tsx';
 
-export const ICONIS_PROPS = [
+export const ILLUSTRATED_ICON_PROPS = [
   {
     name: 'icon',
     isRequired: true,
     type: 'string',
-    description: 'Name of the icon to render (from the 24x24 collection).',
+    description: 'Name of the icon to render.',
   },
   {
     name: 'primaryColor',
