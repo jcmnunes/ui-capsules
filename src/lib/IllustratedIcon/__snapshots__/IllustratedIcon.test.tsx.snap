@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Iconis should render with no errors 1`] = `
+exports[`IllustratedIcon should render with no errors 1`] = `
 <svg
   class=""
   height="24px"

@@ -300,7 +300,7 @@ export const Button: FC<Props> = ({
   return (
     <StyledButton
       as={as}
-      type={type}
+      type={appearance !== 'link' ? type : undefined}
       disabled={!!(isDisabled || isLoading)}
       isLoading={isLoading}
       isBlock={isBlock}

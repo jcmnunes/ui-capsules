@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Iconis } from '../Iconis/Iconis';
+import { IllustratedIcon } from '../IllustratedIcon/IllustratedIcon';
 import { Spinner } from '../Spinner/Spinner';
 import { theme } from '../theme';
-import { IconisType } from '../types';
+import { IllustratedIconType } from '../types';
 
-const StyledIconis = styled(Iconis)<{ colors: string[] }>`
+const StyledIllustratedIcon = styled(IllustratedIcon)<{ colors: string[] }>`
   .ui-capsules-icon-primary {
     fill: ${({ colors }) => colors[0]};
   }
@@ -96,7 +96,7 @@ const Text = styled.span`
 `;
 
 interface Props {
-  icon: IconisType;
+  icon: IllustratedIconType;
   type?: 'button' | 'submit';
   text?: string;
   isLoading?: boolean;
@@ -150,9 +150,9 @@ export const IconButton: FC<Props> = ({
       isLoading={isLoading}
       isDisabled={isDisabled}
     >
-      <StyledIconis icon={icon} colors={colors} size={size} />
+      <StyledIllustratedIcon icon={icon} colors={colors} size={size} />
       {!!text && <Text>{text}</Text>}
-      {hasChev && <Iconis icon="CHEV_DOWN" />}
+      {hasChev && <IllustratedIcon icon="CHEV_DOWN" />}
     </Content>
   </StyledButton>
 );

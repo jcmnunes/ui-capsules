@@ -78,7 +78,7 @@ export const ModalFooter = styled.div`
   }
 `;
 
-interface Props {
+interface Props extends ReactModal.Props {
   isOpen: boolean;
   contentLabel: string;
   onRequestClose?(): void;

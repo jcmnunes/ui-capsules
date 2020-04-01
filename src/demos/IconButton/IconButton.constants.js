@@ -92,7 +92,7 @@ export const PROPS = [
     type: 'array',
     defaultValue: '[theme.neutral200, theme.neutral600, theme.neutral300, theme.neutral700]',
     description:
-      'Array of four colors. The colors are primaryColor, secondaryColor, primaryColor on hover, secondaryColor on hover (see the Iconis demo).',
+      'Array of four colors. The colors are primaryColor, secondaryColor, primaryColor on hover, secondaryColor on hover (see the IllustratedIcon demo).',
   },
   {
     name: 'textColor',

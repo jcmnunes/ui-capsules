@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
-import { useIconOpts } from '../Iconis/Iconis.hooks';
+import { useIconOpts } from '../IllustratedIcon/IllustratedIcon.hooks';
 import { IconButton } from '../../lib/IconButton/IconButton';
 import { Select } from '../../lib/Select/Select';
 import { Input } from '../../lib/Input/Input';

@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home/Home';
 import Button from './demos/Button/Button.view';
-import Iconis from './demos/Iconis/Iconis.view';
+import IllustratedIcon from './demos/IllustratedIcon/IllustratedIcon.view';
 import Icon from './demos/Icon/Icon.view';
 import Checkbox from './demos/Checkbox/Checkbox.view';
 import Select from './demos/Select/Select.view';
@@ -51,7 +51,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/button" component={Button} />
       <Route path="/icon-button" component={IconButton} />
-      <Route path="/iconis" component={Iconis} />
+      <Route path="/illustrated-icon" component={IllustratedIcon} />
       <Route path="/icon" component={Icon} />
       <Route path="/checkbox" component={Checkbox} />
       <Route path="/select" component={Select} />

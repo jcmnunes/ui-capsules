@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import { Select } from '../../lib/Select/Select';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import { Iconis } from '../../lib/Iconis/Iconis';
-import { useIconOpts } from './Iconis.hooks';
-import { GITHUB_URL } from './Iconis.constants';
+import { IllustratedIcon } from '../../lib/IllustratedIcon/IllustratedIcon';
+import { useIconOpts } from './IllustratedIcon.hooks';
+import { GITHUB_URL } from './IllustratedIcon.constants';
 import { theme } from '../../lib/theme';
 
-const IconisDemo = () => {
+const IllustratedIconDemo = () => {
   const iconOpts = useIconOpts();
   const [icon, setIcon] = useState(iconOpts[0]);
   const [primaryColor, setPrimaryColor] = useState(theme.neutral200);
   const [secondaryColor, setSecondaryColor] = useState(theme.neutral600);
 
   const Component = (
-    <Iconis icon={icon.value} primaryColor={primaryColor} secondaryColor={secondaryColor} />
+    <IllustratedIcon
+      icon={icon.value}
+      primaryColor={primaryColor}
+      secondaryColor={secondaryColor}
+    />
   );
 
   return (
@@ -50,4 +54,4 @@ const IconisDemo = () => {
   );
 };
 
-export default IconisDemo;
+export default IllustratedIconDemo;

@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import ReactModal from 'react-modal';
 import { Button } from '../Button/Button';
-import { Modal, ModalBody, ModalFooter } from '../Modal/Modal';
+import { Modal, ModalBody, ModalFooter, ModalTitle } from '../Modal/Modal';
 import { theme } from '../theme';
 import { ButtonAppearance } from '../types';
 
 const StyledModal = styled(Modal)`
   width: auto;
-  border-radius: 8px;
 
   @media (min-width: ${theme.breakpoints.mobile}) {
     left: 60px;
@@ -15,18 +15,10 @@ const StyledModal = styled(Modal)`
   }
 
   @media (min-width: ${theme.breakpoints.sm}) {
-    width: 500px;
+    width: 450px;
     left: 50%;
     right: auto;
   }
-`;
-
-const Title = styled.h2`
-  font-size: 18px;
-  color: ${theme.neutral600};
-  font-weight: 700;
-  text-align: left;
-  margin-bottom: 6px;
 `;
 
 const Message = styled.p`
@@ -50,7 +42,7 @@ type Action = {
   action(): void;
 };
 
-interface Props {
+interface Props extends ReactModal.Props {
   isOpen: boolean;
   contentLabel: string;
   actions: Action[];
@@ -66,6 +58,7 @@ export const Dialog: FC<Props> = ({
   onRequestClose,
   title,
   message,
+  ...other
 }) => {
   return (
     <StyledModal
@@ -73,9 +66,10 @@ export const Dialog: FC<Props> = ({
       contentLabel={contentLabel}
       onRequestClose={onRequestClose}
       showCloseButton={false}
+      {...other}
     >
       <StyledModalBody hasTitle={!!title}>
-        {!!title && <Title>{title}</Title>}
+        {!!title && <ModalTitle>{title}</ModalTitle>}
         <Message>{message}</Message>
       </StyledModalBody>
       <StyledModalFooter data-testid="dialog-footer">

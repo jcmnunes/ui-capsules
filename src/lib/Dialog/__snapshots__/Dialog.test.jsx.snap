@@ -173,7 +173,6 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 
 .c1 {
   width: auto;
-  border-radius: 8px;
 }
 
 .c4 {
@@ -238,7 +237,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 
 @media (min-width:720px) {
   .c1 {
-    width: 500px;
+    width: 450px;
     left: 50%;
     right: auto;
   }
