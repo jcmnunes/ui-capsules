@@ -41,6 +41,20 @@ To improve A11y, import the focus-visible polyfill as well:
 import 'focus-visible/dist/focus-visible';
 ```
 
+If using the modal component, call setAppElement with a selector for the root
+element:
+
+```
+import { setAppElement } from '@binarycapsule/ui-capsules';
+
+setAppElement('#root');
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root'),
+);
+```
+
 ## Usage
 
 Please refer to the [Components demo](https://uic.binarycapsule.tech) to get

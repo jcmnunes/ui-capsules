@@ -176,7 +176,7 @@ exports[`Dialog with two actions should render with no errors 1`] = `
 }
 
 .c4 {
-  font-size: 18px;
+  font-size: 16px;
   color: #52616D;
   text-align: left;
 }

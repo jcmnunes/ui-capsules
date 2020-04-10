@@ -3,12 +3,11 @@ import './lib/styles/global.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components/macro';
-import Modal from 'react-modal';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { theme, WithToasts } from './lib';
+import { theme, WithToasts, setAppElement } from './lib';
 
-Modal.setAppElement('#root');
+setAppElement('#root');
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

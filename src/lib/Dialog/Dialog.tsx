@@ -22,7 +22,7 @@ const StyledModal = styled(Modal)`
 `;
 
 const Message = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   color: ${theme.neutral600};
   text-align: left;
 `;
