@@ -22,3 +22,4 @@ export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } fro
 export { Toaster, WithToasts } from './Toaster/Toaster';
 export { Tooltip } from './Tooltip/Tooltip';
 export { theme } from './theme';
+export { setAppElement } from 'react-modal';
