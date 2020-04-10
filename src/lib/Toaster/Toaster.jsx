@@ -64,10 +64,10 @@ const colors = {
 };
 
 const icons = {
-  info: 'INFO',
-  success: 'CHECK_SM',
-  warning: 'EXCLAMATION',
-  error: 'EXCLAMATION',
+  info: 'info',
+  success: 'check_sm',
+  warning: 'exclamation',
+  error: 'exclamation',
 };
 
 const StyledToast = styled.div`

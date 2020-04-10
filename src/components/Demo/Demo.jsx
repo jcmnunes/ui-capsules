@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Usage from '../Usage/Usage';
-import { Button } from '../../lib/Button/Button';
-import { Checkbox } from '../../lib/Checkbox/Checkbox';
-import { theme } from '../../lib/theme';
+import { Button, Checkbox, theme } from '../../lib';
 import { SubSubTitle, SubTitle } from '../common/Typography';
 
 export const StyledCheckbox = styled(Checkbox)`
@@ -76,7 +74,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
       <HeaderWrapper>
         <SubTitle>Demo</SubTitle>
         <Actions>
-          <Button as="a" href={codeURL} appearance="minimal" iconBefore="GITHUB">
+          <Button as="a" href={codeURL} appearance="minimal" iconBefore="github">
             View source on GitHub
           </Button>
         </Actions>

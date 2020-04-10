@@ -5,7 +5,7 @@ import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Tooltip.constants';
-import { Button } from '../../lib/Button/Button';
+import { Button } from '../../lib';
 
 const TooltipDemo = () => {
   return (

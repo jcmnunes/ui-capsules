@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, TOAST_TYPE_OPTS } from './Toaster.constants';
-import { Toaster } from '../../lib/Toaster/Toaster';
-import { Button } from '../../lib/Button/Button';
-import { Select } from '../../lib/Select/Select';
-import { Input } from '../../lib/Input/Input';
+import { Toaster, Button, Select, Input } from '../../lib';
 
 const toastType2Appearance = {
   info: 'primary',
@@ -22,7 +19,7 @@ const ToasterDemo = () => {
     <Button
       appearance={toastType2Appearance[toastType.value]}
       isDisabled={toastTitle.length === 0 && toastMessage.length === 0}
-      iconBefore="BELL"
+      iconBefore="bell"
       onClick={() => Toaster[toastType.value]({ title: toastTitle, message: toastMessage })}
     >
       Give me a toast
@@ -37,7 +34,7 @@ const ToasterDemo = () => {
       message: ${toastMessage},
     })
   }
-  iconBefore="BELL"
+  iconBefore="bell"
 >
   Give me a toast
 </Button>

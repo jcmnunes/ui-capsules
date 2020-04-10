@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ILLUSTRATED_ICONS } from './IllustratedIcon.constants';
+import { illustratedIcons } from './IllustratedIcon.constants';
 import { IllustratedIconType } from '../types';
 
 interface Props {
@@ -27,13 +27,13 @@ export const IllustratedIcon: FC<Props> = ({
     <path
       fill={primaryColor}
       className="ui-capsules-icon-primary"
-      d={ILLUSTRATED_ICONS[icon][0]}
+      d={illustratedIcons[icon][0]}
       data-testid="first-path"
     />
     <path
       fill={secondaryColor}
       className="ui-capsules-icon-secondary"
-      d={ILLUSTRATED_ICONS[icon][1]}
+      d={illustratedIcons[icon][1]}
       data-testid="second-path"
     />
   </svg>

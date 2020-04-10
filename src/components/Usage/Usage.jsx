@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Button } from '../../lib/Button/Button';
-import { Tooltip } from '../../lib/Tooltip/Tooltip';
+import { Button, Tooltip } from '../../lib';
 
 const Wrapper = styled.div`
   margin: 24px 0;
@@ -56,7 +55,7 @@ const Usage = ({ children }) => {
               }
             }}
           >
-            <Button size="small" appearance="minimal" iconBefore="DUPLICATE">
+            <Button size="small" appearance="minimal" iconBefore="duplicate">
               Copy to clipboard
             </Button>
           </CopyToClipboard>

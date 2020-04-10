@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import { Anchor } from '../../lib/Anchor/Anchor';
-import { Input } from '../../lib/Input/Input';
-import { Select } from '../../lib/Select/Select';
+import { Anchor, Input, Select } from '../../lib';
 import { GITHUB_URL, HREF_OPTS } from './Anchor.constants';
 
 const AnchorDemo = () => {

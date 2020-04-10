@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { ILLUSTRATED_ICONS } from '../../lib/IllustratedIcon/IllustratedIcon.constants';
+import { illustratedIcons } from '../../lib/IllustratedIcon/IllustratedIcon.constants';
 
 export const useIconOpts = () =>
   useMemo(
     () =>
-      Object.keys(ILLUSTRATED_ICONS)
+      Object.keys(illustratedIcons)
         .sort()
         .map(icon => ({ value: icon, label: icon })),
     [],

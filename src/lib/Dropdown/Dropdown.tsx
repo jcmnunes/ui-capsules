@@ -4,7 +4,7 @@ import { Manager, Reference, Popper } from 'react-popper';
 import styled from 'styled-components';
 import { theme } from '../theme';
 import { IconButton } from '../IconButton/IconButton';
-import { ILLUSTRATED_ICONS } from '../IllustratedIcon/IllustratedIcon.constants';
+import { illustratedIcons } from '../IllustratedIcon/IllustratedIcon.constants';
 
 const Wrapper = styled.div`
   display: block;
@@ -41,7 +41,7 @@ const StyledIconButton = styled(({ handleAction, ...other }) => <IconButton {...
 `;
 
 interface DropdownItemProps {
-  icon: keyof typeof ILLUSTRATED_ICONS;
+  icon: keyof typeof illustratedIcons;
   handleAction(): void;
   text?: string;
   iconBefore?: string;

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from '../../lib/Button/Button';
-import { Input } from '../../lib/Input/Input';
+import { Button, Input, Dialog } from '../../lib';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Dialog.constants';
-import { Dialog } from '../../lib/Dialog/Dialog';
 
 const DialogDemo = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +10,7 @@ const DialogDemo = () => {
   const [contentLabel, setContentLabel] = useState('Example dialog');
 
   const Component = (
-    <Button appearance="primary" iconBefore="EYE" onClick={() => setIsOpen(true)}>
+    <Button appearance="primary" iconBefore="eye" onClick={() => setIsOpen(true)}>
       Open Dialog
     </Button>
   );

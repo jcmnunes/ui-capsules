@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS, TRIGGER_OPTS } from './Tooltip.constants';
-import { Tooltip } from '../../lib/Tooltip/Tooltip';
-import { Button } from '../../lib/Button/Button';
-import { Select } from '../../lib/Select/Select';
-import { Input } from '../../lib/Input/Input';
+import { Tooltip, Button, Select, Input } from '../../lib';
 
 const trigger2ButtonText = {
   hover: 'Hover over me',
@@ -28,7 +25,7 @@ const TooltipDemo = () => {
       followCursor={followCursor}
       trigger={trigger.value}
     >
-      <Button appearance="primary" iconBefore="EYE">
+      <Button appearance="primary" iconBefore="eye">
         {trigger2ButtonText[trigger.value]}
       </Button>
     </Tooltip>
@@ -52,7 +49,7 @@ const TooltipDemo = () => {
             value={delayShow}
             type="number"
             step={100}
-            onChange={ev => setDelayShow(ev.target.value)}
+            onChange={ev => setDelayShow(parseFloat(ev.target.value))}
           />
         </StyledSelect>
         <StyledSelect>
