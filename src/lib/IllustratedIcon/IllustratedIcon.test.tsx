@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { IllustratedIcon } from './IllustratedIcon';
-import { ILLUSTRATED_ICONS } from './IllustratedIcon.constants';
+import { illustratedIcons } from './IllustratedIcon.constants';
 import { IllustratedIconType } from '../types';
 
-const IconNames = Object.keys(ILLUSTRATED_ICONS) as IllustratedIconType[];
+const IconNames = Object.keys(illustratedIcons) as IllustratedIconType[];
 
 describe('IllustratedIcon', () => {
   it('should have a displayName', () => {
@@ -20,7 +20,7 @@ describe('IllustratedIcon', () => {
     const { getByTestId } = render(<IllustratedIcon icon={IconNames[0]} />);
     const firstPath = getByTestId('first-path');
     const secondPath = getByTestId('second-path');
-    expect(firstPath).toHaveAttribute('d', ILLUSTRATED_ICONS[IconNames[0]][0]);
-    expect(secondPath).toHaveAttribute('d', ILLUSTRATED_ICONS[IconNames[0]][1]);
+    expect(firstPath).toHaveAttribute('d', illustratedIcons[IconNames[0]][0]);
+    expect(secondPath).toHaveAttribute('d', illustratedIcons[IconNames[0]][1]);
   });
 });

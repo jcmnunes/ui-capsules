@@ -152,7 +152,7 @@ export const IconButton: FC<Props> = ({
     >
       <StyledIllustratedIcon icon={icon} colors={colors} size={size} />
       {!!text && <Text>{text}</Text>}
-      {hasChev && <IllustratedIcon icon="CHEV_DOWN" />}
+      {hasChev && <IllustratedIcon icon="chev_down" />}
     </Content>
   </StyledButton>
 );

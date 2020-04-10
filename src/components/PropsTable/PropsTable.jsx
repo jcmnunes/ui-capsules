@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '../../lib/Table';
-import { Pill } from '../../lib/Pill/Pill';
+import { Pill } from '../../lib';
 
 export const PropType = styled.span`
   font-weight: 700;

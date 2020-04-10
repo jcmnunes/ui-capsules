@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { ICONS } from './Icon.constants';
+import { icons } from './Icon.constants';
 
 interface Props {
-  icon: keyof typeof ICONS;
+  icon: keyof typeof icons;
   size?: string;
 }
 
@@ -15,7 +15,7 @@ export const Icon: FC<Props> = ({ icon, size = '24px' }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d={ICONS[icon]}
+      d={icons[icon]}
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"

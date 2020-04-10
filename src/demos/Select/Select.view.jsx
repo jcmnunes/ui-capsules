@@ -5,7 +5,7 @@ import { Paragraph, SubSubTitle, SubTitle, Title } from '../../components/common
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { SELECT_PROPS } from './Select.constants';
-import { Button } from '../../lib/Button/Button';
+import { Button } from '../../lib';
 
 const ButtonDemo = () => {
   return (

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Message } from '../../lib/Message/Message';
-import { Select } from '../../lib/Select/Select';
-import { Input } from '../../lib/Input/Input';
+import { Message, Select, Input } from '../../lib';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, APPEARANCE_OPTS } from './Message.constants';
 
@@ -32,7 +30,7 @@ const MessageDemo = () => {
             options={APPEARANCE_OPTS}
             onChange={opt => {
               setAppearance(opt);
-              setKey(Date.now());
+              setKey(Date.now().toString());
             }}
           />
         </StyledSelect>

@@ -106,7 +106,7 @@ export const Modal: FC<Props> = ({
   >
     <ModalHeader>
       {!!onRequestClose && showCloseButton && (
-        <Button appearance="none" size="medium" iconBefore="X" onClick={onRequestClose} />
+        <Button appearance="none" size="medium" iconBefore="x" onClick={onRequestClose} />
       )}
     </ModalHeader>
     {children}

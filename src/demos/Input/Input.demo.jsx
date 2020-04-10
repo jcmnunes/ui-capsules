@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
-import { Select } from '../../lib/Select/Select';
+import { Select, Input } from '../../lib';
 import { SIZE_OPTS, GITHUB_URL } from './Input.constants';
-import { Input } from '../../lib/Input/Input';
 import { useIconOpts } from '../Icon/Icon.hooks';
 
 const InputDemo = () => {

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import { PageSpinner } from '../../lib/PageSpinner/PageSpinner';
-import { Input } from '../../lib/Input/Input';
-import { Button } from '../../lib/Button/Button';
+import { PageSpinner, Input, Button } from '../../lib';
 import { GITHUB_URL } from './PageSpinner.constants';
 
 const PageSpinnerDemo = () => {
@@ -18,7 +16,7 @@ const PageSpinnerDemo = () => {
 
   const Component = <PageSpinner>{children}</PageSpinner>;
   const Launcher = (
-    <Button onClick={handleShowSpinnerClick} appearance="primary" iconBefore="EYE">
+    <Button onClick={handleShowSpinnerClick} appearance="primary" iconBefore="eye">
       Show PageSpinner
     </Button>
   );

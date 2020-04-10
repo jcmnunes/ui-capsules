@@ -1,15 +1,14 @@
 import React from 'react';
 import Demo from './IllustratedIcon.demo';
-import { ILLUSTRATED_ICONS } from '../../lib/IllustratedIcon/IllustratedIcon.constants';
+import { illustratedIcons } from '../../lib/IllustratedIcon/IllustratedIcon.constants';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ILLUSTRATED_ICON_PROPS } from './IllustratedIcon.constants';
-import { IllustratedIcon } from '../../lib/IllustratedIcon/IllustratedIcon';
+import { IllustratedIcon, Anchor } from '../../lib';
 import IconCard from '../../components/IconCard/IconCard';
-import { Anchor } from '../../lib';
 
 const IllustratedIconView = () => {
   return (
@@ -26,7 +25,7 @@ const IllustratedIconView = () => {
       <PropsTable props={ILLUSTRATED_ICON_PROPS} />
       <SubTitle id="icons">Icons</SubTitle>
       <IconGrid>
-        {Object.keys(ILLUSTRATED_ICONS)
+        {Object.keys(illustratedIcons)
           .sort()
           .map((icon, index) => (
             <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>

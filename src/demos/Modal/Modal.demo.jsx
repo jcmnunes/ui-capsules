@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, ModalBody, ModalTitle, ModalFooter } from '../../lib/Modal/Modal';
-import { Button } from '../../lib/Button/Button';
-import { Input } from '../../lib/Input/Input';
+import { Modal, ModalBody, ModalTitle, ModalFooter, Button, Input } from '../../lib';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Modal.constants';
 
@@ -12,7 +10,7 @@ const ModalDemo = () => {
   const [width, setWidth] = useState('');
 
   const Component = (
-    <Button appearance="primary" iconBefore="EYE" onClick={() => setIsOpen(true)}>
+    <Button appearance="primary" iconBefore="eye" onClick={() => setIsOpen(true)}>
       Open Modal
     </Button>
   );

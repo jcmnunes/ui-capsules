@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { EditableInput } from '../../lib/EditableInput/EditableInput';
+import { EditableInput, Select, Input } from '../../lib';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
-import { Select } from '../../lib/Select/Select';
 import { SIZE_OPTS, GITHUB_URL } from './EditableInput.constants';
-import { Input } from '../../lib/Input/Input';
 
 const EditableInputDemo = () => {
   const [isEditable, setIsEditable] = useState(true);
