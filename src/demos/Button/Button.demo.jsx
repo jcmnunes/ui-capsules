@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
-import { Button } from '../../lib/Button/Button';
-import { Select } from '../../lib/Select/Select';
-import { Input } from '../../lib/Input/Input';
+import { Button, Select, Input } from '../../lib';
 import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { theme } from '../../lib/theme';
+import { theme } from '../../lib';
 
 const Card = styled.div`
   position: relative;
@@ -27,10 +27,9 @@ const Icon = styled.div`
 const Label = styled.div`
   color: ${theme.neutral500};
   background: ${theme.neutral050};
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  text-transform: lowercase;
   height: 30px;
   display: flex;
   flex-direction: row;

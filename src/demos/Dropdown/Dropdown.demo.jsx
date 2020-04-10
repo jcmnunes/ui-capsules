@@ -1,8 +1,6 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
-import { Dropdown, DropdownItem } from '../../lib/Dropdown/Dropdown';
-import { Select } from '../../lib/Select/Select';
-import { Button } from '../../lib/Button/Button';
+import { Dropdown, DropdownItem, Select, Button } from '../../lib';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS } from './Dropdown.constants';
 
@@ -10,7 +8,7 @@ const DropdownDemo = () => {
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
 
   const Trigger = (
-    <Button appearance="minimal" iconAfter="CHEV_DOWN">
+    <Button appearance="minimal" iconAfter="chev_down">
       Open dropdown
     </Button>
   );
@@ -19,27 +17,27 @@ const DropdownDemo = () => {
     <Dropdown trigger={Trigger} placement={placement.value}>
       <DropdownItem
         text="Copy text"
-        icon="COPY"
+        icon="copy"
         handleAction={() => alert('Clicked on "Copy text"')}
       />
       <DropdownItem
         text="Edit profile"
-        icon="USER"
+        icon="user"
         handleAction={() => alert('Clicked on "Edit profile"')}
       />
       <DropdownItem
         text="Settings"
-        icon="SETTINGS"
+        icon="settings"
         handleAction={() => alert('Clicked on "Settings"')}
       />
       <DropdownItem
         text="Log out"
-        icon="LOGOUT"
+        icon="logout"
         handleAction={() => alert('Clicked on "Log out"')}
       />
       <DropdownItem
         text="Do not close on action"
-        icon="TRASH"
+        icon="trash"
         handleAction={() => alert('Clicked on "Do not close on action"')}
         closeOnAction={false}
       />

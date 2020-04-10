@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select } from '../../lib/Select/Select';
+import { Select } from '../../lib';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, OPTIONS, SIZE_OPTS } from './Select.constants';
 

@@ -4,9 +4,9 @@ import { Icon } from '../Icon/Icon';
 import { theme } from '../theme';
 
 enum IconEnum {
-  success = 'CHECK_C',
-  warning = 'EXCLAMATION_T',
-  error = 'EXCLAMATION_C',
+  success = 'check_c',
+  warning = 'exclamation_t',
+  error = 'exclamation_c',
 }
 
 const colors = {

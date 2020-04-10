@@ -2,10 +2,7 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { useIconOpts } from '../IllustratedIcon/IllustratedIcon.hooks';
-import { IconButton } from '../../lib/IconButton/IconButton';
-import { Select } from '../../lib/Select/Select';
-import { Input } from '../../lib/Input/Input';
-import { Button } from '../../lib/Button/Button';
+import { IconButton, Select, Input, Button } from '../../lib';
 import { DEFAULT_COLORS, DEFAULT_TEXT_COLOR, GITHUB_URL } from './IconButton.constants';
 
 const IconButtonDemo = () => {

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Select } from '../../lib/Select/Select';
+import { Select, IllustratedIcon, theme } from '../../lib';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import { IllustratedIcon } from '../../lib/IllustratedIcon/IllustratedIcon';
 import { useIconOpts } from './IllustratedIcon.hooks';
 import { GITHUB_URL } from './IllustratedIcon.constants';
-import { theme } from '../../lib/theme';
 
 const IllustratedIconDemo = () => {
   const iconOpts = useIconOpts();

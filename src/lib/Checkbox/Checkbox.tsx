@@ -57,6 +57,7 @@ interface CustomCheckboxProps {
   size: 'small' | 'medium' | 'large';
   isDisabled: boolean;
 }
+
 const CustomCheckbox = styled.span<CustomCheckboxProps>`
   position: absolute;
   border-radius: 4px;
@@ -76,6 +77,7 @@ const CustomCheckbox = styled.span<CustomCheckboxProps>`
     top: ${props => dimensions[props.size].checkmarkTop};
     width: ${props => dimensions[props.size].checkmarkWidth};
     height: ${props => dimensions[props.size].checkmarkHeight};
+    // noinspection CssReplaceWithShorthandSafely
     border: solid white;
     border-width: ${props => dimensions[props.size].checkmarkBorderWidth};
     transform: rotate(45deg);

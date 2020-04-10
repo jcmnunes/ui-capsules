@@ -212,11 +212,11 @@ export const EditableInput: FC<Props> = ({
           />
           {hasButtons && (
             <Buttons>
-              <StyledButton type="submit" size="small" appearance="primary" iconBefore="CHECK" />
+              <StyledButton type="submit" size="small" appearance="primary" iconBefore="check" />
               <StyledButton
                 size="small"
                 appearance="secondary"
-                iconBefore="X"
+                iconBefore="x"
                 onClick={handleCancel}
               />
             </Buttons>

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Select } from '../../lib/Select/Select';
-import { Radio } from '../../lib/Radio/Radio';
-import { Input } from '../../lib/Input/Input';
+import { Select, Radio, Input } from '../../lib';
 import Demo, { Booleans, StyledCheckbox, StyledSelect } from '../../components/Demo/Demo';
 import { GITHUB_URL, SIZE_OPTS, APPEARANCE_OPTS } from './Radio.constants';
 

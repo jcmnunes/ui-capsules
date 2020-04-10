@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Spinner } from '../Spinner/Spinner';
 import { theme } from '../theme';
 import { ButtonAppearance, IconType, Size } from '../types';
+import { Spinner } from '../Spinner/Spinner';
 import { Icon } from '../Icon/Icon';
 
 const getSpinnerAppearance = (appearance: ButtonAppearance) => {

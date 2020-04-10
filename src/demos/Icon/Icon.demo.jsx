@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Select } from '../../lib/Select/Select';
+import { Select, Icon } from '../../lib';
 import Demo, { StyledSelect } from '../../components/Demo/Demo';
-import { Icon } from '../../lib/Icon/Icon';
 import { useIconOpts } from './Icon.hooks';
 import { GITHUB_URL } from './Icon.constants';
 

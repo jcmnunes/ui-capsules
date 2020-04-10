@@ -3,7 +3,7 @@ import Demo from './Toaster.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
-import { Button } from '../../lib/Button/Button';
+import { Button } from '../../lib';
 
 const usage = `// Wrap your App component with WithToasts
 import { WithToasts } from '@binarycapsule/ui-capsules';

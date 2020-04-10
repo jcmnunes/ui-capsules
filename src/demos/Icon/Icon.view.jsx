@@ -1,15 +1,14 @@
 import React from 'react';
 import Demo from './Icon.demo';
-import { ICONS } from '../../lib/Icon/Icon.constants';
+import { icons } from '../../lib/Icon/Icon.constants';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ICON_PROPS } from './Icon.constants';
-import { Icon } from '../../lib/Icon/Icon';
+import { Icon, Anchor } from '../../lib';
 import IconCard from '../../components/IconCard/IconCard';
-import { Anchor } from '../../lib';
 
 const ButtonDemo = () => {
   return (
@@ -26,7 +25,7 @@ const ButtonDemo = () => {
       <PropsTable props={ICON_PROPS} />
       <SubTitle id="icons">Icons</SubTitle>
       <IconGrid>
-        {Object.keys(ICONS)
+        {Object.keys(icons)
           .sort()
           .map((icon, index) => (
             <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>
