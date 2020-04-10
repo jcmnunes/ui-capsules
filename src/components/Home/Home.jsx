@@ -4,7 +4,7 @@ import Logo from '../Svgs/Logo';
 import { Paragraph, SubTitle } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
-import { Button, Message } from '../../lib';
+import { Anchor, Button, Message } from '../../lib';
 
 export const Description = styled.div`
   display: flex;
@@ -16,6 +16,16 @@ export const Description = styled.div`
 
 export const StyledParagraph = styled(Paragraph)`
   margin: 24px 0 16px;
+`;
+
+const setAppElementExample = `import { setAppElement } from '@binarycapsule/ui-capsules';
+
+setAppElement('#root');
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root'),
+);
 `;
 
 const Home = () => (
@@ -53,6 +63,14 @@ const Home = () => (
       <Usage>import &apos;@binarycapsule/ui-capsules/assets/global.css&apos;;</Usage>
       <StyledParagraph>To improve A11y, import the focus-visible polyfill as well:</StyledParagraph>
       <Usage>import &apos;focus-visible/dist/focus-visible&apos;;</Usage>
+      <StyledParagraph>
+        If using the modal component, call setAppElement with a selector for the root element{' '}
+        <Anchor href="http://reactcommunity.org/react-modal/accessibility/">
+          (see react-modal docs)
+        </Anchor>
+        :
+      </StyledParagraph>
+      <Usage>{setAppElementExample}</Usage>
     </div>
   </Wrapper>
 );
