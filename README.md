@@ -15,7 +15,7 @@ React UI kit used by BinaryCapsule
 
 The Components demo (wip) can be visited [here](https://uic.binarycapsule.tech).
 
-<img src="https://user-images.githubusercontent.com/13286745/63065658-d968b780-befe-11e9-8573-bfb3ad782312.png" alt="playgorund-screenshot" width="100%">
+<img src="https://user-images.githubusercontent.com/13286745/79010931-de980800-7b5a-11ea-9a2c-32323ead8596.png" alt="playground-screenshot" width="100%" style="box-shadow: 0 0 10px 0 rgba(181,181,181,1);">
 
 ## Install
 
