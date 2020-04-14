@@ -11,10 +11,10 @@ const loading = keyframes`
 interface Props {
   width: string;
   height: string;
-  circular: boolean;
-  background: string;
+  circular?: boolean;
+  background?: string;
 }
-const StyledLoadingElement = styled.div.attrs<Props>(({ background }) => ({
+const StyledLoadingElement = styled.div.attrs<Props>(({ background = theme.neutral100 }) => ({
   style: { background },
 }))<Props>`
   position: relative;
