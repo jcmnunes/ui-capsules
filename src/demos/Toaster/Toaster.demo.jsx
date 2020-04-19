@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Demo, { StyledSelect } from '../../components/Demo/Demo';
+import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, TOAST_TYPE_OPTS } from './Toaster.constants';
 import { Toaster, Button, Select, Input } from '../../lib';
 
 const toastType2Appearance = {
   info: 'primary',
   success: 'success',
-  warning: 'warning',
+  warning: 'error',
   error: 'error',
 };
 
@@ -42,20 +42,20 @@ const ToasterDemo = () => {
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
-      <>
-        <StyledSelect>
+      <Inputs>
+        <div>
           <pre>Adjust the toast type</pre>
           <Select value={toastType} options={TOAST_TYPE_OPTS} onChange={opt => setToastType(opt)} />
-        </StyledSelect>
-        <StyledSelect>
+        </div>
+        <div>
           <pre>Adjust the toast title</pre>
           <Input value={toastTitle} onChange={ev => setToastTitle(ev.target.value)} />
-        </StyledSelect>
-        <StyledSelect>
+        </div>
+        <div>
           <pre>Adjust the toast message</pre>
           <Input value={toastMessage} onChange={ev => setToastMessage(ev.target.value)} />
-        </StyledSelect>
-      </>
+        </div>
+      </Inputs>
     </Demo>
   );
 };

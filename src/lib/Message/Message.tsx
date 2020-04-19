@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Icon } from '../Icon/Icon';
 import { theme } from '../theme';
+import { StatusAppearance } from '../types';
 
 enum IconEnum {
   success = 'check_c',
@@ -71,7 +72,7 @@ export const MessageBody = styled.span`
 `;
 
 interface Props {
-  appearance: 'success' | 'warning' | 'error';
+  appearance: StatusAppearance;
 }
 
 export const Message: FC<Props> = ({ appearance, children, ...other }) => (

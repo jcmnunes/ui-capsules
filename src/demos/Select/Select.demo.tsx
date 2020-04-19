@@ -1,0 +1,36 @@
+import React, { useState } from 'react';
+import { Select } from '../../lib';
+import Demo, { Inputs } from '../../components/Demo/Demo';
+import { GITHUB_URL, OPTIONS, SIZE_OPTS } from './Select.constants';
+import { DualSize, SelectOption } from '../../lib/types';
+
+const SelectDemo = () => {
+  const [size, setSize] = useState(SIZE_OPTS[0]);
+  const [option, setOption] = useState<SelectOption<string>>();
+
+  const Component = (
+    <Select
+      value={option}
+      options={OPTIONS}
+      onChange={opt => setOption(opt as SelectOption<string>)}
+      size={size.value}
+    />
+  );
+
+  return (
+    <Demo codeURL={GITHUB_URL} component={Component}>
+      <Inputs>
+        <div>
+          <pre>size</pre>
+          <Select
+            value={size}
+            options={SIZE_OPTS}
+            onChange={opt => setSize(opt as SelectOption<DualSize>)}
+          />
+        </div>
+      </Inputs>
+    </Demo>
+  );
+};
+
+export default SelectDemo;

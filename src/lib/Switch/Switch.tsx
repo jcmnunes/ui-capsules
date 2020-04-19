@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import RSwitch from 'react-switch';
 import styled from 'styled-components';
 import { theme } from '../theme';
-import { Size } from '../types';
+import { Appearance, ElementSize } from '../types';
 
 const Label = styled.label`
   display: flex;
@@ -10,7 +10,7 @@ const Label = styled.label`
   align-items: center;
 `;
 
-const LabelText = styled.span<{ isDisabled?: boolean; size: Size }>`
+const LabelText = styled.span<{ isDisabled?: boolean; size: ElementSize }>`
   font-size: ${({ size }) => (size === 'large' ? '18px' : '16px')};
   margin-left: 8px;
   color: ${({ isDisabled }) => isDisabled && theme.neutral200};
@@ -39,6 +39,8 @@ const DIMENSIONS = {
 const COLOR = {
   success: theme.green500,
   primary: theme.blue500,
+  secondary: theme.neutral500,
+  error: theme.red500,
 };
 
 interface Props {
@@ -46,8 +48,8 @@ interface Props {
   onChange(): void;
   isDisabled?: boolean;
   children?: string;
-  size?: Size;
-  appearance?: 'primary' | 'success';
+  size?: ElementSize;
+  appearance?: Appearance;
 }
 
 export const Switch: FC<Props> = ({

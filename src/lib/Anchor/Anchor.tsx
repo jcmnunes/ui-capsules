@@ -1,15 +1,24 @@
-import React, { FC } from 'react';
-import { Button } from '../Button/Button';
+import React, { AnchorHTMLAttributes, FC } from 'react';
+import styled from 'styled-components';
+import { theme } from '../theme';
 
-interface Props {
-  href: string;
-}
+const StyledAnchor = styled.a`
+  color: ${theme.blue600};
+  cursor: pointer;
+  box-shadow: inset 0 -2px 0 0;
+
+  &:hover {
+    box-shadow: none;
+  }
+`;
+
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 export const Anchor: FC<Props> = ({ href, children, ...other }) => {
   return (
-    <Button href={href} as="a" appearance="link" {...other}>
+    <StyledAnchor href={href} {...other}>
       {children}
-    </Button>
+    </StyledAnchor>
   );
 };
 Anchor.displayName = 'Anchor';

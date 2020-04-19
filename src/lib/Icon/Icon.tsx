@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { icons } from './Icon.constants';
+import { IconType } from '../types';
 
 interface Props {
-  icon: keyof typeof icons;
+  icon: IconType;
   size?: string;
 }
 

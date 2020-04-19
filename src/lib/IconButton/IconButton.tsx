@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import styled from 'styled-components';
 import { IllustratedIcon } from '../IllustratedIcon/IllustratedIcon';
 import { Spinner } from '../Spinner/Spinner';
@@ -95,7 +95,7 @@ const Text = styled.span`
   margin-left: 4px;
 `;
 
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IllustratedIconType;
   type?: 'button' | 'submit';
   text?: string;
