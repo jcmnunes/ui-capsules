@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
-import { ButtonAppearance, IconType, Size } from '../types';
+import { ButtonAppearance, IconType, ElementSize } from '../types';
 import { Spinner } from '../Spinner/Spinner';
 import { Icon } from '../Icon/Icon';
 
@@ -9,7 +9,6 @@ const getSpinnerAppearance = (appearance: ButtonAppearance) => {
   switch (appearance) {
     case 'primary':
     case 'success':
-    case 'warning':
     case 'error':
       return 'light';
     default:
@@ -63,15 +62,6 @@ const getButtonColors = (props: StyledButtonProps): ColorsObject => {
       colors.gradient.bottomHover = theme.red700;
       colors.active = theme.red700;
       colors.disabled = '#FFBCC2';
-      break;
-    case 'warning':
-      colors.text = '#FFF';
-      colors.gradient.top = theme.yellow600;
-      colors.gradient.topHover = theme.yellow700;
-      colors.gradient.bottom = theme.yellow700;
-      colors.gradient.bottomHover = theme.yellow800;
-      colors.active = theme.yellow800;
-      colors.disabled = '#F4D2B5';
       break;
     case 'success':
       colors.text = '#FFF';
@@ -178,7 +168,7 @@ const Content = styled.div<{ isLoading?: boolean }>`
   align-items: center;
 `;
 
-const Text = styled.span<{ iconBefore?: string; iconAfter?: string; size: Size }>`
+const Text = styled.span<{ iconBefore?: string; iconAfter?: string; size: ElementSize }>`
   white-space: nowrap;
   margin-left: ${({ iconBefore, size }): string =>
     iconBefore ? (size === 'small' ? '2px' : '8px') : 'auto'};
@@ -246,17 +236,7 @@ const StyledButton = styled.span<StyledButtonProps>`
   }
 `;
 
-const Anchor = styled.a`
-  color: ${theme.blue600};
-  cursor: pointer;
-  box-shadow: inset 0 -2px 0 0;
-
-  &:hover {
-    box-shadow: none;
-  }
-`;
-
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   appearance?: ButtonAppearance;
   as?: 'a' | 'button';
   iconAfter?: IconType;
@@ -266,9 +246,7 @@ interface Props {
   isLoading?: boolean;
   highlighted?: boolean;
   handleAction?(): void;
-  size?: 'small' | 'medium' | 'large';
-  type?: string;
-  onClick?(): void;
+  size?: ElementSize;
   href?: string;
 }
 
@@ -289,14 +267,6 @@ export const Button: FC<Props> = ({
   href,
   ...other
 }) => {
-  if (appearance === 'link' && as === 'a') {
-    return (
-      <Anchor href={href} as={as} target="_blank" rel="noreferrer noopener" {...other}>
-        {children}
-      </Anchor>
-    );
-  }
-
   return (
     <StyledButton
       as={as}

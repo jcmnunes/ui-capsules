@@ -1,19 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
+import { Appearance, ElementSize } from '../types';
 
 const colors = {
   primary: {
     background: theme.blue500,
     backgroundDisabled: theme.blueDisabled,
   },
+  secondary: {
+    background: theme.neutral300,
+    backgroundDisabled: theme.neutral100,
+  },
   success: {
     background: theme.green500,
     backgroundDisabled: theme.greenDisabled,
   },
-  neutral: {
-    background: theme.neutral300,
-    backgroundDisabled: theme.neutral100,
+  error: {
+    background: theme.red500,
+    backgroundDisabled: theme.redDisabled,
   },
 };
 
@@ -54,7 +59,7 @@ const dimensions = {
 };
 
 interface CustomCheckboxProps {
-  size: 'small' | 'medium' | 'large';
+  inputSize: 'small' | 'medium' | 'large';
   isDisabled: boolean;
 }
 
@@ -63,8 +68,8 @@ const CustomCheckbox = styled.span<CustomCheckboxProps>`
   border-radius: 4px;
   top: 0;
   left: 0;
-  width: ${({ size }) => dimensions[size].width};
-  height: ${({ size }) => dimensions[size].height};
+  width: ${({ inputSize }) => dimensions[inputSize].width};
+  height: ${({ inputSize }) => dimensions[inputSize].height};
   background-color: ${({ isDisabled }) => (isDisabled ? theme.neutral050 : '#fff')};
   transition: background-color 0.2s ease;
   border: 1px solid ${({ isDisabled }) => (isDisabled ? theme.neutral075 : theme.neutral100)};
@@ -73,13 +78,13 @@ const CustomCheckbox = styled.span<CustomCheckboxProps>`
     content: '';
     position: absolute;
     display: none;
-    left: ${props => dimensions[props.size].checkmarkLeft};
-    top: ${props => dimensions[props.size].checkmarkTop};
-    width: ${props => dimensions[props.size].checkmarkWidth};
-    height: ${props => dimensions[props.size].checkmarkHeight};
+    left: ${props => dimensions[props.inputSize].checkmarkLeft};
+    top: ${props => dimensions[props.inputSize].checkmarkTop};
+    width: ${props => dimensions[props.inputSize].checkmarkWidth};
+    height: ${props => dimensions[props.inputSize].checkmarkHeight};
     // noinspection CssReplaceWithShorthandSafely
     border: solid white;
-    border-width: ${props => dimensions[props.size].checkmarkBorderWidth};
+    border-width: ${props => dimensions[props.inputSize].checkmarkBorderWidth};
     transform: rotate(45deg);
   }
 
@@ -90,23 +95,23 @@ const CustomCheckbox = styled.span<CustomCheckboxProps>`
 
 interface LabelProps {
   onClick?(): void;
-  size: 'small' | 'medium' | 'large';
+  inputSize: 'small' | 'medium' | 'large';
   isDisabled: boolean;
 }
 const Label = styled.label<LabelProps>`
   display: inline-flex;
-  height: ${({ size }) => dimensions[size].height};
+  height: ${({ inputSize }) => dimensions[inputSize].height};
   align-items: center;
   position: relative;
-  padding-left: ${({ size }) => dimensions[size].padding};
+  padding-left: ${({ inputSize }) => dimensions[inputSize].padding};
   cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
-  font-size: ${({ size }) => dimensions[size].fontSize};
+  font-size: ${({ inputSize }) => dimensions[inputSize].fontSize};
   user-select: none;
   color: ${({ isDisabled }) => (isDisabled ? theme.neutral300 : 'inherit')};
 `;
 
 interface StyledInputProps {
-  appearance: 'primary' | 'success' | 'neutral';
+  appearance: Appearance;
 }
 const StyledInput = styled.input<StyledInputProps>`
   position: absolute;
@@ -141,26 +146,21 @@ const StyledInput = styled.input<StyledInputProps>`
   }
 `;
 
-interface Props {
-  checked: boolean;
-  onChange(): void;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   isDisabled?: boolean;
-  appearance?: 'primary' | 'success' | 'neutral';
-  size?: 'small' | 'medium' | 'large';
-  onClick?(): void;
+  appearance?: Appearance;
+  inputSize?: ElementSize;
 }
 
 export const Checkbox: FC<Props> = ({
   checked,
   isDisabled = false,
-  appearance = 'neutral',
-  size = 'small',
+  appearance = 'secondary',
+  inputSize = 'small',
   children,
-  onClick,
   onChange,
-  ...other
 }) => (
-  <Label onClick={onClick} size={size} isDisabled={isDisabled} data-testid="label" {...other}>
+  <Label inputSize={inputSize} isDisabled={isDisabled} data-testid="label">
     {children}
     <StyledInput
       type="checkbox"
@@ -169,13 +169,13 @@ export const Checkbox: FC<Props> = ({
       appearance={appearance}
       disabled={isDisabled}
     />
-    <CustomCheckbox size={size} isDisabled={isDisabled} />
+    <CustomCheckbox inputSize={inputSize} isDisabled={isDisabled} />
   </Label>
 );
 Checkbox.displayName = 'Checkbox';
 
 Checkbox.defaultProps = {
-  appearance: 'neutral',
-  size: 'small',
+  appearance: 'secondary',
+  inputSize: 'small',
   isDisabled: false,
 };

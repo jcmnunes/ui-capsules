@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import RSelect, { StylesConfig, Theme } from 'react-select';
+import RSelect, { StylesConfig, Theme, Props as RSelectProps } from 'react-select';
 import styled from 'styled-components';
 import { theme } from '../theme';
 
@@ -106,7 +106,7 @@ export const customTheme = (rsTheme: Theme, size: Size) => ({
   },
 });
 
-interface Props {
+interface Props extends RSelectProps {
   size?: 'medium' | 'large';
 }
 

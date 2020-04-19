@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
-import { Size } from '../types';
+import { Appearance, ElementSize } from '../types';
 
 const colors = {
   primary: {
@@ -12,9 +12,13 @@ const colors = {
     background: theme.green500,
     backgroundDisabled: theme.greenDisabled,
   },
-  neutral: {
+  secondary: {
     background: theme.neutral300,
     backgroundDisabled: theme.neutral100,
+  },
+  error: {
+    background: theme.red300,
+    backgroundDisabled: theme.redDisabled,
   },
 };
 
@@ -46,15 +50,15 @@ const dimensions = {
 };
 
 interface CustomRadioProps {
-  size: Size;
+  inputSize: ElementSize;
   isDisabled: boolean;
 }
 const CustomRadio = styled.span<CustomRadioProps>`
   position: absolute;
   top: 0;
   left: 0;
-  height: ${({ size }) => dimensions[size].height};
-  width: ${({ size }) => dimensions[size].height};
+  height: ${({ inputSize }) => dimensions[inputSize].height};
+  width: ${({ inputSize }) => dimensions[inputSize].height};
   background-color: ${({ isDisabled }) => (isDisabled ? theme.neutral050 : '#fff')};
   border-radius: 50%;
   transition: background-color 0.2s ease, border 0.2s ease;
@@ -63,10 +67,10 @@ const CustomRadio = styled.span<CustomRadioProps>`
   &:after {
     position: absolute;
     content: '';
-    top: ${({ size }) => dimensions[size].displacement};
-    left: ${({ size }) => dimensions[size].displacement};
-    width: ${({ size }) => dimensions[size].bulletSize};
-    height: ${({ size }) => dimensions[size].bulletSize};
+    top: ${({ inputSize }) => dimensions[inputSize].displacement};
+    left: ${({ inputSize }) => dimensions[inputSize].displacement};
+    width: ${({ inputSize }) => dimensions[inputSize].bulletSize};
+    height: ${({ inputSize }) => dimensions[inputSize].bulletSize};
     border-radius: 50%;
     background-color: white;
     display: none;
@@ -78,23 +82,23 @@ const CustomRadio = styled.span<CustomRadioProps>`
 `;
 
 interface LabelProps {
-  size: Size;
+  inputSize: ElementSize;
   isDisabled: boolean;
 }
 const Label = styled.label<LabelProps>`
   display: inline-flex;
-  height: ${({ size }) => dimensions[size].height};
+  height: ${({ inputSize }) => dimensions[inputSize].height};
   align-items: center;
   position: relative;
-  padding-left: ${({ size }) => dimensions[size].padding};
+  padding-left: ${({ inputSize }) => dimensions[inputSize].padding};
   cursor: ${({ isDisabled }) => (isDisabled ? 'not-allowed' : 'pointer')};
-  font-size: ${({ size }) => dimensions[size].fontSize};
+  font-size: ${({ inputSize }) => dimensions[inputSize].fontSize};
   user-select: none;
   color: ${({ isDisabled }) => (isDisabled ? theme.neutral300 : 'inherit')};
 `;
 
 interface StyledInputProps {
-  appearance: 'primary' | 'success' | 'neutral';
+  appearance: Appearance;
 }
 const StyledInput = styled.input<StyledInputProps>`
   position: absolute;
@@ -129,25 +133,23 @@ const StyledInput = styled.input<StyledInputProps>`
   }
 `;
 
-interface Props {
-  checked: boolean;
-  onChange(): void;
-  appearance?: 'primary' | 'success' | 'neutral';
-  size?: Size;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  appearance?: Appearance;
+  inputSize?: ElementSize;
   isDisabled?: boolean;
 }
 
 export const Radio: FC<Props> = ({
   checked,
   onChange,
-  appearance = 'neutral',
+  appearance = 'secondary',
   isDisabled = false,
-  size = 'small',
+  inputSize = 'small',
   children,
   ...other
 }) => {
   return (
-    <Label size={size} isDisabled={isDisabled}>
+    <Label inputSize={inputSize} isDisabled={isDisabled}>
       {children}
       <StyledInput
         checked={checked}
@@ -157,14 +159,14 @@ export const Radio: FC<Props> = ({
         disabled={isDisabled}
         {...other}
       />
-      <CustomRadio size={size} isDisabled={isDisabled} />
+      <CustomRadio inputSize={inputSize} isDisabled={isDisabled} />
     </Label>
   );
 };
 Radio.displayName = 'Radio';
 
 Radio.defaultProps = {
-  appearance: 'neutral',
-  size: 'small',
+  appearance: 'secondary',
+  inputSize: 'small',
   isDisabled: false,
 };

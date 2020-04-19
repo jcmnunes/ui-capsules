@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FC } from 'react';
+import React, { FC, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
-import { IconType, Size } from '../types';
+import { IconType, ElementSize } from '../types';
 import { Icon } from '../Icon/Icon';
 
 const dimensions = {
@@ -25,7 +25,7 @@ const dimensions = {
   },
 };
 
-const getPadding = (size: Size, hasIconBefore: boolean, hasIconAfter: boolean) => {
+const getPadding = (size: ElementSize, hasIconBefore: boolean, hasIconAfter: boolean) => {
   switch (size) {
     case 'small':
       return `2px ${hasIconAfter ? '26px' : '4px'} 2px ${hasIconBefore ? '26px' : '4px'}`;
@@ -38,7 +38,7 @@ const getPadding = (size: Size, hasIconBefore: boolean, hasIconAfter: boolean) =
   }
 };
 
-const getIconPosition = (size: Size) => {
+const getIconPosition = (size: ElementSize) => {
   switch (size) {
     case 'small':
       return {
@@ -65,41 +65,39 @@ const getIconPosition = (size: Size) => {
 
 interface InputWrapperProps {
   error?: string;
-  size: Size;
+  inputSize: ElementSize;
 }
 const InputWrapper = styled.div<InputWrapperProps>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: ${({ error, size }) =>
-    error ? dimensions[size].heightWithError : dimensions[size].height};
+  height: ${({ error, inputSize }) =>
+    error ? dimensions[inputSize].heightWithError : dimensions[inputSize].height};
   position: relative;
 `;
 
 interface IconWrapperProps {
-  size: Size;
+  inputSize: ElementSize;
 }
-
 const IconBeforeWrapper = styled.div<IconWrapperProps>`
   position: absolute;
-  top: ${({ size }) => getIconPosition(size).top};
-  left: ${({ size }) => getIconPosition(size).side};
+  top: ${({ inputSize }) => getIconPosition(inputSize).top};
+  left: ${({ inputSize }) => getIconPosition(inputSize).side};
   z-index: 3;
   color: ${props => props.theme.neutral500};
-  height: ${({ size }) => (size === 'small' ? '18px' : '24px')};
+  height: ${({ inputSize }) => (inputSize === 'small' ? '18px' : '24px')};
 `;
-
 const IconAfterWrapper = styled.div<IconWrapperProps>`
   position: absolute;
-  top: ${({ size }) => getIconPosition(size).top};
-  right: ${({ size }) => getIconPosition(size).side};
+  top: ${({ inputSize }) => getIconPosition(inputSize).top};
+  right: ${({ inputSize }) => getIconPosition(inputSize).side};
   z-index: 3;
   color: ${props => props.theme.neutral500};
 `;
 
 interface StyledInputProps {
-  inputSize: Size;
+  inputSize: ElementSize;
   error?: string;
   iconBefore?: IconType;
   iconAfter?: IconType;
@@ -139,7 +137,7 @@ const StyledInput = styled.input<StyledInputProps>`
 `;
 
 interface ErrorProps {
-  size: Size;
+  size: ElementSize;
 }
 const Error = styled.div<ErrorProps>`
   font-size: ${({ size }) => dimensions[size].helperFontSize};
@@ -152,33 +150,30 @@ const Error = styled.div<ErrorProps>`
   line-height: 16px;
 `;
 
-interface Props {
-  size?: Size;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  inputSize?: ElementSize;
   isDisabled?: boolean;
   error?: string;
   iconBefore?: IconType;
   iconAfter?: IconType;
-  value?: string;
-  onChange?(ev?: ChangeEvent<HTMLInputElement>): void;
-  autoFocus?: boolean;
 }
 
 export const Input: FC<Props> = ({
-  size = 'medium',
+  inputSize = 'medium',
   error,
   isDisabled = false,
   iconBefore,
   iconAfter,
   ...other
 }) => (
-  <InputWrapper size={size} error={error}>
+  <InputWrapper inputSize={inputSize} error={error}>
     {iconBefore && (
-      <IconBeforeWrapper size={size}>
-        <Icon icon={iconBefore as IconType} size={size === 'small' ? '18px' : '24px'} />
+      <IconBeforeWrapper inputSize={inputSize}>
+        <Icon icon={iconBefore as IconType} size={inputSize === 'small' ? '18px' : '24px'} />
       </IconBeforeWrapper>
     )}
     <StyledInput
-      inputSize={size}
+      inputSize={inputSize}
       disabled={isDisabled}
       error={error}
       iconBefore={iconBefore}
@@ -186,17 +181,17 @@ export const Input: FC<Props> = ({
       {...other}
     />
     {iconAfter && (
-      <IconAfterWrapper size={size}>
-        <Icon icon={iconAfter as IconType} size={size === 'small' ? '18px' : '24px'} />
+      <IconAfterWrapper inputSize={inputSize}>
+        <Icon icon={iconAfter as IconType} size={inputSize === 'small' ? '18px' : '24px'} />
       </IconAfterWrapper>
     )}
-    {error && <Error size={size}>{error}</Error>}
+    {error && <Error size={inputSize}>{error}</Error>}
   </InputWrapper>
 );
 Input.displayName = 'Input';
 
 Input.defaultProps = {
-  size: 'medium',
+  inputSize: 'medium',
   isDisabled: false,
   error: '',
   iconBefore: undefined,

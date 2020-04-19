@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { theme } from '../theme';
-import { Size } from '../types';
+import { ElementSize } from '../types';
 
 const dimensions = {
   small: {
@@ -27,7 +27,7 @@ const dimensions = {
   large: {
     height: '48px',
     fontSize: '18px',
-    padding: '13px 13px',
+    padding: '12px 13px',
   },
 };
 
@@ -39,7 +39,7 @@ const StyledEditableInput = styled.form`
 `;
 
 interface ValueProps {
-  size: Size;
+  size: ElementSize;
   canEdit: boolean;
 }
 const Value = styled.button<ValueProps>`
@@ -145,10 +145,10 @@ function reducer(state: State, action: Action) {
 
 interface Props {
   value: string;
-  action(internalValue: string): void;
-  size?: Size;
+  size?: ElementSize;
   isEditable?: boolean;
   hasButtons?: boolean;
+  action(internalValue: string): void;
 }
 
 export const EditableInput: FC<Props> = ({
@@ -206,7 +206,7 @@ export const EditableInput: FC<Props> = ({
         <>
           <StyledInput
             value={state.internalValue}
-            size={size}
+            inputSize={size}
             onChange={handleOnChange}
             autoFocus
           />

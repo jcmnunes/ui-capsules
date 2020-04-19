@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import TooltipTrigger from 'react-popper-tooltip';
 import { theme } from '../theme';
 
+export type TooltipPlacementOptions = 'bottom' | 'top' | 'right' | 'left' | 'auto';
+export type TooltipTriggerOptions = 'hover' | 'click' | 'right-click' | 'none';
+
 const TooltipContainer = styled.div`
   background-color: ${theme.neutral800};
   color: #fff;
@@ -126,8 +129,8 @@ const Trigger = styled.span`
 
 interface Props {
   tooltip: string;
-  placement?: 'auto' | 'top' | 'bottom' | 'right' | 'left';
-  trigger?: 'click' | 'hover' | 'right-click' | 'none';
+  placement?: TooltipPlacementOptions;
+  trigger?: TooltipTriggerOptions;
   delayShow?: number;
   hideArrow?: boolean;
   followCursor?: boolean;

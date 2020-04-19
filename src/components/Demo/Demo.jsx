@@ -3,21 +3,23 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Usage from '../Usage/Usage';
-import { Button, Checkbox, theme } from '../../lib';
+import { Button, theme } from '../../lib';
 import { SubSubTitle, SubTitle } from '../common/Typography';
-
-export const StyledCheckbox = styled(Checkbox)`
-  margin: 8px 0;
-`;
-
-export const StyledSelect = styled.div`
-  margin: 8px 0;
-  max-width: 200px;
-`;
 
 export const Booleans = styled.div`
   display: inline-flex;
   flex-direction: column;
+
+  & > * {
+    margin-bottom: 8px;
+  }
+`;
+
+export const Inputs = styled.div`
+  & > * {
+    margin: 8px 0;
+    max-width: 200px;
+  }
 `;
 
 export const DemoWrapper = styled.div`

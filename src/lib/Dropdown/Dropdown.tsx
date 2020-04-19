@@ -48,6 +48,7 @@ interface DropdownItemProps {
   iconAfter?: string;
   closeOnAction?: boolean;
   highlighted?: boolean;
+  isLoading?: boolean;
 }
 
 export const DropdownItem: FC<DropdownItemProps> = ({

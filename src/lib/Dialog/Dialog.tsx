@@ -36,7 +36,7 @@ const StyledModalBody = styled(ModalBody)<{ hasTitle: boolean }>`
   padding-top: ${({ hasTitle }) => hasTitle && '12px'};
 `;
 
-type Action = {
+export type Action = {
   name: string;
   appearance?: ButtonAppearance;
   action(): void;

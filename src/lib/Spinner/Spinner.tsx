@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { theme } from '../theme';
-import { Size } from '../types';
+import { ElementSize } from '../types';
 
 const getColors = (props: SpinnerProps) => {
   if (props.appearance === 'light') {
@@ -22,7 +22,7 @@ const spin = keyframes`
 `;
 
 interface SpinnerProps {
-  size: Size;
+  size: ElementSize;
   appearance?: 'light' | 'dark';
 }
 export const Spinner = styled.span<SpinnerProps>`
