@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import ReactModal from 'react-modal';
+import { Modal, ModalFooter, ModalBody, ModalTitle } from '../Modal/Modal';
 import { Button } from '../Button/Button';
-import { Modal, ModalBody, ModalFooter, ModalTitle } from '../Modal/Modal';
 import { theme } from '../theme';
-import { ButtonAppearance } from '../types';
+import { DialogAction } from '../types';
 
 const StyledModal = styled(Modal)`
   width: auto;
@@ -36,16 +36,10 @@ const StyledModalBody = styled(ModalBody)<{ hasTitle: boolean }>`
   padding-top: ${({ hasTitle }) => hasTitle && '12px'};
 `;
 
-export type Action = {
-  name: string;
-  appearance?: ButtonAppearance;
-  action(): void;
-};
-
 interface Props extends ReactModal.Props {
   isOpen: boolean;
   contentLabel: string;
-  actions: Action[];
+  actions: DialogAction[];
   onRequestClose(): void;
   title?: string;
   message: string;
