@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { Modal, ModalFooter, ModalBody, ModalTitle } from '../Modal/Modal';
 import { Button } from '../Button/Button';
