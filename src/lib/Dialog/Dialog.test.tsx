@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import RModal from 'react-modal';
-import { Dialog, Action } from './Dialog';
+import { Dialog } from './Dialog';
+import { DialogAction } from '../types';
 
 const bindApp = () => {
   const app = document.createElement('div');
@@ -31,7 +32,7 @@ it('should have a displayName', () => {
 describe('Dialog with two actions', () => {
   const cancelAction = jest.fn();
   const deleteAction = jest.fn();
-  const actions: Action[] = [
+  const actions: DialogAction[] = [
     {
       name: 'Cancel',
       appearance: 'secondary',
