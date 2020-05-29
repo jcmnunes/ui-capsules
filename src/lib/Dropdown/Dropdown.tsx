@@ -105,7 +105,7 @@ const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<I
 interface Props {
   trigger: JSX.Element;
   placement?: 'left' | 'right';
-  children: ReactElement<DropdownItemProps>[];
+  children: (ReactElement<DropdownItemProps> | null)[];
 }
 
 export const Dropdown: FC<Props> = ({ trigger: Trigger, placement, children }) => {
