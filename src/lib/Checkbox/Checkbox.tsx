@@ -94,7 +94,6 @@ const CustomCheckbox = styled.span<CustomCheckboxProps>`
 `;
 
 interface LabelProps {
-  onClick?(): void;
   inputSize: 'small' | 'medium' | 'large';
   isDisabled: boolean;
 }
@@ -160,7 +159,12 @@ export const Checkbox: FC<Props> = ({
   children,
   onChange,
 }) => (
-  <Label inputSize={inputSize} isDisabled={isDisabled} data-testid="label">
+  <Label
+    inputSize={inputSize}
+    isDisabled={isDisabled}
+    onClick={e => e.stopPropagation()}
+    data-testid="label"
+  >
     {children}
     <StyledInput
       type="checkbox"
