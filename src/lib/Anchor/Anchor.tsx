@@ -16,7 +16,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 export const Anchor: FC<Props> = ({ href, children, ...other }) => {
   return (
-    <StyledAnchor href={href} {...other}>
+    <StyledAnchor href={href} target="_blank" rel="noreferrer noopener" {...other}>
       {children}
     </StyledAnchor>
   );
