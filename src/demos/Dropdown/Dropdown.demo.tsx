@@ -1,48 +1,37 @@
-/* eslint-disable no-alert */
+/* eslint-disable no-alert, no-console */
 import React, { useState } from 'react';
-import { Dropdown, DropdownItem, Select, Button } from '../../lib';
+import { Button, Menu, Icon, Select, Switch } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS } from './Dropdown.constants';
 import { SelectOption } from '../../lib/types';
+import { MenuItem } from '../../lib/Menu/MenuItem';
 
 const DropdownDemo = () => {
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
 
   const Trigger = (
-    <Button appearance="minimal" iconAfter="chev_down">
+    <Button variant="ghost" variantColor="neutral" rightIcon="chev_down">
       Open dropdown
     </Button>
   );
 
   const Component = (
-    <Dropdown trigger={Trigger} placement={placement.value}>
-      <DropdownItem
-        text="Copy text"
-        icon="copy"
-        handleAction={() => alert('Clicked on "Copy text"')}
+    <Menu trigger={Trigger} placement={placement.value}>
+      <MenuItem
+        text="Hello World"
+        onClick={() => console.log('Hello there 1')}
+        leftAddon={<Icon icon="search" size="18px" />}
       />
-      <DropdownItem
-        text="Edit profile"
-        icon="user"
-        handleAction={() => alert('Clicked on "Edit profile"')}
-      />
-      <DropdownItem
-        text="Settings"
-        icon="settings"
-        handleAction={() => alert('Clicked on "Settings"')}
-      />
-      <DropdownItem
-        text="Log out"
-        icon="logout"
-        handleAction={() => alert('Clicked on "Log out"')}
-      />
-      <DropdownItem
-        text="Do not close on action"
-        icon="trash"
-        handleAction={() => alert('Clicked on "Do not close on action"')}
+
+      <MenuItem
+        text="Hello World 2"
+        helperText="Helper text"
+        leftAddon={<Icon icon="annotation" size="18px" color="red.500" />}
+        rightAddon={<Switch checked onChange={() => {}} size="small" />}
+        onClick={() => console.log('Hello there 2')}
         closeOnAction={false}
       />
-    </Dropdown>
+    </Menu>
   );
 
   return (

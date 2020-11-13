@@ -1,23 +1,22 @@
 import React from 'react';
-import RSelect, { StylesConfig, Theme, Props as RSelectProps } from 'react-select';
-import styled from 'styled-components';
+import RSelect, { Props as RSelectProps, Styles, Theme as RSTheme } from 'react-select';
 import { theme } from '../theme';
 
 type Size = 'medium' | 'large';
 
-interface StyledSelectProps {
-  size: Size;
-}
-const StyledSelect = styled(RSelect)<StyledSelectProps>`
-  width: 100%;
-  font-size: ${({ size }) => dimensions[size].fontSize};
-
-  // This hack is needed to avoid the cursor being in front of the placeholder
-  // https://stackoverflow.com/questions/52865076/react-select-async-places-the-cursorcaret-at-the-end-of-the-placeholder-when-i
-  .react-select__placeholder {
-    color: ${theme.neutral200};
-  }
-`;
+// interface StyledSelectProps {
+//   size: Size;
+// }
+// const StyledSelect = styled(RSelect)<StyledSelectProps>`
+//   width: 100%;
+//   font-size: ${({ size }) => dimensions[size].fontSize};
+//
+//   // This hack is needed to avoid the cursor being in front of the placeholder
+//   // https://stackoverflow.com/questions/52865076/react-select-async-places-the-cursorcaret-at-the-end-of-the-placeholder-when-i
+//   .react-select__placeholder {
+//     color: ${theme.neutral200};
+//   }
+// `;
 
 const dimensions = {
   medium: {
@@ -32,23 +31,23 @@ const dimensions = {
   },
 };
 
-interface State {
-  isDisabled: boolean;
-  isFocused: boolean;
-  isSelected: boolean;
-}
-
-const customStyles = (size: Size) => ({
-  control: (provided: StylesConfig, state: State) => ({
+const customStyles = (size: Size): Partial<Styles> => ({
+  container: (provided: React.CSSProperties) => ({
     ...provided,
-    boxShadow: state.isFocused ? `0 0 0 3px ${theme.blue100}` : 'none',
+    width: '100%',
+    fontSize: dimensions[size].fontSize,
+  }),
+  control: (provided: React.CSSProperties, state) => ({
+    ...provided,
+    boxShadow: state.isFocused ? `0 0 0 3px ${theme.blue200}` : 'none',
     cursor: state.isDisabled ? 'not-allowed' : 'pointer',
     border: state.isFocused ? `1px solid ${theme.blue400}` : `1px solid ${theme.neutral200}`,
     ':hover': {
       border: `1px solid ${theme.neutral300}`,
     },
+    width: '100%',
   }),
-  option: (provided: StylesConfig, state: State) => ({
+  option: (provided: React.CSSProperties, state) => ({
     ...provided,
     cursor: 'pointer',
     color: theme.neutral600,
@@ -58,24 +57,24 @@ const customStyles = (size: Size) => ({
       background: state.isSelected ? theme.blue050 : theme.neutral075,
     },
   }),
-  singleValue: (provided: StylesConfig, state: State) => ({
+  singleValue: (provided: React.CSSProperties, state) => ({
     ...provided,
     color: state.isDisabled ? theme.neutral300 : theme.neutral600,
   }),
-  valueContainer: (provided: StylesConfig) => ({
+  valueContainer: (provided: React.CSSProperties) => ({
     ...provided,
     padding: size === 'medium' ? '1px 8px' : '2px 12px',
   }),
   indicatorSeparator: () => ({
     display: 'none',
   }),
-  menuPortal: (base: StylesConfig) => ({
+  menuPortal: (base: React.CSSProperties) => ({
     ...base,
     zIndex: theme.selectZIndex,
   }),
 });
 
-export const customTheme = (rsTheme: Theme, size: Size) => ({
+export const customTheme = (rsTheme: RSTheme, size: Size) => ({
   ...rsTheme,
   spacing: {
     ...rsTheme.spacing,
@@ -112,11 +111,21 @@ interface Props<T> extends RSelectProps<T> {
 
 export function Select<T>({ size = 'medium', ...other }: Props<T>) {
   return (
-    <StyledSelect
+    <RSelect
       size={size}
       styles={customStyles(size)}
-      theme={(rsTheme: Theme) => customTheme(rsTheme, size)}
+      theme={rsTheme => customTheme(rsTheme, size)}
       classNamePrefix="react-select"
+      // style={{
+      //   width: '100%',
+      //   fontSize: dimensions[size].fontSize,
+      //
+      //   // // This hack is needed to avoid the cursor being in front of the placeholder
+      //   // // https://stackoverflow.com/questions/52865076/react-select-async-places-the-cursorcaret-at-the-end-of-the-placeholder-when-i
+      //   // '.react-select__placeholder': {
+      //   //   color: theme.neutral200,
+      //   // },
+      // }}
       {...other}
     />
   );

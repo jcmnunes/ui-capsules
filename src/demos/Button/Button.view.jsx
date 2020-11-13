@@ -5,6 +5,7 @@ import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Button.constants';
+import { Box, Button, Flex } from '../../lib';
 
 const ButtonDemo = () => {
   return (
@@ -16,7 +17,24 @@ const ButtonDemo = () => {
       </Paragraph>
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
+
+      <SubTitle>Kitchen sink</SubTitle>
+      <Flex alignItems="flex-start" flexDirection="column">
+        {['primary', 'error', 'neutral', 'pink'].map(variantColor => (
+          <Flex alignItems="center" mb="24" flexDirection="row">
+            {['solid', 'outline', 'ghost', 'link'].map(variant => (
+              <Box mr="12">
+                <Button variant={variant} variantColor={variantColor}>
+                  {variant} {variantColor}
+                </Button>
+              </Box>
+            ))}
+          </Flex>
+        ))}
+      </Flex>
+
       <Demo />
+
       <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>

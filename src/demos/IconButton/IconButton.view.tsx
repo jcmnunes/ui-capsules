@@ -15,9 +15,7 @@ const AnchorDemo = () => {
       <Paragraph>
         Renders an IconButton using icons from the{' '}
         <Link to="/illustrated-icon">
-          <Button as="button" appearance="link">
-            IllustratedIcon collection
-          </Button>
+          <Button variant="link">IllustratedIcon collection</Button>
         </Link>
         .
       </Paragraph>

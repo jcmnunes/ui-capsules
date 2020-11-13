@@ -55,8 +55,8 @@ const Usage = ({ children }) => {
               }
             }}
           >
-            <Button size="small" appearance="minimal" iconBefore="duplicate">
-              Copy to clipboard
+            <Button size="small" leftIcon="duplicate" variantColor="neutral" variant="ghost">
+              Copy
             </Button>
           </CopyToClipboard>
         </Tooltip>

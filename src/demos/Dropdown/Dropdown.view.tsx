@@ -24,7 +24,7 @@ const DropdownDemo = () => {
         <li>
           <code>icon</code>: &quot;string&quot; - The icon to render before the text (from the{' '}
           <Link to="/illustrated-icon">
-            <Button appearance="link">IllustratedIcon collection</Button>
+            <Button variant="link">IllustratedIcon collection</Button>
           </Link>
           )
         </li>

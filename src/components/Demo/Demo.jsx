@@ -24,7 +24,7 @@ export const Inputs = styled.div`
 
 export const DemoWrapper = styled.div`
   border-radius: 12px;
-  background-color: ${props => props.theme.neutral050};
+  background-color: ${props => props.theme.colors.neutral['50']};
   padding: 12px;
   display: flex;
   flex-direction: row;
@@ -76,7 +76,14 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
       <HeaderWrapper>
         <SubTitle>Demo</SubTitle>
         <Actions>
-          <Button as="a" href={codeURL} appearance="minimal" iconBefore="github">
+          <Button
+            as="a"
+            href={codeURL}
+            variant="ghost"
+            variantColor="neutral"
+            size="small"
+            leftIcon="github"
+          >
             View source on GitHub
           </Button>
         </Actions>
@@ -95,7 +102,6 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
           {children}
         </PropAdjuster>
       </DemoWrapper>
-      <SubSubTitle>Generated code</SubSubTitle>
       <Usage>
         {code ||
           reactElementToJSXString(component, {

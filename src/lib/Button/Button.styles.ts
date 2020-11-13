@@ -1,0 +1,177 @@
+import { margin, variant } from 'styled-system';
+import { Icon, Props as IconProps } from '../Icon/Icon';
+import {
+  BorderProps,
+  ColorProps,
+  LayoutProps,
+  MarginProps,
+  PaddingProps,
+  PropsWithPseudo,
+  TypographyProps,
+} from '../styledProps';
+import { styled, ThemeColors } from '../theme';
+
+export type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'link';
+export type ButtonSize = 'small' | 'medium' | 'large';
+
+export type Pseudo = '&:hover' | '&:focus' | '&:active' | '&:disabled';
+
+export interface StyledButtonProps extends MarginProps {
+  variant: ButtonVariant;
+  size: ButtonSize;
+  variantColor: ThemeColors;
+  disabled?: boolean;
+}
+
+export const StyledButton = styled.div<StyledButtonProps>(
+  ({ theme, disabled, variant: variantProp }) => ({
+    fontFamily: theme.fontFamily,
+    borderRadius: theme.radii.medium,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    opacity: disabled ? 0.5 : 1,
+    pointerEvents: disabled ? 'none' : 'initial',
+    padding: variantProp === 'link' ? '0 2px' : '0 12px',
+    position: 'relative',
+    fontWeight: 500,
+    display: 'inline-flex',
+    appearance: 'none',
+    userSelect: 'none',
+    whiteSpace: 'nowrap',
+    outline: 'none',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    verticalAlign: 'middle',
+    width: 'auto',
+
+    '&:focus': {
+      ...theme.shadows.focus,
+    },
+  }),
+  ({ variantColor }) =>
+    variant<PropsWithPseudo<ColorProps & BorderProps & TypographyProps, Pseudo>, ButtonVariant>({
+      variants: {
+        solid: {
+          bg: `${variantColor}.500`,
+          borderColor: `${variantColor}.500`,
+          color: 'bg',
+
+          '&:focus': {
+            bg: `${variantColor}.500`,
+            borderColor: `${variantColor}.500`,
+          },
+
+          '&:hover': {
+            bg: `${variantColor}.600`,
+            borderColor: `${variantColor}.600`,
+          },
+
+          '&:active': {
+            bg: `${variantColor}.700`,
+            borderColor: `${variantColor}.700`,
+          },
+        },
+
+        outline: {
+          bg: 'transparent',
+          borderColor: `${variantColor}.500`,
+          color: `${variantColor}.500`,
+
+          '&:focus': {
+            bg: 'transparent',
+          },
+
+          '&:hover': {
+            bg: `${variantColor}.50`,
+          },
+
+          '&:active': {
+            bg: `${variantColor}.100`,
+          },
+
+          '&:disabled': {
+            bg: `${variantColor}.50`,
+            borderColor: `${variantColor}.300`,
+          },
+        },
+
+        ghost: {
+          bg: 'transparent',
+          border: 'none',
+          color: `${variantColor}.500`,
+
+          '&:focus': {
+            bg: 'transparent',
+          },
+
+          '&:hover': {
+            bg: `${variantColor}.100`,
+          },
+
+          '&:active': {
+            bg: `${variantColor}.200`,
+          },
+
+          '&:disabled': {
+            bg: `${variantColor}.50`,
+          },
+        },
+
+        link: {
+          bg: 'transparent',
+          border: 'none',
+          color: `${variantColor}.500`,
+          borderRadius: 'none',
+
+          '&:hover': {
+            textDecorationLine: 'underline',
+          },
+        },
+      },
+    }),
+
+  ({ variant: variantProp }) =>
+    variant<LayoutProps & TypographyProps & PaddingProps, ButtonSize>({
+      prop: 'size',
+      variants: {
+        small: {
+          height: variantProp === 'link' ? 'auto' : 24,
+          fontSize: 'small',
+          px: 4,
+        },
+
+        medium: {
+          height: variantProp === 'link' ? 'auto' : 32,
+          fontSize: 'body',
+        },
+
+        large: {
+          height: variantProp === 'link' ? 'auto' : 40,
+          fontSize: 'body',
+        },
+      },
+    }),
+  margin,
+);
+
+interface ButtonTextProps {
+  isLoading?: boolean;
+}
+
+export const ButtonText = styled.span<ButtonTextProps>(({ isLoading }) => ({
+  opacity: isLoading ? 0 : 1,
+}));
+
+interface ButtonIconProps extends IconProps {
+  isLeft?: boolean;
+  isRight?: boolean;
+  isLoading?: boolean;
+}
+
+export const ButtonIcon = styled(Icon)<ButtonIconProps>(({ isLeft, isRight, isLoading }) => ({
+  margin: 0,
+  marginRight: isLeft ? 4 : 0,
+  marginLeft: isRight ? 4 : 0,
+  opacity: isLoading ? 0 : 1,
+}));

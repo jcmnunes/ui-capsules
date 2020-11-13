@@ -9,12 +9,12 @@ import { DialogAction } from '../types';
 const StyledModal = styled(Modal)`
   width: auto;
 
-  @media (min-width: ${theme.breakpoints.mobile}) {
+  @media (min-width: ${theme.breakpointsLegacy.mobile}) {
     left: 60px;
     right: 60px;
   }
 
-  @media (min-width: ${theme.breakpoints.sm}) {
+  @media (min-width: ${theme.breakpointsLegacy.sm}) {
     width: 450px;
     left: 50%;
     right: auto;
@@ -56,6 +56,7 @@ export const Dialog: FC<Props> = ({
 }) => {
   return (
     <StyledModal
+      title="Example modal"
       isOpen={isOpen}
       contentLabel={contentLabel}
       onRequestClose={onRequestClose}
@@ -67,8 +68,8 @@ export const Dialog: FC<Props> = ({
         <Message>{message}</Message>
       </StyledModalBody>
       <StyledModalFooter data-testid="dialog-footer">
-        {actions.map(({ name, appearance, action }) => (
-          <Button key={name} type="button" appearance={appearance} size="large" onClick={action}>
+        {actions.map(({ name, action }) => (
+          <Button key={name} type="button" size="large" onClick={action}>
             {name}
           </Button>
         ))}

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Modal, ModalBody, ModalTitle, ModalFooter, Button, Input, Checkbox } from '../../lib';
+import { Button, Checkbox, Input, Modal, ModalBody, ModalFooter, Select, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Modal.constants';
+import { SIZE_OPTS } from '../common/selectOptions';
 
 const ModalDemo = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const ModalDemo = () => {
   const [width, setWidth] = useState('');
 
   const Component = (
-    <Button appearance="primary" iconBefore="eye" onClick={() => setIsOpen(true)}>
+    <Button leftIcon="eye" onClick={() => setIsOpen(true)}>
       Open Modal
     </Button>
   );
@@ -22,7 +23,6 @@ const ModalDemo = () => {
   width="${width}"
 >
   <ModalBody>
-    <ModalTitle>Example Modal Title</ModalTitle>
     <Input
       value={value}
       onChange={handleChange}
@@ -48,7 +48,7 @@ const ModalDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Booleans>
-        <Checkbox checked={isOpen} onChange={() => setIsOpen(!isOpen)} appearance="success">
+        <Checkbox checked={isOpen} onChange={() => setIsOpen(!isOpen)}>
           <pre>isOpen</pre>
         </Checkbox>
       </Booleans>
@@ -68,27 +68,44 @@ const ModalDemo = () => {
       </Inputs>
 
       <Modal
+        title="Add Task"
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         contentLabel="Example Modal"
         width={width}
       >
         <ModalBody>
-          <ModalTitle>Example Modal Title</ModalTitle>
+          <Text color="neutral.700" fontWeight={600} fontSize="body" mb="4">
+            What will you be working on?
+          </Text>
           <Input
             value={inputValue}
             onChange={ev => setInputValue(ev.target.value)}
             inputSize="large"
             autoFocus
+            placeholder="Task summary"
           />
+
+          <Text color="neutral.700" fontWeight={600} fontSize="body" mt="24" mb="4">
+            Task scope
+          </Text>
+          <Select value={SIZE_OPTS[0]} options={SIZE_OPTS} onChange={() => {}} />
+
+          <Button leftIcon="plus" variant="ghost" variantColor="neutral" size="small" mt="4">
+            Create new scope
+          </Button>
         </ModalBody>
+
         <ModalFooter>
-          <Button appearance="secondary" size="large" onClick={() => setIsOpen(false)}>
+          <Button
+            variant="ghost"
+            variantColor="neutral"
+            size="large"
+            onClick={() => setIsOpen(false)}
+          >
             Cancel
           </Button>
-          <Button appearance="primary" size="large">
-            Example Modal
-          </Button>
+          <Button size="large">Add Task</Button>
         </ModalFooter>
       </Modal>
     </Demo>

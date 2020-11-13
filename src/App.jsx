@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home/Home';
 import Button from './demos/Button/Button.view';
@@ -48,7 +48,8 @@ const App = () => (
       <Sidebar />
     </SidebarWrapper>
     <ShowcaseWrapper>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" render={() => <Redirect to="/getting-started" />} />
+      <Route path="/getting-started" component={Home} />
       <Route path="/button" component={Button} />
       <Route path="/icon-button" component={IconButton} />
       <Route path="/illustrated-icon" component={IllustratedIcon} />

@@ -124,7 +124,7 @@ const StyledInput = styled.input<StyledInputProps>`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px ${props => (props.error ? theme.red100 : theme.blue100)};
+    box-shadow: 0 0 0 3px ${props => (props.error ? theme.red200 : theme.blue200)};
     border: 1px solid ${props => (props.error ? theme.red400 : theme.blue400)};
   }
 

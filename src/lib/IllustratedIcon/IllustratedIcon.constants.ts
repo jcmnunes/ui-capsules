@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 export const illustratedIcons = {
   chart: [
     'M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2zm11 4a1 1 0 0 0-1 1v8a1 1 0 0 0 2 0V8a1 1 0 0 0-1-1z',

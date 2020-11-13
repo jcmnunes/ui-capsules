@@ -1,22 +1,29 @@
-import React, { AnchorHTMLAttributes, FC } from 'react';
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 import styled from 'styled-components';
-import { theme } from '../theme';
+import { margin } from 'styled-system';
+import { MarginProps } from '../styledProps';
 
-const StyledAnchor = styled.a`
-  color: ${theme.blue600};
-  cursor: pointer;
-  box-shadow: inset 0 -2px 0 0;
+const StyledAnchor = styled.a(
+  ({ theme }) => ({
+    color: theme.colors.primary['500'],
+    cursor: 'pointer',
+    boxShadow: 'inset 0 -2px 0 0',
 
-  &:hover {
-    box-shadow: none;
-  }
-`;
+    '&:hover': {
+      boxShadow: 'none',
+    },
+  }),
+  margin,
+);
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {}
+interface Props extends ComponentPropsWithoutRef<'a'>, MarginProps {
+  href: string;
+  children: string;
+}
 
-export const Anchor: FC<Props> = ({ href, children, ...other }) => {
+export const Anchor: FC<Props> = ({ href, children, ...rest }) => {
   return (
-    <StyledAnchor href={href} target="_blank" rel="noreferrer noopener" {...other}>
+    <StyledAnchor href={href} target="_blank" rel="noreferrer noopener" {...rest}>
       {children}
     </StyledAnchor>
   );

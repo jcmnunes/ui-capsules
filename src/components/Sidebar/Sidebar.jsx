@@ -9,10 +9,11 @@ const Sidebar = () => (
       <Logo />
     </Link>
     <SidebarGroup>
+      <SidebarLink to="/getting-started">Getting Started</SidebarLink>
       <GroupHeading>Components</GroupHeading>
-      <SidebarLink to="/anchor">Anchor</SidebarLink>
-      <SidebarLink to="/button">Button</SidebarLink>
-      <SidebarLink to="/checkbox">Checkbox</SidebarLink>
+      <SidebarLink to="/anchor">Anchor ✅</SidebarLink>
+      <SidebarLink to="/button">Button ✅</SidebarLink>
+      <SidebarLink to="/checkbox">Checkbox ✅</SidebarLink>
       <SidebarLink to="/dialog">Dialog</SidebarLink>
       <SidebarLink to="/dropdown">Dropdown</SidebarLink>
       <SidebarLink to="/editable-input">Editable Input</SidebarLink>
@@ -30,7 +31,7 @@ const Sidebar = () => (
       <SidebarLink to="/switch">Switch</SidebarLink>
       <SidebarLink to="/table">Table</SidebarLink>
       <SidebarLink to="/toaster">Toaster</SidebarLink>
-      <SidebarLink to="/tooltip">Tooltip</SidebarLink>
+      <SidebarLink to="/tooltip">Tooltip ✅</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );

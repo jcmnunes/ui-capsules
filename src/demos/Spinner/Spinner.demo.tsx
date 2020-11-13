@@ -8,7 +8,7 @@ const SpinnerDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [appearance, setAppearance] = useState(APPEARANCE_OPTS[1]);
 
-  const Component = <Spinner size={size.value} appearance={appearance.value} />;
+  const Component = <Spinner size={size.value} />;
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component} isDark={appearance.value === 'light'}>

@@ -10,7 +10,7 @@ const DialogDemo = () => {
   const [contentLabel, setContentLabel] = useState('Example dialog');
 
   const Component = (
-    <Button appearance="primary" iconBefore="eye" onClick={() => setIsOpen(true)}>
+    <Button leftIcon="eye" onClick={() => setIsOpen(true)}>
       Open Dialog
     </Button>
   );
@@ -39,7 +39,7 @@ const DialogDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Booleans>
-        <Checkbox checked={isOpen} onChange={() => setIsOpen(!isOpen)} appearance="success">
+        <Checkbox checked={isOpen} onChange={() => setIsOpen(!isOpen)}>
           <pre>isOpen</pre>
         </Checkbox>
       </Booleans>

@@ -16,9 +16,12 @@ const AnchorDemo = () => {
         this component implements <code>target=&quot;_blank&quot;</code> with{' '}
         <code>rel=&quot;noreferrer noopener&quot;</code> to aid security.
       </Paragraph>
+
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Anchor } from '@binarycapsule/ui-capsules';"}</Usage>
+
       <Demo />
+
       <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>

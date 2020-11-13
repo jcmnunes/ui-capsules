@@ -1,33 +1,37 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { Button, Select, Input, Checkbox } from '../../lib';
-import { APPEARANCE_OPTS, AS_OPTS, SIZE_OPTS, GITHUB_URL } from './Button.constants';
+import { Checkbox, Input, Select } from '../../lib';
+import { GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
-import { ButtonAppearance, IconType, SelectOption, ElementSize } from '../../lib/types';
+import { ElementSize, IconType, SelectOption } from '../../lib/types';
+import { Button } from '../../lib/Button/Button';
+import { ButtonVariant } from '../../lib/Button/Button.styles';
+import { ThemeColors } from '../../lib/theme';
+import { SIZE_OPTS, VARIANT_COLOR_OPTS, VARIANT_OPTS } from '../common/selectOptions';
 
 const ButtonDemo = () => {
   const iconOpts = [{ value: '', label: 'none' }, ...useIconOpts()];
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isBlock, setIsBlock] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [buttonChildren, setButtonChildren] = useState('Hello');
-  const [appearance, setAppearance] = useState(APPEARANCE_OPTS[1]);
+  const [buttonChildren, setButtonChildren] = useState('Button Text');
+  const [variant, variantSet] = useState(VARIANT_OPTS.find(opt => opt.value === 'solid')!);
+  const [variantColor, variantColorSet] = useState(
+    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
+  );
   const [size, setSize] = useState(SIZE_OPTS[1]);
-  const [as, setAs] = useState(AS_OPTS[0]);
-  const [iconBefore, setIconBefore] = useState(iconOpts[0]);
-  const [iconAfter, setIconAfter] = useState(iconOpts[0]);
+  const [leftIcon, leftIconSet] = useState(iconOpts[0]);
+  const [rightIcon, rightIconSet] = useState(iconOpts[0]);
 
   const Component = (
     <Button
-      as={as.value}
       isLoading={isLoading}
-      isBlock={isBlock}
-      isDisabled={isDisabled}
-      appearance={appearance.value}
+      disabled={isDisabled}
+      variant={variant.value}
+      variantColor={variantColor.value}
       size={size.value}
-      iconBefore={(iconBefore.value as IconType) || undefined}
-      iconAfter={(iconAfter.value as IconType) || undefined}
+      leftIcon={(leftIcon.value as IconType) || undefined}
+      rightIcon={(rightIcon.value as IconType) || undefined}
     >
       {buttonChildren}
     </Button>
@@ -39,23 +43,20 @@ const ButtonDemo = () => {
         <Checkbox
           checked={isLoading}
           onChange={() => setIsLoading(!isLoading)}
-          appearance="success"
-          isDisabled={as.value === 'a' || appearance.value === 'link'}
+          isDisabled={variant.value === 'link'}
         >
           <pre>isLoading</pre>
         </Checkbox>
+
         <Checkbox
           checked={isDisabled}
           onChange={() => setIsDisabled(!isDisabled)}
-          appearance="success"
-          isDisabled={as.value === 'a' || appearance.value === 'link'}
+          isDisabled={variant.value === 'link'}
         >
-          <pre>isDisabled</pre>
-        </Checkbox>
-        <Checkbox checked={isBlock} onChange={() => setIsBlock(!isBlock)} appearance="success">
-          <pre>isBlock</pre>
+          <pre>disabled</pre>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
           <pre>children</pre>
@@ -65,14 +66,25 @@ const ButtonDemo = () => {
             onChange={ev => setButtonChildren(ev.target.value)}
           />
         </div>
+
         <div>
-          <pre>appearance</pre>
+          <pre>variant</pre>
           <Select
-            value={appearance}
-            options={APPEARANCE_OPTS}
-            onChange={opt => setAppearance(opt as SelectOption<ButtonAppearance>)}
+            value={variant}
+            options={VARIANT_OPTS}
+            onChange={opt => variantSet(opt as SelectOption<ButtonVariant>)}
           />
         </div>
+
+        <div>
+          <pre>variantColor</pre>
+          <Select
+            value={variantColor}
+            options={VARIANT_COLOR_OPTS}
+            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
+          />
+        </div>
+
         <div>
           <pre>size</pre>
           <Select
@@ -81,30 +93,23 @@ const ButtonDemo = () => {
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
           />
         </div>
+
         <div>
-          <pre>as</pre>
+          <pre>leftIcon</pre>
           <Select
-            value={as}
-            options={AS_OPTS}
-            onChange={opt => setAs(opt as SelectOption<'button' | 'a'>)}
+            value={leftIcon}
+            options={iconOpts}
+            onChange={opt => leftIconSet(opt as SelectOption<IconType>)}
+            isDisabled={variant.value === 'link'}
           />
         </div>
         <div>
-          <pre>iconBefore</pre>
+          <pre>rightIcon</pre>
           <Select
-            value={iconBefore}
+            value={rightIcon}
             options={iconOpts}
-            onChange={opt => setIconBefore(opt as SelectOption<IconType>)}
-            isDisabled={appearance.value === 'link'}
-          />
-        </div>
-        <div>
-          <pre>iconAfter</pre>
-          <Select
-            value={iconAfter}
-            options={iconOpts}
-            onChange={opt => setIconAfter(opt as SelectOption<IconType>)}
-            isDisabled={appearance.value === 'link'}
+            onChange={opt => rightIconSet(opt as SelectOption<IconType>)}
+            isDisabled={variant.value === 'link'}
           />
         </div>
       </Inputs>

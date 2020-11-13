@@ -30,19 +30,19 @@ const Menu = styled.div<MenuProps>`
 `;
 
 export const MenuWrapper = styled.div`
-  padding: 8px;
+  padding: 8px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `;
 
-const StyledIconButton = styled(({ handleAction, ...other }) => <IconButton {...other} />)`
+const StyledIconButton = styled(IconButton)`
   height: 40px;
 `;
 
 interface DropdownItemProps {
   icon: keyof typeof illustratedIcons;
-  handleAction(): void;
+  onClick(): void;
   text?: string;
   iconBefore?: string;
   iconAfter?: string;
@@ -56,15 +56,12 @@ export const DropdownItem: FC<DropdownItemProps> = ({
   closeOnAction = true,
   highlighted = false,
   text = '',
-  handleAction,
+  onClick,
   ...other
 }) => (
   <StyledIconButton
-    isBlock
     icon={icon}
-    text={text}
-    handleAction={handleAction}
-    closeOnAction={closeOnAction}
+    onClick={onClick}
     tabIndex={-1}
     style={{ background: highlighted ? theme.neutral075 : 'inherit' }}
     {...other}
@@ -83,14 +80,14 @@ DropdownItem.defaultProps = {
 interface Item {
   name: string;
   closeOnAction: boolean;
-  handleAction(): void;
+  onClick(): void;
 }
 const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<Item>) => {
   switch (changes.type) {
     case Downshift.stateChangeTypes.keyDownEnter:
     case Downshift.stateChangeTypes.clickItem:
       if (changes.selectedItem) {
-        changes.selectedItem.handleAction();
+        changes.selectedItem.onClick();
       }
       return {
         ...changes,
@@ -151,7 +148,7 @@ export const Dropdown: FC<Props> = ({ trigger: Trigger, placement, children }) =
                                   item: {
                                     name: index.toString(),
                                     closeOnAction: child.props.closeOnAction || false,
-                                    handleAction: child.props.handleAction,
+                                    onClick: child.props.onClick,
                                   },
                                 }),
                               });

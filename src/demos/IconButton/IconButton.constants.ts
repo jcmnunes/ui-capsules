@@ -1,17 +1,5 @@
-import { theme } from '../../lib';
-
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/IconButton/IconButton.tsx';
-
-export const DEFAULT_COLORS = [
-  theme.neutral200,
-  theme.neutral600,
-  theme.neutral300,
-  theme.neutral700,
-  theme.neutral075,
-];
-
-export const DEFAULT_TEXT_COLOR = theme.neutral700;
 
 export const PROPS = [
   {
