@@ -2,10 +2,9 @@ import 'focus-visible/dist/focus-visible';
 import './lib/styles/global.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { theme, WithToasts, setAppElement } from './lib';
+import { theme, WithToasts, setAppElement, ThemeProvider } from './lib';
 
 setAppElement('#root');
 

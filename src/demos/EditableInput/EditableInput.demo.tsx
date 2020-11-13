@@ -23,18 +23,10 @@ const EditableInputDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
-        <Checkbox
-          checked={isEditable}
-          onChange={() => setIsEditable(!isEditable)}
-          appearance="success"
-        >
+        <Checkbox checked={isEditable} onChange={() => setIsEditable(!isEditable)}>
           <pre>isEditable</pre>
         </Checkbox>
-        <Checkbox
-          checked={hasButtons}
-          onChange={() => setHasButtons(!hasButtons)}
-          appearance="success"
-        >
+        <Checkbox checked={hasButtons} onChange={() => setHasButtons(!hasButtons)}>
           <pre>hasButtons</pre>
         </Checkbox>
       </Booleans>

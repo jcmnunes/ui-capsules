@@ -1,23 +1,23 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import TooltipTrigger from 'react-popper-tooltip';
-import { theme } from '../theme';
 
 export type TooltipPlacementOptions = 'bottom' | 'top' | 'right' | 'left' | 'auto';
 export type TooltipTriggerOptions = 'hover' | 'click' | 'right-click' | 'none';
 
 const TooltipContainer = styled.div`
-  background-color: ${theme.neutral800};
+  background-color: ${({ theme }) => theme.colors.neutral['800']};
   color: #fff;
   border-radius: 3px;
-  border: 1px solid ${theme.neutral800};
+  border: ${({ theme }) => `1px solid ${theme.colors.neutral['800']}`};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
-  margin: 0.4rem;
-  padding: 0.4rem;
+  padding: 0 6px;
   transition: opacity 0.3s;
   z-index: 2147483647;
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 const TooltipArrow = styled.div`
@@ -34,16 +34,6 @@ const TooltipArrow = styled.div`
     width: 0;
   }
 
-  &::after {
-    border-style: solid;
-    content: '';
-    display: block;
-    height: 0;
-    margin: auto;
-    position: absolute;
-    width: 0;
-  }
-
   &[data-placement*='bottom'] {
     height: 1rem;
     left: 0;
@@ -53,15 +43,11 @@ const TooltipArrow = styled.div`
   }
 
   &[data-placement*='bottom']::before {
-    border-color: transparent transparent silver transparent;
+    border-color: ${({ theme }) =>
+      `transparent transparent ${theme.colors.neutral['800']} transparent`};
     border-width: 0 0.5rem 0.4rem 0.5rem;
     position: absolute;
     top: -1px;
-  }
-
-  &[data-placement*='bottom']::after {
-    border-color: transparent transparent white transparent;
-    border-width: 0 0.5rem 0.4rem 0.5rem;
   }
 
   &[data-placement*='top'] {
@@ -73,15 +59,11 @@ const TooltipArrow = styled.div`
   }
 
   &[data-placement*='top']::before {
-    border-color: silver transparent transparent transparent;
+    border-color: ${({ theme }) =>
+      `${theme.colors.neutral['800']} transparent transparent transparent`};
     border-width: 0.4rem 0.5rem 0 0.5rem;
     position: absolute;
     top: 1px;
-  }
-
-  &[data-placement*='top']::after {
-    border-color: white transparent transparent transparent;
-    border-width: 0.4rem 0.5rem 0 0.5rem;
   }
 
   &[data-placement*='right'] {
@@ -92,15 +74,11 @@ const TooltipArrow = styled.div`
   }
 
   &[data-placement*='right']::before {
-    border-color: transparent silver transparent transparent;
+    border-color: ${({ theme }) =>
+      `transparent ${theme.colors.neutral['800']} transparent transparent`};
     border-width: 0.5rem 0.4rem 0.5rem 0;
-  }
-
-  &[data-placement*='right']::after {
-    border-color: transparent white transparent transparent;
-    border-width: 0.5rem 0.4rem 0.5rem 0;
-    left: 6px;
-    top: 0;
+    position: absolute;
+    left: 2px;
   }
 
   &[data-placement*='left'] {
@@ -111,14 +89,11 @@ const TooltipArrow = styled.div`
   }
 
   &[data-placement*='left']::before {
-    border-color: transparent transparent transparent silver;
+    border-color: ${({ theme }) =>
+      `transparent transparent transparent ${theme.colors.neutral['800']}`};
     border-width: 0.5rem 0 0.5rem 0.4em;
-  }
-
-  &[data-placement*='left']::after {
-    border-color: transparent transparent transparent white;
-    border-width: 0.5rem 0 0.5rem 0.4em;
-    left: 3px;
+    position: absolute;
+    left: 4px;
     top: 0;
   }
 `;
@@ -132,20 +107,27 @@ interface Props {
   placement?: TooltipPlacementOptions;
   trigger?: TooltipTriggerOptions;
   delayShow?: number;
-  hideArrow?: boolean;
+  hasArrow?: boolean;
   followCursor?: boolean;
 }
 
-export const Tooltip: FC<Props> = ({ children, tooltip, hideArrow, ...props }) => (
+export const Tooltip: FC<Props> = ({
+  children,
+  tooltip,
+  hasArrow,
+  trigger = 'hover',
+  ...props
+}) => (
   <TooltipTrigger
     {...props}
+    trigger={['focus', trigger]}
     tooltip={({ arrowRef, tooltipRef, getArrowProps, getTooltipProps, placement }) => (
       <TooltipContainer
         {...getTooltipProps({
           ref: tooltipRef,
         })}
       >
-        {!hideArrow && (
+        {hasArrow && (
           <TooltipArrow
             {...getArrowProps({
               ref: arrowRef,
@@ -156,6 +138,14 @@ export const Tooltip: FC<Props> = ({ children, tooltip, hideArrow, ...props }) =
         {tooltip}
       </TooltipContainer>
     )}
+    modifiers={[
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 6],
+        },
+      },
+    ]}
   >
     {({ getTriggerProps, triggerRef }) => (
       <Trigger
@@ -171,7 +161,7 @@ export const Tooltip: FC<Props> = ({ children, tooltip, hideArrow, ...props }) =
 Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
-  hideArrow: true,
+  hasArrow: false,
   followCursor: false,
   placement: 'bottom',
   trigger: 'hover',

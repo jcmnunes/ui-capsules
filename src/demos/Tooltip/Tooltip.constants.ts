@@ -59,4 +59,11 @@ export const PROPS = [
     defaultValue: 'false',
     description: 'Whether to spawn the tooltip at the cursor position.',
   },
+  {
+    name: 'hasArrow',
+    isRequired: false,
+    type: 'boolean',
+    defaultValue: 'false',
+    description: 'Whether to render an arrow pointing to the trigger.',
+  },
 ];

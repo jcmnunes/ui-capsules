@@ -2,22 +2,22 @@ import styled from 'styled-components';
 
 export const Title = styled.h1`
   color: ${props => props.theme.neutral800};
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 32px;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
 `;
 
 export const SubTitle = styled.h2`
   color: ${props => props.theme.neutral800};
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 800;
   margin-top: 32px;
   margin-bottom: 24px;
 `;
 
 export const SubSubTitle = styled.h3`
-  color: ${props => props.theme.neutral800};
-  font-size: 18px;
+  color: ${props => props.theme.colors.neutral['600']};
+  font-size: 16px;
   font-weight: 700;
   margin-top: 18px;
   margin-bottom: 12px;
@@ -27,7 +27,7 @@ export const Paragraph = styled.p`
   color: ${props => props.theme.neutral600};
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 21px;
 `;
 
 export const UL = styled.ul`

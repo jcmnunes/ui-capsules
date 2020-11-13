@@ -1,33 +1,36 @@
 import React, {
-  useReducer,
   ChangeEvent,
+  FC,
+  FocusEvent,
   FormEvent,
   KeyboardEvent,
-  FocusEvent,
-  FC,
   Reducer,
+  useReducer,
 } from 'react';
 import styled from 'styled-components';
 import { Input } from '../Input/Input';
-import { Button } from '../Button/Button';
 import { theme } from '../theme';
 import { ElementSize } from '../types';
+import { IconButton } from '..';
 
 const dimensions = {
   small: {
     height: '24px',
     fontSize: '14px',
     padding: '2px 5px',
+    marginTop: '2px',
   },
   medium: {
     height: '32px',
     fontSize: '16px',
     padding: '4px 9px',
+    marginTop: '2px',
   },
   large: {
     height: '48px',
     fontSize: '18px',
     padding: '12px 13px',
+    marginTop: '1px',
   },
 };
 
@@ -52,6 +55,7 @@ const Value = styled.button<ValueProps>`
   padding: ${props => dimensions[props.size].padding};
   font-size: ${props => dimensions[props.size].fontSize};
   height: ${props => dimensions[props.size].height};
+  margin-top: ${props => dimensions[props.size].marginTop};
   cursor: text;
   width: 100%;
   text-align: left;
@@ -73,14 +77,6 @@ const Value = styled.button<ValueProps>`
 const StyledInput = styled(Input)`
   width: 100%;
   flex: 1;
-`;
-
-const StyledButton = styled(Button)`
-  margin-left: 5px;
-
-  &:last-child {
-    margin-left: 3px;
-  }
 `;
 
 const Buttons = styled.div`
@@ -180,7 +176,11 @@ export const EditableInput: FC<Props> = ({
     if (!internalValue) {
       return handleCancel();
     }
-    internalValue !== value && action(internalValue);
+
+    if (internalValue !== value) {
+      action(internalValue);
+    }
+
     return dispatch({ type: 'STOP_EDITING' });
   };
 
@@ -212,11 +212,12 @@ export const EditableInput: FC<Props> = ({
           />
           {hasButtons && (
             <Buttons>
-              <StyledButton type="submit" size="small" appearance="primary" iconBefore="check" />
-              <StyledButton
+              <IconButton type="submit" size="small" icon="check" mr="4" />
+              <IconButton
                 size="small"
-                appearance="secondary"
-                iconBefore="x"
+                variant="outline"
+                variantColor="neutral"
+                icon="x"
                 onClick={handleCancel}
               />
             </Buttons>

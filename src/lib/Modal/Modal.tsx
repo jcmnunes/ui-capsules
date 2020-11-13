@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import ReactModal from 'react-modal';
 import styled from 'styled-components';
-import { Button } from '../Button/Button';
+import { IconButton } from '../IconButton/IconButton';
 import { theme } from '../theme';
 
 const styles = {
   overlay: {
     backgroundColor: 'rgba(60, 63, 75, 0.65)',
+    backdropFilter: 'blur(4px)',
+    WebkitBackdropFilter: 'blur(4px)',
   },
 };
 
@@ -28,16 +30,16 @@ const StyledModal = styled(ReactModal)<StyledModalProps>`
   min-width: 300px;
   box-shadow: rgba(0, 0, 0, 0.15) 0 10px 20px, rgba(0, 0, 0, 0.1) 0 3px 6px;
   border: none;
-  border-radius: 16px;
+  border-radius: 8px;
   border-image: initial;
   z-index: ${theme.modalZIndex};
 
-  @media (min-width: ${theme.breakpoints.mobile}) {
+  @media (min-width: ${theme.breakpointsLegacy.mobile}) {
     left: 40px;
     right: 40px;
   }
 
-  @media (min-width: ${theme.breakpoints.sm}) {
+  @media (min-width: ${theme.breakpointsLegacy.sm}) {
     top: 50%;
     left: 50%;
     right: auto;
@@ -51,27 +53,26 @@ const StyledModal = styled(ReactModal)<StyledModalProps>`
 const ModalHeader = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  height: 40px;
-  padding: 16px 16px 0;
-  color: ${theme.neutral200};
+  justify-content: space-between;
+  padding: 24px 32px 16px;
 `;
 
 export const ModalBody = styled.div`
-  padding: 32px 32px 48px;
+  padding: 0 32px 24px;
 `;
 
 export const ModalTitle = styled.h2`
-  font-size: 24px;
-  margin-bottom: 16px;
-  color: inherit;
+  color: ${theme.neutral700};
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 32px;
 `;
 
 export const ModalFooter = styled.div`
   display: flex;
   justify-content: flex-end;
   background: ${theme.neutral050};
-  padding: 18px 24px;
+  padding: 16px 24px;
 
   & > * {
     margin-left: 16px;
@@ -81,6 +82,7 @@ export const ModalFooter = styled.div`
 interface Props extends ReactModal.Props {
   isOpen: boolean;
   contentLabel: string;
+  title: string;
   onRequestClose?(): void;
   width?: string;
   showCloseButton?: boolean;
@@ -93,6 +95,7 @@ export const Modal: FC<Props> = ({
   width,
   showCloseButton,
   children,
+  title,
   ...other
 }) => (
   <StyledModal
@@ -105,8 +108,16 @@ export const Modal: FC<Props> = ({
     {...other}
   >
     <ModalHeader>
+      <ModalTitle>{title}</ModalTitle>
+
       {!!onRequestClose && showCloseButton && (
-        <Button appearance="none" size="medium" iconBefore="x" onClick={onRequestClose} />
+        <IconButton
+          variant="ghost"
+          variantColor="neutral"
+          size="medium"
+          icon="x"
+          onClick={onRequestClose}
+        />
       )}
     </ModalHeader>
     {children}

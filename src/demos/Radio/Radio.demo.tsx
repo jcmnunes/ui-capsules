@@ -26,14 +26,10 @@ const RadioDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
-        <Checkbox checked={checked} onChange={() => setChecked(!checked)} appearance="success">
+        <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
           <pre>checked</pre>
         </Checkbox>
-        <Checkbox
-          checked={isDisabled}
-          onChange={() => setIsDisabled(!isDisabled)}
-          appearance="success"
-        >
+        <Checkbox checked={isDisabled} onChange={() => setIsDisabled(!isDisabled)}>
           <pre>isDisabled</pre>
         </Checkbox>
       </Booleans>

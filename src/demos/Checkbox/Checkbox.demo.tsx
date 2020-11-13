@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { Select, Checkbox, Input } from '../../lib';
+import { Checkbox, Input, Select } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, SIZE_OPTS, APPEARANCE_OPTS } from './Checkbox.constants';
-import { Appearance, SelectOption, ElementSize } from '../../lib/types';
+import { GITHUB_URL, SIZE_OPTS } from './Checkbox.constants';
+import { ElementSize, SelectOption } from '../../lib/types';
+import { VARIANT_COLOR_OPTS } from '../common/selectOptions';
+import { ThemeColors } from '../../lib/theme';
 
 const CheckboxDemo = () => {
   const [checked, setChecked] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [disabled, disabledSet] = useState(false);
   const [size, setSize] = useState(SIZE_OPTS[0]);
   const [children, setChildren] = useState('Hello world');
-  const [appearance, setAppearance] = useState(APPEARANCE_OPTS[1]);
+  const [variantColor, variantColorSet] = useState(
+    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
+  );
 
   const Component = (
     <Checkbox
       checked={checked}
-      isDisabled={isDisabled}
+      isDisabled={disabled}
       onChange={() => setChecked(!checked)}
-      inputSize={size.value}
-      appearance={appearance.value}
+      size={size.value}
+      variantColor={variantColor.value}
     >
       {children}
     </Checkbox>
@@ -26,36 +30,36 @@ const CheckboxDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
-        <Checkbox checked={checked} onChange={() => setChecked(!checked)} appearance="success">
+        <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
           <pre>checked</pre>
         </Checkbox>
-        <Checkbox
-          checked={isDisabled}
-          onChange={() => setIsDisabled(!isDisabled)}
-          appearance="success"
-        >
-          <pre>isDisabled</pre>
+
+        <Checkbox checked={disabled} onChange={() => disabledSet(!disabled)}>
+          <pre>disabled</pre>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
           <pre>children</pre>
           <Input type="text" value={children} onChange={ev => setChildren(ev.target.value)} />
         </div>
+
         <div>
-          <pre>inputSize</pre>
+          <pre>size</pre>
           <Select
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
           />
         </div>
+
         <div>
-          <pre>appearance</pre>
+          <pre>variantColor</pre>
           <Select
-            value={appearance}
-            options={APPEARANCE_OPTS}
-            onChange={opt => setAppearance(opt as SelectOption<Appearance>)}
+            value={variantColor}
+            options={VARIANT_COLOR_OPTS}
+            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
           />
         </div>
       </Inputs>

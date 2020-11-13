@@ -55,7 +55,7 @@ const TableDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Booleans>
-        <Checkbox checked={noWrap} onChange={() => setNoWrap(!noWrap)} appearance="success">
+        <Checkbox checked={noWrap} onChange={() => setNoWrap(!noWrap)}>
           <pre>noWrap</pre>
         </Checkbox>
       </Booleans>

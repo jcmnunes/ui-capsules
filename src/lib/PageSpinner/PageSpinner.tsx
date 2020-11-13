@@ -42,7 +42,7 @@ export const PageSpinner: FC<Props> = ({ children }) => {
   return (
     <Container>
       {typeof children === 'string' ? <LargeText>{children}</LargeText> : children}
-      <StyledSpinner size="large" />
+      <StyledSpinner size="large" variantColor="neutral" />
     </Container>
   );
 };

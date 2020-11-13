@@ -16,7 +16,7 @@ const LoadingMaskDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
-        <Checkbox checked={circular} onChange={() => setCircular(!circular)} appearance="success">
+        <Checkbox checked={circular} onChange={() => setCircular(!circular)}>
           <pre>circular</pre>
         </Checkbox>
       </Booleans>

@@ -1,15 +1,14 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { theme } from '../theme';
 
 const StyledHead = styled.thead`
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;
-  border-bottom: 1px solid ${theme.neutral200};
+  border-bottom: ${({ theme }) => `1px solid ${theme.colors.neutral['200']}}`};
   font-weight: 700;
-  color: ${theme.neutral300};
+  color: ${({ theme }) => theme.colors.neutral['400']};
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: ${({ theme }) => theme.letterSpacings.wide};
 `;
 
 interface Props {}

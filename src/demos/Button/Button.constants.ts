@@ -1,36 +1,26 @@
-import { ButtonAppearance, ElementSize } from '../../lib/types';
-
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Button/Button.tsx';
 
-export const APPEARANCE_OPTS: { label: string; value: ButtonAppearance }[] = [
-  { value: 'primary', label: 'primary' },
-  { value: 'secondary', label: 'secondary' },
-  { value: 'success', label: 'success' },
-  { value: 'error', label: 'error' },
-  { value: 'minimal', label: 'minimal' },
-  { value: 'link', label: 'link' },
-  { value: 'none', label: 'none' },
-];
-
-export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
-  { value: 'small', label: 'small' },
-  { value: 'medium', label: 'medium' },
-  { value: 'large', label: 'large' },
-];
-
-export const AS_OPTS: { label: string; value: 'button' | 'a' }[] = [
-  { value: 'button', label: 'button' },
-  { value: 'a', label: 'a' },
-];
-
 export const PROPS = [
   {
-    name: 'appearance',
+    name: 'children',
+    isRequired: true,
+    type: 'string',
+    description: 'The text of the button.',
+  },
+  {
+    name: 'variant',
     isRequired: false,
-    type: '"primary" | "secondary" | "success" | "warning" | "error" | "minimal" | "link" | "none"',
-    defaultValue: '"secondary"',
-    description: 'Controls the overall look and feel of the button.',
+    type: '"solid" | "outline" | "ghost" | "link"',
+    defaultValue: '"solid"',
+    description: 'Controls the look of the button.',
+  },
+  {
+    name: 'variantColor',
+    isRequired: false,
+    type: 'ThemeColors',
+    defaultValue: '"primary"',
+    description: 'The color of the button. Can be any of one of the theme colors.',
   },
   {
     name: 'as',
@@ -40,35 +30,21 @@ export const PROPS = [
     description: 'Controls which tag gets rendered (button or a).',
   },
   {
-    name: 'children',
+    name: 'leftIcon',
     isRequired: false,
     type: 'string',
-    defaultValue: '""',
-    description: 'The text of the button.',
+    defaultValue: 'undefined',
+    description: "Pass an icon string to render the respective icon before the button's text.",
   },
   {
-    name: 'iconAfter',
+    name: 'rightIcon',
     isRequired: false,
     type: 'string',
     defaultValue: 'null',
     description: "Pass an icon string to render the respective icon after the button's text.",
   },
   {
-    name: 'iconBefore',
-    isRequired: false,
-    type: 'string',
-    defaultValue: 'null',
-    description: "Pass an icon string to render the respective icon before the button's text.",
-  },
-  {
-    name: 'isBlock',
-    isRequired: false,
-    type: 'boolean',
-    defaultValue: 'false',
-    description: 'If set to true, the button will extend to occupy the full width of its parent.',
-  },
-  {
-    name: 'isDisabled',
+    name: 'disabled',
     isRequired: false,
     type: 'boolean',
     defaultValue: 'false',

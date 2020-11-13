@@ -1,20 +1,4 @@
 @font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
-    url('./fonts/source-sans-pro-v11-latin-regular.woff') format('woff'),
-    url('./fonts/source-sans-pro-v11-latin-regular.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
-    url('./fonts/source-sans-pro-v11-latin-700.woff') format('woff'),
-    url('./fonts/source-sans-pro-v11-latin-700.woff2') format('woff2');
-}
-@font-face {
   font-family: 'Hack';
   font-style: normal;
   font-weight: 400;
@@ -27,6 +11,23 @@
   font-weight: 700;
   src: local('Hack Bold'), local('Hack-Bold'), url('./fonts/hack-bold.woff') format('woff2'),
     url('./fonts/hack-bold.woff2') format('woff');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('./fonts/SourceSans3VF-Roman.ttf.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans Pro var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url('./fonts/SourceSans3VF-Italic.ttf.woff2') format('woff2');
 }
 
 /*
@@ -118,7 +119,6 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
 }
@@ -151,7 +151,6 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
   content: none;
 }
 table {
@@ -174,7 +173,7 @@ body {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans Pro var', sans-serif;
   height: 100%;
   color: #3e4c59;
 }
@@ -183,7 +182,7 @@ a {
   color: #3e4c59;
 }
 input {
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans Pro var', sans-serif;
 }
 button {
   border: none;
@@ -233,13 +232,16 @@ code {
   font-weight: 400;
 }
 
+a {
+  outline: none;
+}
+
 .ReactModal__Body--open {
   overflow: hidden;
 }
 
 .ReactModal__Overlay {
   opacity: 0;
-  transition: opacity 200ms ease;
   z-index: 2718281;
 }
 

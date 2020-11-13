@@ -1,4 +1,4 @@
-import { Appearance, ElementSize } from '../../lib/types';
+import { ElementSize } from '../../lib/types';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Checkbox/Checkbox.tsx';
@@ -7,13 +7,6 @@ export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
   { value: 'small', label: 'small' },
   { value: 'medium', label: 'medium' },
   { value: 'large', label: 'large' },
-];
-
-export const APPEARANCE_OPTS: { label: string; value: Appearance }[] = [
-  { value: 'primary', label: 'primary' },
-  { value: 'secondary', label: 'secondary' },
-  { value: 'success', label: 'success' },
-  { value: 'error', label: 'error' },
 ];
 
 export const CHECKBOX_PROPS = [
@@ -37,7 +30,7 @@ export const CHECKBOX_PROPS = [
     description: 'The disabled state of the checkbox.',
   },
   {
-    name: 'inputSize',
+    name: 'size',
     isRequired: false,
     type: '"small" | "medium" | "large"',
     defaultValue: '"small"',
@@ -46,15 +39,15 @@ export const CHECKBOX_PROPS = [
   {
     name: 'children',
     isRequired: false,
-    type: 'string',
-    defaultValue: 'null',
+    type: 'ReactNode',
+    defaultValue: 'undefined',
     description: 'The Checkbox label.',
   },
   {
-    name: 'appearance',
+    name: 'variantColor',
     isRequired: false,
-    type: '"primary" | "success" | "neutral"',
-    defaultValue: '"neutral"',
-    description: 'The appearance of the checkbox.',
+    type: 'ThemeColors',
+    defaultValue: 'primary',
+    description: 'The Checkbox label.',
   },
 ];

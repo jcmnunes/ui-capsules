@@ -33,22 +33,14 @@ const Home = () => (
     <Logo size={480} />
     <Description>
       <Paragraph>
-        React UI kit (used by{' '}
-        <Button as="a" href="https://binarycapsule.tech" appearance="link" target="_blank">
-          BinaryCapsule
-        </Button>
+        React UI kit (used by <Anchor href="https://binarycapsule.tech">BinaryCapsule</Anchor>
         ).
       </Paragraph>
-      <Button
-        as="a"
-        href="https://github.com/jcmnunes/ui-capsules"
-        target="_blank"
-        size="medium"
-        appearance="minimal"
-        iconBefore="github"
-      >
-        View source on GitHub
-      </Button>
+      <a href="https://github.com/jcmnunes/ui-capsules" target="_blank" rel="noreferrer noopener">
+        <Button variant="ghost" variantColor="neutral" leftIcon="github">
+          View source on GitHub
+        </Button>
+      </a>
     </Description>
     <Message appearance="warning">This is work in progress</Message>
     <div>

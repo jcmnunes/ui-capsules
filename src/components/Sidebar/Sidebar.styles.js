@@ -14,7 +14,7 @@ export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
   background: ${props => props.theme.neutral050};
   color: ${props => props.theme.neutral600};
   cursor: pointer;
-  padding: 3px 12px;
+  padding: 4px 12px;
 
   &:hover {
     background: ${props => props.theme.neutral075};
@@ -34,12 +34,16 @@ export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
 export const GroupHeading = styled.h2`
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
-  color: ${props => props.theme.neutral300};
-  margin: 16px 0 8px 0;
+  font-size: 13px;
+  color: ${props => props.theme.colors.neutral['400']};
+  margin-top: 16px;
+  letter-spacing: ${({ theme }) => theme.letterSpacings.wide};
+  margin-left: 12px;
 `;
 
 export const SidebarGroup = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: -12px;
+  padding-top: 24px;
 `;

@@ -16,7 +16,7 @@ const PageSpinnerDemo = () => {
 
   const Component = <PageSpinner>{children}</PageSpinner>;
   const Launcher = (
-    <Button onClick={handleShowSpinnerClick} appearance="primary" iconBefore="eye">
+    <Button onClick={handleShowSpinnerClick} leftIcon="eye">
       Show PageSpinner
     </Button>
   );
