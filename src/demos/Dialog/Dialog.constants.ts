@@ -26,8 +26,7 @@ export const PROPS = [
     name: 'onRequestClose',
     isRequired: true,
     type: 'function',
-    description:
-      'Function that will be run when the modal is requested to be closed (either by clicking on overlay or pressing ESC). Note: It is not called if isOpen is changed by other means.',
+    description: 'Function that closes the Dialog.',
   },
   {
     name: 'title',
@@ -43,12 +42,3 @@ export const PROPS = [
     description: 'The message that is displayed inside the dialog.',
   },
 ];
-
-export const exampleAppElement = `// Entry point (index.js)
-import Modal from 'react-modal';
-
-Modal.setAppElement('#root');
-
-// Render your app
-ReactDOM.render(<App />, document.getElementById('root'));
-`;

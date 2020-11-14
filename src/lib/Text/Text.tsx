@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import { typography, space, color, layout } from 'styled-system';
+import shouldForwardProp from '@styled-system/should-forward-prop';
 import { ColorProps, SpaceProps, TypographyProps } from '../styledProps';
 
 export interface TextProps extends ColorProps, TypographyProps, SpaceProps {
@@ -8,7 +8,7 @@ export interface TextProps extends ColorProps, TypographyProps, SpaceProps {
   children: string;
 }
 
-const StyledText = styled.div<TextProps>(
+export const Text = styled('div', { shouldForwardProp })<TextProps>(
   space,
   typography,
   color,
@@ -25,13 +25,10 @@ const StyledText = styled.div<TextProps>(
   }),
 );
 
-export const Text: React.FC<TextProps> = props => <StyledText {...props} />;
-
 Text.defaultProps = {
   fontWeight: 400,
   fontSize: 'body',
   color: 'neutral.700',
   textTransform: 'none',
 };
-
 Text.displayName = 'Text';

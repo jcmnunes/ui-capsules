@@ -1,7 +1,7 @@
+import styled from '@emotion/styled/macro';
 import { margin } from 'styled-system';
 import React from 'react';
 import { MarginProps } from '../styledProps';
-import { styled } from '../theme';
 
 export interface WrapperProps extends MarginProps, React.ComponentPropsWithoutRef<'div'> {}
 

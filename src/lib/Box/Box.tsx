@@ -1,5 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import {
   compose,
   flexbox,
@@ -13,7 +12,7 @@ import { LayoutProps, SpaceProps } from '../styledProps';
 
 export interface BoxProps extends SpaceProps, FlexboxProps, PositionProps, LayoutProps {}
 
-export const StyledBox = styled.div<BoxProps>(
+export const Box = styled.div<BoxProps>(
   {
     boxSizing: 'border-box',
     margin: 0,
@@ -21,5 +20,3 @@ export const StyledBox = styled.div<BoxProps>(
   },
   compose(space, flexbox, position, layout),
 );
-
-export const Box: React.FC<BoxProps> = props => <StyledBox {...props} />;

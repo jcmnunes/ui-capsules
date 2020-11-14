@@ -1,3 +1,5 @@
+import '@emotion/react';
+import { Interpolation } from '@emotion/serialize';
 import * as styledComponents from 'styled-components';
 import { useContext } from 'react';
 import { palette } from './palette';
@@ -180,6 +182,7 @@ export const theme = {
 };
 
 export type Theme = typeof theme;
+export type UICTheme = typeof theme;
 
 export type ThemeColors = Omit<keyof typeof theme.colors, 'bg' | 'fg' | 'white' | 'black'>;
 
@@ -187,10 +190,20 @@ declare module 'styled-components' {
   export interface DefaultTheme extends Theme {}
 }
 
-const { default: styled, css, ThemeProvider } = styledComponents;
+declare module '@emotion/react' {
+  export interface Theme extends UICTheme {}
+}
+
+declare module 'react' {
+  interface Attributes {
+    css?: Interpolation<Theme>;
+  }
+}
+
+const { css } = styledComponents;
 
 const useTheme = () => {
   return useContext<Theme>(styledComponents.ThemeContext);
 };
 
-export { styled, ThemeProvider, css, useTheme };
+export { css, useTheme };

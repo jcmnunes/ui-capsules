@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import { variant } from 'styled-system';
 import { Button } from '../Button/Button';
 import { ButtonSize, ButtonVariant } from '../Button/Button.styles';

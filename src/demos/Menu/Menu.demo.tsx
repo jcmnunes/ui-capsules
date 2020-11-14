@@ -2,16 +2,16 @@
 import React, { useState } from 'react';
 import { Button, Menu, Icon, Select, Switch } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, PLACEMENT_OPTS } from './Dropdown.constants';
+import { GITHUB_URL, PLACEMENT_OPTS } from './Menu.constants';
 import { SelectOption } from '../../lib/types';
 import { MenuItem } from '../../lib/Menu/MenuItem';
 
-const DropdownDemo = () => {
+const MenuDemo = () => {
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
 
   const Trigger = (
     <Button variant="ghost" variantColor="neutral" rightIcon="chev_down">
-      Open dropdown
+      Open Menu
     </Button>
   );
 
@@ -50,4 +50,4 @@ const DropdownDemo = () => {
   );
 };
 
-export default DropdownDemo;
+export default MenuDemo;
