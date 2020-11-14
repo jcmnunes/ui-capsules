@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Input, Modal, ModalBody, ModalFooter, Select, Text } from '../../lib';
+import {
+  Button,
+  Checkbox,
+  ElementSize,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalFooter,
+  ModalHeader,
+  Select,
+  SelectOption,
+  Text,
+} from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL } from './Modal.constants';
-import { SIZE_OPTS } from '../common/selectOptions';
+import { GITHUB_URL, SIZE_OPTS } from './Modal.constants';
 
 const ModalDemo = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [contentLabel, setContentLabel] = useState('Example modal');
   const [inputValue, setInputValue] = useState('This is the modal component');
-  const [width, setWidth] = useState('');
+  const [size, setSize] = useState(SIZE_OPTS[1]);
 
   const Component = (
     <Button leftIcon="eye" onClick={() => setIsOpen(true)}>
@@ -18,29 +30,46 @@ const ModalDemo = () => {
 
   const code = `<Modal
   isOpen={isOpen}
-  onRequestClose={() => closeModal()}
-  contentLabel="${contentLabel}"
-  width="${width}"
+  onRequestClose={() => setIsOpen(false)}
+  contentLabel="Example Modal"
+  width={width}
 >
+  <ModalHeader>Add Task</ModalHeader>
+
+  <ModalCloseButton onClick={() => setIsOpen(false)} />
+
   <ModalBody>
+    <Text color="neutral.700" fontWeight={600} fontSize="body" mb="4">
+      What will you be working on?
+    </Text>
     <Input
-      value={value}
-      onChange={handleChange}
-      size="large"
+      value={inputValue}
+      onChange={ev => setInputValue(ev.target.value)}
+      inputSize="large"
       autoFocus
+      placeholder="Task summary"
     />
+
+    <Text color="neutral.700" fontWeight={600} fontSize="body" mt="24" mb="4">
+      Task scope
+    </Text>
+    <Select value={SIZE_OPTS[0]} options={SIZE_OPTS} onChange={() => {}} />
+
+    <Button leftIcon="plus" variant="ghost" variantColor="neutral" size="small" mt="4">
+      Create new scope
+    </Button>
   </ModalBody>
+
   <ModalFooter>
     <Button
-      appearance="secondary"
+      variant="ghost"
+      variantColor="neutral"
       size="large"
-      onClick={() => closeModal()}
+      onClick={() => setIsOpen(false)}
     >
       Cancel
     </Button>
-    <Button appearance="primary" size="large">
-      Example Modal
-    </Button>
+    <Button size="large">Add Task</Button>
   </ModalFooter>
 </Modal>
 `;
@@ -52,7 +81,17 @@ const ModalDemo = () => {
           <pre>isOpen</pre>
         </Checkbox>
       </Booleans>
+
       <Inputs>
+        <div>
+          <pre>size</pre>
+          <Select
+            value={size}
+            options={SIZE_OPTS}
+            onChange={opt => setSize(opt as SelectOption<ElementSize>)}
+          />
+        </div>
+
         <div>
           <pre>contentLabel</pre>
           <Input
@@ -61,19 +100,18 @@ const ModalDemo = () => {
             onChange={ev => setContentLabel(ev.target.value)}
           />
         </div>
-        <div>
-          <pre>width</pre>
-          <Input type="text" value={width} onChange={ev => setWidth(ev.target.value)} />
-        </div>
       </Inputs>
 
       <Modal
-        title="Add Task"
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         contentLabel="Example Modal"
-        width={width}
+        size={size.value}
       >
+        <ModalHeader>Add Task</ModalHeader>
+
+        <ModalCloseButton onClick={() => setIsOpen(false)} />
+
         <ModalBody>
           <Text color="neutral.700" fontWeight={600} fontSize="body" mb="4">
             What will you be working on?

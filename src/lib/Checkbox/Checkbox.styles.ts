@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import { ElementSize } from '../types';
 import { ThemeColors } from '../theme';
 import { PositionProps, variant } from 'styled-system';

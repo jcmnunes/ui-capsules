@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
+import styled from 'styled-components';
+import { color, compose, flexbox, FlexboxProps, space } from 'styled-system';
 import { icons } from './Icon.constants';
 import { IconType } from '../types';
-import { styled } from '../theme';
-import { color, compose, flexbox, FlexboxProps, space } from 'styled-system';
 import { ColorProps, SpaceProps } from '../styledProps';
 import { Box } from '../Box/Box';
 

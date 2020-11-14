@@ -1,9 +1,6 @@
-import React from 'react';
-import { styled } from '../theme';
+import styled from '@emotion/styled/macro';
 import { Box, BoxProps } from '../Box/Box';
 
-export const StyledFlex = styled(Box)({
+export const Flex = styled(Box)<BoxProps>({
   display: 'flex',
 });
-
-export const Flex: React.FC<BoxProps> = props => <StyledFlex {...props} />;

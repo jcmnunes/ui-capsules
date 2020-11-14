@@ -22,11 +22,11 @@ const DialogDemo = () => {
   actions={[
     {
       name: 'Cancel',
-      appearance: 'secondary',
+      appearance: 'neutral',
       action: () => setIsOpen(false),
     },
     {
-      name: 'Delete',
+      name: 'Delete file',
       appearance: 'error',
       action: () => alert('Delete action called'),
     },
@@ -69,7 +69,7 @@ const DialogDemo = () => {
         actions={[
           {
             name: 'Cancel',
-            appearance: 'secondary',
+            appearance: 'neutral',
             action: () => setIsOpen(false),
           },
           {

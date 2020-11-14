@@ -1,3 +1,4 @@
+import styled from '@emotion/styled/macro';
 import { margin, variant } from 'styled-system';
 import { Icon, Props as IconProps } from '../Icon/Icon';
 import {
@@ -9,7 +10,7 @@ import {
   PropsWithPseudo,
   TypographyProps,
 } from '../styledProps';
-import { styled, ThemeColors } from '../theme';
+import { ThemeColors } from '../theme';
 
 export type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'link';
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -23,7 +24,7 @@ export interface StyledButtonProps extends MarginProps {
   disabled?: boolean;
 }
 
-export const StyledButton = styled.div<StyledButtonProps>(
+export const StyledButton = styled.button<StyledButtonProps>(
   ({ theme, disabled, variant: variantProp }) => ({
     fontFamily: theme.fontFamily,
     borderRadius: theme.radii.medium,

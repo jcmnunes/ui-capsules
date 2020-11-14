@@ -18,7 +18,7 @@ export const StyledParagraph = styled(Paragraph)`
   margin: 24px 0 16px;
 `;
 
-const setAppElementExample = `import { setAppElement } from '@binarycapsule/ui-capsules';
+export const setAppElementExample = `import { setAppElement } from '@binarycapsule/ui-capsules';
 
 setAppElement('#root');
 
@@ -33,9 +33,10 @@ const Home = () => (
     <Logo size={480} />
     <Description>
       <Paragraph>
-        React UI kit (used by <Anchor href="https://binarycapsule.tech">BinaryCapsule</Anchor>
+        React UI kit (used by <Anchor href="https://binarycapsule.tech">Binary Capsule</Anchor>
         ).
       </Paragraph>
+
       <a href="https://github.com/jcmnunes/ui-capsules" target="_blank" rel="noreferrer noopener">
         <Button variant="ghost" variantColor="neutral" leftIcon="github">
           View source on GitHub
@@ -45,16 +46,18 @@ const Home = () => (
     <Message appearance="warning">This is work in progress</Message>
     <div>
       <SubTitle>Install</SubTitle>
+
       <StyledParagraph>UI-Capsules is available at npm. To add it to your app run:</StyledParagraph>
       <Usage>npm i @binarycapsule/ui-capsules</Usage>
+
       <SubTitle>Setup</SubTitle>
+
       <StyledParagraph>
         UI-Capsules sets some global styles and does a CSS reset. In order for the components to
         work correctly in your app import the global CSS file at the entry point.
       </StyledParagraph>
       <Usage>import &apos;@binarycapsule/ui-capsules/assets/global.css&apos;;</Usage>
-      <StyledParagraph>To improve A11y, import the focus-visible polyfill as well:</StyledParagraph>
-      <Usage>import &apos;focus-visible/dist/focus-visible&apos;;</Usage>
+
       <StyledParagraph>
         If using the modal component, call setAppElement with a selector for the root element{' '}
         <Anchor href="http://reactcommunity.org/react-modal/accessibility/">

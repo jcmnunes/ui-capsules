@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, FC } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 import { margin } from 'styled-system';
 import { MarginProps } from '../styledProps';
 
@@ -11,6 +11,11 @@ const StyledAnchor = styled.a(
 
     '&:hover': {
       boxShadow: 'none',
+    },
+
+    '&:focus': {
+      boxShadow: 'none',
+      outline: '2px auto #4098d7',
     },
   }),
   margin,
@@ -28,4 +33,5 @@ export const Anchor: FC<Props> = ({ href, children, ...rest }) => {
     </StyledAnchor>
   );
 };
+
 Anchor.displayName = 'Anchor';

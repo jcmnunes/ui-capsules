@@ -1,48 +1,22 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import React, { FC, MouseEvent } from 'react';
 import ReactModal from 'react-modal';
-import { Modal, ModalFooter, ModalBody, ModalTitle } from '../Modal/Modal';
-import { Button } from '../Button/Button';
-import { theme } from '../theme';
-import { DialogAction } from '../types';
+import { Button, Modal, ModalBody, ModalCloseButton, ModalFooter, ModalHeader, Text } from '..';
 
-const StyledModal = styled(Modal)`
-  width: auto;
+type ActionAppearance = 'primary' | 'neutral' | 'error';
 
-  @media (min-width: ${theme.breakpointsLegacy.mobile}) {
-    left: 60px;
-    right: 60px;
-  }
-
-  @media (min-width: ${theme.breakpointsLegacy.sm}) {
-    width: 450px;
-    left: 50%;
-    right: auto;
-  }
-`;
-
-const Message = styled.p`
-  font-size: 16px;
-  color: ${theme.neutral600};
-  text-align: left;
-`;
-
-const StyledModalFooter = styled(ModalFooter)`
-  justify-content: flex-end;
-  background: ${theme.neutral050};
-`;
-
-const StyledModalBody = styled(ModalBody)<{ hasTitle: boolean }>`
-  padding-top: ${({ hasTitle }) => hasTitle && '12px'};
-`;
+export type DialogAction = {
+  name: string;
+  appearance?: ActionAppearance;
+  action(e: MouseEvent<HTMLButtonElement>): void;
+};
 
 interface Props extends ReactModal.Props {
   isOpen: boolean;
+  title?: string;
+  message: string;
   contentLabel: string;
   actions: DialogAction[];
   onRequestClose(): void;
-  title?: string;
-  message: string;
 }
 
 export const Dialog: FC<Props> = ({
@@ -52,29 +26,40 @@ export const Dialog: FC<Props> = ({
   onRequestClose,
   title,
   message,
-  ...other
+  ...rest
 }) => {
   return (
-    <StyledModal
-      title="Example modal"
+    <Modal
       isOpen={isOpen}
       contentLabel={contentLabel}
       onRequestClose={onRequestClose}
-      showCloseButton={false}
-      {...other}
+      size="small"
+      {...rest}
     >
-      <StyledModalBody hasTitle={!!title}>
-        {!!title && <ModalTitle>{title}</ModalTitle>}
-        <Message>{message}</Message>
-      </StyledModalBody>
-      <StyledModalFooter data-testid="dialog-footer">
-        {actions.map(({ name, action }) => (
-          <Button key={name} type="button" size="large" onClick={action}>
+      <ModalHeader>{title}</ModalHeader>
+
+      <ModalCloseButton size="small" onClick={onRequestClose} />
+
+      <ModalBody>
+        <Text fontSize="body">{message}</Text>
+      </ModalBody>
+
+      <ModalFooter>
+        {actions.map(({ name, action, appearance }) => (
+          <Button
+            key={name}
+            type="button"
+            size="large"
+            variant={appearance === 'neutral' ? 'ghost' : 'solid'}
+            variantColor={appearance || 'primary'}
+            onClick={action}
+          >
             {name}
           </Button>
         ))}
-      </StyledModalFooter>
-    </StyledModal>
+      </ModalFooter>
+    </Modal>
   );
 };
+
 Dialog.displayName = 'Dialog';

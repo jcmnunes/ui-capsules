@@ -9,7 +9,7 @@ import Checkbox from './demos/Checkbox/Checkbox.view';
 import Select from './demos/Select/Select.view';
 import Input from './demos/Input/Input.view';
 import Toaster from './demos/Toaster/Toaster.view';
-import Dropdown from './demos/Dropdown/Dropdown.view';
+import Menu from './demos/Menu/Menu.view';
 import LoadingElement from './demos/LoadingMask/LoadingMask.view';
 import Spinner from './demos/Spinner/Spinner.view';
 import Message from './demos/Message/Message.view';
@@ -58,7 +58,7 @@ const App = () => (
       <Route path="/select" component={Select} />
       <Route path="/input" component={Input} />
       <Route path="/toaster" component={Toaster} />
-      <Route path="/dropdown" component={Dropdown} />
+      <Route path="/Menu" component={Menu} />
       <Route path="/loading-mask" component={LoadingElement} />
       <Route path="/spinner" component={Spinner} />
       <Route path="/message" component={Message} />
@@ -71,6 +71,8 @@ const App = () => (
       <Route path="/anchor" component={Anchor} />
       <Route path="/table" component={Table} />
       <Route path="/switch" component={Switch} />
+
+      <Redirect to="/getting-started" />
     </ShowcaseWrapper>
   </AppWrapper>
 );

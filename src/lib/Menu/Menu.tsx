@@ -98,7 +98,7 @@ export const Menu: FC<Props> = ({ trigger: Trigger, placement, children }) => {
                                 index,
                                 item: {
                                   name: index.toString(),
-                                  closeOnAction: child.props.closeOnAction || false,
+                                  closeOnAction: child.props.closeOnAction !== false,
                                   onClick: child.props.onClick,
                                 },
                               }),
