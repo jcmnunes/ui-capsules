@@ -71,8 +71,6 @@ const App = () => (
       <Route path="/anchor" component={Anchor} />
       <Route path="/table" component={Table} />
       <Route path="/switch" component={Switch} />
-
-      <Redirect to="/getting-started" />
     </ShowcaseWrapper>
   </AppWrapper>
 );
