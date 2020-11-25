@@ -1,6 +1,6 @@
 import { ButtonVariant } from '../../lib/Button/Button.styles';
 import { theme, ThemeColors } from '../../lib/theme';
-import { ElementSize } from '../../lib';
+import { ElementSize, IconVariant } from '../../lib';
 
 export const VARIANT_OPTS: { label: string; value: ButtonVariant }[] = [
   { value: 'solid', label: 'solid' },
@@ -19,4 +19,9 @@ export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
   { value: 'small', label: 'small' },
   { value: 'medium', label: 'medium' },
   { value: 'large', label: 'large' },
+];
+
+export const ICON_VARIANT_OPTS: { label: string; value: IconVariant }[] = [
+  { value: 'solid', label: 'solid' },
+  { value: 'outline', label: 'outline' },
 ];

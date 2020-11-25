@@ -1,5 +1,6 @@
 import styled from '@emotion/styled/macro';
 import {
+  color,
   compose,
   flexbox,
   FlexboxProps,
@@ -8,9 +9,14 @@ import {
   PositionProps,
   space,
 } from 'styled-system';
-import { LayoutProps, SpaceProps } from '../styledProps';
+import { ColorProps, LayoutProps, SpaceProps } from '../styledProps';
 
-export interface BoxProps extends SpaceProps, FlexboxProps, PositionProps, LayoutProps {}
+export interface BoxProps
+  extends SpaceProps,
+    FlexboxProps,
+    PositionProps,
+    LayoutProps,
+    ColorProps {}
 
 export const Box = styled.div<BoxProps>(
   {
@@ -18,5 +24,5 @@ export const Box = styled.div<BoxProps>(
     margin: 0,
     minWidth: 0,
   },
-  compose(space, flexbox, position, layout),
+  compose(space, flexbox, position, layout, color),
 );

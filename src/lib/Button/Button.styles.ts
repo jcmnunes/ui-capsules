@@ -1,6 +1,6 @@
 import styled from '@emotion/styled/macro';
 import { margin, variant } from 'styled-system';
-import { Icon, Props as IconProps } from '../Icon/Icon';
+import { Props as IconProps } from '../Icon/Icon';
 import {
   BorderProps,
   ColorProps,
@@ -107,11 +107,11 @@ export const StyledButton = styled.button<StyledButtonProps>(
           },
 
           '&:hover': {
-            bg: `${variantColor}.100`,
+            bg: variantColor === 'neutral' ? `${variantColor}.100` : `${variantColor}.50`,
           },
 
           '&:active': {
-            bg: `${variantColor}.200`,
+            bg: variantColor === 'neutral' ? `${variantColor}.200` : `${variantColor}.100`,
           },
 
           '&:disabled': {
@@ -139,17 +139,19 @@ export const StyledButton = styled.button<StyledButtonProps>(
         small: {
           height: variantProp === 'link' ? 'auto' : 24,
           fontSize: 'small',
-          px: 4,
+          px: variantProp === 'link' ? '2' : '4',
         },
 
         medium: {
           height: variantProp === 'link' ? 'auto' : 32,
           fontSize: 'body',
+          px: variantProp === 'link' ? '2' : '8',
         },
 
         large: {
           height: variantProp === 'link' ? 'auto' : 40,
           fontSize: 'body',
+          px: variantProp === 'link' ? '2' : '12',
         },
       },
     }),
@@ -168,11 +170,30 @@ interface ButtonIconProps extends IconProps {
   isLeft?: boolean;
   isRight?: boolean;
   isLoading?: boolean;
+  buttonSize: ButtonSize;
 }
 
-export const ButtonIcon = styled(Icon)<ButtonIconProps>(({ isLeft, isRight, isLoading }) => ({
-  margin: 0,
-  marginRight: isLeft ? 4 : 0,
-  marginLeft: isRight ? 4 : 0,
-  opacity: isLoading ? 0 : 1,
-}));
+export const ButtonIcon = styled.div<ButtonIconProps>(
+  ({ isLoading }) => ({
+    margin: 0,
+    opacity: isLoading ? 0 : 1,
+  }),
+  ({ isLeft, isRight }) =>
+    variant<MarginProps, ButtonSize>({
+      prop: 'buttonSize',
+      variants: {
+        small: {
+          mr: isLeft ? '2' : '0',
+          ml: isRight ? '2' : '0',
+        },
+        medium: {
+          mr: isLeft ? '4' : '0',
+          ml: isRight ? '4' : '0',
+        },
+        large: {
+          mr: isLeft ? '8' : '0',
+          ml: isRight ? '8' : '0',
+        },
+      },
+    }),
+);
