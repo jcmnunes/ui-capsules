@@ -1,20 +1,15 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
-import { color, compose, flexbox, FlexboxProps, space } from 'styled-system';
 import { icons } from './Icon.constants';
 import { IconType } from '../types';
-import { ColorProps, SpaceProps } from '../styledProps';
-import { Box } from '../Box/Box';
+import { Box, BoxProps } from '../Box/Box';
 
-export interface Props extends ColorProps, SpaceProps, FlexboxProps {
+export interface Props extends BoxProps {
   icon: IconType;
   size?: string;
 }
 
-export const StyledIcon = styled(Box)(compose(color, space, flexbox));
-
 export const Icon: FC<Props> = ({ icon, size = '24px', ...rest }) => (
-  <StyledIcon height={size} {...rest}>
+  <Box height={size} {...rest}>
     <svg
       width={size}
       height={size}
@@ -30,7 +25,7 @@ export const Icon: FC<Props> = ({ icon, size = '24px', ...rest }) => (
         strokeWidth={2}
       />
     </svg>
-  </StyledIcon>
+  </Box>
 );
 
 Icon.displayName = 'Icon';

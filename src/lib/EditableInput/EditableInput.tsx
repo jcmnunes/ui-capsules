@@ -7,91 +7,9 @@ import React, {
   Reducer,
   useReducer,
 } from 'react';
-import styled from 'styled-components';
-import { Input } from '../Input/Input';
-import { theme } from '../theme';
 import { ElementSize } from '../types';
 import { IconButton } from '..';
-
-const dimensions = {
-  small: {
-    height: '24px',
-    fontSize: '14px',
-    padding: '2px 5px',
-    marginTop: '2px',
-  },
-  medium: {
-    height: '32px',
-    fontSize: '16px',
-    padding: '4px 9px',
-    marginTop: '2px',
-  },
-  large: {
-    height: '48px',
-    fontSize: '18px',
-    padding: '12px 13px',
-    marginTop: '1px',
-  },
-};
-
-const StyledEditableInput = styled.form`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-`;
-
-interface ValueProps {
-  size: ElementSize;
-  canEdit: boolean;
-}
-const Value = styled.button<ValueProps>`
-  display: flex;
-  border-radius: 4px;
-  user-select: text;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  padding: ${props => dimensions[props.size].padding};
-  font-size: ${props => dimensions[props.size].fontSize};
-  height: ${props => dimensions[props.size].height};
-  margin-top: ${props => dimensions[props.size].marginTop};
-  cursor: text;
-  width: 100%;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: ${({ canEdit }) => (canEdit ? theme.neutral075 : 'initial')};
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px ${theme.blue100}};
-  }
-`;
-
-const StyledInput = styled(Input)`
-  width: 100%;
-  flex: 1;
-`;
-
-const Buttons = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: -30px;
-`;
-
-const Text = styled.div`
-  width: 0;
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
+import { Buttons, StyledEditableInput, StyledInput, Value, Text } from './EditableInput.styles';
 
 const initialState = {
   isInEditMode: false,
@@ -118,22 +36,26 @@ function reducer(state: State, action: Action) {
         internalValue: action.value!,
         previousValue: action.value!,
       };
+
     case 'UPDATE_INTERNAL_VALUE':
       return {
         ...state,
         internalValue: action.value!,
       };
+
     case 'CANCEL_EDITING':
       return {
         ...state,
         isInEditMode: false,
         internalValue: state.previousValue,
       };
+
     case 'STOP_EDITING':
       return {
         ...state,
         isInEditMode: false,
       };
+
     default:
       throw new Error();
   }
@@ -142,7 +64,7 @@ function reducer(state: State, action: Action) {
 interface Props {
   value: string;
   size?: ElementSize;
-  isEditable?: boolean;
+  isReadonly?: boolean;
   hasButtons?: boolean;
   action(internalValue: string): void;
 }
@@ -151,13 +73,13 @@ export const EditableInput: FC<Props> = ({
   value,
   action,
   size = 'medium',
-  isEditable = true,
+  isReadonly = false,
   hasButtons = false,
 }) => {
   const [state, dispatch] = useReducer<Reducer<State, Action>>(reducer, initialState);
 
   const startEditing = () => {
-    if (!isEditable) return;
+    if (isReadonly) return;
     dispatch({ type: 'START_EDITING', value });
   };
 
@@ -172,7 +94,9 @@ export const EditableInput: FC<Props> = ({
 
   const handleSubmit = (ev: FormEvent) => {
     ev.preventDefault();
+
     const { internalValue } = state;
+
     if (!internalValue) {
       return handleCancel();
     }
@@ -186,6 +110,7 @@ export const EditableInput: FC<Props> = ({
 
   const handleKeyDown = (ev: KeyboardEvent) => {
     const { isInEditMode } = state;
+
     if (isInEditMode) {
       if (ev.key === 'Escape') {
         handleCancel();
@@ -225,9 +150,9 @@ export const EditableInput: FC<Props> = ({
         </>
       ) : (
         <Value
-          as={isEditable ? 'button' : 'span'}
+          as={isReadonly ? 'span' : 'button'}
           size={size}
-          canEdit={isEditable}
+          canEdit={!isReadonly}
           onClick={startEditing}
         >
           <Text title={value}>{value}</Text>
@@ -236,10 +161,10 @@ export const EditableInput: FC<Props> = ({
     </StyledEditableInput>
   );
 };
-EditableInput.displayName = 'EditableInput';
 
+EditableInput.displayName = 'EditableInput';
 EditableInput.defaultProps = {
   size: 'medium',
-  isEditable: true,
+  isReadonly: false,
   hasButtons: false,
 };

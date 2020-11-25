@@ -5,7 +5,7 @@ import { SIZE_OPTS, GITHUB_URL } from './EditableInput.constants';
 import { ElementSize, SelectOption } from '../../lib/types';
 
 const EditableInputDemo = () => {
-  const [isEditable, setIsEditable] = useState(true);
+  const [isReadonly, setIsReadonly] = useState(false);
   const [hasButtons, setHasButtons] = useState(false);
   const [value, setValue] = useState('Hello world');
   const [size, setSize] = useState(SIZE_OPTS[1]);
@@ -14,7 +14,7 @@ const EditableInputDemo = () => {
     <EditableInput
       value={value}
       size={size.value}
-      isEditable={isEditable}
+      isReadonly={isReadonly}
       hasButtons={hasButtons}
       action={newValue => setValue(newValue)}
     />
@@ -23,18 +23,21 @@ const EditableInputDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
-        <Checkbox checked={isEditable} onChange={() => setIsEditable(!isEditable)}>
-          <pre>isEditable</pre>
+        <Checkbox checked={isReadonly} onChange={() => setIsReadonly(!isReadonly)}>
+          <pre>isReadonly</pre>
         </Checkbox>
+
         <Checkbox checked={hasButtons} onChange={() => setHasButtons(!hasButtons)}>
           <pre>hasButtons</pre>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
           <pre>value</pre>
           <Input type="text" value={value} onChange={ev => setValue(ev.target.value)} />
         </div>
+
         <div>
           <pre>size</pre>
           <Select

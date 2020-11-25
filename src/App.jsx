@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Button from './demos/Button/Button.view';
 import IllustratedIcon from './demos/IllustratedIcon/IllustratedIcon.view';
 import Icon from './demos/Icon/Icon.view';
+import IconSolid from './demos/IconSolid/IconSolid.view';
 import Checkbox from './demos/Checkbox/Checkbox.view';
 import Select from './demos/Select/Select.view';
 import Input from './demos/Input/Input.view';
@@ -54,6 +55,7 @@ const App = () => (
       <Route path="/icon-button" component={IconButton} />
       <Route path="/illustrated-icon" component={IllustratedIcon} />
       <Route path="/icon" component={Icon} />
+      <Route path="/icon-solid" component={IconSolid} />
       <Route path="/checkbox" component={Checkbox} />
       <Route path="/select" component={Select} />
       <Route path="/input" component={Input} />

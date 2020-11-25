@@ -13,7 +13,7 @@ export const ICON_PROPS: PropsDoc[] = [
   {
     name: 'size',
     isRequired: false,
-    defaultValue: '24px',
+    defaultValue: '20px',
     type: 'string',
     description: 'The size of the icon.',
   },

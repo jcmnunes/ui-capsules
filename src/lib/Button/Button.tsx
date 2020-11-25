@@ -3,8 +3,10 @@ import { Spinner } from '../Spinner/Spinner';
 import { MarginProps } from '../styledProps';
 import { ButtonIcon, ButtonSize, ButtonText, ButtonVariant, StyledButton } from './Button.styles';
 import { ThemeColors } from '../theme';
-import { IconType } from '../types';
+import { IconType, IconVariant } from '../types';
 import { icons } from '../Icon/Icon.constants';
+import { IconSolid } from '../IconSolid/IconSolid';
+import { Icon } from '..';
 
 const anchorProps = {
   target: '_blank',
@@ -18,6 +20,7 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginP
   isLoading?: boolean;
   leftIcon?: keyof typeof icons | string;
   rightIcon?: keyof typeof icons | string;
+  iconVariant?: IconVariant;
   children?: string;
   as?: 'button' | 'a';
 }
@@ -31,6 +34,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       as = 'button',
       leftIcon,
       rightIcon,
+      iconVariant = 'solid',
       children,
       disabled,
       isLoading,
@@ -53,10 +57,12 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 
         {leftIcon && (
           <ButtonIcon
+            as={iconVariant === 'solid' ? IconSolid : Icon}
             icon={leftIcon as IconType}
-            size={size === 'small' ? '18px' : '24px'}
+            size={size === 'small' ? '18px' : '20px'}
             isLeft={!!children}
             isLoading={isLoading}
+            buttonSize={size}
           />
         )}
 
@@ -64,10 +70,12 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 
         {rightIcon && (
           <ButtonIcon
+            as={iconVariant === 'solid' ? IconSolid : Icon}
             icon={rightIcon as IconType}
-            size={size === 'small' ? '18px' : '24px'}
+            size={size === 'small' ? '18px' : '20px'}
             isRight={!!children}
             isLoading={isLoading}
+            buttonSize={size}
           />
         )}
       </StyledButton>
@@ -84,5 +92,6 @@ Button.defaultProps = {
   disabled: false,
   leftIcon: undefined,
   rightIcon: undefined,
+  iconVariant: 'solid',
   size: 'medium',
 };

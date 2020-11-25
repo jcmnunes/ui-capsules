@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { Checkbox, Input, Select } from '../../lib';
+import { Checkbox, IconVariant, Input, Select } from '../../lib';
 import { GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
 import { ElementSize, IconType, SelectOption } from '../../lib/types';
 import { Button } from '../../lib/Button/Button';
 import { ButtonVariant } from '../../lib/Button/Button.styles';
 import { ThemeColors } from '../../lib/theme';
-import { SIZE_OPTS, VARIANT_COLOR_OPTS, VARIANT_OPTS } from '../common/selectOptions';
+import {
+  ICON_VARIANT_OPTS,
+  SIZE_OPTS,
+  VARIANT_COLOR_OPTS,
+  VARIANT_OPTS,
+} from '../common/selectOptions';
 
 const ButtonDemo = () => {
   const iconOpts = [{ value: '', label: 'none' }, ...useIconOpts()];
@@ -22,6 +27,7 @@ const ButtonDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [leftIcon, leftIconSet] = useState(iconOpts[0]);
   const [rightIcon, rightIconSet] = useState(iconOpts[0]);
+  const [iconVariant, setIconVariant] = useState(ICON_VARIANT_OPTS[0]);
 
   const Component = (
     <Button
@@ -32,6 +38,7 @@ const ButtonDemo = () => {
       size={size.value}
       leftIcon={(leftIcon.value as IconType) || undefined}
       rightIcon={(rightIcon.value as IconType) || undefined}
+      iconVariant={iconVariant.value}
     >
       {buttonChildren}
     </Button>
@@ -103,6 +110,7 @@ const ButtonDemo = () => {
             isDisabled={variant.value === 'link'}
           />
         </div>
+
         <div>
           <pre>rightIcon</pre>
           <Select
@@ -110,6 +118,15 @@ const ButtonDemo = () => {
             options={iconOpts}
             onChange={opt => rightIconSet(opt as SelectOption<IconType>)}
             isDisabled={variant.value === 'link'}
+          />
+        </div>
+
+        <div>
+          <pre>iconVariant</pre>
+          <Select
+            value={iconVariant}
+            options={ICON_VARIANT_OPTS}
+            onChange={opt => setIconVariant(opt as SelectOption<IconVariant>)}
           />
         </div>
       </Inputs>

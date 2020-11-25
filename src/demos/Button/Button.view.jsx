@@ -18,9 +18,20 @@ const ButtonDemo = () => {
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
 
-      <SubTitle>Kitchen sink</SubTitle>
+      <SubTitle>All</SubTitle>
       <Flex alignItems="flex-start" flexDirection="column">
-        {['primary', 'error', 'neutral', 'pink'].map(variantColor => (
+        {[
+          'primary',
+          'error',
+          'neutral',
+          'pink',
+          'yellow',
+          'indigo',
+          'green',
+          'purple',
+          'orange',
+          'teal',
+        ].map(variantColor => (
           <Flex alignItems="center" mb="24" flexDirection="row">
             {['solid', 'outline', 'ghost', 'link'].map(variant => (
               <Box mr="12">

@@ -15,8 +15,9 @@ const Sidebar = () => (
       <SidebarLink to="/button">Button ✅</SidebarLink>
       <SidebarLink to="/checkbox">Checkbox ✅</SidebarLink>
       <SidebarLink to="/dialog">Dialog ✅</SidebarLink>
-      <SidebarLink to="/editable-input">Editable Input</SidebarLink>
-      <SidebarLink to="/icon">Icon</SidebarLink>
+      <SidebarLink to="/editable-input">Editable Input ✅</SidebarLink>
+      <SidebarLink to="/icon">Icon ✅</SidebarLink>
+      <SidebarLink to="/icon-solid">IconSolid ✅</SidebarLink>
       <SidebarLink to="/illustrated-icon">IllustratedIcon</SidebarLink>
       <SidebarLink to="/icon-button">IconButton</SidebarLink>
       <SidebarLink to="/input">Input</SidebarLink>

@@ -81,8 +81,9 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
             href={codeURL}
             variant="ghost"
             variantColor="neutral"
-            size="small"
+            size="medium"
             leftIcon="github"
+            iconVariant="outline"
           >
             View source on GitHub
           </Button>

@@ -55,7 +55,13 @@ const Usage = ({ children }) => {
               }
             }}
           >
-            <Button size="small" leftIcon="duplicate" variantColor="neutral" variant="ghost">
+            <Button
+              size="small"
+              leftIcon="duplicate"
+              iconVariant="outline"
+              variantColor="neutral"
+              variant="ghost"
+            >
               Copy
             </Button>
           </CopyToClipboard>

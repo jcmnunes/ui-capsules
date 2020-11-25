@@ -31,11 +31,11 @@ export const PROPS = [
     description: 'Changes the size of the editable input.',
   },
   {
-    name: 'isEditable',
+    name: 'isReadonly',
     isRequired: false,
     type: 'boolean',
-    defaultValue: 'true',
-    description: 'If set to false, the text is read-only.',
+    defaultValue: 'false',
+    description: 'If set to true, the text is read-only.',
   },
   {
     name: 'hasButtons',
