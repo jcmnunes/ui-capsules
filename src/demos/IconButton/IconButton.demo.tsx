@@ -1,13 +1,18 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { Checkbox, IconButton, IconType, Select } from '../../lib';
+import { Checkbox, IconButton, IconType, IconVariant, Select } from '../../lib';
 import { GITHUB_URL } from './IconButton.constants';
 import { SelectOption } from '../../lib/types';
 import { ButtonSize, ButtonVariant } from '../../lib/Button/Button.styles';
 import { ThemeColors } from '../../lib/theme';
 import { useIconOpts } from '../Icon/Icon.hooks';
-import { SIZE_OPTS, VARIANT_COLOR_OPTS, VARIANT_OPTS } from '../common/selectOptions';
+import {
+  ICON_VARIANT_OPTS,
+  SIZE_OPTS,
+  VARIANT_COLOR_OPTS,
+  VARIANT_OPTS,
+} from '../common/selectOptions';
 
 const IconButtonDemo = () => {
   const iconOpts = useIconOpts();
@@ -17,6 +22,7 @@ const IconButtonDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [isLoading, setIsLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [iconVariant, setIconVariant] = useState(ICON_VARIANT_OPTS[0]);
 
   const Component = (
     <IconButton
@@ -25,6 +31,7 @@ const IconButtonDemo = () => {
       variantColor={variantColor.value}
       size={size.value}
       isLoading={isLoading}
+      iconVariant={iconVariant.value}
       disabled={disabled}
     />
   );
@@ -75,6 +82,15 @@ const IconButtonDemo = () => {
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ButtonSize>)}
+          />
+        </div>
+
+        <div>
+          <pre>iconVariant</pre>
+          <Select
+            value={iconVariant}
+            options={ICON_VARIANT_OPTS}
+            onChange={opt => setIconVariant(opt as SelectOption<IconVariant>)}
           />
         </div>
       </Inputs>
