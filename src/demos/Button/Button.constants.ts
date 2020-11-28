@@ -44,6 +44,13 @@ export const PROPS = [
     description: "Pass an icon string to render the respective icon after the button's text.",
   },
   {
+    name: 'iconVariant',
+    isRequired: false,
+    type: '"solid" | "outline"',
+    defaultValue: '"solid"',
+    description: 'The type of icon to render (solid or outline).',
+  },
+  {
     name: 'disabled',
     isRequired: false,
     type: 'boolean',

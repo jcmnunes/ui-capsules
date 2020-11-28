@@ -60,7 +60,7 @@ const App = () => (
       <Route path="/select" component={Select} />
       <Route path="/input" component={Input} />
       <Route path="/toaster" component={Toaster} />
-      <Route path="/Menu" component={Menu} />
+      <Route path="/menu" component={Menu} />
       <Route path="/loading-mask" component={LoadingElement} />
       <Route path="/spinner" component={Spinner} />
       <Route path="/message" component={Message} />
