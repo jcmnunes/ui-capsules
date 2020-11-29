@@ -42,9 +42,9 @@ const ButtonDemo = () => {
         <Input
           value={iconFilter}
           onChange={evt => iconFilterSet(evt.target.value)}
-          iconBefore="search"
+          leftIcon="search"
           placeholder="Search"
-          inputSize="large"
+          size="large"
         />
       </Box>
 

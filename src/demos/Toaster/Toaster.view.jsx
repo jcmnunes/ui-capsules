@@ -3,7 +3,7 @@ import Demo from './Toaster.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
-import { Button } from '../../lib';
+import { Anchor } from '../../lib';
 
 const usage = `// Wrap your App component with WithToasts
 import { WithToasts } from '@binarycapsule/ui-capsules';
@@ -35,13 +35,9 @@ const ToasterDemo = () => {
       <Title>Toaster</Title>
       <Paragraph>
         Notification system based on the{' '}
-        <Button
-          appearance="link"
-          href="https://github.com/jossmac/react-toast-notifications"
-          target="_blank"
-        >
+        <Anchor href="https://github.com/jossmac/react-toast-notifications">
           react-toast-notifications
-        </Button>{' '}
+        </Anchor>{' '}
         package.
       </Paragraph>
       <SubTitle>Usage</SubTitle>

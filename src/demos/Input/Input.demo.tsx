@@ -1,74 +1,83 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { Select, Input, Checkbox } from '../../lib';
-import { SIZE_OPTS, GITHUB_URL } from './Input.constants';
+import { Checkbox, IconVariant, Input, Select } from '../../lib';
+import { GITHUB_URL } from './Input.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
 import { ElementSize, IconType, SelectOption } from '../../lib/types';
+import { ICON_VARIANT_OPTS, SIZE_OPTS } from '../common/selectOptions';
 
 const InputDemo = () => {
-  const iconOpts = [{ value: '', label: 'none' }, ...useIconOpts()];
+  const iconOpts = [{ value: undefined, label: 'none' }, ...useIconOpts()];
 
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [value, setValue] = useState('Hello world');
   const [placeholder, setPlaceholder] = useState('Placeholder');
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [error, setError] = useState('');
-  const [iconBefore, setIconBefore] = useState(iconOpts[0]);
-  const [iconAfter, setIconAfter] = useState(iconOpts[0]);
+  const [leftIcon, setLeftIcon] = useState(iconOpts[0]);
+  const [rightIcon, setRightIcon] = useState(iconOpts[0]);
+  const [iconVariant, setIconVariant] = useState(ICON_VARIANT_OPTS[0]);
 
   const Component = (
     <Input
       value={value}
       onChange={ev => setValue(ev.target.value)}
-      inputSize={size.value}
+      size={size.value}
       error={error}
       placeholder={placeholder}
-      isDisabled={isDisabled}
-      iconBefore={iconBefore.value as IconType}
-      iconAfter={iconAfter.value as IconType}
+      disabled={disabled}
+      leftIcon={leftIcon.value as IconType}
+      rightIcon={rightIcon.value as IconType}
+      iconVariant={iconVariant.value}
     />
   );
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
-        <Checkbox checked={isDisabled} onChange={() => setIsDisabled(!isDisabled)}>
-          <pre>isDisabled</pre>
+        <Checkbox checked={disabled} onChange={() => setDisabled(!disabled)}>
+          <pre>disabled</pre>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
           <pre>value</pre>
           <Input type="text" value={value} onChange={ev => setValue(ev.target.value)} />
         </div>
+
         <div>
           <pre>placeholder</pre>
           <Input type="text" value={placeholder} onChange={ev => setPlaceholder(ev.target.value)} />
         </div>
+
         <div>
-          <pre>inputSize</pre>
+          <pre>size</pre>
           <Select
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
           />
         </div>
+
         <div>
-          <pre>iconBefore</pre>
+          <pre>leftIcon</pre>
           <Select
-            value={iconBefore}
+            value={leftIcon}
             options={iconOpts}
-            onChange={opt => setIconBefore(opt as SelectOption<IconType>)}
+            onChange={opt => setLeftIcon(opt as SelectOption<IconType>)}
           />
         </div>
+
         <div>
-          <pre>iconAfter</pre>
+          <pre>rightIcon</pre>
           <Select
-            value={iconAfter}
+            value={rightIcon}
             options={iconOpts}
-            onChange={opt => setIconAfter(opt as SelectOption<IconType>)}
+            onChange={opt => setRightIcon(opt as SelectOption<IconType>)}
           />
         </div>
+
         <div>
           <pre>error</pre>
           <Input
@@ -76,6 +85,15 @@ const InputDemo = () => {
             placeholder="Enter some error text"
             value={error}
             onChange={ev => setError(ev.target.value)}
+          />
+        </div>
+
+        <div>
+          <pre>iconVariant</pre>
+          <Select
+            value={iconVariant}
+            options={ICON_VARIANT_OPTS}
+            onChange={opt => setIconVariant(opt as SelectOption<IconVariant>)}
           />
         </div>
       </Inputs>
