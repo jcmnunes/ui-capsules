@@ -131,7 +131,7 @@ export const EditableInput: FC<Props> = ({
         <>
           <StyledInput
             value={state.internalValue}
-            inputSize={size}
+            size={size}
             onChange={handleOnChange}
             autoFocus
           />

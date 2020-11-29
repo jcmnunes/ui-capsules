@@ -1,7 +1,7 @@
 import styled from '@emotion/styled/macro';
 import { ElementSize } from '../types';
 import { variant } from 'styled-system';
-import { LayoutProps, SpaceProps, TypographyProps } from '../styledProps';
+import { LayoutProps, PaddingProps, TypographyProps } from '../styledProps';
 import { Input, Props as InputProps } from '../Input/Input';
 
 export const StyledEditableInput = styled.form`
@@ -42,7 +42,7 @@ export const Value = styled.button<ValueProps>(
     },
   }),
 
-  variant<LayoutProps & SpaceProps & TypographyProps, ElementSize>({
+  variant<LayoutProps & PaddingProps & TypographyProps, ElementSize>({
     prop: 'size',
     variants: {
       small: {
@@ -50,21 +50,18 @@ export const Value = styled.button<ValueProps>(
         py: 2,
         fontSize: 'small',
         height: 24,
-        mt: 2,
       },
       medium: {
         px: 9,
         py: 4,
         fontSize: 'body',
         height: 32,
-        mt: 2,
       },
       large: {
         px: 13,
         py: 12,
         fontSize: 'h6',
         height: 48,
-        mt: 1,
       },
     },
   }),
@@ -73,6 +70,7 @@ export const Value = styled.button<ValueProps>(
 export const StyledInput = styled(Input)<InputProps>`
   width: 100%;
   flex: 1;
+  flex-direction: row;
 `;
 
 export const Buttons = styled.div`

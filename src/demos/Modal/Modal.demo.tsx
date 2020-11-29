@@ -119,7 +119,7 @@ const ModalDemo = () => {
           <Input
             value={inputValue}
             onChange={ev => setInputValue(ev.target.value)}
-            inputSize="large"
+            size="large"
             autoFocus
             placeholder="Task summary"
           />
