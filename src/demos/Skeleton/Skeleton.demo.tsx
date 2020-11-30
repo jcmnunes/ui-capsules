@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-import { LoadingMask, Input, theme, Checkbox } from '../../lib';
+import { Skeleton, Input, theme, Checkbox } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL } from './LoadingMask.constants';
+import { GITHUB_URL } from './Skeleton.constants';
 
-const LoadingMaskDemo = () => {
+const SkeletonDemo = () => {
   const [circular, setCircular] = useState(false);
   const [width, setWidth] = useState('150px');
   const [height, setHeight] = useState('30px');
   const [background, setBackground] = useState(theme.neutral100);
 
-  const Component = (
-    <LoadingMask circular={circular} width={width} height={height} background={background} />
-  );
+  const Component = <Skeleton circular={circular} width={width} height={height} bg={background} />;
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
@@ -46,4 +44,4 @@ const LoadingMaskDemo = () => {
   );
 };
 
-export default LoadingMaskDemo;
+export default SkeletonDemo;

@@ -9,7 +9,7 @@ export { Icon } from './Icon/Icon';
 export { IllustratedIcon } from './IllustratedIcon/IllustratedIcon';
 export { IconButton } from './IconButton/IconButton';
 export { Input } from './Input/Input';
-export { LoadingMask } from './LoadingMask/LoadingMask';
+export { Skeleton } from './Skeleton/Skeleton';
 export { Message } from './Message/Message';
 export { Modal, ReactModal } from './Modal/Modal';
 export { ModalHeader } from './Modal/ModalHeader';

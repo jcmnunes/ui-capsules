@@ -11,7 +11,7 @@ import Select from './demos/Select/Select.view';
 import Input from './demos/Input/Input.view';
 import Toaster from './demos/Toaster/Toaster.view';
 import Menu from './demos/Menu/Menu.view';
-import LoadingElement from './demos/LoadingMask/LoadingMask.view';
+import Skeleton from './demos/Skeleton/Skeleton.view';
 import Spinner from './demos/Spinner/Spinner.view';
 import Message from './demos/Message/Message.view';
 import PageSpinner from './demos/PageSpinner/PageSpinner.view';
@@ -48,31 +48,35 @@ const App = () => (
     <SidebarWrapper>
       <Sidebar />
     </SidebarWrapper>
+
     <ShowcaseWrapper>
       <Route exact path="/" render={() => <Redirect to="/getting-started" />} />
       <Route path="/getting-started" component={Home} />
+      <Route path="/style-props" render={() => <div>TBD</div>} />
+      <Route path="/box-flex" render={() => <div>TBD</div>} />
+
+      <Route path="/anchor" component={Anchor} />
       <Route path="/button" component={Button} />
-      <Route path="/icon-button" component={IconButton} />
-      <Route path="/illustrated-icon" component={IllustratedIcon} />
-      <Route path="/icon" component={Icon} />
-      <Route path="/icon-solid" component={IconSolid} />
       <Route path="/checkbox" component={Checkbox} />
-      <Route path="/select" component={Select} />
+      <Route path="/dialog" component={Dialog} />
+      <Route path="/editable-input" component={EditableInput} />
+      <Route path="/icon" component={Icon} />
+      <Route path="/icon-button" component={IconButton} />
+      <Route path="/icon-solid" component={IconSolid} />
+      <Route path="/illustrated-icon" component={IllustratedIcon} />
       <Route path="/input" component={Input} />
-      <Route path="/toaster" component={Toaster} />
       <Route path="/menu" component={Menu} />
-      <Route path="/loading-mask" component={LoadingElement} />
-      <Route path="/spinner" component={Spinner} />
       <Route path="/message" component={Message} />
+      <Route path="/modal" component={Modal} />
       <Route path="/page-spinner" component={PageSpinner} />
       <Route path="/radio" component={Radio} />
-      <Route path="/tooltip" component={Tooltip} />
-      <Route path="/editable-input" component={EditableInput} />
-      <Route path="/modal" component={Modal} />
-      <Route path="/dialog" component={Dialog} />
-      <Route path="/anchor" component={Anchor} />
-      <Route path="/table" component={Table} />
+      <Route path="/select" component={Select} />
+      <Route path="/skeleton" component={Skeleton} />
+      <Route path="/spinner" component={Spinner} />
       <Route path="/switch" component={Switch} />
+      <Route path="/table" component={Table} />
+      <Route path="/toaster" component={Toaster} />
+      <Route path="/tooltip" component={Tooltip} />
     </ShowcaseWrapper>
   </AppWrapper>
 );
