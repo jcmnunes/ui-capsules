@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Demo from './Menu.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title, UL } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Menu.constants';
-import { Button } from '../../lib';
 
 const MenuView = () => {
   return (
@@ -19,22 +17,24 @@ const MenuView = () => {
       </Paragraph>
       <UL>
         <li>
-          <code>text</code>: &quot;string&quot; - The text to render
+          <code>text</code>: &quot;string&quot; (required) - The text to render
         </li>
         <li>
-          <code>icon</code>: &quot;string&quot; - The icon to render before the text (from the{' '}
-          <Link to="/illustrated-icon">
-            <Button variant="link">IllustratedIcon collection</Button>
-          </Link>
-          )
+          <code>onClick</code>: &quot;function&quot; (required) - The function to be called on
+          action triggered (when clicking or Enter keydown in an item).
+        </li>
+        <li>
+          <code>helperText</code>: &quot;string&quot; - An optional helper text
+        </li>
+        <li>
+          <code>leftAddon</code>: &quot;React Element&quot; - An addon to render before the text
+        </li>
+        <li>
+          <code>rightAddon</code>: &quot;ReactElement&quot; - An addon to render after the text
         </li>
         <li>
           <code>closeOnAction</code>: &quot;boolean&quot; (default: true) - Whether the menu should
           close after triggering the item action
-        </li>
-        <li>
-          <code>handleAction</code>: &quot;function&quot; (required) - The function to be called on
-          action triggered (when clicking or Enter keydown in an item).
         </li>
       </UL>
       <SubTitle>Usage</SubTitle>

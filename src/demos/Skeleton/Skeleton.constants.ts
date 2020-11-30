@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/LoadingMask/LoadingMask.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Skeleton/Skeleton.tsx';
 
 export const PROPS = [
   {
@@ -22,10 +22,10 @@ export const PROPS = [
     description: 'When true, the element will be circular',
   },
   {
-    name: 'background',
+    name: 'bg',
     isRequired: false,
-    type: 'string (hex value)',
-    defaultValue: 'theme.neutral100',
+    type: 'theme color | hex value',
+    defaultValue: 'neutral.200',
     description: 'The background color of the element',
   },
 ];

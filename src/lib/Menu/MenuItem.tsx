@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import { Flex } from '../Flex/Flex';
 import { Text } from '../Text/Text';
-import { icons } from '../Icon/Icon.constants';
 import { Box, BoxProps } from '../Box/Box';
 
 interface StyledMenuItemProps extends BoxProps {
@@ -22,7 +21,6 @@ export const MenuItemWrapper = styled.button<{ closeOnAction?: boolean }>({
 });
 
 export interface Props extends React.ComponentPropsWithoutRef<'button'> {
-  icon?: keyof typeof icons;
   text: string;
   onClick(): void;
   helperText?: string;
@@ -33,7 +31,6 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
 }
 
 export const MenuItem: React.FC<Props> = ({
-  icon,
   text,
   helperText,
   leftAddon,
@@ -63,4 +60,10 @@ export const MenuItem: React.FC<Props> = ({
       </StyledMenuItem>
     </MenuItemWrapper>
   );
+};
+
+MenuItem.displayName = 'MenuItem';
+MenuItem.defaultProps = {
+  closeOnAction: false,
+  highlighted: false,
 };

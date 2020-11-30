@@ -10,7 +10,7 @@ export const PROPS = [
   {
     name: 'trigger',
     isRequired: true,
-    type: 'React element',
+    type: 'React Element',
     description: 'The element that will trigger the menu.',
   },
   {
