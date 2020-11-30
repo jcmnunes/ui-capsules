@@ -85,7 +85,7 @@ export const Menu: FC<Props> = ({ trigger: Trigger, placement, children }) => {
                   {({ ref, style, placement: popperPlacement }) => (
                     <div
                       ref={ref}
-                      style={{ zIndex: theme.selectZIndex, ...style }}
+                      style={{ zIndex: theme.zIndices.select, ...style }}
                       data-placement={popperPlacement}
                     >
                       <StyledMenu {...getMenuProps()} placement={placement}>
@@ -120,7 +120,6 @@ export const Menu: FC<Props> = ({ trigger: Trigger, placement, children }) => {
 };
 
 Menu.displayName = 'Menu';
-
 Menu.defaultProps = {
   placement: 'left',
 };

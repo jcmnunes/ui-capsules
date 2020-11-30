@@ -5,7 +5,7 @@ import { ThemeColors } from '../theme';
 import { StyledIconButton } from './IconButton.styles';
 import { IconVariant } from '../types';
 
-interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginProps {
+export interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginProps {
   icon: string;
   as?: 'button' | 'a';
   variant?: ButtonVariant;

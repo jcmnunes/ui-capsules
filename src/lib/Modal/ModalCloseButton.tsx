@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import React from 'react';
+import React, { FC } from 'react';
 import { IconButton } from '..';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   onClick(): void;
 }
 
-export const ModalCloseButton: React.FC<Props> = ({ size, onClick }) => {
+export const ModalCloseButton: FC<Props> = ({ size, onClick }) => {
   return (
     <IconButton
       variant="ghost"

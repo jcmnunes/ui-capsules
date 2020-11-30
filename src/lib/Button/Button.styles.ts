@@ -12,6 +12,13 @@ import {
 } from '../styledProps';
 import { ThemeColors } from '../theme';
 
+const LINK_COLOR_MAP: Record<string, string> = {
+  info: 'info.500',
+  success: 'success.600',
+  warning: 'warning.900',
+  error: 'error.600',
+};
+
 export type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'link';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
@@ -122,7 +129,7 @@ export const StyledButton = styled.button<StyledButtonProps>(
         link: {
           bg: 'transparent',
           border: 'none',
-          color: `${variantColor}.500`,
+          color: LINK_COLOR_MAP[variantColor as string] || `${variantColor}.500`,
           borderRadius: 'none',
 
           '&:hover': {
@@ -178,6 +185,7 @@ export const ButtonIcon = styled.div<ButtonIconProps>(
     margin: 0,
     opacity: isLoading ? 0 : 1,
   }),
+
   ({ isLeft, isRight }) =>
     variant<MarginProps, ButtonSize>({
       prop: 'buttonSize',

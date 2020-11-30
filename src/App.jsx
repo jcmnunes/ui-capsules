@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home/Home';
+import Alert from './demos/Alert/Alert.view';
 import Button from './demos/Button/Button.view';
 import IllustratedIcon from './demos/IllustratedIcon/IllustratedIcon.view';
 import Icon from './demos/Icon/Icon.view';
@@ -13,8 +14,7 @@ import Toaster from './demos/Toaster/Toaster.view';
 import Menu from './demos/Menu/Menu.view';
 import Skeleton from './demos/Skeleton/Skeleton.view';
 import Spinner from './demos/Spinner/Spinner.view';
-import Message from './demos/Message/Message.view';
-import PageSpinner from './demos/PageSpinner/PageSpinner.view';
+import Splash from './demos/Splash/Splash.view';
 import Radio from './demos/Radio/Radio.view';
 import Tooltip from './demos/Tooltip/Tooltip.view';
 import EditableInput from './demos/EditableInput/EditableInput.view';
@@ -55,6 +55,7 @@ const App = () => (
       <Route path="/style-props" render={() => <div>TBD</div>} />
       <Route path="/box-flex" render={() => <div>TBD</div>} />
 
+      <Route path="/alert" component={Alert} />
       <Route path="/anchor" component={Anchor} />
       <Route path="/button" component={Button} />
       <Route path="/checkbox" component={Checkbox} />
@@ -66,9 +67,8 @@ const App = () => (
       <Route path="/illustrated-icon" component={IllustratedIcon} />
       <Route path="/input" component={Input} />
       <Route path="/menu" component={Menu} />
-      <Route path="/message" component={Message} />
       <Route path="/modal" component={Modal} />
-      <Route path="/page-spinner" component={PageSpinner} />
+      <Route path="/splash" component={Splash} />
       <Route path="/radio" component={Radio} />
       <Route path="/select" component={Select} />
       <Route path="/skeleton" component={Skeleton} />

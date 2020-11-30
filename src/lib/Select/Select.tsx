@@ -70,7 +70,7 @@ const customStyles = (size: Size): Partial<Styles> => ({
   }),
   menuPortal: (base: React.CSSProperties) => ({
     ...base,
-    zIndex: theme.selectZIndex,
+    zIndex: theme.zIndices.select,
   }),
 });
 
