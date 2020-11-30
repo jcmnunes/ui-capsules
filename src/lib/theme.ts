@@ -176,9 +176,11 @@ export const theme = {
 
   transitionAll: 'all 0.2s ease',
 
-  modalZIndex: 2718281,
-  selectZIndex: 3141592,
-  // 4669201
+  zIndices: {
+    modal: 2718281,
+    select: 3141592,
+    larger: 4669201,
+  },
 };
 
 export type Theme = typeof theme;

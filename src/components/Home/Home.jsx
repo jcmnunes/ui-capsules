@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../Svgs/Logo';
-import { Paragraph, SubTitle } from '../common/Typography';
+import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
-import { Anchor, Button, Message } from '../../lib';
+import { Anchor, Button } from '../../lib';
+import { Alert } from '../../lib/Alert/Alert';
 
 export const Description = styled.div`
   display: flex;
@@ -30,7 +30,8 @@ ReactDOM.render(
 
 const Home = () => (
   <Wrapper>
-    <Logo size={480} />
+    <Title>Getting Started</Title>
+
     <Description>
       <Paragraph>
         React UI kit (used by <Anchor href="https://binarycapsule.tech">Binary Capsule</Anchor>
@@ -43,7 +44,9 @@ const Home = () => (
         </Button>
       </a>
     </Description>
-    <Message appearance="warning">This is work in progress</Message>
+
+    <Alert variant="warning" message="This is work in progress" />
+
     <div>
       <SubTitle>Install</SubTitle>
 

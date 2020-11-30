@@ -35,7 +35,7 @@ const StyledModal = styled(ReactModal)<StyledModalProps>`
   border: none;
   border-radius: 8px;
   border-image: initial;
-  z-index: ${theme.modalZIndex};
+  z-index: ${theme.zIndices.modal};
 
   ${variant<LayoutProps, ElementSize>({
     prop: 'size',
