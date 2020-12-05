@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { Select, Radio, Input, Checkbox } from '../../lib';
+import { Checkbox, Input, Radio, Select } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, SIZE_OPTS, APPEARANCE_OPTS } from './Radio.constants';
-import { Appearance, ElementSize, SelectOption } from '../../lib/types';
+import { GITHUB_URL } from './Radio.constants';
+import { ElementSize, SelectOption } from '../../lib/types';
+import { SIZE_OPTS, VARIANT_COLOR_OPTS } from '../common/selectOptions';
+import { ThemeColors } from '../../lib/theme';
 
 const RadioDemo = () => {
   const [checked, setChecked] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [size, setSize] = useState(SIZE_OPTS[0]);
   const [children, setChildren] = useState('Hello world');
-  const [appearance, setAppearance] = useState(APPEARANCE_OPTS[2]);
+  const [variantColor, variantColorSet] = useState(
+    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
+  );
 
   const Component = (
     <Radio
       checked={checked}
-      isDisabled={isDisabled}
+      disabled={disabled}
       onChange={() => setChecked(!checked)}
-      inputSize={size.value}
-      appearance={appearance.value}
+      size={size.value}
+      variantColor={variantColor.value}
     >
       {children}
     </Radio>
@@ -29,15 +33,18 @@ const RadioDemo = () => {
         <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
           <pre>checked</pre>
         </Checkbox>
-        <Checkbox checked={isDisabled} onChange={() => setIsDisabled(!isDisabled)}>
-          <pre>isDisabled</pre>
+
+        <Checkbox checked={disabled} onChange={() => setDisabled(!disabled)}>
+          <pre>disabled</pre>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
           <pre>children</pre>
           <Input type="text" value={children} onChange={ev => setChildren(ev.target.value)} />
         </div>
+
         <div>
           <pre>size</pre>
           <Select
@@ -46,12 +53,13 @@ const RadioDemo = () => {
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
           />
         </div>
+
         <div>
-          <pre>appearance</pre>
+          <pre>variantColor</pre>
           <Select
-            value={appearance}
-            options={APPEARANCE_OPTS}
-            onChange={opt => setAppearance(opt as SelectOption<Appearance>)}
+            value={variantColor}
+            options={VARIANT_COLOR_OPTS}
+            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
           />
         </div>
       </Inputs>
