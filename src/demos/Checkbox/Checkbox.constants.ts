@@ -48,6 +48,6 @@ export const CHECKBOX_PROPS = [
     isRequired: false,
     type: 'ThemeColors',
     defaultValue: 'primary',
-    description: 'The Checkbox label.',
+    description: 'The color of the checkbox.',
   },
 ];

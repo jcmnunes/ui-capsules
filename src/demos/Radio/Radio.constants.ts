@@ -1,20 +1,5 @@
-import { Appearance, ElementSize } from '../../lib/types';
-
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Radio/Radio.tsx';
-
-export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
-  { value: 'small', label: 'small' },
-  { value: 'medium', label: 'medium' },
-  { value: 'large', label: 'large' },
-];
-
-export const APPEARANCE_OPTS: { label: string; value: Appearance }[] = [
-  { value: 'primary', label: 'primary' },
-  { value: 'secondary', label: 'secondary' },
-  { value: 'success', label: 'success' },
-  { value: 'error', label: 'error' },
-];
 
 export const PROPS = [
   {
@@ -30,14 +15,14 @@ export const PROPS = [
     description: 'The function to handle the onChange event.',
   },
   {
-    name: 'isDisabled',
+    name: 'disabled',
     isRequired: false,
     type: 'boolean',
     defaultValue: 'false',
     description: 'The disabled state of the radio.',
   },
   {
-    name: 'inputSize',
+    name: 'size',
     isRequired: false,
     type: '"small" | "medium" | "large"',
     defaultValue: '"small"',
@@ -47,14 +32,14 @@ export const PROPS = [
     name: 'children',
     isRequired: false,
     type: 'string',
-    defaultValue: 'null',
+    defaultValue: 'undefined',
     description: 'The Checkbox label.',
   },
   {
-    name: 'appearance',
+    name: 'variantColor',
     isRequired: false,
-    type: '"primary" | "success" | "neutral"',
-    defaultValue: '"neutral"',
-    description: 'The appearance of the radio.',
+    type: 'ThemeColors',
+    defaultValue: 'primary',
+    description: 'The color of the radio.',
   },
 ];
