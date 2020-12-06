@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { Spinner, Select } from '../../lib';
+import { Select, Spinner } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, SIZE_OPTS, APPEARANCE_OPTS } from './Spinner.constants';
+import { GITHUB_URL } from './Spinner.constants';
 import { ElementSize, SelectOption } from '../../lib/types';
+import { SIZE_OPTS, VARIANT_COLOR_OPTS } from '../common/selectOptions';
+import { ThemeColors } from '../../lib/theme';
 
 const SpinnerDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[1]);
-  const [appearance, setAppearance] = useState(APPEARANCE_OPTS[1]);
+  const [variantColor, variantColorSet] = useState(
+    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
+  );
 
-  const Component = <Spinner size={size.value} />;
+  const Component = <Spinner size={size.value} variantColor={variantColor.value} />;
 
   return (
-    <Demo codeURL={GITHUB_URL} component={Component} isDark={appearance.value === 'light'}>
+    <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
           <pre>size</pre>
@@ -21,12 +25,13 @@ const SpinnerDemo = () => {
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
           />
         </div>
+
         <div>
-          <pre>appearance</pre>
+          <pre>variantColor</pre>
           <Select
-            value={appearance}
-            options={APPEARANCE_OPTS}
-            onChange={opt => setAppearance(opt as SelectOption<'light' | 'dark'>)}
+            value={variantColor}
+            options={VARIANT_COLOR_OPTS}
+            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
           />
         </div>
       </Inputs>

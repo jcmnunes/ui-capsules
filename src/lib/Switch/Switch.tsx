@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import RSwitch from 'react-switch';
-import styled from 'styled-components';
-import { theme } from '../theme';
-import { Appearance, ElementSize } from '../types';
+import styled from '@emotion/styled/macro';
+import { useTheme } from '@emotion/react';
+import { ThemeColors } from '../theme';
+import { ElementSize } from '../types';
 
 const Label = styled.label`
   display: flex;
@@ -10,10 +11,10 @@ const Label = styled.label`
   align-items: center;
 `;
 
-const LabelText = styled.span<{ isDisabled?: boolean; size: ElementSize }>`
+const LabelText = styled.span<{ disabled?: boolean; size: ElementSize }>`
   font-size: ${({ size }) => (size === 'large' ? '18px' : '16px')};
   margin-left: 8px;
-  color: ${({ isDisabled }) => isDisabled && theme.neutral200};
+  color: ${({ disabled, theme }) => disabled && theme.colors.neutral['200']};
 `;
 
 const DIMENSIONS = {
@@ -36,47 +37,43 @@ const DIMENSIONS = {
   },
 };
 
-const COLOR = {
-  success: theme.green500,
-  primary: theme.blue500,
-  secondary: theme.neutral500,
-  error: theme.red500,
-};
-
 interface Props {
   checked: boolean;
   onChange(): void;
-  isDisabled?: boolean;
+  disabled?: boolean;
   children?: string;
   size?: ElementSize;
-  appearance?: Appearance;
+  variantColor?: ThemeColors;
 }
 
 export const Switch: FC<Props> = ({
   checked,
   onChange,
   size = 'medium',
-  appearance = 'success',
-  isDisabled,
+  variantColor = 'primary',
+  disabled,
   children,
 }) => {
+  const theme = useTheme();
+
   return (
     <Label>
       <RSwitch
         key={size}
         checked={checked}
         onChange={onChange}
-        disabled={isDisabled}
+        disabled={disabled}
         width={DIMENSIONS[size].width}
         height={DIMENSIONS[size].height}
         handleDiameter={DIMENSIONS[size].diameter}
         uncheckedIcon={false}
         checkedIcon={false}
-        onColor={COLOR[appearance]}
-        offColor={theme.neutral300}
+        onColor={theme.colors[variantColor as keyof typeof theme.colors]['400']}
+        offColor={theme.colors.neutral['300']}
       />
+
       {!!children && (
-        <LabelText isDisabled={isDisabled} size={size}>
+        <LabelText disabled={disabled} size={size}>
           {children}
         </LabelText>
       )}
@@ -86,6 +83,6 @@ export const Switch: FC<Props> = ({
 Switch.displayName = 'Switch';
 
 Switch.defaultProps = {
-  appearance: 'success',
+  variantColor: 'primary',
   size: 'medium',
 };
