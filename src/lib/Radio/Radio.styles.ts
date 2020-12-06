@@ -13,7 +13,7 @@ export const Label = styled.label<LabelProps>(
   ({ disabled, theme }) => ({
     display: 'inline-flex',
     cursor: disabled ? 'not-allowed' : 'pointer',
-    alignItems: 'baseline',
+    alignItems: 'center',
     position: 'relative',
     userSelect: 'none',
     color: disabled ? theme.colors.neutral['300'] : 'inherit',

@@ -11,12 +11,16 @@ const ButtonDemo = () => {
   return (
     <Wrapper>
       <Title>Select</Title>
-      <Paragraph>Select (based on react-select)</Paragraph>
+      <Paragraph>Select component (based on react-select).</Paragraph>
+
       <SubTitle>Usage</SubTitle>
       <Usage>{"import { Select } from '@binarycapsule/ui-capsules';"}</Usage>
+
       <Demo />
+
       <SubTitle>Props</SubTitle>
       <PropsTable props={SELECT_PROPS} />
+
       <SubSubTitle>Note:</SubSubTitle>
       <Paragraph>
         This component accepts all props from the{' '}

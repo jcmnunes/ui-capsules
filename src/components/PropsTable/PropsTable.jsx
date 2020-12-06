@@ -26,6 +26,7 @@ const PropsTable = ({ props: propsArray }) => {
         <TableHeaderCell>Name</TableHeaderCell>
         <TableHeaderCell>Description</TableHeaderCell>
       </TableHead>
+
       <TableBody>
         {propsArray.map(({ name, isRequired, type, defaultValue, description }) => (
           <TableRow key={name}>
@@ -38,7 +39,8 @@ const PropsTable = ({ props: propsArray }) => {
                 <PropType>{type}</PropType>
                 {!isRequired && (
                   <DefaultValue>
-                    (Default: <span>{defaultValue}</span>)
+                    {'('}Default: <span>{defaultValue}</span>
+                    {')'}
                   </DefaultValue>
                 )}
               </div>

@@ -16,7 +16,7 @@ const TooltipContainer = styled.div`
   padding: 0 6px;
   transition: opacity 0.3s;
   z-index: 2147483647;
-  font-size: 14px;
+  font-size: ${({ theme }) => `${theme.fontSizes.small}px`};
   font-weight: 500;
 `;
 
@@ -158,8 +158,8 @@ export const Tooltip: FC<Props> = ({
     )}
   </TooltipTrigger>
 );
-Tooltip.displayName = 'Tooltip';
 
+Tooltip.displayName = 'Tooltip';
 Tooltip.defaultProps = {
   hasArrow: false,
   followCursor: false,

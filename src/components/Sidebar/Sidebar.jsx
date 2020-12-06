@@ -29,7 +29,7 @@ const Sidebar = () => (
       <SidebarLink to="/menu">Menu ✅</SidebarLink>
       <SidebarLink to="/modal">Modal ✅</SidebarLink>
       <SidebarLink to="/radio">Radio ✅</SidebarLink>
-      <SidebarLink to="/select">Select</SidebarLink>
+      <SidebarLink to="/select">Select ✅</SidebarLink>
       <SidebarLink to="/skeleton">Skeleton ✅</SidebarLink>
       <SidebarLink to="/spinner">Spinner</SidebarLink>
       <SidebarLink to="/splash">Splash ✅</SidebarLink>
