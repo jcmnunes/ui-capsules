@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import { theme } from '../theme';
+import styled from '@emotion/styled/macro';
 
 export const Row = styled.tr`
   &:nth-child(odd) {
-    background: ${theme.neutral050};
+    background: ${({ theme }) => theme.colors.neutral['50']};
   }
 `;

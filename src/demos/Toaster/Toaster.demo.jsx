@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, TOAST_TYPE_OPTS } from './Toaster.constants';
-import { Toaster, Button, Select, Input } from '../../lib';
+import { Button, Input, Select, Toaster } from '../../lib';
 
 const toastType2Appearance = {
   info: 'primary',
@@ -17,9 +17,9 @@ const ToasterDemo = () => {
 
   const Component = (
     <Button
-      appearance={toastType2Appearance[toastType.value]}
-      isDisabled={toastTitle.length === 0 && toastMessage.length === 0}
-      iconBefore="bell"
+      variantColor={toastType2Appearance[toastType.value]}
+      disabled={toastTitle.length === 0 && toastMessage.length === 0}
+      leftIcon="bell"
       onClick={() => Toaster[toastType.value]({ title: toastTitle, message: toastMessage })}
     >
       Give me a toast
@@ -27,14 +27,14 @@ const ToasterDemo = () => {
   );
 
   const code = `<Button
-  appearance={${toastType2Appearance[toastType.value]}}
+  variantColor={${toastType2Appearance[toastType.value]}}
   onClick={() =>
     Toaster.${toastType.value}({
       title: ${toastTitle},
-      message: ${toastMessage},
+      message: ${toastMessage}
     })
   }
-  iconBefore="bell"
+  leftIcon="bell"
 >
   Give me a toast
 </Button>

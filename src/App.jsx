@@ -52,8 +52,6 @@ const App = () => (
     <ShowcaseWrapper>
       <Route exact path="/" render={() => <Redirect to="/getting-started" />} />
       <Route path="/getting-started" component={Home} />
-      <Route path="/style-props" render={() => <div>TBD</div>} />
-      <Route path="/box-flex" render={() => <div>TBD</div>} />
 
       <Route path="/alert" component={Alert} />
       <Route path="/anchor" component={Anchor} />

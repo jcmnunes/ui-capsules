@@ -26,7 +26,7 @@ const Icon = styled.div`
 const Label = styled.div`
   color: ${({ theme }) => `1px solid ${theme.colors.neutral['500']}`};
   background: ${({ theme }) => `1px solid ${theme.colors.neutral['50']}`};
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: lowercase;
   height: 30px;

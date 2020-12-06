@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { ToastProvider, withToastManager } from 'react-toast-notifications';
-import { Button } from '../Button/Button';
 import { Icon } from '../Icon/Icon';
 import { theme } from '../theme';
+import { CloseButton } from '../CloseButton/CloseButton';
 
 function getTranslate(placement) {
   const pos = placement.split('-');
@@ -104,11 +104,11 @@ const StyledToast = styled.div`
   }
 `;
 
-const StyledButton = styled(Button)`
-  position: absolute;
+const StyledButton = styled(CloseButton)`
+  position: absolute !important;
   top: 4px;
   right: 4px;
-  color: inherit;
+  color: inherit !important;
 `;
 
 const IconContainer = styled.div`
@@ -148,13 +148,13 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h4`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: ${props => colors[props.appearance].text};
 `;
 
 const Message = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   color: ${props => colors[props.appearance].text};
 `;
 
@@ -168,6 +168,7 @@ export const Toast = ({
 }) => {
   const title = typeof children === 'string' ? null : children.title;
   const message = typeof children === 'string' ? children : children.message;
+
   return (
     <StyledToast
       appearance={appearance}
@@ -178,17 +179,13 @@ export const Toast = ({
       <IconContainer appearance={appearance}>
         <Icon icon={icons[appearance]} size="32px" />
       </IconContainer>
+
       <Wrapper>
         {title && <Title appearance={appearance}>{title}</Title>}
         {message && <Message appearance={appearance}>{message}</Message>}
       </Wrapper>
-      <StyledButton
-        appearance="none"
-        isSuccess={appearance === 'success'}
-        size="small"
-        onClick={onDismiss}
-        iconAfter="x"
-      />
+
+      <StyledButton size="small" onClick={onDismiss} />
     </StyledToast>
   );
 };
@@ -248,15 +245,19 @@ export class Toaster extends Component {
   static parseNotification(...args) {
     let content = {};
     let options = { ...Toaster.defaultOptions };
+
     if (args.length === 0) {
       throw new Error('Notifications cannot be empty');
     }
+
     if (args.length > 0) {
       content = { ...args[0] };
     }
+
     if (args.length === 2) {
       options = { ...options, ...args[1] };
     }
+
     return {
       content,
       options,

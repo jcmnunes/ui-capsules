@@ -45,7 +45,7 @@ const Home = () => (
       </a>
     </Description>
 
-    <Alert variant="warning" message="This is work in progress" />
+    <Alert variant="warning" message="Work in progress" />
 
     <div>
       <SubTitle>Install</SubTitle>
