@@ -1,19 +1,17 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
-const StyledHead = styled.thead`
-  font-size: ${({ theme }) => `${theme.fontSizes.small}px`};
-  text-align: left;
-  border-bottom: ${({ theme }) => `1px solid ${theme.colors.neutral['200']}}`};
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.neutral['400']};
-  text-transform: uppercase;
-  letter-spacing: ${({ theme }) => theme.letterSpacings.wide};
-`;
+const StyledHead = styled.thead(({ theme }) => ({
+  fontSize: `${theme.fontSizes.small}px`,
+  textAlign: 'left',
+  borderBottom: `1px solid ${theme.colors.neutral['200']}`,
+  fontWeight: 700,
+  color: theme.colors.neutral['400'],
+  textTransform: 'uppercase',
+  letterSpacing: theme.letterSpacings.wide,
+}));
 
-interface Props {}
-
-export const Head: FC<Props> = ({ children }) => {
+export const Head: FC = ({ children }) => {
   return (
     <StyledHead>
       <tr>{children}</tr>

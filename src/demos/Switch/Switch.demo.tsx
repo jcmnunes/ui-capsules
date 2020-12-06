@@ -12,7 +12,7 @@ const SwitchDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [children, setChildren] = useState('Hello world');
   const [variantColor, variantColorSet] = useState(
-    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
+    VARIANT_COLOR_OPTS.find(opt => opt.value === 'green')!,
   );
 
   const Component = (

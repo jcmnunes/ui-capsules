@@ -50,7 +50,7 @@ export const Switch: FC<Props> = ({
   checked,
   onChange,
   size = 'medium',
-  variantColor = 'primary',
+  variantColor = 'green',
   disabled,
   children,
 }) => {
@@ -68,7 +68,7 @@ export const Switch: FC<Props> = ({
         handleDiameter={DIMENSIONS[size].diameter}
         uncheckedIcon={false}
         checkedIcon={false}
-        onColor={theme.colors[variantColor as keyof typeof theme.colors]['400']}
+        onColor={theme.colors[variantColor as keyof typeof theme.colors]['500']}
         offColor={theme.colors.neutral['300']}
       />
 
@@ -80,9 +80,9 @@ export const Switch: FC<Props> = ({
     </Label>
   );
 };
-Switch.displayName = 'Switch';
 
+Switch.displayName = 'Switch';
 Switch.defaultProps = {
-  variantColor: 'primary',
+  variantColor: 'green',
   size: 'medium',
 };

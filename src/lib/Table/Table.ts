@@ -1,11 +1,10 @@
-import styled from 'styled-components';
-import { theme } from '../theme';
+import styled from '@emotion/styled/macro';
 
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-radius: 12px;
   border-style: hidden;
-  box-shadow: 0 0 0 1px ${theme.neutral200};
+  box-shadow: ${({ theme }) => `0 0 0 1px ${theme.colors.neutral['200']}`};
   overflow: hidden;
 `;
