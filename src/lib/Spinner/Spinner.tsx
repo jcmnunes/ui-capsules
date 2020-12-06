@@ -1,5 +1,6 @@
-import styled, { keyframes } from 'styled-components';
-import { css, theme, ThemeColors } from '../theme';
+import styled from '@emotion/styled/macro';
+import { keyframes } from '@emotion/react';
+import { theme, ThemeColors } from '../theme';
 import { ElementSize } from '../types';
 import { Box, BoxProps } from '../Box/Box';
 import { variant } from 'styled-system';
@@ -25,10 +26,12 @@ export const Spinner = styled(Box)<SpinnerProps>(
     borderStyle: 'solid',
     borderColor: theme.colors[variantColor as keyof typeof theme.colors]['100'],
     borderTopColor: theme.colors[variantColor as keyof typeof theme.colors]['400'],
+    animationName: spin,
+    animationDuration: '500ms',
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
   }),
-  css`
-    animation: ${spin} 500ms infinite linear;
-  `,
+
   variant<LayoutProps, ElementSize>({
     prop: 'size',
     variants: {
@@ -48,6 +51,7 @@ export const Spinner = styled(Box)<SpinnerProps>(
   }),
 );
 
+Spinner.displayName = 'Spinner';
 Spinner.defaultProps = {
   size: 'medium',
   variantColor: 'primary',

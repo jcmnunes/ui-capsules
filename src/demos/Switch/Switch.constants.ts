@@ -1,19 +1,7 @@
-import { Appearance, ElementSize } from '../../lib/types';
 import { PropsDoc } from '../types';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Switch/Switch.tsx';
-
-export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
-  { value: 'small', label: 'small' },
-  { value: 'medium', label: 'medium' },
-  { value: 'large', label: 'large' },
-];
-
-export const APPEARANCE_OPTS: { label: string; value: Appearance }[] = [
-  { value: 'success', label: 'success' },
-  { value: 'primary', label: 'primary' },
-];
 
 export const SWITCH_PROPS: PropsDoc[] = [
   {
@@ -29,7 +17,7 @@ export const SWITCH_PROPS: PropsDoc[] = [
     description: 'The function to handle the onChange event.',
   },
   {
-    name: 'isDisabled',
+    name: 'disabled',
     isRequired: false,
     type: 'boolean',
     defaultValue: 'false',
@@ -50,10 +38,10 @@ export const SWITCH_PROPS: PropsDoc[] = [
     description: 'The switch label.',
   },
   {
-    name: 'appearance',
+    name: 'variantColor',
     isRequired: false,
-    type: '"primary" | "success"',
-    defaultValue: '"success"',
-    description: 'The appearance of the switch.',
+    type: 'ThemeColors',
+    defaultValue: 'primary',
+    description: 'The color of the Switch.',
   },
 ];

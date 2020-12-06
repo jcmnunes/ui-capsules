@@ -31,9 +31,9 @@ const Sidebar = () => (
       <SidebarLink to="/radio">Radio ✅</SidebarLink>
       <SidebarLink to="/select">Select ✅</SidebarLink>
       <SidebarLink to="/skeleton">Skeleton ✅</SidebarLink>
-      <SidebarLink to="/spinner">Spinner</SidebarLink>
+      <SidebarLink to="/spinner">Spinner ✅</SidebarLink>
       <SidebarLink to="/splash">Splash ✅</SidebarLink>
-      <SidebarLink to="/switch">Switch</SidebarLink>
+      <SidebarLink to="/switch">Switch ✅</SidebarLink>
       <SidebarLink to="/table">Table</SidebarLink>
       <SidebarLink to="/toaster">Toaster</SidebarLink>
       <SidebarLink to="/tooltip">Tooltip ✅</SidebarLink>
