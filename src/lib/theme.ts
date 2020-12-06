@@ -107,22 +107,22 @@ export const theme = {
   },
 
   fontSizes: {
-    small: 14,
-    body: 16,
-    h6: 18,
-    h5: 20,
-    h4: 22,
-    h3: 26,
-    h2: 34,
-    h1: 38,
-    large: 50,
-    xl: 62,
-    xxl: 74,
+    small: 12,
+    body: 14,
+    h6: 16,
+    h5: 18,
+    h4: 20,
+    h3: 24,
+    h2: 32,
+    h1: 36,
+    large: 48,
+    xl: 60,
+    xxl: 72,
   },
 
   lineHeights: {
-    small: '16px',
-    body: '20px',
+    small: '18px',
+    body: '21px',
     h6: '24px',
     h5: '24px',
     h4: '32px',
@@ -140,7 +140,7 @@ export const theme = {
     600: 600,
   },
 
-  fontFamily: '"Source Sans Pro var", sans-serif',
+  fontFamily: '"Inter var", sans-serif',
 
   radii: {
     none: 0,

@@ -17,7 +17,7 @@ export const ICON_MAP: Record<AlertVariant, IconType> = {
 };
 
 const shake = keyframes`
-   0%,
+  0%,
   100% {
     transform: translateX(0);
   }
@@ -106,7 +106,7 @@ interface AlertIconProps extends IconSolidProps {
 export const AlertIcon = styled(IconSolid)<AlertIconProps>(
   {
     position: 'absolute',
-    top: 16,
+    top: 18,
     left: 14,
   },
 

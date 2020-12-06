@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { theme } from '../../lib';
+import styled from '@emotion/styled/macro';
 
 const Card = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid ${theme.neutral200};
+  border: ${({ theme }) => `1px solid ${theme.colors.neutral['200']}`};
   border-radius: 8px;
   overflow: hidden;
-  color: ${theme.neutral700};
+  color: ${({ theme }) => `1px solid ${theme.colors.neutral['700']}`};
   width: 132px;
   height: 100px;
   margin-bottom: 24px;
@@ -25,8 +24,8 @@ const Icon = styled.div`
 `;
 
 const Label = styled.div`
-  color: ${theme.neutral500};
-  background: ${theme.neutral050};
+  color: ${({ theme }) => `1px solid ${theme.colors.neutral['500']}`};
+  background: ${({ theme }) => `1px solid ${theme.colors.neutral['50']}`};
   font-size: 14px;
   font-weight: 700;
   text-transform: lowercase;
@@ -49,7 +48,6 @@ const IconCard = ({ label, isLastInRow, children }) => {
 IconCard.defaultProps = {
   isLastInRow: false,
 };
-
 IconCard.propTypes = {
   label: PropTypes.string.isRequired,
   isLastInRow: PropTypes.bool,

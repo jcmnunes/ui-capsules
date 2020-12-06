@@ -5,6 +5,7 @@
   src: local('Hack'), local('Hack-Regular'), url('./fonts/hack-regular.woff') format('woff2'),
     url('./fonts/hack-regular.woff2') format('woff');
 }
+
 @font-face {
   font-family: 'Hack';
   font-style: normal;
@@ -14,20 +15,20 @@
 }
 
 @font-face {
-  font-family: 'Source Sans Pro var';
+  font-family: 'Inter var';
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url('./fonts/SourceSans3VF-Roman.ttf.woff2') format('woff2');
+  src: url('./fonts/Inter-roman.var.woff2?v=3.15') format('woff2');
 }
 @font-face {
-  font-family: 'Source Sans Pro var';
+  font-family: 'Inter var';
   font-weight: 100 900;
   font-display: swap;
   font-style: italic;
   font-named-instance: 'Italic';
-  src: url('./fonts/SourceSans3VF-Italic.ttf.woff2') format('woff2');
+  src: url('./fonts/Inter-italic.var.woff2?v=3.15') format('woff2');
 }
 
 /*
@@ -171,9 +172,9 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
-  font-family: 'Source Sans Pro var', sans-serif;
+  font-family: 'Inter var', sans-serif;
   height: 100%;
   color: #3e4c59;
 }
@@ -182,7 +183,7 @@ a {
   color: #3e4c59;
 }
 input {
-  font-family: 'Source Sans Pro var', sans-serif;
+  font-family: 'Inter var', sans-serif;
 }
 button {
   border: none;
