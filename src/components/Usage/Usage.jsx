@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Button, Tooltip } from '../../lib';
 import styled from '@emotion/styled/macro';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Button, Tooltip } from '../../lib';
 
 const Wrapper = styled.div`
   margin: 24px 0;
@@ -13,7 +13,7 @@ const StyledUsage = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: ${props => props.theme.neutral050};
+  background: ${props => props.theme.colors.neutral['50']};
   border-radius: 12px;
 `;
 
@@ -27,10 +27,10 @@ const Code = styled.pre`
 const Actions = styled.div`
   margin-top: 4px;
   padding: 0 8px 0;
-  color: ${props => props.theme.neutral400};
+  color: ${props => props.theme.colors.neutral['400']};
 
   &:hover {
-    color: ${props => props.theme.neutral700};
+    color: ${props => props.theme.colors.neutral['700']};
   }
 `;
 

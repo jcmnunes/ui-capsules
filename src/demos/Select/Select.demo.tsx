@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Select } from '../../lib';
+import { Select, DualSize, SelectOption } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, OPTIONS, SIZE_OPTS } from './Select.constants';
-import { DualSize, SelectOption } from '../../lib/types';
 
 const SelectDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[0]);

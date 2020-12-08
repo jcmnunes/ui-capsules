@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Checkbox, Input, Radio, Select } from '../../lib';
+import { Checkbox, Input, Radio, Select, ElementSize, SelectOption } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Radio.constants';
-import { ElementSize, SelectOption } from '../../lib/types';
 import { SIZE_OPTS, VARIANT_COLOR_OPTS } from '../common/selectOptions';
 import { ThemeColors } from '../../lib/theme';
 

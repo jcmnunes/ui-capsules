@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Select, Icon } from '../../lib';
+import { Select, Icon, IconType, SelectOption } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { useIconOpts } from './Icon.hooks';
 import { GITHUB_URL } from './Icon.constants';
-import { IconType, SelectOption } from '../../lib/types';
 
 const IconDemo = () => {
   const iconOpts = useIconOpts();

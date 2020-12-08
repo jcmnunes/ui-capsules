@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
+import { IconType, SelectOption } from '../../lib';
 import { icons } from '../../lib/Icon/Icon.constants';
-import { IconType, SelectOption } from '../../lib/types';
 
 export const useIconOpts = () =>
   useMemo(

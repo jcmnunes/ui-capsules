@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import { Box, BoxProps } from '../Box/Box';
 

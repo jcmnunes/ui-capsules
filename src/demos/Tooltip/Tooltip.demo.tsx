@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
+import { Tooltip, Button, Select, Input, Checkbox, SelectOption } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS, TRIGGER_OPTS } from './Tooltip.constants';
-import { Tooltip, Button, Select, Input, Checkbox } from '../../lib';
-import { SelectOption } from '../../lib/types';
 import { TooltipPlacementOptions, TooltipTriggerOptions } from '../../lib/Tooltip/Tooltip';
 
 const trigger2ButtonText = {

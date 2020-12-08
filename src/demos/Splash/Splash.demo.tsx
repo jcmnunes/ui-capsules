@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { Button, Checkbox, Input, Select, SelectOption, Splash } from '../../lib';
+import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, SPLASH_VARIANT_OPTS } from './Splash.constants';
 import { SplashVariant } from '../../lib/Splash/Splash';
 

@@ -7,8 +7,8 @@ import React, {
   Reducer,
   useReducer,
 } from 'react';
+import { IconButton } from '../IconButton/IconButton';
 import { ElementSize } from '../types';
-import { IconButton } from '..';
 import { Buttons, StyledEditableInput, StyledInput, Value, Text } from './EditableInput.styles';
 
 const initialState = {

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { typography, space, color, layout } from 'styled-system';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 import { ColorProps, SpaceProps, TypographyProps } from '../styledProps';

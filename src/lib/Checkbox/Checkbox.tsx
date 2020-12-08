@@ -32,7 +32,7 @@ export const Checkbox: FC<Props> = ({
         disabled={isDisabled}
       />
 
-      <CustomCheckbox size={size} disabled={isDisabled} />
+      <CustomCheckbox className="uic-custom-checkbox" size={size} disabled={isDisabled} />
     </Label>
   </Wrapper>
 );

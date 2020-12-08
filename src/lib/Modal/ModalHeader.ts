@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 
 export const ModalHeader = styled.div(({ theme }) => ({
   display: 'flex',

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 
 const StyledHead = styled.thead(({ theme }) => ({
   fontSize: `${theme.fontSizes.small}px`,

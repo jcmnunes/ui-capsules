@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Button, Input, Select, Toaster } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, TOAST_TYPE_OPTS } from './Toaster.constants';
-import { Button, Input, Select, Toaster } from '../../lib';
 
 const toastType2Appearance = {
   info: 'primary',

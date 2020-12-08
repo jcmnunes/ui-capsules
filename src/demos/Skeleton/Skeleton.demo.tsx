@@ -7,7 +7,7 @@ const SkeletonDemo = () => {
   const [circular, setCircular] = useState(false);
   const [width, setWidth] = useState('150px');
   const [height, setHeight] = useState('30px');
-  const [background, setBackground] = useState(theme.neutral100);
+  const [background, setBackground] = useState(theme.colors.neutral['100']);
 
   const Component = <Skeleton circular={circular} width={width} height={height} bg={background} />;
 

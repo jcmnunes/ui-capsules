@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Home from './components/Home/Home';
 import Alert from './demos/Alert/Alert.view';
 import Button from './demos/Button/Button.view';
@@ -33,7 +33,7 @@ const AppWrapper = styled.div`
 
 export const SidebarWrapper = styled.div`
   flex: 2;
-  background: ${props => props.theme.neutral050};
+  background: ${props => props.theme.colors.neutral['50']};
   display: flex;
   justify-content: flex-end;
 `;

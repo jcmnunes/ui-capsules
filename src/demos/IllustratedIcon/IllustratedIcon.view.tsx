@@ -1,4 +1,5 @@
 import React from 'react';
+import { IllustratedIcon, Anchor, IllustratedIconType } from '../../lib';
 import Demo from './IllustratedIcon.demo';
 import { illustratedIcons } from '../../lib/IllustratedIcon/IllustratedIcon.constants';
 import Usage from '../../components/Usage/Usage';
@@ -7,9 +8,7 @@ import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ILLUSTRATED_ICON_PROPS } from './IllustratedIcon.constants';
-import { IllustratedIcon, Anchor } from '../../lib';
 import IconCard from '../../components/IconCard/IconCard';
-import { IllustratedIconType } from '../../lib/types';
 
 const IllustratedIconView = () => {
   return (

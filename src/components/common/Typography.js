@@ -1,14 +1,14 @@
 import styled from '@emotion/styled/macro';
 
 export const Title = styled.h1`
-  color: ${props => props.theme.neutral800};
+  color: ${props => props.theme.colors.neutral['800']};
   font-size: 38px;
   font-weight: 700;
   margin-bottom: 32px;
 `;
 
 export const SubTitle = styled.h2`
-  color: ${props => props.theme.neutral800};
+  color: ${props => props.theme.colors.neutral['800']};
   font-size: 22px;
   font-weight: 700;
   margin-top: 32px;
@@ -24,7 +24,7 @@ export const SubSubTitle = styled.h3`
 `;
 
 export const Paragraph = styled.p`
-  color: ${props => props.theme.neutral600};
+  color: ${props => props.theme.colors.neutral['600']};
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;

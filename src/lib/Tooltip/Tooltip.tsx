@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import TooltipTrigger from 'react-popper-tooltip';
 
 export type TooltipPlacementOptions = 'bottom' | 'top' | 'right' | 'left' | 'auto';

@@ -1,4 +1,4 @@
-import { ElementSize } from '../../lib/types';
+import { ElementSize } from '../../lib';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/EditableInput/EditableInput.tsx';
