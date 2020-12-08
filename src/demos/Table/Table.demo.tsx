@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+  Checkbox,
+  Select,
+  AlignmentOptions,
+  SelectOption,
+} from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, TEXT_ALIGN_OPTS } from './Table.constants';
-import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '../../lib/Table';
-import { Checkbox, Select } from '../../lib';
-import { AlignmentOptions, SelectOption } from '../../lib/types';
 
 const TableDemo = () => {
   const [textAlign, setTextAlign] = useState(TEXT_ALIGN_OPTS[0]);

@@ -1,9 +1,8 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { Checkbox, IconButton, IconType, IconVariant, Select } from '../../lib';
+import { Checkbox, IconButton, IconType, IconVariant, Select, SelectOption } from '../../lib';
 import { GITHUB_URL } from './IconButton.constants';
-import { SelectOption } from '../../lib/types';
 import { ButtonSize, ButtonVariant } from '../../lib/Button/Button.styles';
 import { ThemeColors } from '../../lib/theme';
 import { useIconOpts } from '../Icon/Icon.hooks';
@@ -44,7 +43,7 @@ const IconButtonDemo = () => {
         </Checkbox>
 
         <Checkbox checked={disabled} onChange={() => setDisabled(!disabled)}>
-          <pre>isDisabled</pre>
+          <pre>disabled</pre>
         </Checkbox>
       </Booleans>
 

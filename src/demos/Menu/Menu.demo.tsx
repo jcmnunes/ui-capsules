@@ -1,10 +1,8 @@
 /* eslint-disable no-alert, no-console */
 import React, { useState } from 'react';
-import { Button, Menu, Icon, Select, Switch } from '../../lib';
+import { Button, Menu, MenuItem, Icon, Select, Switch, SelectOption } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS } from './Menu.constants';
-import { SelectOption } from '../../lib/types';
-import { MenuItem } from '../../lib/Menu/MenuItem';
 
 const MenuDemo = () => {
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);

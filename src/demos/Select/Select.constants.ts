@@ -1,4 +1,4 @@
-import { DualSize } from '../../lib/types';
+import { DualSize } from '../../lib';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Select/Select.tsx';

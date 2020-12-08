@@ -43,7 +43,7 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles> => ({
   option: (provided: React.CSSProperties, state) => ({
     ...provided,
     cursor: 'pointer',
-    color: theme.neutral600,
+    color: theme.colors.neutral['600'],
 
     // eslint-disable-next-line no-nested-ternary
     background: state.isSelected

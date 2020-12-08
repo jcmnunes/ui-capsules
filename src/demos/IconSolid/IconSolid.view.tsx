@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { Anchor, Box, Flex, Icon, IconSolidType, Input, Text, IconSolid } from '../../lib';
 import Demo from './IconSolid.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
@@ -6,10 +7,8 @@ import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ICON_PROPS } from './IconSolid.constants';
-import { Anchor, Box, Flex, Icon, IconSolidType, Input, Text } from '../../lib';
 import IconCard from '../../components/IconCard/IconCard';
 import { solidIcons } from '../../lib/IconSolid/IconSolid.constants';
-import { IconSolid } from '../../lib/IconSolid/IconSolid';
 
 const ButtonDemo = () => {
   const [iconFilter, iconFilterSet] = useState('');

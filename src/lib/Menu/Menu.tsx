@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
+import styled from '@emotion/styled';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { Manager, Popper, Reference } from 'react-popper';
-import styled from 'styled-components';
 import { Props as MenuItemProps } from './MenuItem';
 import { theme } from '../theme';
 
@@ -13,11 +13,12 @@ const Wrapper = styled.div`
 interface MenuProps {
   placement?: 'left' | 'right';
 }
+
 const StyledMenu = styled.div<MenuProps>`
   width: auto;
   min-width: 200px;
   border: 1px solid mistyrose;
-  border: 1px solid ${theme.neutral100};
+  border: 1px solid ${theme.colors.neutral['100']};
   border-radius: 4px;
   margin: 6px 0;
   padding: 4px 0;

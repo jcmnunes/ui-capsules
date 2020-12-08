@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 
 export const Row = styled.tr`
   &:nth-child(odd) {

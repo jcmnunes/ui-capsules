@@ -1,19 +1,25 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
-import { Select, IllustratedIcon, theme, Checkbox } from '../../lib';
+import {
+  Select,
+  IllustratedIcon,
+  theme,
+  Checkbox,
+  IllustratedIconType,
+  SelectOption,
+} from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { useIconOpts } from './IllustratedIcon.hooks';
 import { GITHUB_URL } from './IllustratedIcon.constants';
-import { IllustratedIconType, SelectOption } from '../../lib/types';
 
 const IllustratedIconDemo = () => {
   const iconOpts = useIconOpts();
   const [onClick, setOnClick] = useState(false);
   const [icon, setIcon] = useState(iconOpts[0]);
-  const [primaryColor, setPrimaryColor] = useState(theme.neutral200);
-  const [secondaryColor, setSecondaryColor] = useState(theme.neutral600);
-  const [primaryColorHover, setPrimaryColorHover] = useState(theme.neutral300);
-  const [secondaryColorHover, setSecondaryColorHover] = useState(theme.neutral700);
+  const [primaryColor, setPrimaryColor] = useState(theme.colors.neutral['200']);
+  const [secondaryColor, setSecondaryColor] = useState(theme.colors.neutral['600']);
+  const [primaryColorHover, setPrimaryColorHover] = useState(theme.colors.neutral['300']);
+  const [secondaryColorHover, setSecondaryColorHover] = useState(theme.colors.neutral['700']);
 
   const Component = (
     <IllustratedIcon

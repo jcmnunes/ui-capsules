@@ -6,7 +6,7 @@ import { ThemeColors } from '../theme';
 import { IconType, IconVariant } from '../types';
 import { icons } from '../Icon/Icon.constants';
 import { IconSolid } from '../IconSolid/IconSolid';
-import { Icon } from '..';
+import { Icon } from '../Icon/Icon';
 
 const anchorProps = {
   target: '_blank',

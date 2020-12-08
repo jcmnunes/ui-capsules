@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Spinner } from '../Spinner/Spinner';
 import { variant } from 'styled-system';
 import { ColorProps } from '../styledProps';

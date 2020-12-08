@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { ElementSize } from '../types';
 import { variant } from 'styled-system';
 import { LayoutProps, PaddingProps, TypographyProps } from '../styledProps';

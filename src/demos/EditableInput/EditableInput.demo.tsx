@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { EditableInput, Select, Input, Checkbox } from '../../lib';
+import { EditableInput, Select, Input, Checkbox, ElementSize, SelectOption } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { SIZE_OPTS, GITHUB_URL } from './EditableInput.constants';
-import { ElementSize, SelectOption } from '../../lib/types';
 
 const EditableInputDemo = () => {
   const [isReadonly, setIsReadonly] = useState(false);

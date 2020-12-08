@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, FC } from 'react';
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { margin } from 'styled-system';
 import { MarginProps } from '../styledProps';
 

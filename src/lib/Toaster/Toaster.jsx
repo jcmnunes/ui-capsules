@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { ToastProvider, withToastManager } from 'react-toast-notifications';
+import styled from '@emotion/styled';
+import { ToastProvider as RTNToastProvider, withToastManager } from 'react-toast-notifications';
 import { Icon } from '../Icon/Icon';
 import { theme } from '../theme';
 import { CloseButton } from '../CloseButton/CloseButton';
@@ -28,38 +28,38 @@ const transitionStates = placement => ({
 
 const colors = {
   error: {
-    background: theme.red500,
-    border: theme.red500,
-    ring: theme.red100,
-    ringBorder: theme.red500,
+    background: theme.colors.error['500'],
+    border: theme.colors.error['500'],
+    ring: theme.colors.error['100'],
+    ringBorder: theme.colors.error['500'],
     text: '#fff',
-    accentBorder: theme.red500,
-    icon: theme.red500,
+    accentBorder: theme.colors.error['500'],
+    icon: theme.colors.error['500'],
   },
   success: {
-    background: theme.green500,
-    border: theme.green500,
-    ring: theme.green100,
-    ringBorder: theme.green500,
+    background: theme.colors.success['500'],
+    border: theme.colors.success['500'],
+    ring: theme.colors.success['100'],
+    ringBorder: theme.colors.success['500'],
     text: '#fff',
-    accentBorder: theme.green500,
-    icon: theme.green500,
+    accentBorder: theme.colors.success['500'],
+    icon: theme.colors.success['500'],
   },
   warning: {
-    background: theme.yellow100,
-    border: theme.yellow300,
-    ring: theme.yellow500,
-    ringBorder: theme.yellow500,
-    text: theme.yellow700,
-    accentBorder: theme.yellow500,
+    background: theme.colors.warning['100'],
+    border: theme.colors.warning['300'],
+    ring: theme.colors.warning['500'],
+    ringBorder: theme.colors.warning['500'],
+    text: theme.colors.warning['700'],
+    accentBorder: theme.colors.warning['500'],
   },
   info: {
-    background: theme.blue100,
-    border: theme.blue300,
-    ring: theme.blue300,
-    ringBorder: theme.blue300,
-    text: theme.blue700,
-    accentBorder: theme.blue300,
+    background: theme.colors.info['100'],
+    border: theme.colors.info['300'],
+    ring: theme.colors.info['300'],
+    ringBorder: theme.colors.info['300'],
+    text: theme.colors.info['700'],
+    accentBorder: theme.colors.info['300'],
   },
 };
 
@@ -327,18 +327,18 @@ Toaster.propTypes = {
   }).isRequired,
 };
 
-export const WithToasts = ({ children }) => {
+export const ToastProvider = ({ children }) => {
   const EnhancedToaster = withToastManager(Toaster);
 
   return (
-    <ToastProvider components={{ Toast }} placement="bottom-right">
+    <RTNToastProvider components={{ Toast }} placement="bottom-right">
       {children}
       <EnhancedToaster />
-    </ToastProvider>
+    </RTNToastProvider>
   );
 };
 
-WithToasts.propTypes = {
+ToastProvider.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({

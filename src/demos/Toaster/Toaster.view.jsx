@@ -5,13 +5,13 @@ import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import { Anchor } from '../../lib';
 
-const usage = `// Wrap your App component with WithToasts
-import { WithToasts } from '@binarycapsule/ui-capsules';
+const usage = `// Wrap your App component with ToastProvider
+import { ToastProvider } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
-  <WithToasts>
+  <ToastProvider>
     <App />
-  </WithToasts>,
+  </ToastProvider>,
   document.getElementById('root'),
 );
 
@@ -40,11 +40,11 @@ const ToasterDemo = () => {
         </Anchor>{' '}
         package.
       </Paragraph>
+
       <SubTitle>Usage</SubTitle>
       <Usage>{usage}</Usage>
+
       <Demo />
-      {/* <SubTitle>Props</SubTitle> */}
-      {/* <PropsTable props={SELECT_PROPS} /> */}
     </Wrapper>
   );
 };

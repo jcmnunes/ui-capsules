@@ -1,10 +1,10 @@
 import React from 'react';
+import { Anchor } from '../../lib';
 import Demo from './Dialog.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubSubTitle, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
-import { Anchor } from '../../lib';
 import { PROPS } from './Dialog.constants';
 import { setAppElementExample } from '../../components/Home/Home';
 

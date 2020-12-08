@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const StyledSidebar = styled.div`
@@ -7,30 +7,32 @@ export const StyledSidebar = styled.div`
   padding: 48px 24px;
 `;
 
-export const SidebarLink = styled(NavLink).attrs({ activeClassName: 'active' })`
+export const StyledSidebarLink = styled(NavLink)`
   font-size: 14px;
   font-weight: 500;
   height: 32px;
   border-radius: 4px;
-  background: ${props => props.theme.neutral050};
-  color: ${props => props.theme.neutral600};
+  background: ${props => props.theme.colors.neutral['50']};
+  color: ${props => props.theme.colors.neutral['600']};
   cursor: pointer;
   padding: 4px 12px;
 
   &:hover {
-    background: ${props => props.theme.neutral075};
+    background: ${props => props.theme.colors.neutral['100']};
   }
 
   &.active {
-    background: ${props => props.theme.neutral075};
+    background: ${props => props.theme.colors.neutral['100']};
     font-weight: 600;
-    color: ${props => props.theme.pink700};
+    color: ${props => props.theme.colors.pink['700']};
 
     &:hover {
-      background: ${props => props.theme.neutral075};
+      background: ${props => props.theme.colors.neutral['100']};
     }
   }
 `;
+
+export const SidebarLink = props => <StyledSidebarLink activeClassName="active" {...props} />;
 
 export const GroupHeading = styled.h2`
   text-transform: uppercase;

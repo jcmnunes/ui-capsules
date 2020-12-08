@@ -1,11 +1,11 @@
 import React from 'react';
+import { Anchor } from '../../lib';
 import Demo from './Switch.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { SWITCH_PROPS } from './Switch.constants';
-import { Anchor } from '../../lib';
 
 const ButtonDemo = () => {
   return (

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { ElementSize } from '../types';
 import { ThemeColors } from '../theme';
 import { PositionProps, variant } from 'styled-system';
@@ -143,14 +143,14 @@ export const StyledInput = styled.input<StyledInputProps>`
   width: 0;
 
   &:focus {
-    & ~ ${CustomCheckbox} {
+    & ~ .uic-custom-checkbox {
       outline: none;
       box-shadow: ${({ theme }) => `0 0 0 3px ${theme.colors.primary['200']}`};
     }
   }
 
   &:checked {
-    & ~ ${CustomCheckbox} {
+    & ~ .uic-custom-checkbox {
       background-color: ${({ theme, variantColor }) =>
         theme.colors[variantColor as keyof typeof theme.colors]['400']};
       border-color: ${({ theme, variantColor }) =>
@@ -162,7 +162,7 @@ export const StyledInput = styled.input<StyledInputProps>`
     }
 
     &:disabled {
-      & ~ ${CustomCheckbox} {
+      & ~ .uic-custom-checkbox {
         opacity: 0.5;
       }
     }

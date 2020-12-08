@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import { theme, ThemeColors } from '../theme';
 import { ElementSize } from '../types';

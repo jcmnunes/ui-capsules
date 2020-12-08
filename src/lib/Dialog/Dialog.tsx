@@ -1,6 +1,12 @@
 import React, { FC, MouseEvent } from 'react';
 import ReactModal from 'react-modal';
-import { Button, Modal, ModalBody, ModalCloseButton, ModalFooter, ModalHeader, Text } from '..';
+import { Button } from '../Button/Button';
+import { Modal } from '../Modal/Modal';
+import { ModalBody } from '../Modal/ModalBody';
+import { ModalCloseButton } from '../Modal/ModalCloseButton';
+import { ModalFooter } from '../Modal/ModalFooter';
+import { ModalHeader } from '../Modal/ModalHeader';
+import { Text } from '../Text/Text';
 
 type ActionAppearance = 'primary' | 'neutral' | 'error';
 

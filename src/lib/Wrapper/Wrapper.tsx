@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { margin } from 'styled-system';
 import React from 'react';
 import { MarginProps } from '../styledProps';

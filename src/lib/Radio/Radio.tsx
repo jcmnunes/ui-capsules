@@ -33,7 +33,7 @@ export const Radio: FC<Props> = ({
           {...rest}
         />
 
-        <CustomRadio size={size} disabled={disabled} />
+        <CustomRadio className="uic-custom-radio" size={size} disabled={disabled} />
       </Label>
     </Wrapper>
   );

@@ -1,7 +1,16 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import React, { FC } from 'react';
-import { IconButton } from '..';
+import { IconButton } from '../IconButton/IconButton';
+
+const StyledIconButton = styled(IconButton)({
+  position: 'absolute',
+  top: 24,
+  right: 24,
+
+  '&:hover': {
+    background: 'transparent',
+  },
+});
 
 interface Props {
   size?: 'small' | 'medium';
@@ -10,21 +19,12 @@ interface Props {
 
 export const ModalCloseButton: FC<Props> = ({ size, onClick }) => {
   return (
-    <IconButton
+    <StyledIconButton
       variant="ghost"
       variantColor="neutral"
       size={size}
       icon="x"
       onClick={onClick}
-      css={css`
-        position: absolute;
-        top: 24px;
-        right: 24px;
-
-        &:hover {
-          background: transparent;
-        }
-      `}
     />
   );
 };

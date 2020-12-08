@@ -1,10 +1,9 @@
 import React from 'react';
+import { Anchor, Button, Alert } from '../../lib';
 import styled from '@emotion/styled/macro';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
-import { Anchor, Button } from '../../lib';
-import { Alert } from '../../lib/Alert/Alert';
 
 export const Description = styled.div`
   display: flex;
@@ -24,6 +23,18 @@ setAppElement('#root');
 
 ReactDOM.render(
   <App />,
+  document.getElementById('root'),
+);
+`;
+
+export const providersExample = `import { ToastProvider, ThemeProvider, theme } from '@binarycapsule/ui-capsules';
+
+ReactDOM.render(
+  <ThemeProvider theme={theme}>
+    <ToastProvider>
+      <App />
+    </ToastProvider>
+  </ThemeProvider>,
   document.getElementById('root'),
 );
 `;
@@ -53,6 +64,12 @@ const Home = () => (
       <StyledParagraph>UI-Capsules is available at npm. To add it to your app run:</StyledParagraph>
       <Usage>npm i @binarycapsule/ui-capsules</Usage>
 
+      <StyledParagraph>The following peer dependencies should also be installed:</StyledParagraph>
+      <Usage>
+        npm i react react-dom @emotion/react @emotion/styled styled-system
+        @styled-system/should-forward-prop @types/styled-system
+      </Usage>
+
       <SubTitle>Setup</SubTitle>
 
       <StyledParagraph>
@@ -69,6 +86,9 @@ const Home = () => (
         :
       </StyledParagraph>
       <Usage>{setAppElementExample}</Usage>
+
+      <StyledParagraph>Wrap your app in the Theme and Toasts providers:</StyledParagraph>
+      <Usage>{providersExample}</Usage>
     </div>
   </Wrapper>
 );

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Input, Select } from '../../lib';
+import { Input, Select, Alert, SelectOption } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, VARIANT_OPTS } from './Alert.constants';
-import { SelectOption } from '../../lib/types';
-import { Alert } from '../../lib/Alert/Alert';
 import { AlertVariant } from '../../lib/Alert/Alert.styles';
 
 const AlertDemo = () => {

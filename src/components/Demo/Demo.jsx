@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button, theme } from '../../lib';
 import styled from '@emotion/styled/macro';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Usage from '../Usage/Usage';
-import { Button, theme } from '../../lib';
 import { SubSubTitle, SubTitle } from '../common/Typography';
 
 export const Booleans = styled.div`
@@ -33,7 +33,7 @@ export const DemoWrapper = styled.div`
 
 export const Display = styled.div`
   flex: 1;
-  background: ${props => (props.isDark ? theme.neutral400 : 'white')};
+  background: ${props => (props.isDark ? theme.colors.neutral['400'] : 'white')};
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -62,11 +62,11 @@ const Actions = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: ${props => props.theme.neutral400};
+  color: ${props => props.theme.colors.neutral['400']};
   margin-bottom: 12px;
 
   &:hover {
-    color: ${props => props.theme.neutral700};
+    color: ${props => props.theme.colors.neutral['700']};
   }
 `;
 

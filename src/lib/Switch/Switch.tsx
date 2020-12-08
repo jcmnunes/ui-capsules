@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import RSwitch from 'react-switch';
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import { ThemeColors } from '../theme';
 import { ElementSize } from '../types';

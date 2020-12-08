@@ -22,6 +22,7 @@
     "types": "tsc -p tsconfig.json",
     "build": "npm run clean && tsc -p tsconfig.prod.json && cp -rf src/lib/styles assets",
     "validate": "npm-run-all --parallel types format lint build",
+    "pack": "npm run build && npm pack",
     "semantic-release": "semantic-release",
     "commit": "git-cz"
   },
@@ -35,20 +36,14 @@
     "*.+(js|jsx|ts|tsx|json|md)": "prettier --write"
   },
   "dependencies": {
-    "@emotion/react": "^11.0.0",
-    "@emotion/styled": "^11.0.0",
     "@popperjs/core": "^2.5.4",
     "downshift": "^6.0.6",
-    "focus-visible": "^5.2.0",
-    "react-copy-to-clipboard": "^5.0.2",
     "react-modal": "^3.11.2",
     "react-popper": "^2.2.4",
     "react-popper-tooltip": "^3.1.1",
     "react-select": "^3.1.0",
     "react-switch": "^5.0.1",
-    "react-toast-notifications": "^2.4.0",
-    "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5"
+    "react-toast-notifications": "^2.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -58,6 +53,8 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/preset-typescript": "^7.12.1",
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
     "@styled-system/should-forward-prop": "^5.1.5",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
@@ -69,12 +66,10 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/react-select": "^3.0.23",
     "@types/react-toast-notifications": "^2.4.0",
-    "@types/styled-components": "^5.1.4",
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__should-forward-prop": "^5.1.2",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "@typescript-eslint/parser": "^4.6.1",
-    "babel-plugin-styled-components": "^1.11.1",
     "babel-preset-react-app": "^10.0.0",
     "commitizen": "^4.2.2",
     "csstype": "^3.0.4",
@@ -87,23 +82,29 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.0",
-    "jest-styled-components": "^7.0.3",
     "lint-staged": "^10.5.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^17.0.1",
     "react-element-to-jsx-string": "^14.3.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
-    "semantic-release": "^17.2.2",
+    "semantic-release": "^17.3.0",
+    "styled-system": "^5.1.5",
     "typescript": "^4.0.5"
   },
   "peerDependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "@emotion/react": "^11.1.2",
+    "@emotion/styled": "^11.0.0",
+    "@styled-system/should-forward-prop": "^5.1.5",
+    "@types/styled-system": "^5.1.10",
+    "styled-system": "^5.1.5"
   },
   "browserslist": {
     "production": [

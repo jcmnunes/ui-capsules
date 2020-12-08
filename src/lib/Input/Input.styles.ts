@@ -1,9 +1,9 @@
-import styled from '@emotion/styled/macro';
-import { Wrapper } from '../Wrapper/Wrapper';
+import styled from '@emotion/styled';
 import { PositionProps, variant } from 'styled-system';
+import shouldForwardProp from '@styled-system/should-forward-prop';
+import { Wrapper } from '../Wrapper/Wrapper';
 import { LayoutProps, MarginProps, PaddingProps, TypographyProps } from '../styledProps';
 import { ElementSize, IconType } from '../types';
-import shouldForwardProp from '@styled-system/should-forward-prop';
 import { Props as IconProps } from '../Icon/Icon';
 
 export const InputWrapper = styled(Wrapper)({
@@ -129,6 +129,7 @@ export const Error = styled.div<ErrorProps>(
     alignItems: 'center',
     margin: '0 4px',
   }),
+
   variant<TypographyProps & MarginProps, ElementSize>({
     prop: 'size',
     variants: {

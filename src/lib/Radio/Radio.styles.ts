@@ -1,4 +1,4 @@
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { ElementSize } from '../types';
 import { PositionProps, variant } from 'styled-system';
 import { LayoutProps, PaddingProps, PropsWithPseudo, TypographyProps } from '../styledProps';
@@ -124,14 +124,14 @@ export const StyledInput = styled.input<StyledInputProps>`
   width: 0;
 
   &:focus {
-    & ~ ${CustomRadio} {
+    & ~ .uic-custom-radio {
       outline: none;
       box-shadow: ${({ theme }) => `0 0 0 3px ${theme.colors.primary['200']}`};
     }
   }
 
   &:checked {
-    ~ ${CustomRadio} {
+    ~ .uic-custom-radio {
       background-color: ${({ theme, variantColor }) =>
         theme.colors[variantColor as keyof typeof theme.colors]['400']};
       border-color: ${({ theme, variantColor }) =>
@@ -143,7 +143,7 @@ export const StyledInput = styled.input<StyledInputProps>`
     }
 
     &:disabled {
-      & ~ ${CustomRadio} {
+      & ~ .uic-custom-radio {
         opacity: 0.5;
       }
     }

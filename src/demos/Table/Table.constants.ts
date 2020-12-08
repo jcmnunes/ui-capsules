@@ -1,4 +1,4 @@
-import { AlignmentOptions } from '../../lib/types';
+import { AlignmentOptions } from '../../lib';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Table/Table.ts';

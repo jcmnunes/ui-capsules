@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { IconSolidType, Select } from '../../lib';
+import { IconSolidType, Select, SelectOption, IconSolid } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { useIconSolidOpts } from './IconSolid.hooks';
 import { GITHUB_URL } from './IconSolid.constants';
-import { SelectOption } from '../../lib/types';
-import { IconSolid } from '../../lib/IconSolid/IconSolid';
 
 const IconSolidDemo = () => {
   const iconOpts = useIconSolidOpts();

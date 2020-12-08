@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { Checkbox, IconVariant, Input, Select } from '../../lib';
+import {
+  Button,
+  Checkbox,
+  IconVariant,
+  Input,
+  Select,
+  ElementSize,
+  IconType,
+  SelectOption,
+} from '../../lib';
 import { GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
-import { ElementSize, IconType, SelectOption } from '../../lib/types';
-import { Button } from '../../lib/Button/Button';
 import { ButtonVariant } from '../../lib/Button/Button.styles';
 import { ThemeColors } from '../../lib/theme';
 import {

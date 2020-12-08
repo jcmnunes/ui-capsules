@@ -7,9 +7,8 @@ import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ICON_PROPS } from './Icon.constants';
-import { Icon, Anchor } from '../../lib';
+import { Icon, Anchor, IconType } from '../../lib';
 import IconCard from '../../components/IconCard/IconCard';
-import { IconType } from '../../lib/types';
 
 const ButtonDemo = () => {
   return (

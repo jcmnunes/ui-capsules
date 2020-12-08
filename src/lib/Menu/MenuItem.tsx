@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled/macro';
+import styled from '@emotion/styled';
 import { Flex } from '../Flex/Flex';
 import { Text } from '../Text/Text';
 import { Box, BoxProps } from '../Box/Box';
