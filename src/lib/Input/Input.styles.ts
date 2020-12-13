@@ -40,9 +40,9 @@ export const IconWrapper = styled.div<IconWrapperProps>(
           right: position === 'left' ? 'auto' : 8,
         },
         large: {
-          top: 12,
-          left: position === 'left' ? 13 : 'auto',
-          right: position === 'left' ? 'auto' : 13,
+          top: 8,
+          left: position === 'left' ? 8 : 'auto',
+          right: position === 'left' ? 'auto' : 8,
         },
       },
     }),
@@ -107,10 +107,10 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
         },
 
         large: {
-          height: 48,
+          height: 40,
           fontSize: 'h6',
-          pr: rightIcon ? 46 : 12,
-          pl: leftIcon ? 46 : 12,
+          pr: rightIcon ? 38 : 12,
+          pl: leftIcon ? 38 : 12,
         },
       },
     }),
