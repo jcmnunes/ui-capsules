@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Checkbox, Input, Select, ElementSize, SelectOption } from '../../lib';
+import { Checkbox, ElementSize, Input, Select, SelectOption, VariantColor } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, SIZE_OPTS } from './Checkbox.constants';
 import { VARIANT_COLOR_OPTS } from '../common/selectOptions';
-import { ThemeColors } from '../../lib/theme';
 
 const CheckboxDemo = () => {
   const [checked, setChecked] = useState(false);
@@ -58,7 +57,7 @@ const CheckboxDemo = () => {
           <Select
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
+            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
           />
         </div>
       </Inputs>

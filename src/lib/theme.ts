@@ -107,8 +107,6 @@ export const theme = {
 
 export type UICTheme = typeof theme;
 
-export type ThemeColors = Omit<keyof typeof theme.colors, 'bg' | 'fg' | 'white' | 'black'>;
-
 declare module '@emotion/react' {
   export interface Theme extends UICTheme {}
 }
