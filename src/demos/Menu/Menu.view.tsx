@@ -27,6 +27,12 @@ const MenuView = () => {
           <code>helperText</code>: &quot;string&quot; - An optional helper text
         </li>
         <li>
+          <code>leftIcon</code>: &quot;string&quot; - An icon to render before text
+        </li>
+        <li>
+          <code>rightIcon</code>: &quot;string&quot; - An icon to render after the text
+        </li>
+        <li>
           <code>leftAddon</code>: &quot;React Element&quot; - An addon to render before the text
         </li>
         <li>

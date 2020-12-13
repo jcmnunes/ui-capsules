@@ -1,6 +1,6 @@
 /* eslint-disable no-alert, no-console */
 import React, { useState } from 'react';
-import { Button, Menu, MenuItem, Icon, Select, Switch, SelectOption } from '../../lib';
+import { Button, Icon, Menu, MenuItem, Select, SelectOption, Switch } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, PLACEMENT_OPTS } from './Menu.constants';
 
@@ -15,11 +15,7 @@ const MenuDemo = () => {
 
   const Component = (
     <Menu trigger={Trigger} placement={placement.value}>
-      <MenuItem
-        text="Hello World"
-        onClick={() => console.log('Hello there 1')}
-        leftAddon={<Icon icon="search" size="18px" />}
-      />
+      <MenuItem text="Hello World" onClick={() => console.log('Hello there 1')} leftIcon="search" />
 
       <MenuItem
         text="Hello World 2"
@@ -30,7 +26,12 @@ const MenuDemo = () => {
         closeOnAction={false}
       />
 
-      <MenuItem text="Hello World 3" onClick={() => console.log('Hello there 3')} isLoading />
+      <MenuItem
+        text="Hello World 3"
+        onClick={() => console.log('Hello there 3')}
+        isLoading
+        closeOnAction={false}
+      />
     </Menu>
   );
 
