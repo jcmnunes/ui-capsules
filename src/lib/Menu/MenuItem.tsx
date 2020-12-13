@@ -63,7 +63,3 @@ export const MenuItem: React.FC<Props> = ({
 };
 
 MenuItem.displayName = 'MenuItem';
-MenuItem.defaultProps = {
-  closeOnAction: false,
-  highlighted: false,
-};
