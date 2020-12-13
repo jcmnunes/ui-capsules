@@ -18,10 +18,6 @@ export const Text = styled('div', { shouldForwardProp })<TextProps>(
     lineHeight: theme.lineHeights[fontSize!],
     textTransform,
     textAlign,
-    '& strong': {
-      color: 'inherit',
-      fontWeight: 600,
-    },
   }),
 );
 
