@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import { ThemeColors } from '../theme';
-import { ElementSize } from '../types';
+import { ElementSize, VariantColor } from '../types';
 import { MarginProps } from '../styledProps';
 import { CustomRadio, Label, StyledInput } from './Radio.styles';
 import { Wrapper } from '../Wrapper/Wrapper';
 
 interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, MarginProps {
-  variantColor?: ThemeColors;
+  variantColor?: VariantColor;
   size?: ElementSize;
 }
 

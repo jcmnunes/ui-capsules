@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
-import { ElementSize } from '../types';
+import { ElementSize, VariantColor } from '../types';
 import { PositionProps, variant } from 'styled-system';
 import { LayoutProps, PaddingProps, PropsWithPseudo, TypographyProps } from '../styledProps';
-import { ThemeColors } from '../theme';
 
 interface LabelProps {
   size: ElementSize;
@@ -113,7 +112,7 @@ export const CustomRadio = styled.span<CustomRadioProps>(
 );
 
 interface StyledInputProps {
-  variantColor: ThemeColors;
+  variantColor: VariantColor;
 }
 
 export const StyledInput = styled.input<StyledInputProps>`

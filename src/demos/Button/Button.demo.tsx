@@ -3,17 +3,17 @@ import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import {
   Button,
   Checkbox,
+  ElementSize,
+  IconType,
   IconVariant,
   Input,
   Select,
-  ElementSize,
-  IconType,
   SelectOption,
+  VariantColor,
 } from '../../lib';
 import { GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
 import { ButtonVariant } from '../../lib/Button/Button.styles';
-import { ThemeColors } from '../../lib/theme';
 import {
   ICON_VARIANT_OPTS,
   SIZE_OPTS,
@@ -95,7 +95,7 @@ const ButtonDemo = () => {
           <Select
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
+            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
           />
         </div>
 

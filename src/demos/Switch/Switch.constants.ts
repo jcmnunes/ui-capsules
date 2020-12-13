@@ -40,7 +40,7 @@ export const SWITCH_PROPS: PropsDoc[] = [
   {
     name: 'variantColor',
     isRequired: false,
-    type: 'ThemeColors',
+    type: 'VariantColor',
     defaultValue: 'primary',
     description: 'The color of the Switch.',
   },

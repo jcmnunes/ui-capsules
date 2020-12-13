@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { ElementSize } from '../types';
-import { ThemeColors } from '../theme';
+import { ElementSize, VariantColor } from '../types';
 import { PositionProps, variant } from 'styled-system';
 import {
   BorderProps,
@@ -55,7 +54,7 @@ export const Label = styled.label<LabelProps>(
 );
 
 interface StyledInputProps {
-  variantColor: ThemeColors;
+  variantColor: VariantColor;
 }
 
 interface CustomCheckboxProps {

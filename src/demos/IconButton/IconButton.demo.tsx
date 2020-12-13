@@ -1,10 +1,17 @@
 /* eslint-disable no-alert */
 import React, { useState } from 'react';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { Checkbox, IconButton, IconType, IconVariant, Select, SelectOption } from '../../lib';
+import {
+  Checkbox,
+  IconButton,
+  IconType,
+  IconVariant,
+  Select,
+  SelectOption,
+  VariantColor,
+} from '../../lib';
 import { GITHUB_URL } from './IconButton.constants';
 import { ButtonSize, ButtonVariant } from '../../lib/Button/Button.styles';
-import { ThemeColors } from '../../lib/theme';
 import { useIconOpts } from '../Icon/Icon.hooks';
 import {
   ICON_VARIANT_OPTS,
@@ -71,7 +78,7 @@ const IconButtonDemo = () => {
           <Select
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
+            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
           />
         </div>
 
