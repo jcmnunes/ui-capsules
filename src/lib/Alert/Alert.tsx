@@ -5,11 +5,7 @@ import { Text } from '../Text/Text';
 import { Button } from '../Button/Button';
 import { AlertIcon, AlertVariant, AlertWrapper, ICON_MAP, StyledAlert } from './Alert.styles';
 import { CloseButton } from '../CloseButton/CloseButton';
-
-type Action = {
-  text: string;
-  action(): void;
-};
+import { Action } from '../types';
 
 export interface Props extends WrapperProps {
   title?: string;
@@ -45,8 +41,8 @@ export const Alert: React.FC<Props> = ({
 
           {actions && (
             <Box display="flex" mt="8">
-              {actions.map(({ text, action }) => (
-                <Button key={text} variant="link" variantColor={variant} onClick={action} mr="16">
+              {actions.map(({ text, onClick }) => (
+                <Button key={text} variant="link" variantColor={variant} onClick={onClick} mr="16">
                   {text}
                 </Button>
               ))}
@@ -55,7 +51,7 @@ export const Alert: React.FC<Props> = ({
         </Box>
 
         {extraAction && (
-          <Button key={extraAction.text} variant="link" onClick={extraAction.action} ml="16">
+          <Button key={extraAction.text} variant="link" onClick={extraAction.onClick} ml="16">
             {`${extraAction.text} →`}
           </Button>
         )}

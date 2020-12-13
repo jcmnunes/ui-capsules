@@ -31,7 +31,7 @@ const AlertDemo = () => {
             message="Etiam porta sem malesuada magna mollis euismod."
             extraAction={{
               text: 'Extra action',
-              action() {
+              onClick() {
                 alert('Extra action');
               },
             }}
@@ -39,13 +39,13 @@ const AlertDemo = () => {
             actions={[
               {
                 text: 'Action 1',
-                action() {
+                onClick() {
                   alert('Action 1');
                 },
               },
               {
                 text: 'Action 2',
-                action() {
+                onClick() {
                   alert('Action 2');
                 },
               },

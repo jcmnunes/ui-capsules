@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEvent } from 'react';
 import { illustratedIcons } from './IllustratedIcon.constants';
 import { IllustratedIconType } from '../types';
 import { MarginProps } from '../styledProps';
@@ -6,7 +6,7 @@ import { IllustratedIconWrapper } from './IllustratedIcon.styles';
 
 interface Props extends MarginProps {
   icon: IllustratedIconType;
-  onClick?(event?: React.MouseEvent<HTMLButtonElement>): void;
+  onClick?(e: MouseEvent<HTMLButtonElement>): void;
   size?: string;
   primaryColor?: string;
   secondaryColor?: string;

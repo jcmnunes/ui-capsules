@@ -1,5 +1,5 @@
+import React, { FC, MouseEvent } from 'react';
 import styled from '@emotion/styled';
-import React, { FC } from 'react';
 import { IconButton } from '../IconButton/IconButton';
 
 const StyledIconButton = styled(IconButton)({
@@ -14,7 +14,7 @@ const StyledIconButton = styled(IconButton)({
 
 interface Props {
   size?: 'small' | 'medium';
-  onClick(event?: React.MouseEvent<HTMLButtonElement>): void;
+  onClick(e: MouseEvent<HTMLButtonElement>): void;
 }
 
 export const ModalCloseButton: FC<Props> = ({ size, onClick }) => {
