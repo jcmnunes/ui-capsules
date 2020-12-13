@@ -14,7 +14,7 @@ const StyledIconButton = styled(IconButton)({
 
 interface Props {
   size?: 'small' | 'medium';
-  onClick(): void;
+  onClick(event?: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 export const ModalCloseButton: FC<Props> = ({ size, onClick }) => {

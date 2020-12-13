@@ -32,7 +32,7 @@ const StyledMenu = styled.div<MenuProps>`
 interface Item {
   name: string;
   closeOnAction: boolean;
-  onClick(): void;
+  onClick(event?: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<Item>) => {
