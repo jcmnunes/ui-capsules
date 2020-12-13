@@ -29,6 +29,8 @@ const MenuDemo = () => {
         onClick={() => console.log('Hello there 2')}
         closeOnAction={false}
       />
+
+      <MenuItem text="Hello World 3" onClick={() => console.log('Hello there 3')} isLoading />
     </Menu>
   );
 
