@@ -2,8 +2,7 @@ import React from 'react';
 import { Spinner } from '../Spinner/Spinner';
 import { MarginProps } from '../styledProps';
 import { ButtonIcon, ButtonSize, ButtonText, ButtonVariant, StyledButton } from './Button.styles';
-import { ThemeColors } from '../theme';
-import { IconType, IconVariant } from '../types';
+import { IconType, IconVariant, VariantColor } from '../types';
 import { icons } from '../Icon/Icon.constants';
 import { IconSolid } from '../IconSolid/IconSolid';
 import { Icon } from '../Icon/Icon';
@@ -15,7 +14,7 @@ const anchorProps = {
 
 export interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginProps {
   variant?: ButtonVariant;
-  variantColor?: ThemeColors;
+  variantColor?: VariantColor;
   size?: ButtonSize;
   isLoading?: boolean;
   leftIcon?: keyof typeof icons | string;

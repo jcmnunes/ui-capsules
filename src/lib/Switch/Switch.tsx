@@ -2,8 +2,7 @@ import React, { FC } from 'react';
 import RSwitch from 'react-switch';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
-import { ThemeColors } from '../theme';
-import { ElementSize } from '../types';
+import { ElementSize, VariantColor } from '../types';
 
 const Label = styled.label`
   display: flex;
@@ -43,7 +42,7 @@ interface Props {
   disabled?: boolean;
   children?: string;
   size?: ElementSize;
-  variantColor?: ThemeColors;
+  variantColor?: VariantColor;
 }
 
 export const Switch: FC<Props> = ({

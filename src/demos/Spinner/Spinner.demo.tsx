@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Select, Spinner, ElementSize, SelectOption } from '../../lib';
+import { ElementSize, Select, SelectOption, Spinner, VariantColor } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Spinner.constants';
 import { SIZE_OPTS, VARIANT_COLOR_OPTS } from '../common/selectOptions';
-import { ThemeColors } from '../../lib/theme';
 
 const SpinnerDemo = () => {
   const [size, setSize] = useState(SIZE_OPTS[1]);
@@ -30,7 +29,7 @@ const SpinnerDemo = () => {
           <Select
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<ThemeColors>)}
+            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
           />
         </div>
       </Inputs>

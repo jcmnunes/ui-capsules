@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
-import { ElementSize } from '../types';
+import { ElementSize, VariantColor } from '../types';
 import { CustomCheckbox, Label, StyledInput } from './Checkbox.styles';
-import { ThemeColors } from '../theme';
 import { Wrapper, WrapperProps } from '../Wrapper/Wrapper';
 
 interface Props extends WrapperProps {
   checked: boolean;
   isDisabled?: boolean;
-  variantColor?: ThemeColors;
+  variantColor?: VariantColor;
   size?: ElementSize;
 }
 

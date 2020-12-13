@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
-import { theme, ThemeColors } from '../theme';
-import { ElementSize } from '../types';
+import { theme } from '../theme';
+import { ElementSize, VariantColor } from '../types';
 import { Box, BoxProps } from '../Box/Box';
 import { variant } from 'styled-system';
 import { LayoutProps } from '../styledProps';
@@ -14,7 +14,7 @@ const spin = keyframes`
 
 interface SpinnerProps extends BoxProps {
   size?: ElementSize;
-  variantColor?: ThemeColors;
+  variantColor?: VariantColor;
 }
 
 export const Spinner = styled(Box)<SpinnerProps>(

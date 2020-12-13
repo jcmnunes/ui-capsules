@@ -1,6 +1,6 @@
-import { ElementSize, IconVariant } from '../../lib';
+import { ElementSize, IconVariant, VariantColor } from '../../lib';
 import { ButtonVariant } from '../../lib/Button/Button.styles';
-import { theme, ThemeColors } from '../../lib/theme';
+import { theme } from '../../lib/theme';
 
 export const VARIANT_OPTS: { label: string; value: ButtonVariant }[] = [
   { value: 'solid', label: 'solid' },
@@ -11,9 +11,11 @@ export const VARIANT_OPTS: { label: string; value: ButtonVariant }[] = [
 
 const colorsBlackList = ['bg', 'fg', 'white', 'black'];
 
-export const VARIANT_COLOR_OPTS: { label: string; value: ThemeColors }[] = Object.keys(theme.colors)
+export const VARIANT_COLOR_OPTS: { label: string; value: VariantColor }[] = Object.keys(
+  theme.colors,
+)
   .filter(color => !colorsBlackList.includes(color))
-  .map(color => ({ value: color, label: color }));
+  .map(color => ({ value: color as VariantColor, label: color }));
 
 export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
   { value: 'small', label: 'small' },

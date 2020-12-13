@@ -10,7 +10,7 @@ import {
   PropsWithPseudo,
   TypographyProps,
 } from '../styledProps';
-import { ThemeColors } from '../theme';
+import { VariantColor } from '../types';
 
 const LINK_COLOR_MAP: Record<string, string> = {
   info: 'info.500',
@@ -27,7 +27,7 @@ export type Pseudo = '&:hover' | '&:focus' | '&:active' | '&:disabled';
 export interface StyledButtonProps extends MarginProps {
   variant: ButtonVariant;
   size: ButtonSize;
-  variantColor: ThemeColors;
+  variantColor: VariantColor;
   disabled?: boolean;
 }
 

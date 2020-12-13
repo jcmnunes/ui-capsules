@@ -3,11 +3,24 @@ import { illustratedIcons } from './IllustratedIcon/IllustratedIcon.constants';
 import { theme } from './theme';
 import { solidIcons } from './IconSolid/IconSolid.constants';
 
+export type VariantColor =
+  | 'neutral'
+  | 'primary'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'blue'
+  | 'indigo'
+  | 'purple'
+  | 'pink'
+  | 'red'
+  | 'orange'
+  | 'yellow'
+  | 'green'
+  | 'teal';
+
 export type ElementSize = 'small' | 'medium' | 'large';
-
-export type StatusAppearance = 'success' | 'warning' | 'error';
-
-export type Appearance = 'primary' | 'secondary' | 'success' | 'error';
 
 export type DualSize = 'medium' | 'large';
 
