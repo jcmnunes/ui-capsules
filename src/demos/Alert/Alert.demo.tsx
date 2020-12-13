@@ -4,7 +4,7 @@ import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, VARIANT_OPTS } from './Alert.constants';
 import { AlertVariant } from '../../lib/Alert/Alert.styles';
 
-const AlertDemo = () => {
+const AlertDemo: React.FC = () => {
   const [title, setTitle] = useState('This is the title');
   const [message, setMessage] = useState('This is the message body!');
   const [variant, setVariant] = useState(VARIANT_OPTS[0]);
