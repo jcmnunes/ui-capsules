@@ -4,9 +4,10 @@ import { MarginProps } from '../styledProps';
 import { ThemeColors } from '../theme';
 import { StyledIconButton } from './IconButton.styles';
 import { IconVariant } from '../types';
+import { icons } from '../Icon/Icon.constants';
 
 export interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginProps {
-  icon: string;
+  icon: keyof typeof icons;
   as?: 'button' | 'a';
   variant?: ButtonVariant;
   variantColor?: ThemeColors;
