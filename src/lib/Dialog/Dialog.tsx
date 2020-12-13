@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { FC } from 'react';
 import ReactModal from 'react-modal';
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
@@ -7,21 +7,14 @@ import { ModalCloseButton } from '../Modal/ModalCloseButton';
 import { ModalFooter } from '../Modal/ModalFooter';
 import { ModalHeader } from '../Modal/ModalHeader';
 import { Text } from '../Text/Text';
-
-type ActionAppearance = 'primary' | 'neutral' | 'error';
-
-export type DialogAction = {
-  name: string;
-  appearance?: ActionAppearance;
-  action(e: MouseEvent<HTMLButtonElement>): void;
-};
+import { Action } from '../types';
 
 interface Props extends ReactModal.Props {
   isOpen: boolean;
   title?: string;
   message: string;
   contentLabel: string;
-  actions: DialogAction[];
+  actions: Action[];
   onRequestClose(): void;
 }
 
@@ -51,16 +44,16 @@ export const Dialog: FC<Props> = ({
       </ModalBody>
 
       <ModalFooter>
-        {actions.map(({ name, action, appearance }) => (
+        {actions.map(({ text, onClick, variant }) => (
           <Button
-            key={name}
+            key={text}
             type="button"
             size="large"
-            variant={appearance === 'neutral' ? 'ghost' : 'solid'}
-            variantColor={appearance || 'primary'}
-            onClick={action}
+            variant={variant === 'neutral' ? 'ghost' : 'solid'}
+            variantColor={variant || 'primary'}
+            onClick={onClick}
           >
-            {name}
+            {text}
           </Button>
         ))}
       </ModalFooter>

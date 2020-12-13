@@ -26,7 +26,7 @@ const AlertDemo: React.FC = () => {
         </div>
 
         <div>
-          <pre>appearance</pre>
+          <pre>variant</pre>
           <Select
             value={variant}
             options={VARIANT_OPTS}

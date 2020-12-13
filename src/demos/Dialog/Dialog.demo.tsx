@@ -21,14 +21,14 @@ const DialogDemo = () => {
   contentLabel="${contentLabel}"
   actions={[
     {
-      name: 'Cancel',
-      appearance: 'neutral',
-      action: () => setIsOpen(false),
+      text: 'Cancel',
+      variant: 'neutral',
+      onClick: () => setIsOpen(false),
     },
     {
-      name: 'Delete file',
-      appearance: 'error',
-      action: () => alert('Delete action called'),
+      text: 'Delete file',
+      variant: 'error',
+      onClick: () => alert('Delete action called'),
     },
   ]}
   title={${title}}
@@ -68,15 +68,15 @@ const DialogDemo = () => {
         contentLabel="Example Modal"
         actions={[
           {
-            name: 'Cancel',
-            appearance: 'neutral',
-            action: () => setIsOpen(false),
+            text: 'Cancel',
+            variant: 'neutral',
+            onClick: () => setIsOpen(false),
           },
           {
-            name: 'Delete file',
-            appearance: 'error',
+            text: 'Delete file',
+            variant: 'error',
             // eslint-disable-next-line no-alert
-            action: () => alert('Delete action called'),
+            onClick: () => alert('Delete action called'),
           },
         ]}
         title={title}
