@@ -1,9 +1,11 @@
 import React, { MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import { Flex } from '../Flex/Flex';
-import { Text } from '../Text/Text';
 import { Box, BoxProps } from '../Box/Box';
+import { Text } from '../Text/Text';
 import { Spinner } from '../Spinner/Spinner';
+import { Icon } from '../Icon/Icon';
+import { IconType } from '../types';
 
 interface StyledMenuItemProps extends BoxProps {
   highlighted: boolean;
@@ -28,6 +30,8 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   text: string;
   onClick(e: MouseEvent<HTMLButtonElement>): void;
   helperText?: string;
+  leftIcon?: IconType;
+  rightIcon?: IconType;
   leftAddon?: React.ReactElement;
   rightAddon?: React.ReactElement;
   highlighted?: boolean;
@@ -38,6 +42,8 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
 export const MenuItem: React.FC<Props> = ({
   text,
   helperText,
+  leftIcon,
+  rightIcon,
   leftAddon,
   rightAddon,
   highlighted = false,
@@ -53,9 +59,13 @@ export const MenuItem: React.FC<Props> = ({
         </Flex>
       ) : (
         <StyledMenuItem highlighted={highlighted} alignItems="flex-start">
-          {!!leftAddon && <Box pt={2}>{leftAddon}</Box>}
+          {!!leftIcon ? (
+            <Icon icon={leftIcon} size="18px" pt={2} />
+          ) : (
+            !!leftAddon && <Box pt={2}>{leftAddon}</Box>
+          )}
 
-          <Flex flexDirection="column" flex={1} ml={!!leftAddon ? 8 : 0}>
+          <Flex flexDirection="column" flex={1} ml={!!leftIcon || !!leftAddon ? 8 : 0}>
             <Text fontSize="body" fontWeight={500} color="neutral.700">
               {text}
             </Text>
@@ -67,7 +77,11 @@ export const MenuItem: React.FC<Props> = ({
             )}
           </Flex>
 
-          {!!rightAddon && <Box pt={2}>{rightAddon}</Box>}
+          {!!rightIcon ? (
+            <Icon icon={rightIcon} size="18px" pt={2} />
+          ) : (
+            !!rightAddon && <Box pt={2}>{rightAddon}</Box>
+          )}
         </StyledMenuItem>
       )}
     </MenuItemWrapper>
