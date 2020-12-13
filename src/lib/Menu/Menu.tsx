@@ -33,6 +33,7 @@ interface Item {
   name: string;
   closeOnAction: boolean;
   onClick(e?: MouseEvent<HTMLButtonElement>): void;
+  isLoading: boolean;
 }
 
 const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<Item>) => {
@@ -44,7 +45,9 @@ const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<I
       }
       return {
         ...changes,
-        isOpen: changes.selectedItem ? !changes.selectedItem.closeOnAction : false,
+        isOpen: changes.selectedItem
+          ? !changes.selectedItem.closeOnAction || changes.selectedItem.isLoading
+          : false,
         highlightedIndex: state.highlightedIndex,
       };
     default:
@@ -101,6 +104,7 @@ export const Menu: FC<Props> = ({ trigger: Trigger, placement, children }) => {
                                   name: index.toString(),
                                   closeOnAction: child.props.closeOnAction !== false,
                                   onClick: child.props.onClick,
+                                  isLoading: !!child.props.isLoading,
                                 },
                               }),
                             });
