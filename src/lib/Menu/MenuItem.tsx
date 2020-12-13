@@ -22,7 +22,7 @@ export const MenuItemWrapper = styled.button<{ closeOnAction?: boolean }>({
 
 export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   text: string;
-  onClick(): void;
+  onClick(event?: React.MouseEvent<HTMLButtonElement>): void;
   helperText?: string;
   leftAddon?: React.ReactElement;
   rightAddon?: React.ReactElement;
