@@ -99,7 +99,7 @@ const TooltipArrow = styled.div`
 `;
 
 const Trigger = styled.span`
-  display: inline-block;
+  display: inline-flex;
 `;
 
 interface Props {
