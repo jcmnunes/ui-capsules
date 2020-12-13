@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import { Flex } from '../Flex/Flex';
 import { Text } from '../Text/Text';
@@ -22,7 +22,7 @@ export const MenuItemWrapper = styled.button<{ closeOnAction?: boolean }>({
 
 export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   text: string;
-  onClick(event?: React.MouseEvent<HTMLButtonElement>): void;
+  onClick(e: MouseEvent<HTMLButtonElement>): void;
   helperText?: string;
   leftAddon?: React.ReactElement;
   rightAddon?: React.ReactElement;

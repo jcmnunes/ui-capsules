@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { Manager, Popper, Reference } from 'react-popper';
@@ -32,7 +32,7 @@ const StyledMenu = styled.div<MenuProps>`
 interface Item {
   name: string;
   closeOnAction: boolean;
-  onClick(event?: React.MouseEvent<HTMLButtonElement>): void;
+  onClick(e?: MouseEvent<HTMLButtonElement>): void;
 }
 
 const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<Item>) => {

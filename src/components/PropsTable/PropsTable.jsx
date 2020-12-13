@@ -14,7 +14,7 @@ export const DefaultValue = styled.span`
 
   span {
     font-family: Hack, monospace;
-    color: ${props => props.theme.pink600};
+    color: ${props => props.theme.colors.pink['600']};
   }
 `;
 

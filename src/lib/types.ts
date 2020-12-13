@@ -2,6 +2,7 @@ import { icons } from './Icon/Icon.constants';
 import { illustratedIcons } from './IllustratedIcon/IllustratedIcon.constants';
 import { theme } from './theme';
 import { solidIcons } from './IconSolid/IconSolid.constants';
+import { MouseEvent } from 'react';
 
 export type VariantColor =
   | 'neutral'
@@ -19,6 +20,14 @@ export type VariantColor =
   | 'yellow'
   | 'green'
   | 'teal';
+
+type ActionVariant = 'primary' | 'neutral' | 'error';
+
+export type Action = {
+  text: string;
+  variant?: ActionVariant;
+  onClick(e: MouseEvent<HTMLButtonElement>): void;
+};
 
 export type ElementSize = 'small' | 'medium' | 'large';
 

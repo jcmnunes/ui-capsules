@@ -11,7 +11,7 @@ export const PROPS = [
   {
     name: 'actions',
     isRequired: true,
-    type: 'array',
+    type: 'Action[]',
     description:
       'An array of objects. Each object represents an action in the Dialog footer (see example above).',
   },
