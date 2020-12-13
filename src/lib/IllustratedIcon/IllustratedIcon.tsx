@@ -6,7 +6,7 @@ import { IllustratedIconWrapper } from './IllustratedIcon.styles';
 
 interface Props extends MarginProps {
   icon: IllustratedIconType;
-  onClick?(): void;
+  onClick?(event?: React.MouseEvent<HTMLButtonElement>): void;
   size?: string;
   primaryColor?: string;
   secondaryColor?: string;
