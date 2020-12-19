@@ -60,8 +60,8 @@ export const Value = styled.button<ValueProps>(
       large: {
         px: 13,
         py: 12,
-        fontSize: 'h6',
-        height: 48,
+        fontSize: 'body',
+        height: 40,
       },
     },
   }),

@@ -142,7 +142,7 @@ export const Error = styled.div<ErrorProps>(
         my: 2,
       },
       large: {
-        fontSize: 'h6',
+        fontSize: 'body',
         my: 4,
       },
     },
