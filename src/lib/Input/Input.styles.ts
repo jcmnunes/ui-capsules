@@ -108,7 +108,7 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
 
         large: {
           height: 40,
-          fontSize: 'h6',
+          fontSize: 'body',
           pr: rightIcon ? 38 : 12,
           pl: leftIcon ? 38 : 12,
         },
