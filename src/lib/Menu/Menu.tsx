@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
-import { Manager, Popper, Reference } from 'react-popper';
+import Tippy, { TippyProps } from '@tippyjs/react/headless';
 import { Props as MenuItemProps } from './MenuItem';
 import { theme } from '../theme';
 
@@ -10,11 +10,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-interface MenuProps {
-  placement?: 'left' | 'right';
-}
-
-const StyledMenu = styled.div<MenuProps>`
+const StyledMenu = styled.div`
   width: auto;
   min-width: 200px;
   border: 1px solid mistyrose;
@@ -25,8 +21,8 @@ const StyledMenu = styled.div<MenuProps>`
   box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
   background: white;
   z-index: 100;
-  right: ${({ placement }) => (placement === 'right' ? 0 : 'auto')};
-  left: ${({ placement }) => (placement === 'left' ? 0 : 'auto')};
+  display: flex;
+  flex-direction: column;
 `;
 
 interface Item {
@@ -52,13 +48,17 @@ const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<I
   }
 };
 
-interface Props {
+interface Props extends Partial<Omit<TippyProps, 'children' | 'trigger'>> {
   trigger: JSX.Element;
-  placement?: 'left' | 'right';
   children: (ReactElement<MenuItemProps> | null)[];
 }
 
-export const Menu: FC<Props> = ({ trigger: Trigger, placement, children }) => {
+export const Menu: FC<Props> = ({
+  trigger: Trigger,
+  placement = 'bottom-start',
+  children,
+  ...rest
+}) => {
   return (
     <Wrapper>
       <Downshift
@@ -67,53 +67,38 @@ export const Menu: FC<Props> = ({ trigger: Trigger, placement, children }) => {
       >
         {({ getMenuProps, getToggleButtonProps, getItemProps, highlightedIndex, isOpen }) => (
           <div>
-            <Manager>
-              <Reference>
-                {({ ref }) => (
-                  <div ref={ref} {...getToggleButtonProps()}>
-                    {Trigger}
-                  </div>
-                )}
-              </Reference>
-
-              {isOpen ? (
-                <Popper
-                  placement={
-                    `bottom-${placement === 'left' ? 'start' : 'end'}` as
-                      | 'bottom-start'
-                      | 'bottom-end'
-                  }
-                >
-                  {({ ref, style, placement: popperPlacement }) => (
-                    <div
-                      ref={ref}
-                      style={{ zIndex: theme.zIndices.select, ...style }}
-                      data-placement={popperPlacement}
-                    >
-                      <StyledMenu {...getMenuProps()} placement={placement}>
-                        {React.Children.map(children, (child, index) => {
-                          if (child) {
-                            return React.cloneElement(child, {
-                              highlighted: highlightedIndex === index,
-                              ...getItemProps({
-                                key: index,
-                                index,
-                                item: {
-                                  name: index.toString(),
-                                  closeOnAction: child.props.closeOnAction !== false,
-                                  onClick: child.props.onClick,
-                                },
-                              }),
-                            });
-                          }
-                          return null;
-                        })}
-                      </StyledMenu>
-                    </div>
-                  )}
-                </Popper>
-              ) : null}
-            </Manager>
+            <Tippy
+              interactive
+              appendTo={document.body}
+              visible={isOpen}
+              placement={placement}
+              render={attrs => (
+                <div style={{ zIndex: theme.zIndices.select }} {...attrs}>
+                  <StyledMenu {...getMenuProps()}>
+                    {React.Children.map(children, (child, index) => {
+                      if (child) {
+                        return React.cloneElement(child, {
+                          highlighted: highlightedIndex === index,
+                          ...getItemProps({
+                            key: index,
+                            index,
+                            item: {
+                              name: index.toString(),
+                              closeOnAction: child.props.closeOnAction !== false,
+                              onClick: child.props.onClick,
+                            },
+                          }),
+                        });
+                      }
+                      return null;
+                    })}
+                  </StyledMenu>
+                </div>
+              )}
+              {...rest}
+            >
+              <div {...getToggleButtonProps()}>{Trigger}</div>
+            </Tippy>
           </div>
         )}
       </Downshift>
