@@ -36,11 +36,10 @@
     "*.+(js|jsx|ts|tsx|json|md)": "prettier --write"
   },
   "dependencies": {
-    "@popperjs/core": "^2.5.4",
+    "@tippyjs/react": "^4.2.0",
     "downshift": "^6.0.6",
     "react-modal": "^3.11.2",
     "react-popper": "^2.2.4",
-    "react-popper-tooltip": "^3.1.1",
     "react-select": "^3.1.0",
     "react-switch": "^5.0.1",
     "react-toast-notifications": "^2.4.0"

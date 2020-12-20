@@ -1,51 +1,24 @@
 import React, { useState } from 'react';
-import { Tooltip, Button, Select, Input, Checkbox, SelectOption } from '../../lib';
-import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, PLACEMENT_OPTS, TRIGGER_OPTS } from './Tooltip.constants';
-import { TooltipPlacementOptions, TooltipTriggerOptions } from '../../lib/Tooltip/Tooltip';
-
-const trigger2ButtonText = {
-  hover: 'Hover over me',
-  click: 'Click me',
-  'right-click': 'Right click me',
-  none: "No tooltip :'(",
-};
+import { Button, Input, Select, SelectOption, Tooltip } from '../../lib';
+import Demo, { Inputs } from '../../components/Demo/Demo';
+import { GITHUB_URL, PLACEMENT_OPTS, TooltipPlacementOptions } from './Tooltip.constants';
 
 const TooltipDemo = () => {
-  const [followCursor, setFollowCursor] = useState(false);
-  const [hasArrow, hasArrowSet] = useState(false);
-  const [tooltip, setTooltip] = useState('Tooltip text');
+  const [content, setContent] = useState('Tooltip text');
   const [delayShow, setDelayShow] = useState(300);
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
-  const [trigger, setTrigger] = useState(TRIGGER_OPTS[0]);
 
   const Component = (
-    <Tooltip
-      tooltip={tooltip}
-      placement={placement.value}
-      delayShow={delayShow}
-      followCursor={followCursor}
-      hasArrow={hasArrow}
-      trigger={trigger.value}
-    >
-      <Button leftIcon="eye">{trigger2ButtonText[trigger.value]}</Button>
+    <Tooltip content={content} placement={placement.value} delay={[delayShow, 0]}>
+      <Button leftIcon="eye">Hover over me</Button>
     </Tooltip>
   );
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
-      <Booleans>
-        <Checkbox checked={followCursor} onChange={() => setFollowCursor(!followCursor)}>
-          <pre>followCursor</pre>
-        </Checkbox>
-
-        <Checkbox checked={hasArrow} onChange={() => hasArrowSet(!hasArrow)}>
-          <pre>hasArrow</pre>
-        </Checkbox>
-      </Booleans>
       <Inputs>
         <div>
-          <pre>delayShow</pre>
+          <pre>delay</pre>
           <Input
             value={delayShow}
             type="number"
@@ -55,8 +28,8 @@ const TooltipDemo = () => {
         </div>
 
         <div>
-          <pre>tooltip</pre>
-          <Input value={tooltip} onChange={ev => setTooltip(ev.target.value)} />
+          <pre>content</pre>
+          <Input value={content} onChange={ev => setContent(ev.target.value)} />
         </div>
 
         <div>
@@ -65,15 +38,6 @@ const TooltipDemo = () => {
             value={placement}
             options={PLACEMENT_OPTS}
             onChange={opt => setPlacement(opt as SelectOption<TooltipPlacementOptions>)}
-          />
-        </div>
-
-        <div>
-          <pre>trigger</pre>
-          <Select
-            value={trigger}
-            options={TRIGGER_OPTS}
-            onChange={opt => setTrigger(opt as SelectOption<TooltipTriggerOptions>)}
           />
         </div>
       </Inputs>

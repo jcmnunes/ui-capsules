@@ -29,6 +29,7 @@ export { Tooltip } from './Tooltip/Tooltip';
 export { Box } from './Box/Box';
 export { Flex } from './Flex/Flex';
 export { Text } from './Text/Text';
+export { TruncatedText } from './TruncatedText/TruncatedText';
 export { theme } from './theme';
 export { setAppElement } from 'react-modal';
 export { ThemeProvider } from '@emotion/react';

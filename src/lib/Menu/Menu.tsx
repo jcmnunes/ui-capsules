@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, MouseEvent } from 'react';
+import React, { FC, MouseEvent, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import { Manager, Popper, Reference } from 'react-popper';
@@ -75,6 +75,7 @@ export const Menu: FC<Props> = ({ trigger: Trigger, placement, children }) => {
                   </div>
                 )}
               </Reference>
+
               {isOpen ? (
                 <Popper
                   placement={

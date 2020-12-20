@@ -146,18 +146,21 @@ export const StyledButton = styled.button<StyledButtonProps>(
         small: {
           height: variantProp === 'link' ? 'auto' : 24,
           fontSize: 'small',
+          lineHeight: '12px',
           px: variantProp === 'link' ? '2' : '4',
         },
 
         medium: {
           height: variantProp === 'link' ? 'auto' : 32,
           fontSize: 'body',
+          lineHeight: '14px',
           px: variantProp === 'link' ? '2' : '8',
         },
 
         large: {
           height: variantProp === 'link' ? 'auto' : 40,
           fontSize: 'body',
+          lineHeight: '14px',
           px: variantProp === 'link' ? '2' : '12',
         },
       },

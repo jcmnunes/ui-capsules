@@ -34,16 +34,6 @@ export const StyledSidebarLink = styled(NavLink)`
 
 export const SidebarLink = props => <StyledSidebarLink activeClassName="active" {...props} />;
 
-export const GroupHeading = styled.h2`
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 12px;
-  color: ${props => props.theme.colors.neutral['300']};
-  margin-top: 16px;
-  letter-spacing: ${({ theme }) => theme.letterSpacings.wide};
-  margin-left: 12px;
-`;
-
 export const SidebarGroup = styled.div`
   display: flex;
   flex-direction: column;

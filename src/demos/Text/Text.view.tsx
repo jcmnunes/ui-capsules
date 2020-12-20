@@ -1,24 +1,22 @@
 import React from 'react';
-import { Anchor } from '../../lib';
-import Demo from './Tooltip.demo';
+import Demo from './Text.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
-import { PROPS } from './Tooltip.constants';
+import { PROPS } from './Text.constants';
+import { Anchor } from '../../lib';
 
-const TooltipDemo = () => {
+const TextDemo = () => {
   return (
     <Wrapper>
-      <Title>Tooltip</Title>
+      <Title>Text</Title>
       <Paragraph>
-        Renders a custom tooltip component (based on{' '}
-        <Anchor href="https://github.com/atomiks/tippyjs-react">tippyjs-react</Anchor>
-        ).
+        Use it to render text. This component accepts Color, Typography and Space props from{' '}
+        <Anchor href="https://styled-system.com/api">styled-system</Anchor>.
       </Paragraph>
-
       <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Tooltip } from '@binarycapsule/ui-capsules';"}</Usage>
+      <Usage>{"import { Text } from '@binarycapsule/ui-capsules';"}</Usage>
 
       <Demo />
 
@@ -28,4 +26,4 @@ const TooltipDemo = () => {
   );
 };
 
-export default TooltipDemo;
+export default TextDemo;
