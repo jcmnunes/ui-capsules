@@ -26,3 +26,5 @@ export const Box = styled.div<BoxProps>(
   },
   compose(space, flexbox, position, layout, color),
 );
+
+Box.displayName = 'Box';

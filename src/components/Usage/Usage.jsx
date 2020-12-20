@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Tooltip } from '../../lib';
+import { Button } from '../../lib';
 import styled from '@emotion/styled/macro';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
@@ -35,7 +35,7 @@ const Actions = styled.div`
 `;
 
 const Usage = ({ children }) => {
-  const [tooltipShown, setTooltipShown] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
 
   return (
     <Wrapper>
@@ -45,27 +45,25 @@ const Usage = ({ children }) => {
         </Code>
       </StyledUsage>
       <Actions>
-        <Tooltip tooltipShown={tooltipShown} tooltip="Copied!">
-          <CopyToClipboard
-            text={children}
-            onCopy={() => {
-              if (!tooltipShown) {
-                setTooltipShown(true);
-                setTimeout(() => setTooltipShown(false), 2000);
-              }
-            }}
+        <CopyToClipboard
+          text={children}
+          onCopy={() => {
+            if (!isCopied) {
+              setIsCopied(true);
+              setTimeout(() => setIsCopied(false), 1000);
+            }
+          }}
+        >
+          <Button
+            size="small"
+            leftIcon="duplicate"
+            iconVariant="outline"
+            variantColor="neutral"
+            variant="ghost"
           >
-            <Button
-              size="small"
-              leftIcon="duplicate"
-              iconVariant="outline"
-              variantColor="neutral"
-              variant="ghost"
-            >
-              Copy
-            </Button>
-          </CopyToClipboard>
-        </Tooltip>
+            {isCopied ? 'Copied!' : 'Copy'}
+          </Button>
+        </CopyToClipboard>
       </Actions>
     </Wrapper>
   );

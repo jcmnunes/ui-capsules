@@ -1,7 +1,7 @@
-import { TooltipPlacementOptions, TooltipTriggerOptions } from '../../lib/Tooltip/Tooltip';
-
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Tooltip/Tooltip.tsx';
+
+export type TooltipPlacementOptions = 'bottom' | 'top' | 'right' | 'left' | 'auto';
 
 export const PLACEMENT_OPTS: { label: string; value: TooltipPlacementOptions }[] = [
   { value: 'bottom', label: 'bottom' },
@@ -11,28 +11,21 @@ export const PLACEMENT_OPTS: { label: string; value: TooltipPlacementOptions }[]
   { value: 'auto', label: 'auto' },
 ];
 
-export const TRIGGER_OPTS: { label: string; value: TooltipTriggerOptions }[] = [
-  { value: 'hover', label: 'hover' },
-  { value: 'click', label: 'click' },
-  { value: 'right-click', label: 'right-click' },
-  { value: 'none', label: 'none' },
-];
-
 export const PROPS = [
   {
     name: 'children',
     isRequired: true,
-    type: 'React element',
+    type: 'ReactNode',
     description: 'The element that triggers the tooltip.',
   },
   {
-    name: 'tooltip',
+    name: 'content',
     isRequired: true,
-    type: 'string',
-    description: 'The text to render inside the tooltip.',
+    type: 'ReactNode',
+    description: 'The content of the tooltip.',
   },
   {
-    name: 'delayShow',
+    name: 'delay',
     isRequired: false,
     type: 'number',
     defaultValue: '300',
@@ -44,26 +37,5 @@ export const PROPS = [
     type: '"auto" | "top" | "right" | "bottom" | "left"',
     defaultValue: 'bottom',
     description: 'The tooltip placement.',
-  },
-  {
-    name: 'trigger',
-    isRequired: false,
-    type: '"click" | "hover" | "right-click" | "none"',
-    defaultValue: 'hover',
-    description: 'The event that triggers the tooltip.',
-  },
-  {
-    name: 'followCursor',
-    isRequired: false,
-    type: 'boolean',
-    defaultValue: 'false',
-    description: 'Whether to spawn the tooltip at the cursor position.',
-  },
-  {
-    name: 'hasArrow',
-    isRequired: false,
-    type: 'boolean',
-    defaultValue: 'false',
-    description: 'Whether to render an arrow pointing to the trigger.',
   },
 ];

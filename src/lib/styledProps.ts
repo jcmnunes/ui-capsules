@@ -14,6 +14,7 @@ export interface TypographyProps {
   textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'initial' | 'inherit';
   textDecorationLine?: CSS.Property.TextDecorationLine;
   textAlign?: CSS.Property.TextAlign;
+  fontVariantNumeric?: CSS.Property.FontVariantNumeric;
 }
 
 export type Space = keyof typeof theme.space;

@@ -23,7 +23,9 @@ import Dialog from './demos/Dialog/Dialog.view';
 import Anchor from './demos/Anchor/Anchor.view';
 import IconButton from './demos/IconButton/IconButton.view';
 import Table from './demos/Table/Table.view';
+import Text from './demos/Text/Text.view';
 import Switch from './demos/Switch/Switch.view';
+import TruncatedText from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
 
 const AppWrapper = styled.div`
@@ -73,7 +75,9 @@ const App = () => (
       <Route path="/spinner" component={Spinner} />
       <Route path="/switch" component={Switch} />
       <Route path="/table" component={Table} />
+      <Route path="/text" component={Text} />
       <Route path="/toaster" component={Toaster} />
+      <Route path="/truncated-text" component={TruncatedText} />
       <Route path="/tooltip" component={Tooltip} />
     </ShowcaseWrapper>
   </AppWrapper>

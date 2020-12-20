@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GroupHeading, SidebarGroup, SidebarLink, StyledSidebar } from './Sidebar.styles';
+import { SidebarGroup, SidebarLink, StyledSidebar } from './Sidebar.styles';
 import Logo from '../Svgs/Logo';
+import { Text } from '../../lib';
 
 const Sidebar = () => (
   <StyledSidebar>
@@ -12,7 +13,9 @@ const Sidebar = () => (
     <SidebarGroup>
       <SidebarLink to="/getting-started">Getting Started</SidebarLink>
 
-      <GroupHeading>Components</GroupHeading>
+      <Text variant="smallCaps" ml="12" mt="16" mb="4">
+        Components
+      </Text>
       <SidebarLink to="/alert">Alert</SidebarLink>
       <SidebarLink to="/anchor">Anchor</SidebarLink>
       <SidebarLink to="/button">Button</SidebarLink>
@@ -33,6 +36,8 @@ const Sidebar = () => (
       <SidebarLink to="/splash">Splash</SidebarLink>
       <SidebarLink to="/switch">Switch</SidebarLink>
       <SidebarLink to="/table">Table</SidebarLink>
+      <SidebarLink to="/text">Text</SidebarLink>
+      <SidebarLink to="/truncated-text">TruncatedText</SidebarLink>
       <SidebarLink to="/toaster">Toaster</SidebarLink>
       <SidebarLink to="/tooltip">Tooltip</SidebarLink>
     </SidebarGroup>
