@@ -25,6 +25,7 @@ export const IllustratedIcon: FC<Props> = ({
   ...rest
 }) => (
   <IllustratedIconWrapper
+    as={!!onClick ? 'button' : 'span'}
     onClick={onClick ? onClick : () => {}}
     isClickable={!!onClick}
     primaryColor={primaryColor}

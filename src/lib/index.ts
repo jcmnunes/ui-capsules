@@ -7,7 +7,6 @@ export { Menu } from './Menu/Menu';
 export { MenuItem } from './Menu/MenuItem';
 export { EditableInput } from './EditableInput/EditableInput';
 export { Icon } from './Icon/Icon';
-export { IconSolid } from './IconSolid/IconSolid';
 export { IllustratedIcon } from './IllustratedIcon/IllustratedIcon';
 export { IconButton } from './IconButton/IconButton';
 export { Input } from './Input/Input';

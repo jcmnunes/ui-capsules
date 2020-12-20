@@ -4,8 +4,8 @@ import { variant } from 'styled-system';
 import { Box } from '../Box/Box';
 import { BorderProps, ColorProps, PaddingProps } from '../styledProps';
 import { IconType } from '../types';
-import { IconSolid, Props as IconSolidProps } from '../IconSolid/IconSolid';
 import { Wrapper } from '../Wrapper/Wrapper';
+import { Icon } from '../Icon/Icon';
 
 export type AlertVariant = 'info' | 'success' | 'warning' | 'error';
 
@@ -99,11 +99,12 @@ export const StyledAlert = styled(Box)<StyledAlertProps>(
   }),
 );
 
-interface AlertIconProps extends IconSolidProps {
-  variant: AlertVariant;
+interface AlertIconProps {
+  alertVariant: AlertVariant;
+  icon: string;
 }
 
-export const AlertIcon = styled(IconSolid)<AlertIconProps>(
+export const AlertIcon = styled(Icon)<AlertIconProps>(
   {
     position: 'absolute',
     top: 18,
@@ -111,6 +112,7 @@ export const AlertIcon = styled(IconSolid)<AlertIconProps>(
   },
 
   variant<ColorProps, AlertVariant>({
+    prop: 'alertVariant',
     variants: {
       info: {
         color: 'info.400',

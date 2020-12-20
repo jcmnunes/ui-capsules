@@ -3,10 +3,10 @@ import { ButtonSize, ButtonVariant } from '../Button/Button.styles';
 import { MarginProps } from '../styledProps';
 import { StyledIconButton } from './IconButton.styles';
 import { IconVariant, VariantColor } from '../types';
-import { icons } from '../Icon/Icon.constants';
+import { solidIcons } from '../Icon/Icon.constants';
 
 export interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginProps {
-  icon: keyof typeof icons;
+  icon: keyof typeof solidIcons;
   as?: 'button' | 'a';
   variant?: ButtonVariant;
   variantColor?: VariantColor;

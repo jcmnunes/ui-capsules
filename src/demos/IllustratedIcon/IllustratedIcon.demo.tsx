@@ -7,6 +7,7 @@ import {
   Checkbox,
   IllustratedIconType,
   SelectOption,
+  Text,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { useIconOpts } from './IllustratedIcon.hooks';
@@ -38,6 +39,9 @@ const IllustratedIconDemo = () => {
         <Checkbox checked={onClick} onChange={() => setOnClick(!onClick)}>
           <pre>onClick</pre>
         </Checkbox>
+        <Text variant="helper">
+          When passing an onClick handler, the icon is rendered as a button.
+        </Text>
       </Booleans>
 
       <Inputs>

@@ -1,17 +1,21 @@
 import React, { FC } from 'react';
-import RSwitch from 'react-switch';
+import RSwitch, { ReactSwitchProps } from 'react-switch';
 import styled from '@emotion/styled';
 import { useTheme } from '@emotion/react';
 import { ElementSize, VariantColor } from '../types';
+import { margin } from 'styled-system';
+import { MarginProps } from '../styledProps';
 
 const Label = styled.label`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  ${margin}
 `;
 
 const LabelText = styled.span<{ disabled?: boolean; size: ElementSize }>`
-  font-size: ${({ size }) => (size === 'large' ? '18px' : '16px')};
+  font-size: ${({ size }) => (size === 'large' ? '16px' : '14px')};
   margin-left: 8px;
   color: ${({ disabled, theme }) => disabled && theme.colors.neutral['200']};
 `;
@@ -36,27 +40,26 @@ const DIMENSIONS = {
   },
 };
 
-interface Props {
-  checked: boolean;
-  onChange(): void;
+interface SwitchProps extends Pick<ReactSwitchProps, 'checked' | 'onChange'>, MarginProps {
   disabled?: boolean;
   children?: string;
   size?: ElementSize;
   variantColor?: VariantColor;
 }
 
-export const Switch: FC<Props> = ({
+export const Switch: FC<SwitchProps> = ({
   checked,
   onChange,
   size = 'medium',
   variantColor = 'green',
   disabled,
   children,
+  ...rest
 }) => {
   const theme = useTheme();
 
   return (
-    <Label>
+    <Label {...rest}>
       <RSwitch
         key={size}
         checked={checked}
@@ -69,6 +72,7 @@ export const Switch: FC<Props> = ({
         checkedIcon={false}
         onColor={theme.colors[variantColor as keyof typeof theme.colors]['500']}
         offColor={theme.colors.neutral['300']}
+        {...rest}
       />
 
       {!!children && (
