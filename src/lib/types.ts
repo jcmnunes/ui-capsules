@@ -1,8 +1,7 @@
-import { icons } from './Icon/Icon.constants';
 import { illustratedIcons } from './IllustratedIcon/IllustratedIcon.constants';
 import { theme } from './theme';
-import { solidIcons } from './IconSolid/IconSolid.constants';
 import { MouseEvent } from 'react';
+import { solidIcons } from './Icon/Icon.constants';
 
 export type VariantColor =
   | 'neutral'
@@ -35,9 +34,7 @@ export type DualSize = 'medium' | 'large';
 
 export type AlignmentOptions = 'left' | 'center' | 'right';
 
-export type IconType = keyof typeof icons;
-
-export type IconSolidType = keyof typeof solidIcons;
+export type IconType = keyof typeof solidIcons;
 
 export type IconVariant = 'solid' | 'outline';
 

@@ -3,8 +3,7 @@ import { Spinner } from '../Spinner/Spinner';
 import { MarginProps } from '../styledProps';
 import { ButtonIcon, ButtonSize, ButtonText, ButtonVariant, StyledButton } from './Button.styles';
 import { IconType, IconVariant, VariantColor } from '../types';
-import { icons } from '../Icon/Icon.constants';
-import { IconSolid } from '../IconSolid/IconSolid';
+import { solidIcons } from '../Icon/Icon.constants';
 import { Icon } from '../Icon/Icon';
 
 const anchorProps = {
@@ -17,8 +16,8 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginP
   variantColor?: VariantColor;
   size?: ButtonSize;
   isLoading?: boolean;
-  leftIcon?: keyof typeof icons | string;
-  rightIcon?: keyof typeof icons | string;
+  leftIcon?: keyof typeof solidIcons | string;
+  rightIcon?: keyof typeof solidIcons | string;
   iconVariant?: IconVariant;
   children?: string;
   as?: 'button' | 'a';
@@ -56,9 +55,10 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 
         {leftIcon && (
           <ButtonIcon
-            as={iconVariant === 'solid' ? IconSolid : Icon}
+            as={Icon}
+            variant={iconVariant}
             icon={leftIcon as IconType}
-            size={size === 'small' ? '18px' : '20px'}
+            size={size === 'small' ? 18 : 20}
             isLeft={!!children}
             isLoading={isLoading}
             buttonSize={size}
@@ -69,9 +69,10 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 
         {rightIcon && (
           <ButtonIcon
-            as={iconVariant === 'solid' ? IconSolid : Icon}
+            as={Icon}
+            variant={iconVariant}
             icon={rightIcon as IconType}
-            size={size === 'small' ? '18px' : '20px'}
+            size={size === 'small' ? 18 : 20}
             isRight={!!children}
             isLoading={isLoading}
             buttonSize={size}

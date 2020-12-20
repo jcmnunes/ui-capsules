@@ -4,7 +4,7 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 import { Wrapper } from '../Wrapper/Wrapper';
 import { LayoutProps, MarginProps, PaddingProps, TypographyProps } from '../styledProps';
 import { ElementSize, IconType } from '../types';
-import { Props as IconProps } from '../Icon/Icon';
+import { IconProps } from '../Icon/Icon';
 
 export const InputWrapper = styled(Wrapper)({
   display: 'flex',
@@ -25,22 +25,23 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     zIndex: 3,
     color: theme.colors.neutral['500'],
   }),
+
   ({ position }) =>
     variant<PositionProps & LayoutProps, ElementSize>({
       prop: 'size',
       variants: {
         small: {
-          top: 3,
+          top: 2,
           left: position === 'left' ? 6 : 'auto',
           right: position === 'left' ? 'auto' : 6,
         },
         medium: {
-          top: 4,
+          top: 6,
           left: position === 'left' ? 8 : 'auto',
           right: position === 'left' ? 'auto' : 8,
         },
         large: {
-          top: 8,
+          top: 10,
           left: position === 'left' ? 8 : 'auto',
           right: position === 'left' ? 'auto' : 8,
         },

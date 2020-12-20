@@ -9,7 +9,7 @@ interface IllustratedIconWrapperProps {
   size: string;
 }
 
-export const IllustratedIconWrapper = styled.button<IllustratedIconWrapperProps>`
+export const IllustratedIconWrapper = styled.span<IllustratedIconWrapperProps>`
   height: ${({ size }) => size};
   outline: none;
   pointer-events: ${({ isClickable }) => (isClickable ? 'auto' : 'none')};

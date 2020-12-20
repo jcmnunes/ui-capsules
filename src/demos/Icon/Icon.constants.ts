@@ -11,10 +11,17 @@ export const ICON_PROPS: PropsDoc[] = [
     description: 'Name of the icon to render.',
   },
   {
+    name: 'variant',
+    isRequired: false,
+    defaultValue: '"solid"',
+    type: '"solid" | "outline"',
+    description: 'Icon variant to render (solid or outline).',
+  },
+  {
     name: 'size',
     isRequired: false,
-    defaultValue: '24px',
-    type: 'string',
+    defaultValue: '20 | 24',
+    type: 'number',
     description: 'The size of the icon.',
   },
 ];

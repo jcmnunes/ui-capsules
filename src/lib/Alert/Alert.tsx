@@ -28,7 +28,7 @@ export const Alert: React.FC<Props> = ({
   return (
     <AlertWrapper variant={variant} {...rest}>
       <StyledAlert variant={variant}>
-        <AlertIcon variant={variant} icon={ICON_MAP[variant]} />
+        <AlertIcon alertVariant={variant} icon={ICON_MAP[variant]} />
 
         <Box display="flex" flexDirection="column" flex={1}>
           {!!title && (

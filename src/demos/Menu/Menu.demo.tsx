@@ -20,7 +20,7 @@ const MenuDemo = () => {
       <MenuItem
         text="Hello World 2"
         helperText="Helper text"
-        leftAddon={<Icon icon="annotation" size="18px" color="red.500" />}
+        leftAddon={<Icon icon="annotation" size={18} color="red.500" />}
         rightAddon={<Switch checked onChange={() => {}} size="small" />}
         onClick={() => console.log('Hello there 2')}
         closeOnAction={false}

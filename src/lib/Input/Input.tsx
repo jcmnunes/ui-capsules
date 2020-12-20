@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { ElementSize, IconType, IconVariant } from '../types';
 import { Icon } from '../Icon/Icon';
 import { IconWrapper, InputWrapper, StyledInput, Error, InputIcon } from './Input.styles';
-import { IconSolid } from '../IconSolid/IconSolid';
 
 export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   size?: ElementSize;
@@ -26,9 +25,10 @@ export const Input: FC<Props> = ({
     {leftIcon && (
       <IconWrapper size={size} position="left">
         <InputIcon
-          as={iconVariant === 'solid' ? IconSolid : Icon}
+          as={Icon}
+          variant={iconVariant}
           icon={leftIcon}
-          size={size === 'small' ? '18px' : '24px'}
+          size={size === 'small' ? 18 : 24}
         />
       </IconWrapper>
     )}
@@ -45,9 +45,10 @@ export const Input: FC<Props> = ({
     {rightIcon && (
       <IconWrapper size={size} position="right">
         <InputIcon
-          as={iconVariant === 'solid' ? IconSolid : Icon}
+          as={Icon}
+          variant={iconVariant}
           icon={rightIcon}
-          size={size === 'small' ? '18px' : '24px'}
+          size={size === 'small' ? 18 : 24}
         />
       </IconWrapper>
     )}

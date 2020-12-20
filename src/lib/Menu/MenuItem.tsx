@@ -60,7 +60,7 @@ export const MenuItem: React.FC<Props> = ({
       ) : (
         <StyledMenuItem highlighted={highlighted} alignItems="flex-start">
           {!!leftIcon ? (
-            <Icon icon={leftIcon} size="18px" pt={2} />
+            <Icon icon={leftIcon} size={18} pt={2} />
           ) : (
             !!leftAddon && <Box pt={2}>{leftAddon}</Box>
           )}
@@ -78,7 +78,7 @@ export const MenuItem: React.FC<Props> = ({
           </Flex>
 
           {!!rightIcon ? (
-            <Icon icon={rightIcon} size="18px" pt={2} />
+            <Icon icon={rightIcon} size={18} pt={2} />
           ) : (
             !!rightAddon && <Box pt={2}>{rightAddon}</Box>
           )}

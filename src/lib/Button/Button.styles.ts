@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { margin, variant } from 'styled-system';
-import { Props as IconProps } from '../Icon/Icon';
+import { IconProps } from '../Icon/Icon';
 import {
   BorderProps,
   ColorProps,
