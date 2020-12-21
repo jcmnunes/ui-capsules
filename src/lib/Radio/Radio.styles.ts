@@ -29,12 +29,12 @@ export const Label = styled.label<LabelProps>(
       medium: {
         height: 20,
         pl: 28,
-        fontSize: 'h6',
+        fontSize: 'body',
       },
       large: {
         height: 25,
         pl: 35,
-        fontSize: 'h5',
+        fontSize: 'h6',
       },
     },
   }),
