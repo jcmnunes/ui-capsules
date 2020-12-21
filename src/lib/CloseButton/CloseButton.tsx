@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from '@emotion/styled';
-import { IconButton, Props as IconButtonProps } from '../IconButton/IconButton';
+import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 
 const StyledIconButton = styled(IconButton)({
   '&:hover': {
