@@ -80,7 +80,6 @@ export const Modal: FC<Props> = ({
   </StyledModal>
 );
 Modal.displayName = 'Modal';
-
 Modal.defaultProps = {
   size: 'medium',
   onRequestClose: undefined,

@@ -67,8 +67,11 @@ const Home = () => (
       <StyledParagraph>The following peer dependencies should also be installed:</StyledParagraph>
       <Usage>
         npm i react react-dom @emotion/react @emotion/styled styled-system
-        @styled-system/should-forward-prop @types/styled-system
+        @styled-system/should-forward-prop
       </Usage>
+
+      <StyledParagraph>As well as the following devDependencies:</StyledParagraph>
+      <Usage>npm i -D @types/styled-system @types/react-modal</Usage>
 
       <SubTitle>Setup</SubTitle>
 

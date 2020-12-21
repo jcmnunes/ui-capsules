@@ -4,7 +4,7 @@ import { Text } from '../Text/Text';
 import { Wrapper } from './Tooltip.styles';
 
 export interface TooltipProps extends Partial<Omit<TippyProps, 'delay'>> {
-  delay: number;
+  delay?: number;
 }
 
 export const Tooltip: FC<TooltipProps> = ({
