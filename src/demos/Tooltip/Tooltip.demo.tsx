@@ -5,11 +5,11 @@ import { GITHUB_URL, PLACEMENT_OPTS, TooltipPlacementOptions } from './Tooltip.c
 
 const TooltipDemo = () => {
   const [content, setContent] = useState('Tooltip text');
-  const [delayShow, setDelayShow] = useState(300);
+  const [delay, setDelay] = useState(300);
   const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
 
   const Component = (
-    <Tooltip content={content} placement={placement.value} delay={[delayShow, 0]}>
+    <Tooltip content={content} placement={placement.value} delay={delay}>
       <Button leftIcon="eye">Hover over me</Button>
     </Tooltip>
   );
@@ -20,10 +20,10 @@ const TooltipDemo = () => {
         <div>
           <pre>delay</pre>
           <Input
-            value={delayShow}
+            value={delay}
             type="number"
             step={100}
-            onChange={ev => setDelayShow(parseFloat(ev.target.value))}
+            onChange={ev => setDelay(parseFloat(ev.target.value))}
           />
         </div>
 

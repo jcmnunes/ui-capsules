@@ -6,11 +6,11 @@ interface IllustratedIconWrapperProps {
   primaryColorHover?: string;
   secondaryColorHover?: string;
   isClickable: boolean;
-  size: string;
+  size: number;
 }
 
 export const IllustratedIconWrapper = styled.span<IllustratedIconWrapperProps>`
-  height: ${({ size }) => size};
+  height: ${({ size }) => `${size}px`};
   outline: none;
   pointer-events: ${({ isClickable }) => (isClickable ? 'auto' : 'none')};
   cursor: ${({ isClickable }) => (isClickable ? 'pointer' : 'initial')};
