@@ -149,7 +149,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h4`
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   color: ${props => colors[props.appearance].text};
 `;
 
@@ -177,7 +177,7 @@ export const Toast = ({
       placement={placement}
     >
       <IconContainer appearance={appearance}>
-        <Icon icon={icons[appearance]} size="32px" />
+        <Icon icon={icons[appearance]} size={32} />
       </IconContainer>
 
       <Wrapper>
