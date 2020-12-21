@@ -19,16 +19,23 @@ const MenuDemo = () => {
 
       <MenuItem
         text="Hello World 2"
+        onClick={() => console.log('Hello there 2')}
+        leftIcon="beaker"
+        rightIcon="info_c"
+      />
+
+      <MenuItem
+        text="Hello World 3"
         helperText="Helper text"
         leftAddon={<Icon icon="annotation" size={18} color="red.500" />}
         rightAddon={<Switch checked onChange={() => {}} size="small" />}
-        onClick={() => console.log('Hello there 2')}
+        onClick={() => console.log('Hello there 3')}
         closeOnAction={false}
       />
 
       <MenuItem
         text="Hello World 3"
-        onClick={() => console.log('Hello there 3')}
+        onClick={() => console.log('Hello there 4')}
         isLoading
         closeOnAction={false}
       />

@@ -24,6 +24,6 @@ export const PROPS = [
     isRequired: false,
     type: 'TippyPlacement',
     defaultValue: 'bottom-start',
-    description: 'Horizontal alignment of the menu.',
+    description: 'Menu placement.',
   },
 ];

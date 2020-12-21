@@ -2,7 +2,7 @@ import React, { FC, MouseEvent, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
 import Tippy, { TippyProps } from '@tippyjs/react/headless';
-import { Props as MenuItemProps } from './MenuItem';
+import { MenuItemProps } from './MenuItem';
 import { theme } from '../theme';
 
 const Wrapper = styled.div`
@@ -48,12 +48,12 @@ const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<I
   }
 };
 
-interface Props extends Partial<Omit<TippyProps, 'children' | 'trigger'>> {
+interface MenuProps extends Partial<Omit<TippyProps, 'children' | 'trigger'>> {
   trigger: JSX.Element;
   children: (ReactElement<MenuItemProps> | null)[];
 }
 
-export const Menu: FC<Props> = ({
+export const Menu: FC<MenuProps> = ({
   trigger: Trigger,
   placement = 'bottom-start',
   children,

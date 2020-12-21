@@ -22,7 +22,7 @@ export const TruncatedText: React.FC<TextProps> = ({ children, ...rest }) => {
   }, []);
 
   return (
-    <Tooltip content={children} delay={[1000, 0]} disabled={!showTooltip} placement="top">
+    <Tooltip content={children} delay={1000} disabled={!showTooltip} placement="top">
       <Text ref={ref} isTruncated {...rest}>
         {children}
       </Text>

@@ -3,19 +3,21 @@ import Tippy, { TippyProps } from '@tippyjs/react/headless';
 import { Text } from '../Text/Text';
 import { Wrapper } from './Tooltip.styles';
 
-export interface TooltipProps extends TippyProps {}
+export interface TooltipProps extends Partial<Omit<TippyProps, 'delay'>> {
+  delay: number;
+}
 
 export const Tooltip: FC<TooltipProps> = ({
   children,
   placement = 'auto',
-  delay = [300, 0],
+  delay = 300,
   content,
   ...rest
 }) => {
   return (
     <Tippy
       placement={placement}
-      delay={delay}
+      delay={[delay, 0]}
       render={attrs => (
         <Wrapper tabIndex={-1} {...attrs}>
           {typeof content === 'string' ? (
@@ -37,5 +39,5 @@ export const Tooltip: FC<TooltipProps> = ({
 Tooltip.displayName = 'Tooltip';
 Tooltip.defaultProps = {
   placement: 'auto',
-  delay: [300, 0],
+  delay: 300,
 };

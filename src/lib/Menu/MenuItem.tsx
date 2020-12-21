@@ -5,7 +5,7 @@ import { Box, BoxProps } from '../Box/Box';
 import { Text } from '../Text/Text';
 import { Spinner } from '../Spinner/Spinner';
 import { Icon } from '../Icon/Icon';
-import { IconType } from '../types';
+import { IconType, IconVariant } from '../types';
 
 interface StyledMenuItemProps extends BoxProps {
   highlighted: boolean;
@@ -26,7 +26,7 @@ export const MenuItemWrapper = styled.button<{ closeOnAction?: boolean; isLoadin
   }),
 );
 
-export interface Props extends React.ComponentPropsWithoutRef<'button'> {
+export interface MenuItemProps extends React.ComponentPropsWithoutRef<'button'> {
   text: string;
   onClick(e: MouseEvent<HTMLButtonElement>): void;
   helperText?: string;
@@ -34,18 +34,20 @@ export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   rightIcon?: IconType;
   leftAddon?: React.ReactElement;
   rightAddon?: React.ReactElement;
+  iconVariant?: IconVariant;
   highlighted?: boolean;
   closeOnAction?: boolean;
   isLoading?: boolean;
 }
 
-export const MenuItem: React.FC<Props> = ({
+export const MenuItem: React.FC<MenuItemProps> = ({
   text,
   helperText,
   leftIcon,
   rightIcon,
   leftAddon,
   rightAddon,
+  iconVariant = 'outline',
   highlighted = false,
   closeOnAction = true,
   isLoading,
@@ -60,7 +62,7 @@ export const MenuItem: React.FC<Props> = ({
       ) : (
         <StyledMenuItem highlighted={highlighted} alignItems="flex-start">
           {!!leftIcon ? (
-            <Icon icon={leftIcon} size={18} pt={2} />
+            <Icon icon={leftIcon} size={18} pt={2} variant={iconVariant} />
           ) : (
             !!leftAddon && <Box pt={2}>{leftAddon}</Box>
           )}
@@ -78,7 +80,7 @@ export const MenuItem: React.FC<Props> = ({
           </Flex>
 
           {!!rightIcon ? (
-            <Icon icon={rightIcon} size={18} pt={2} />
+            <Icon icon={rightIcon} size={18} pt={2} variant={iconVariant} />
           ) : (
             !!rightAddon && <Box pt={2}>{rightAddon}</Box>
           )}
@@ -89,3 +91,6 @@ export const MenuItem: React.FC<Props> = ({
 };
 
 MenuItem.displayName = 'MenuItem';
+MenuItem.defaultProps = {
+  iconVariant: 'outline',
+};
