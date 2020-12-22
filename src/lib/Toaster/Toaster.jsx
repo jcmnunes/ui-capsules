@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { ToastProvider as RTNToastProvider, withToastManager } from 'react-toast-notifications';
 import { Icon } from '../Icon/Icon';
-import { theme } from '../theme';
 import { CloseButton } from '../CloseButton/CloseButton';
 
 function getTranslate(placement) {
@@ -26,48 +25,23 @@ const transitionStates = placement => ({
   exited: { transform: 'scale(0.66)', opacity: 0 },
 });
 
-const colors = {
-  error: {
-    background: theme.colors.error['500'],
-    border: theme.colors.error['500'],
-    ring: theme.colors.error['100'],
-    ringBorder: theme.colors.error['500'],
-    text: '#fff',
-    accentBorder: theme.colors.error['500'],
-    icon: theme.colors.error['500'],
+const icons = {
+  info: {
+    icon: 'info_c',
+    color: 'info.300',
   },
   success: {
-    background: theme.colors.success['500'],
-    border: theme.colors.success['500'],
-    ring: theme.colors.success['100'],
-    ringBorder: theme.colors.success['500'],
-    text: '#fff',
-    accentBorder: theme.colors.success['500'],
-    icon: theme.colors.success['500'],
+    icon: 'check_c',
+    color: 'success.400',
   },
   warning: {
-    background: theme.colors.warning['100'],
-    border: theme.colors.warning['300'],
-    ring: theme.colors.warning['500'],
-    ringBorder: theme.colors.warning['500'],
-    text: theme.colors.warning['700'],
-    accentBorder: theme.colors.warning['500'],
+    icon: 'exclamation_t',
+    color: 'warning.300',
   },
-  info: {
-    background: theme.colors.info['100'],
-    border: theme.colors.info['300'],
-    ring: theme.colors.info['300'],
-    ringBorder: theme.colors.info['300'],
-    text: theme.colors.info['700'],
-    accentBorder: theme.colors.info['300'],
+  error: {
+    icon: 'exclamation_c',
+    color: 'error.300',
   },
-};
-
-const icons = {
-  info: 'info',
-  success: 'check_sm',
-  warning: 'exclamation',
-  error: 'exclamation',
 };
 
 const StyledToast = styled.div`
@@ -85,23 +59,13 @@ const StyledToast = styled.div`
   z-index: 2;
   transition: transform ${props => props.transitionDuration}ms cubic-bezier(0.2, 0, 0, 1),
     opacity ${props => props.transitionDuration}ms;
-  background: ${props => colors[props.appearance].background};
-  border: 1px solid ${props => colors[props.appearance].border};
+  background: ${({ theme }) => theme.colors.neutral['700']};
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  color: ${props => colors[props.appearance].text};
+  color: ${({ theme }) => theme.colors.neutral['50']};
   ${props => ({ ...transitionStates(props.placement)[props.transitionState] })};
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    background: ${props => colors[props.appearance].accentBorder};
-    top: 0;
-    left: 0;
-    bottom: 0;
-  }
+  position: relative;
 `;
 
 const StyledButton = styled(CloseButton)`
@@ -112,50 +76,26 @@ const StyledButton = styled(CloseButton)`
 `;
 
 const IconContainer = styled.div`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: ${props => colors[props.appearance].ring};
-  position: relative;
-  margin: 0 10px 0 6px;
-
-  &::after {
-    content: '';
-    background: white;
-    border: 1px solid ${props => colors[props.appearance].ringBorder};
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    color: ${props => colors[props.appearance].icon};
-  }
+  position: absolute;
+  top: 16px;
+  left: 10px;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 24px;
 `;
 
 const Title = styled.h4`
   font-size: 14px;
   font-weight: 600;
-  color: ${props => colors[props.appearance].text};
+  color: ${({ theme }) => theme.colors.neutral['50']};
 `;
 
 const Message = styled.p`
   font-size: 14px;
-  color: ${props => colors[props.appearance].text};
+  color: ${({ theme }) => theme.colors.neutral['50']};
 `;
 
 export const Toast = ({
@@ -176,10 +116,9 @@ export const Toast = ({
       transitionState={transitionState}
       placement={placement}
     >
-      <IconContainer appearance={appearance}>
-        <Icon icon={icons[appearance]} size={32} />
+      <IconContainer>
+        <Icon icon={icons[appearance].icon} color={icons[appearance].color} />
       </IconContainer>
-
       <Wrapper>
         {title && <Title appearance={appearance}>{title}</Title>}
         {message && <Message appearance={appearance}>{message}</Message>}
