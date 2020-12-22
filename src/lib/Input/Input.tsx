@@ -28,7 +28,7 @@ export const Input: FC<Props> = ({
           as={Icon}
           variant={iconVariant}
           icon={leftIcon}
-          size={size === 'small' ? 18 : 24}
+          size={size === 'small' ? 18 : 20}
         />
       </IconWrapper>
     )}
@@ -48,7 +48,7 @@ export const Input: FC<Props> = ({
           as={Icon}
           variant={iconVariant}
           icon={rightIcon}
-          size={size === 'small' ? 18 : 24}
+          size={size === 'small' ? 18 : 20}
         />
       </IconWrapper>
     )}
