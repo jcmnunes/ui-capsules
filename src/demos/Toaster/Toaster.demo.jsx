@@ -44,15 +44,15 @@ const ToasterDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Inputs>
         <div>
-          <pre>Adjust the toast type</pre>
+          <pre>Toast type</pre>
           <Select value={toastType} options={TOAST_TYPE_OPTS} onChange={opt => setToastType(opt)} />
         </div>
         <div>
-          <pre>Adjust the toast title</pre>
+          <pre>title</pre>
           <Input value={toastTitle} onChange={ev => setToastTitle(ev.target.value)} />
         </div>
         <div>
-          <pre>Adjust the toast message</pre>
+          <pre>message</pre>
           <Input value={toastMessage} onChange={ev => setToastMessage(ev.target.value)} />
         </div>
       </Inputs>
