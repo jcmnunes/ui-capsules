@@ -21,6 +21,7 @@ export interface Props extends React.ComponentPropsWithRef<'button'>, MarginProp
   iconVariant?: IconVariant;
   children?: string;
   as?: 'button' | 'a';
+  href?: string;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, Props>(
