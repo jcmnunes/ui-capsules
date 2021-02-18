@@ -43,3 +43,5 @@ export type IllustratedIconType = keyof typeof illustratedIcons;
 export type Theme = typeof theme;
 
 export type SelectOption<T> = { label: 'string'; value: T };
+
+export type { WrapperProps } from './Wrapper/Wrapper';
