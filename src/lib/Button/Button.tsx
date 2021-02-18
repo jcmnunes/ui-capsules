@@ -11,7 +11,7 @@ const anchorProps = {
   rel: 'noreferrer noopener',
 };
 
-export interface Props extends React.ComponentPropsWithoutRef<'button'>, MarginProps {
+export interface Props extends React.ComponentPropsWithRef<'button'>, MarginProps {
   variant?: ButtonVariant;
   variantColor?: VariantColor;
   size?: ButtonSize;
@@ -30,6 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       variantColor = 'primary',
       size = 'medium',
       as = 'button',
+      type = 'button',
       leftIcon,
       rightIcon,
       iconVariant = 'solid',
@@ -48,6 +49,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
         disabled={disabled || isLoading}
         as={as}
         ref={ref}
+        type={type}
         {...(as === 'a' ? anchorProps : {})}
         {...rest}
       >
