@@ -26,6 +26,7 @@ export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } fro
 export { Toaster, ToastProvider } from './Toaster/Toaster';
 export { Tooltip } from './Tooltip/Tooltip';
 export { Box } from './Box/Box';
+export { Wrapper } from './Wrapper/Wrapper';
 export { Flex } from './Flex/Flex';
 export { Text } from './Text/Text';
 export { TruncatedText } from './TruncatedText/TruncatedText';
