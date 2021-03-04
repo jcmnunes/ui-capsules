@@ -1,7 +1,7 @@
 import React from 'react';
 import RSelect, { Props as RSelectProps, Styles, Theme as RSTheme } from 'react-select';
-import { MarginProps } from '../styledProps';
 import { useTheme } from '@emotion/react';
+import { MarginProps } from '../styledProps';
 import { Theme } from '../types';
 
 type Size = 'medium' | 'large';
@@ -19,15 +19,15 @@ const dimensions = {
   },
 };
 
-const customStyles = (size: Size, theme: Theme): Partial<Styles> => ({
-  container: (provided: React.CSSProperties) => ({
+const customStyles = (size: Size, theme: Theme): Partial<Styles<any, any>> => ({
+  container: provided => ({
     ...provided,
     width: '100%',
     fontSize: dimensions[size].fontSize,
-    fontWeight: 500,
+    fontWeight: 400,
   }),
 
-  control: (provided: React.CSSProperties, state) => ({
+  control: (provided, state) => ({
     ...provided,
     boxShadow: state.isFocused ? `0 0 0 3px ${theme.colors.primary['200']}` : 'none',
     cursor: state.isDisabled ? 'not-allowed' : 'pointer',
@@ -40,29 +40,20 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles> => ({
     width: '100%',
   }),
 
-  option: (provided: React.CSSProperties, state) => ({
+  option: (provided, state) => ({
     ...provided,
     cursor: 'pointer',
     color: theme.colors.neutral['600'],
-
-    // eslint-disable-next-line no-nested-ternary
-    background: state.isSelected
-      ? theme.colors.primary['50']
-      : state.isFocused
-      ? theme.colors.neutral['50']
-      : '#fff',
-
-    ':hover': {
-      background: state.isSelected ? theme.colors.primary['50'] : theme.colors.neutral['50'],
-    },
+    fontWeight: 500,
+    background: state.isFocused ? theme.colors.neutral['100'] : theme.colors.bg,
   }),
 
-  singleValue: (provided: React.CSSProperties, state) => ({
+  singleValue: (provided, state) => ({
     ...provided,
     color: state.isDisabled ? theme.colors.neutral['300'] : theme.colors.neutral['600'],
   }),
 
-  valueContainer: (provided: React.CSSProperties) => ({
+  valueContainer: provided => ({
     ...provided,
     padding: size === 'medium' ? '1px 8px' : '2px 12px',
   }),
@@ -71,7 +62,7 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles> => ({
     display: 'none',
   }),
 
-  menuPortal: (base: React.CSSProperties) => ({
+  menuPortal: base => ({
     ...base,
     zIndex: theme.zIndices.select,
   }),
@@ -110,11 +101,22 @@ export const customTheme = (rsTheme: RSTheme, size: Size, theme: Theme) => ({
   },
 });
 
-interface Props<T> extends RSelectProps<T>, MarginProps {
+interface GroupType<OptionType> {
+  options: OptionType[];
+
+  [key: string]: any;
+}
+
+interface Props<OptionType, IsMulti extends boolean>
+  extends RSelectProps<OptionType, IsMulti, GroupType<OptionType>>,
+    MarginProps {
   size?: 'medium' | 'large';
 }
 
-export function Select<T>({ size = 'medium', ...rest }: Props<T>) {
+export function Select<OptionType, IsMulti extends boolean = false>({
+  size = 'medium',
+  ...rest
+}: Props<OptionType, IsMulti>) {
   const theme = useTheme();
 
   return (

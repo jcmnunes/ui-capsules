@@ -1,9 +1,9 @@
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Menu/Menu.tsx';
 
-export const PLACEMENT_OPTS: { label: string; value: 'bottom-start' | 'bottom-end' }[] = [
-  { value: 'bottom-start', label: 'bottom-start' },
-  { value: 'bottom-end', label: 'bottom-end' },
+export const PLACEMENT_OPTS: { label: string; value: 'left' | 'right' }[] = [
+  { value: 'left', label: 'left' },
+  { value: 'right', label: 'right' },
 ];
 
 export const PROPS = [

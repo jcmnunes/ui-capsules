@@ -50,7 +50,7 @@ const MenuDemo = () => {
           <Select
             value={placement}
             options={PLACEMENT_OPTS}
-            onChange={opt => setPlacement(opt as SelectOption<'bottom-start' | 'bottom-end'>)}
+            onChange={opt => setPlacement(opt as SelectOption<'left' | 'right'>)}
           />
         </div>
       </Inputs>
