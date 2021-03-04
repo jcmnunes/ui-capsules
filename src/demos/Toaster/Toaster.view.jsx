@@ -5,13 +5,15 @@ import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import { Anchor } from '../../lib';
 
-const usage = `// Wrap your App component with ToastProvider
-import { ToastProvider } from '@binarycapsule/ui-capsules';
+const usage = `// Add the ToastContainer component to the app
+import { ToastContainer } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
-  <ToastProvider>
+  <>
     <App />
-  </ToastProvider>,
+
+    <ToastContainer />
+  </>,
   document.getElementById('root'),
 );
 
@@ -21,7 +23,7 @@ ReactDOM.render(
 // - warning
 // - error
 // - info
-import Toaster from '@binarycapsule/ui-capsules';
+import { Toaster } from '@binarycapsule/ui-capsules';
 
 Toaster.success({
   title: 'Success',
@@ -35,10 +37,7 @@ const ToasterDemo = () => {
       <Title>Toaster</Title>
       <Paragraph>
         Notification system based on the{' '}
-        <Anchor href="https://github.com/jossmac/react-toast-notifications">
-          react-toast-notifications
-        </Anchor>{' '}
-        package.
+        <Anchor href="https://github.com/fkhadra/react-toastify">react-toastify</Anchor> package.
       </Paragraph>
 
       <SubTitle>Usage</SubTitle>

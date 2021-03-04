@@ -1,4 +1,4 @@
-import { theme, ToastProvider, setAppElement } from './lib';
+import { theme, ToastContainer, setAppElement } from './lib';
 import './lib/styles/global.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -11,10 +11,10 @@ setAppElement('#root');
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <BrowserRouter>
-      <ToastProvider>
-        <App />
-      </ToastProvider>
+      <App />
     </BrowserRouter>
+
+    <ToastContainer />
   </ThemeProvider>,
   document.getElementById('root'),
 );
