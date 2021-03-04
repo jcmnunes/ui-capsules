@@ -13,14 +13,20 @@ const toastType2Appearance = {
 const ToasterDemo = () => {
   const [toastType, setToastType] = useState(TOAST_TYPE_OPTS[0]);
   const [toastTitle, setToastTitle] = useState('Done!');
-  const [toastMessage, setToastMessage] = useState('Super awesome notification 😎');
+  const [toastMessage, setToastMessage] = useState('Super awesome notification');
 
   const Component = (
     <Button
       variantColor={toastType2Appearance[toastType.value]}
       disabled={toastTitle.length === 0 && toastMessage.length === 0}
       leftIcon="bell"
-      onClick={() => Toaster[toastType.value]({ title: toastTitle, message: toastMessage })}
+      onClick={() =>
+        Toaster[toastType.value]({
+          title: toastTitle,
+          message: toastMessage,
+          options: { toastId: 'demo-id' },
+        })
+      }
     >
       Give me a toast
     </Button>

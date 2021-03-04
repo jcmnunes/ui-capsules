@@ -24,7 +24,7 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles<any, any>> => ({
     ...provided,
     width: '100%',
     fontSize: dimensions[size].fontSize,
-    fontWeight: 500,
+    fontWeight: 400,
   }),
 
   control: (provided, state) => ({
@@ -44,7 +44,7 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles<any, any>> => ({
     ...provided,
     cursor: 'pointer',
     color: theme.colors.neutral['600'],
-
+    fontWeight: 500,
     background: state.isFocused ? theme.colors.neutral['100'] : theme.colors.bg,
   }),
 
