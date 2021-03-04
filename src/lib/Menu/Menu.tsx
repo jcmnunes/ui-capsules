@@ -1,7 +1,7 @@
-import React, { FC, MouseEvent, ReactElement } from 'react';
+import React, { FC, MouseEvent, ReactElement, useState } from 'react';
 import styled from '@emotion/styled';
 import Downshift, { DownshiftState, StateChangeOptions } from 'downshift';
-import Tippy, { TippyProps } from '@tippyjs/react/headless';
+import { usePopper } from 'react-popper';
 import { MenuItemProps } from './MenuItem';
 import { theme } from '../theme';
 
@@ -48,17 +48,20 @@ const stateReducer = (state: DownshiftState<Item>, changes: StateChangeOptions<I
   }
 };
 
-interface MenuProps extends Partial<Omit<TippyProps, 'children' | 'trigger'>> {
+interface MenuProps {
   trigger: JSX.Element;
+  placement?: 'left' | 'right';
   children: (ReactElement<MenuItemProps> | null)[];
 }
 
-export const Menu: FC<MenuProps> = ({
-  trigger: Trigger,
-  placement = 'bottom-start',
-  children,
-  ...rest
-}) => {
+export const Menu: FC<MenuProps> = ({ trigger: Trigger, placement = 'left', children }) => {
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: `bottom-${placement === 'left' ? 'start' : 'end'}` as any,
+  });
+
   return (
     <Wrapper>
       <Downshift
@@ -67,38 +70,37 @@ export const Menu: FC<MenuProps> = ({
       >
         {({ getMenuProps, getToggleButtonProps, getItemProps, highlightedIndex, isOpen }) => (
           <div>
-            <Tippy
-              interactive
-              appendTo={document.body}
-              visible={isOpen}
-              placement={placement}
-              render={attrs => (
-                <div style={{ zIndex: theme.zIndices.select }} {...attrs}>
-                  <StyledMenu {...getMenuProps()}>
-                    {React.Children.map(children, (child, index) => {
-                      if (child) {
-                        return React.cloneElement(child, {
-                          highlighted: highlightedIndex === index,
-                          ...getItemProps({
-                            key: index,
-                            index,
-                            item: {
-                              name: index.toString(),
-                              closeOnAction: child.props.closeOnAction !== false,
-                              onClick: child.props.onClick,
-                            },
-                          }),
-                        });
-                      }
-                      return null;
-                    })}
-                  </StyledMenu>
-                </div>
-              )}
-              {...rest}
-            >
-              <div {...getToggleButtonProps()}>{Trigger}</div>
-            </Tippy>
+            <div ref={setReferenceElement} {...getToggleButtonProps()}>
+              {Trigger}
+            </div>
+
+            {isOpen ? (
+              <div
+                ref={setPopperElement}
+                style={{ zIndex: theme.zIndices.select, ...styles.popper }}
+                data-placement={attributes.popperPlacement}
+              >
+                <StyledMenu {...getMenuProps()} placement={placement}>
+                  {React.Children.map(children, (child, index) => {
+                    if (child) {
+                      return React.cloneElement(child, {
+                        highlighted: highlightedIndex === index,
+                        ...getItemProps({
+                          key: index,
+                          index,
+                          item: {
+                            name: index.toString(),
+                            closeOnAction: child.props.closeOnAction !== false,
+                            onClick: child.props.onClick,
+                          },
+                        }),
+                      });
+                    }
+                    return null;
+                  })}
+                </StyledMenu>
+              </div>
+            ) : null}
           </div>
         )}
       </Downshift>
