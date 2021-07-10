@@ -19,7 +19,6 @@ export interface Props extends React.ComponentPropsWithRef<'button'>, MarginProp
   leftIcon?: keyof typeof solidIcons | string;
   rightIcon?: keyof typeof solidIcons | string;
   iconVariant?: IconVariant;
-  children?: string;
   as?: 'button' | 'a';
   href?: string;
 }
