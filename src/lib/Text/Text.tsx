@@ -8,7 +8,6 @@ export type TextVariant = 'smallCaps' | 'label' | 'helper' | 'tabular';
 
 export interface TextProps extends ColorProps, TypographyProps, SpaceProps {
   textAlign?: 'left' | 'right' | 'center' | 'justify';
-  children: string;
   isTruncated?: boolean;
   variant?: TextVariant;
 }
