@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify';
+import { toast as rtToast, ToastContainerProps, ToastOptions } from 'react-toastify';
 import React from 'react';
 import { Text } from '../Text/Text';
 import { Icon } from '../Icon/Icon';
@@ -6,40 +6,46 @@ import { IconType } from '../types';
 import { StyledContainer, ToastWrapper } from './Toaster.styles';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
-import { ToastOptions } from 'react-toastify/dist/types';
 
-type ToastType = 'info' | 'success' | 'warning' | 'error';
+type ToastVariant = 'info' | 'success' | 'warning' | 'error';
 
-const icons: Record<ToastType, { icon: string; color: string }> = {
+const icons: Record<ToastVariant, { icon: string; color: string }> = {
   info: {
     icon: 'info_c',
     color: 'info.300',
   },
+
   success: {
     icon: 'check_c',
     color: 'success.400',
   },
+
   warning: {
     icon: 'exclamation_t',
     color: 'warning.300',
   },
+
   error: {
     icon: 'exclamation_c',
     color: 'error.300',
   },
 };
 
+const ToastContainer: React.FC<ToastContainerProps> = props => {
+  return <StyledContainer position="bottom-right" autoClose={5000} limit={3} {...props} />;
+};
+
 interface ToastProps {
-  type: ToastType;
+  variant: ToastVariant;
   title?: string;
   message?: string;
 }
 
-export const Toast: React.FC<ToastProps> = ({ type, title, message }) => {
+export const Toast: React.FC<ToastProps> = ({ variant, title, message }) => {
   return (
     <ToastWrapper>
       <Box position="absolute" top={2} left={0}>
-        <Icon icon={icons[type].icon as IconType} color={icons[type].color} />
+        <Icon icon={icons[variant].icon as IconType} color={icons[variant].color} />
       </Box>
 
       <Flex flexDirection="column" ml={28}>
@@ -55,30 +61,25 @@ export const Toast: React.FC<ToastProps> = ({ type, title, message }) => {
   );
 };
 
-export const ToastContainer = () => {
-  return <StyledContainer limit={3} position="bottom-right" hideProgressBar />;
-};
-
 interface ToastParams {
   title?: string;
   message?: string;
   options?: ToastOptions;
 }
 
-export const Toaster = {
-  info({ title, message, options }: ToastParams) {
-    toast(<Toast type="info" title={title} message={message} />, options);
-  },
+const toast = ({ title, message, options }: ToastParams) =>
+  rtToast(<Toast title={title} message={message} variant="info" />, options);
 
-  success({ title, message, options }: ToastParams) {
-    toast(<Toast type="success" title={title} message={message} />, options);
-  },
-
-  warning({ title, message, options }: ToastParams) {
-    toast(<Toast type="warning" title={title} message={message} />, options);
-  },
-
-  error({ title, message, options }: ToastParams) {
-    toast(<Toast type="error" title={title} message={message} />, options);
-  },
+const createToast = (variant: ToastVariant) => {
+  return ({ title, message, options }: ToastParams) =>
+    rtToast(<Toast title={title} message={message} variant={variant} />, options);
 };
+
+toast.info = createToast('info');
+toast.success = createToast('success');
+toast.warning = createToast('warning');
+toast.error = createToast('error');
+
+const Toaster = Object.assign(rtToast, toast);
+
+export { ToastContainer, Toaster };
