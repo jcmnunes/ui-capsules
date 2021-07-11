@@ -7,14 +7,14 @@ const StyledAnchor = styled.a(
   ({ theme }) => ({
     color: theme.colors.primary['500'],
     cursor: 'pointer',
-    boxShadow: 'inset 0 -2px 0 0',
+    fontWeight: 500,
+    lineHeight: theme.lineHeights.body,
 
     '&:hover': {
-      boxShadow: 'none',
+      color: theme.colors.primary['700'],
     },
 
-    '&:focus': {
-      boxShadow: 'none',
+    '&[data-focus-visible-added]:focus': {
       outline: '2px auto #4098d7',
     },
   }),

@@ -4,7 +4,7 @@ import { theme } from '../theme';
 import { ElementSize, VariantColor } from '../types';
 import { Box, BoxProps } from '../Box/Box';
 import { variant } from 'styled-system';
-import { LayoutProps } from '../styledProps';
+import { BorderProps, LayoutProps } from '../styledProps';
 
 const spin = keyframes`
   100% { 
@@ -32,7 +32,7 @@ export const Spinner = styled(Box)<SpinnerProps>(
     animationTimingFunction: 'linear',
   }),
 
-  variant<LayoutProps, ElementSize>({
+  variant<LayoutProps & BorderProps, ElementSize>({
     prop: 'size',
     variants: {
       small: {
@@ -46,6 +46,7 @@ export const Spinner = styled(Box)<SpinnerProps>(
       large: {
         width: 24,
         height: 24,
+        borderWidth: 3,
       },
     },
   }),

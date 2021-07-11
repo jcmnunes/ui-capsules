@@ -138,7 +138,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   height: 0;
   width: 0;
 
-  &:focus {
+  &[data-focus-visible-added]:focus {
     & ~ .uic-custom-checkbox {
       outline: none;
       box-shadow: ${({ theme }) => `0 0 0 3px ${theme.colors.primary['200']}`};

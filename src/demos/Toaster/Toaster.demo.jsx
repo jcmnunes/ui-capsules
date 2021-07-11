@@ -5,7 +5,7 @@ import { GITHUB_URL, TOAST_TYPE_OPTS } from './Toaster.constants';
 
 const toastType2Appearance = {
   info: 'primary',
-  success: 'success',
+  success: 'primary',
   warning: 'error',
   error: 'error',
 };
@@ -24,7 +24,6 @@ const ToasterDemo = () => {
         Toaster[toastType.value]({
           title: toastTitle,
           message: toastMessage,
-          options: { toastId: 'demo-id' },
         })
       }
     >

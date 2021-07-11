@@ -24,6 +24,7 @@ export const IconWrapper = styled.div<IconWrapperProps>(
     position: 'absolute',
     zIndex: 3,
     color: theme.colors.neutral['500'],
+    pointerEvents: 'none',
   }),
 
   ({ position }) =>

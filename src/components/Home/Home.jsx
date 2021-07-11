@@ -27,13 +27,13 @@ ReactDOM.render(
 );
 `;
 
-export const providersExample = `import { ToastProvider, ThemeProvider, theme } from '@binarycapsule/ui-capsules';
+export const providersExample = `import { ThemeProvider, theme, ToastContainer } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <ToastProvider>
-      <App />
-    </ToastProvider>
+  <ThemeProvider theme={theme}> 
+    <App />
+
+    <ToastContainer />
   </ThemeProvider>,
   document.getElementById('root'),
 );
@@ -71,15 +71,12 @@ const Home = () => (
       </Usage>
 
       <StyledParagraph>As well as the following devDependencies:</StyledParagraph>
-      <Usage>npm i -D @types/styled-system @types/react-modal</Usage>
+      <Usage>npm i -D @types/styled-system @types/react-modal @types/react-select</Usage>
 
       <SubTitle>Setup</SubTitle>
 
-      <StyledParagraph>
-        UI-Capsules sets some global styles and does a CSS reset. In order for the components to
-        work correctly in your app import the global CSS file at the entry point.
-      </StyledParagraph>
-      <Usage>import &apos;@binarycapsule/ui-capsules/assets/global.css&apos;;</Usage>
+      <StyledParagraph>Import the setup script at the entry point of you app:</StyledParagraph>
+      <Usage>import &apos;@binarycapsule/ui-capsules/dist/setup&apos;;</Usage>
 
       <StyledParagraph>
         If using the modal component, call setAppElement with a selector for the root element{' '}
@@ -90,7 +87,9 @@ const Home = () => (
       </StyledParagraph>
       <Usage>{setAppElementExample}</Usage>
 
-      <StyledParagraph>Wrap your app in the Theme and Toasts providers:</StyledParagraph>
+      <StyledParagraph>
+        Wrap your app in the ThemeProvider and render the ToastContainer:
+      </StyledParagraph>
       <Usage>{providersExample}</Usage>
     </div>
   </Wrapper>
