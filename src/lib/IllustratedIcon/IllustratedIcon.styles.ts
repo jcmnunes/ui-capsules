@@ -27,7 +27,7 @@ export const IllustratedIconWrapper = styled.span<IllustratedIconWrapperProps>`
     }
   }
 
-  &:focus {
+  &[data-focus-visible-added]:focus {
     box-shadow: ${({ theme }) => theme.shadows.focus.boxShadow};
     z-index: 1;
   }

@@ -38,12 +38,10 @@ npm i -D @types/styled-system @types/react-modal @types/react-select
 
 ## Setup
 
-UI-Capsules sets some global styles and does a CSS reset. In order for the
-components to work correctly in your app import the global CSS file at the entry
-point.
+Import the setup script at the entry point of you app:
 
 ```jsx
-import '@binarycapsule/ui-capsules/dist/styles/global.css';
+import '@binarycapsule/ui-capsules/dist/setup';
 ```
 
 If using the modal component, call setAppElement with a selector for the root
@@ -57,20 +55,20 @@ setAppElement('#root');
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-Wrap your app in the Theme and Toasts providers:
+Wrap your app in the ThemeProvider and render the ToastContainer:
 
 ```jsx
 import {
-  ToastProvider,
   ThemeProvider,
   theme,
+  ToastContainer,
 } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <ToastProvider>
-      <App />
-    </ToastProvider>
+    <App />
+
+    <ToastContainer />
   </ThemeProvider>,
   document.getElementById('root'),
 );

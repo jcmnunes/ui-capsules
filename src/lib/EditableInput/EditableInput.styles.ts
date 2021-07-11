@@ -36,7 +36,7 @@ export const Value = styled.button<ValueProps>(
       backgroundColor: canEdit ? theme.colors.neutral['100'] : 'initial',
     },
 
-    '&:focus': {
+    '&[data-focus-visible-added]:focus': {
       outline: 'none',
       boxShadow: `0 0 0 2px ${theme.colors.primary['100']}`,
     },

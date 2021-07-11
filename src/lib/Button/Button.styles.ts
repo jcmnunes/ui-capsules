@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { margin, variant } from 'styled-system';
+import { BoxShadowProps, margin, variant } from 'styled-system';
 import { IconProps } from '../Icon/Icon';
 import {
   BorderProps,
@@ -12,17 +12,22 @@ import {
 } from '../styledProps';
 import { VariantColor } from '../types';
 
-const LINK_COLOR_MAP: Record<string, string> = {
-  info: 'info.500',
-  success: 'success.600',
-  warning: 'warning.900',
-  error: 'error.600',
+const LINK_COLOR_MAP: Record<string, string[]> = {
+  info: ['info.500', 'info.700'],
+  success: ['success.600', 'success.800'],
+  warning: ['warning.900', 'warning.900'],
+  error: ['error.600', 'error.700'],
 };
 
 export type ButtonVariant = 'solid' | 'outline' | 'ghost' | 'link';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
-export type Pseudo = '&:hover' | '&:focus' | '&:active' | '&:disabled';
+export type Pseudo =
+  | '&:hover'
+  | '&:focus'
+  | '&:active'
+  | '&:disabled'
+  | '&[data-focus-visible-added]:focus';
 
 export interface StyledButtonProps extends MarginProps {
   variant: ButtonVariant;
@@ -53,12 +58,18 @@ export const StyledButton = styled.button<StyledButtonProps>(
     verticalAlign: 'middle',
     width: 'auto',
 
-    '&:focus': {
+    '&[data-focus-visible-added]:focus': {
       ...theme.shadows.focus,
     },
   }),
   ({ variantColor }) =>
-    variant<PropsWithPseudo<ColorProps & BorderProps & TypographyProps, Pseudo>, ButtonVariant>({
+    variant<
+      PropsWithPseudo<
+        ColorProps & BorderProps & TypographyProps & BoxShadowProps & { outline?: string },
+        Pseudo
+      >,
+      ButtonVariant
+    >({
       variants: {
         solid: {
           bg: `${variantColor}.500`,
@@ -129,11 +140,21 @@ export const StyledButton = styled.button<StyledButtonProps>(
         link: {
           bg: 'transparent',
           border: 'none',
-          color: LINK_COLOR_MAP[variantColor as string] || `${variantColor}.500`,
+          color: LINK_COLOR_MAP[variantColor as string]
+            ? LINK_COLOR_MAP[variantColor as string][0]
+            : `${variantColor}.500`,
           borderRadius: 'none',
+          lineHeight: 'body',
 
           '&:hover': {
-            textDecorationLine: 'underline',
+            color: LINK_COLOR_MAP[variantColor as string]
+              ? LINK_COLOR_MAP[variantColor as string][1]
+              : `${variantColor}.700`,
+          },
+
+          '&[data-focus-visible-added]:focus': {
+            boxShadow: 'none',
+            outline: '2px auto #4098d7',
           },
         },
       },
@@ -146,21 +167,21 @@ export const StyledButton = styled.button<StyledButtonProps>(
         small: {
           height: variantProp === 'link' ? 'auto' : 24,
           fontSize: 'small',
-          lineHeight: '12px',
+          lineHeight: variantProp === 'link' ? 'body' : '12px',
           px: variantProp === 'link' ? '2' : '4',
         },
 
         medium: {
           height: variantProp === 'link' ? 'auto' : 32,
           fontSize: 'body',
-          lineHeight: '14px',
+          lineHeight: variantProp === 'link' ? 'body' : '14px',
           px: variantProp === 'link' ? '2' : '8',
         },
 
         large: {
           height: variantProp === 'link' ? 'auto' : 40,
           fontSize: 'body',
-          lineHeight: '14px',
+          lineHeight: variantProp === 'link' ? 'body' : '14px',
           px: variantProp === 'link' ? '2' : '12',
         },
       },
