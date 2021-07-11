@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/13286745/63065062-66f6d800-befc-11e9-882a-488ab85f6a37.png" alt="BC logo" width="100px" height="100px">
+    <img src="https://user-images.githubusercontent.com/13286745/63065062-66f6d800-befc-11e9-882a-488ab85f6a37.png" alt="BC logo" width="100px" height="100px">
 
 # UI-Capsules - React UI Kit 👷‍♂💊🚧 wip️
 
@@ -27,7 +27,13 @@ npm i @binarycapsule/ui-capsules
 The following peer dependencies should also be installed:
 
 ```
-npm i react react-dom @emotion/react @emotion/styled styled-system @styled-system/should-forward-prop @types/styled-system
+npm i react react-dom @emotion/react @emotion/styled styled-system @styled-system/should-forward-prop
+```
+
+As well as the following devDependencies:
+
+```
+npm i -D @types/styled-system @types/react-modal @types/react-select
 ```
 
 ## Setup

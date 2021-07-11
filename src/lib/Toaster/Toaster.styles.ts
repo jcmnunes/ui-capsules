@@ -1,4 +1,3 @@
-import 'react-toastify/dist/ReactToastify.css';
 import styled from '@emotion/styled';
 import { ToastContainer as RTToastContainer } from 'react-toastify';
 

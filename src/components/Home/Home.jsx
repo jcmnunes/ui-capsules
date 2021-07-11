@@ -71,7 +71,7 @@ const Home = () => (
       </Usage>
 
       <StyledParagraph>As well as the following devDependencies:</StyledParagraph>
-      <Usage>npm i -D @types/styled-system @types/react-modal</Usage>
+      <Usage>npm i -D @types/styled-system @types/react-modal @types/react-select</Usage>
 
       <SubTitle>Setup</SubTitle>
 
