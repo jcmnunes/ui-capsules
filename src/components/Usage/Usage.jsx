@@ -13,7 +13,7 @@ const StyledUsage = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: ${props => props.theme.colors.neutral['50']};
+  background: ${props => props.theme.colors.neutral['100']};
   border-radius: 12px;
 `;
 

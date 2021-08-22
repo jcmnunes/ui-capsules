@@ -34,7 +34,8 @@ const AppWrapper = styled.div`
 
 export const SidebarWrapper = styled.div`
   flex: 2;
-  background: ${props => props.theme.colors.neutral['50']};
+  background: ${props => props.theme.colors.neutral['100']};
+  border: ${({ theme }) => `1px solid ${theme.colors.neutral['200']}`};
   display: flex;
   justify-content: flex-end;
 `;

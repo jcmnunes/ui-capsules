@@ -24,7 +24,7 @@ export const Inputs = styled.div`
 
 export const DemoWrapper = styled.div`
   border-radius: 12px;
-  background-color: ${props => props.theme.colors.neutral['50']};
+  background-color: ${props => props.theme.colors.neutral['100']};
   padding: 12px;
   display: flex;
   flex-direction: row;

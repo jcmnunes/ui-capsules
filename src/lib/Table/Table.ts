@@ -5,6 +5,6 @@ export const Table = styled.table`
   border-collapse: collapse;
   border-radius: 12px;
   border-style: hidden;
-  box-shadow: ${({ theme }) => `0 0 0 1px ${theme.colors.neutral['200']}`};
+  box-shadow: ${({ theme }) => `0 0 0 1px ${theme.colors.neutral['300']}`};
   overflow: hidden;
 `;

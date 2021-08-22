@@ -15,7 +15,7 @@ export const Label = styled.label<LabelProps>(
     alignItems: 'center',
     position: 'relative',
     userSelect: 'none',
-    color: disabled ? theme.colors.neutral['300'] : 'inherit',
+    color: disabled ? theme.colors.neutral['400'] : 'inherit',
   }),
 
   variant<LayoutProps & TypographyProps & PaddingProps, ElementSize>({
@@ -132,9 +132,9 @@ export const StyledInput = styled.input<StyledInputProps>`
   &:checked {
     ~ .uic-custom-radio {
       background-color: ${({ theme, variantColor }) =>
-        theme.colors[variantColor as keyof typeof theme.colors]['400']};
+        theme.colors[variantColor as keyof typeof theme.colors]['500']};
       border-color: ${({ theme, variantColor }) =>
-        theme.colors[variantColor as keyof typeof theme.colors]['400']};
+        theme.colors[variantColor as keyof typeof theme.colors]['500']};
 
       &:after {
         display: block;
