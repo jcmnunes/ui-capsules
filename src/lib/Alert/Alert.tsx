@@ -61,3 +61,14 @@ export const Alert: React.FC<Props> = ({
     </AlertWrapper>
   );
 };
+
+Alert.displayName = 'Alert';
+
+Alert.defaultProps = {
+  title: undefined,
+  message: undefined,
+  variant: 'error',
+  onRequestClose: undefined,
+  actions: undefined,
+  extraAction: undefined,
+};
