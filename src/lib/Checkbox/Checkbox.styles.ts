@@ -22,7 +22,7 @@ export const Label = styled.label<LabelProps>(
     position: 'relative',
     userSelect: 'none',
     color: disabled ? theme.colors.neutral['300'] : 'inherit',
-    cursor: disabled ? 'not-allowed' : 'pointer',
+    cursor: disabled ? 'initial' : 'pointer',
   }),
 
   variant<LayoutProps & TypographyProps & PaddingProps & ColorProps, ElementSize>({
@@ -148,9 +148,9 @@ export const StyledInput = styled.input<StyledInputProps>`
   &:checked {
     & ~ .uic-custom-checkbox {
       background-color: ${({ theme, variantColor }) =>
-        theme.colors[variantColor as keyof typeof theme.colors]['400']};
+        theme.colors[variantColor as keyof typeof theme.colors]['500']};
       border-color: ${({ theme, variantColor }) =>
-        theme.colors[variantColor as keyof typeof theme.colors]['400']};
+        theme.colors[variantColor as keyof typeof theme.colors]['500']};
 
       &:after {
         display: block;

@@ -48,7 +48,6 @@ export const Dialog: FC<Props> = ({
           <Button
             key={text}
             type="button"
-            size="large"
             variant={variant === 'neutral' ? 'ghost' : 'solid'}
             variantColor={variant || 'primary'}
             onClick={onClick}

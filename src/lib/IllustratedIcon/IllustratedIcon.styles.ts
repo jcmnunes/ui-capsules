@@ -18,7 +18,7 @@ export const IllustratedIconWrapper = styled.span<IllustratedIconWrapperProps>`
   svg {
     path {
       &:first-of-type {
-        fill: ${({ primaryColor, theme }) => primaryColor || theme.colors.neutral['200']};
+        fill: ${({ primaryColor, theme }) => primaryColor || theme.colors.neutral['300']};
       }
 
       &:last-of-type {

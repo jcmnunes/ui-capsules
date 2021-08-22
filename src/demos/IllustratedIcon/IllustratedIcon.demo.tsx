@@ -17,7 +17,7 @@ const IllustratedIconDemo = () => {
   const iconOpts = useIconOpts();
   const [onClick, setOnClick] = useState(false);
   const [icon, setIcon] = useState(iconOpts[0]);
-  const [primaryColor, setPrimaryColor] = useState(theme.colors.neutral['200']);
+  const [primaryColor, setPrimaryColor] = useState(theme.colors.neutral['300']);
   const [secondaryColor, setSecondaryColor] = useState(theme.colors.neutral['600']);
   const [primaryColorHover, setPrimaryColorHover] = useState(theme.colors.neutral['300']);
   const [secondaryColorHover, setSecondaryColorHover] = useState(theme.colors.neutral['700']);

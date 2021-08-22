@@ -39,7 +39,7 @@ const ModalDemo = () => {
   <ModalCloseButton onClick={() => setIsOpen(false)} />
 
   <ModalBody>
-    <Text color="neutral.700" fontWeight={600} fontSize="body" mb="4">
+    <Text color="neutral.700" fontWeight={600} fontSize="small" mb="4">
       What will you be working on?
     </Text>
     <Input
@@ -50,10 +50,15 @@ const ModalDemo = () => {
       placeholder="Task summary"
     />
 
-    <Text color="neutral.700" fontWeight={600} fontSize="body" mt="24" mb="4">
+    <Text color="neutral.700" fontWeight={600} fontSize="small" mt="24" mb="4">
       Task scope
     </Text>
-    <Select value={SIZE_OPTS[0]} options={SIZE_OPTS} onChange={() => {}} />
+    <Select
+      value={SIZE_OPTS[0]}
+      options={SIZE_OPTS}
+      onChange={() => {}}
+      menuPortalTarget={document.body}
+    />
 
     <Button leftIcon="plus" variant="ghost" variantColor="neutral" size="small" mt="4">
       Create new scope
@@ -61,15 +66,10 @@ const ModalDemo = () => {
   </ModalBody>
 
   <ModalFooter>
-    <Button
-      variant="ghost"
-      variantColor="neutral"
-      size="large"
-      onClick={() => setIsOpen(false)}
-    >
+    <Button variant="ghost" variantColor="neutral" onClick={() => setIsOpen(false)}>
       Cancel
     </Button>
-    <Button size="large">Add Task</Button>
+    <Button>Add Task</Button>
   </ModalFooter>
 </Modal>
 `;
@@ -113,7 +113,7 @@ const ModalDemo = () => {
         <ModalCloseButton onClick={() => setIsOpen(false)} />
 
         <ModalBody>
-          <Text color="neutral.700" fontWeight={600} fontSize="body" mb="4">
+          <Text color="neutral.700" fontWeight={600} fontSize="small" mb="4">
             What will you be working on?
           </Text>
           <Input
@@ -124,10 +124,15 @@ const ModalDemo = () => {
             placeholder="Task summary"
           />
 
-          <Text color="neutral.700" fontWeight={600} fontSize="body" mt="24" mb="4">
+          <Text color="neutral.700" fontWeight={600} fontSize="small" mt="24" mb="4">
             Task scope
           </Text>
-          <Select value={SIZE_OPTS[0]} options={SIZE_OPTS} onChange={() => {}} />
+          <Select
+            value={SIZE_OPTS[0]}
+            options={SIZE_OPTS}
+            onChange={() => {}}
+            menuPortalTarget={document.body}
+          />
 
           <Button leftIcon="plus" variant="ghost" variantColor="neutral" size="small" mt="4">
             Create new scope
@@ -135,15 +140,10 @@ const ModalDemo = () => {
         </ModalBody>
 
         <ModalFooter>
-          <Button
-            variant="ghost"
-            variantColor="neutral"
-            size="large"
-            onClick={() => setIsOpen(false)}
-          >
+          <Button variant="ghost" variantColor="neutral" onClick={() => setIsOpen(false)}>
             Cancel
           </Button>
-          <Button size="large">Add Task</Button>
+          <Button>Add Task</Button>
         </ModalFooter>
       </Modal>
     </Demo>

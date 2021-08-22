@@ -1,6 +1,7 @@
 import React from 'react';
 import RSelect, { Props as RSelectProps, Styles, Theme as RSTheme } from 'react-select';
 import { useTheme } from '@emotion/react';
+import { Option } from './components/Option';
 import { MarginProps } from '../styledProps';
 import { Theme } from '../types';
 
@@ -9,13 +10,13 @@ type Size = 'medium' | 'large';
 const dimensions = {
   medium: {
     baseUnit: 2,
-    minHeight: 32,
+    minHeight: 36,
     fontSize: '14px',
   },
   large: {
     baseUnit: 4,
-    minHeight: 48,
-    fontSize: '16px',
+    minHeight: 40,
+    fontSize: '14px',
   },
 };
 
@@ -33,9 +34,9 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles<any, any>> => ({
     cursor: state.isDisabled ? 'not-allowed' : 'pointer',
     border: state.isFocused
       ? `1px solid ${theme.colors.primary['400']}`
-      : `1px solid ${theme.colors.neutral['200']}`,
+      : `1px solid ${theme.colors.neutral['300']}`,
     ':hover': {
-      border: `1px solid ${theme.colors.neutral['300']}`,
+      border: `1px solid ${theme.colors.neutral['400']}`,
     },
     width: '100%',
   }),
@@ -43,9 +44,9 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles<any, any>> => ({
   option: (provided, state) => ({
     ...provided,
     cursor: 'pointer',
-    color: theme.colors.neutral['600'],
+    color: theme.colors.neutral['700'],
     fontWeight: 500,
-    background: state.isFocused ? theme.colors.neutral['100'] : theme.colors.bg,
+    background: state.isFocused ? theme.colors.neutral['200'] : theme.colors.bg,
   }),
 
   singleValue: (provided, state) => ({
@@ -121,11 +122,15 @@ export function Select<OptionType, IsMulti extends boolean = false>({
 
   return (
     <RSelect
+      {...rest}
       size={size}
       styles={customStyles(size, theme)}
       theme={(rsTheme: RSTheme) => customTheme(rsTheme, size, theme)}
       classNamePrefix="react-select"
-      {...rest}
+      components={{
+        Option,
+        ...rest.components,
+      }}
     />
   );
 }

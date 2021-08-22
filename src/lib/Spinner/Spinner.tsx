@@ -24,8 +24,11 @@ export const Spinner = styled(Box)<SpinnerProps>(
     borderRadius: '100%',
     borderWidth: 2,
     borderStyle: 'solid',
-    borderColor: theme.colors[variantColor as keyof typeof theme.colors]['100'],
-    borderTopColor: theme.colors[variantColor as keyof typeof theme.colors]['400'],
+    borderColor:
+      variantColor === 'neutral'
+        ? theme.colors[variantColor]['200']
+        : theme.colors[variantColor]['100'],
+    borderTopColor: theme.colors[variantColor]['400'],
     animationName: spin,
     animationDuration: '500ms',
     animationIterationCount: 'infinite',

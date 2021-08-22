@@ -13,9 +13,9 @@ interface Props extends BoxProps {
   circular?: boolean;
 }
 
-const StyledSkeleton = styled(Box)<Props>(({ circular }) => ({
+const StyledSkeleton = styled(Box)<Props>(({ circular, theme }) => ({
   position: 'relative',
-  borderRadius: circular ? 999 : 0,
+  borderRadius: circular ? 999 : theme.radii.medium,
   overflow: 'hidden',
 
   '&:after': {
@@ -37,5 +37,5 @@ export const Skeleton: FC<Props> = props => <StyledSkeleton {...props} />;
 Skeleton.displayName = 'Skeleton';
 Skeleton.defaultProps = {
   circular: false,
-  bg: 'neutral.100',
+  bg: 'neutral.200',
 };
