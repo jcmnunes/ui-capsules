@@ -12,22 +12,21 @@ export const StyledSidebarLink = styled(NavLink)`
   font-weight: 500;
   height: 32px;
   border-radius: 4px;
-  background: ${props => props.theme.colors.neutral['50']};
-  color: ${props => props.theme.colors.neutral['600']};
+  background: ${props => props.theme.colors.neutral['100']};
+  color: ${props => props.theme.colors.neutral['700']};
   cursor: pointer;
   padding: 4px 12px;
 
   &:hover {
-    background: ${props => props.theme.colors.neutral['100']};
+    background: ${props => props.theme.colors.neutral['200']};
   }
 
   &.active {
-    background: ${props => props.theme.colors.neutral['100']};
-    font-weight: 600;
+    background: ${props => props.theme.colors.neutral['200']};
     color: ${props => props.theme.colors.pink['700']};
 
     &:hover {
-      background: ${props => props.theme.colors.neutral['100']};
+      background: ${props => props.theme.colors.neutral['200']};
     }
   }
 `;

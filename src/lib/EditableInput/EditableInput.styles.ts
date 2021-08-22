@@ -46,10 +46,10 @@ export const Value = styled.button<ValueProps>(
     prop: 'size',
     variants: {
       small: {
-        px: 5,
+        px: 9,
         py: 2,
         fontSize: 'small',
-        height: 24,
+        height: 32,
       },
       medium: {
         px: 9,
@@ -58,7 +58,7 @@ export const Value = styled.button<ValueProps>(
         height: 32,
       },
       large: {
-        px: 13,
+        px: 9,
         py: 12,
         fontSize: 'body',
         height: 40,

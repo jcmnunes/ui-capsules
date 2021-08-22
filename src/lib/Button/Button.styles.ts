@@ -95,30 +95,7 @@ export const StyledButton = styled.button<StyledButtonProps>(
         outline: {
           bg: 'transparent',
           borderColor: `${variantColor}.500`,
-          color: `${variantColor}.500`,
-
-          '&:focus': {
-            bg: 'transparent',
-          },
-
-          '&:hover': {
-            bg: `${variantColor}.50`,
-          },
-
-          '&:active': {
-            bg: `${variantColor}.100`,
-          },
-
-          '&:disabled': {
-            bg: `${variantColor}.50`,
-            borderColor: `${variantColor}.300`,
-          },
-        },
-
-        ghost: {
-          bg: 'transparent',
-          border: 'none',
-          color: `${variantColor}.500`,
+          color: variantColor === 'neutral' ? `${variantColor}.600` : `${variantColor}.500`,
 
           '&:focus': {
             bg: 'transparent',
@@ -130,6 +107,29 @@ export const StyledButton = styled.button<StyledButtonProps>(
 
           '&:active': {
             bg: variantColor === 'neutral' ? `${variantColor}.200` : `${variantColor}.100`,
+          },
+
+          '&:disabled': {
+            bg: `${variantColor}.50`,
+            borderColor: `${variantColor}.300`,
+          },
+        },
+
+        ghost: {
+          bg: 'transparent',
+          border: 'none',
+          color: variantColor === 'neutral' ? `${variantColor}.600` : `${variantColor}.500`,
+
+          '&:focus': {
+            bg: 'transparent',
+          },
+
+          '&:hover': {
+            bg: variantColor === 'neutral' ? `${variantColor}.200` : `${variantColor}.50`,
+          },
+
+          '&:active': {
+            bg: variantColor === 'neutral' ? `${variantColor}.300` : `${variantColor}.100`,
           },
 
           '&:disabled': {
@@ -172,17 +172,17 @@ export const StyledButton = styled.button<StyledButtonProps>(
         },
 
         medium: {
-          height: variantProp === 'link' ? 'auto' : 32,
+          height: variantProp === 'link' ? 'auto' : 36,
           fontSize: 'body',
           lineHeight: variantProp === 'link' ? 'body' : '14px',
-          px: variantProp === 'link' ? '2' : '8',
+          px: variantProp === 'link' ? '2' : '16',
         },
 
         large: {
-          height: variantProp === 'link' ? 'auto' : 40,
+          height: variantProp === 'link' ? 'auto' : 48,
           fontSize: 'body',
           lineHeight: variantProp === 'link' ? 'body' : '14px',
-          px: variantProp === 'link' ? '2' : '12',
+          px: variantProp === 'link' ? '2' : '24',
         },
       },
     }),

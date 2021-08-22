@@ -32,12 +32,12 @@ export const IconWrapper = styled.div<IconWrapperProps>(
       prop: 'size',
       variants: {
         small: {
-          top: 2,
+          top: 8,
           left: position === 'left' ? 6 : 'auto',
           right: position === 'left' ? 'auto' : 6,
         },
         medium: {
-          top: 6,
+          top: 8,
           left: position === 'left' ? 8 : 'auto',
           right: position === 'left' ? 'auto' : 8,
         },
@@ -61,19 +61,19 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
   ({ theme, error }) => ({
     fontFamily: theme.fontFamily,
     background: theme.colors.bg,
-    color: theme.colors.neutral['600'],
+    color: theme.colors.neutral['700'],
     borderRadius: theme.radii.medium,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: error ? theme.colors.error['500'] : theme.colors.neutral['200'],
+    borderColor: error ? theme.colors.error['500'] : theme.colors.neutral['300'],
     width: '100%',
 
     '&::placeholder': {
-      color: theme.colors.neutral['300'],
+      color: theme.colors.neutral['400'],
     },
 
     '&:hover': {
-      borderColor: error ? theme.colors.error['700'] : theme.colors.neutral['300'],
+      borderColor: error ? theme.colors.error['700'] : theme.colors.neutral['400'],
     },
 
     '&:focus': {
@@ -83,10 +83,9 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
     },
 
     '&:disabled': {
-      color: theme.colors.neutral['200'],
+      color: theme.colors.neutral['400'],
       background: theme.colors.neutral['50'],
-      cursor: 'not-allowed',
-      borderColor: theme.colors.neutral['200'],
+      borderColor: theme.colors.neutral['300'],
     },
   }),
 
@@ -95,14 +94,14 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
       prop: 'inputSize',
       variants: {
         small: {
-          height: 24,
+          height: 32,
           fontSize: 'small',
-          pr: rightIcon ? 26 : 4,
-          pl: leftIcon ? 26 : 4,
+          pr: rightIcon ? 26 : 8,
+          pl: leftIcon ? 26 : 8,
         },
 
         medium: {
-          height: 32,
+          height: 36,
           fontSize: 'body',
           pr: rightIcon ? 34 : 8,
           pl: leftIcon ? 34 : 8,
@@ -111,8 +110,8 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
         large: {
           height: 40,
           fontSize: 'body',
-          pr: rightIcon ? 38 : 12,
-          pl: leftIcon ? 38 : 12,
+          pr: rightIcon ? 38 : 8,
+          pl: leftIcon ? 38 : 8,
         },
       },
     }),
