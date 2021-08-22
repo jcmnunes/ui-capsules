@@ -17,7 +17,7 @@ const Label = styled.label`
 const LabelText = styled.span<{ disabled?: boolean; size: ElementSize }>`
   font-size: ${({ size }) => (size === 'large' ? '16px' : '14px')};
   margin-left: 8px;
-  color: ${({ disabled, theme }) => disabled && theme.colors.neutral['200']};
+  color: ${({ disabled, theme }) => disabled && theme.colors.neutral['400']};
 `;
 
 const DIMENSIONS = {
@@ -70,7 +70,7 @@ export const Switch: FC<SwitchProps> = ({
         handleDiameter={DIMENSIONS[size].diameter}
         uncheckedIcon={false}
         checkedIcon={false}
-        onColor={theme.colors[variantColor as keyof typeof theme.colors]['500']}
+        onColor={theme.colors[variantColor]['500']}
         offColor={theme.colors.neutral['300']}
         {...rest}
       />
