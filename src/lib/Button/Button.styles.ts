@@ -72,23 +72,23 @@ export const StyledButton = styled.button<StyledButtonProps>(
     >({
       variants: {
         solid: {
-          bg: `${variantColor}.500`,
-          borderColor: `${variantColor}.500`,
+          bg: `${variantColor}.600`,
+          borderColor: `${variantColor}.600`,
           color: 'bg',
 
           '&:focus': {
-            bg: `${variantColor}.500`,
+            bg: `${variantColor}.600`,
             borderColor: `${variantColor}.500`,
           },
 
           '&:hover': {
-            bg: `${variantColor}.600`,
-            borderColor: `${variantColor}.600`,
+            bg: `${variantColor}.700`,
+            borderColor: `${variantColor}.700`,
           },
 
           '&:active': {
-            bg: `${variantColor}.700`,
-            borderColor: `${variantColor}.700`,
+            bg: `${variantColor}.800`,
+            borderColor: `${variantColor}.800`,
           },
         },
 
