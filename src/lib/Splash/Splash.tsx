@@ -18,7 +18,7 @@ const Container = styled.div<{ variant: SplashVariant }>(
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: theme.zIndices.larger,
+    zIndex: theme.zIndices.splash,
   }),
 
   variant<ColorProps, SplashVariant>({

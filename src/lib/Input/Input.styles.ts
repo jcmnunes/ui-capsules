@@ -65,7 +65,7 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
     borderRadius: theme.radii.medium,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: error ? theme.colors.error['500'] : theme.colors.neutral['300'],
+    borderColor: error ? theme.colors.error['500'] : theme.colors.neutral['400'],
     width: '100%',
 
     '&::placeholder': {
@@ -73,7 +73,7 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
     },
 
     '&:hover': {
-      borderColor: error ? theme.colors.error['700'] : theme.colors.neutral['400'],
+      borderColor: error ? theme.colors.error['700'] : theme.colors.neutral['500'],
     },
 
     '&:focus': {

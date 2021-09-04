@@ -9,8 +9,6 @@ import { ElementSize } from '../types';
 const styles = {
   overlay: {
     backgroundColor: 'rgba(60, 63, 75, 0.65)',
-    backdropFilter: 'blur(4px)',
-    WebkitBackdropFilter: 'blur(4px)',
   },
 };
 

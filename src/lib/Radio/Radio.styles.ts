@@ -54,7 +54,7 @@ export const CustomRadio = styled.span<CustomRadioProps>(
     borderRadius: '50%',
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderColor: disabled ? theme.colors.neutral['100'] : theme.colors.neutral['300'],
+    borderColor: disabled ? theme.colors.neutral['100'] : theme.colors.neutral['400'],
 
     '&:after': {
       content: '""',
@@ -143,7 +143,7 @@ export const StyledInput = styled.input<StyledInputProps>`
 
     &:disabled {
       & ~ .uic-custom-radio {
-        opacity: 0.5;
+        opacity: 0.7;
       }
     }
   }
