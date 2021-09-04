@@ -21,62 +21,67 @@ const ButtonDemo = () => {
   }, [iconFilter]);
 
   return (
-    <Wrapper>
-      <Title>Icon</Title>
-      <Paragraph>
-        Use this component to render an icon. Most of the available icons are from the{' '}
-        <Anchor href="https://github.com/refactoringui/heroicons">Heroicons collection</Anchor>.
-      </Paragraph>
+    <Wrapper as="main">
+      <header>
+        <Title>Icon</Title>
+        <Paragraph>
+          Use this component to render an icon. Most of the available icons are from the{' '}
+          <Anchor href="https://github.com/refactoringui/heroicons">Heroicons collection</Anchor>.
+        </Paragraph>
+      </header>
 
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Icon } from '@binarycapsule/ui-capsules';"}</Usage>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Icon } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={ICON_PROPS} />
 
-      <Flex justifyContent="space-between" mt="12">
-        <SubTitle id="icons">Icons</SubTitle>
+      <section>
+        <Flex justifyContent="space-between" mt="12">
+          <SubTitle id="icons">Icons</SubTitle>
 
-        <Flex alignItems="center">
-          <Icon icon="beaker" variant="solid" size={24} />
-          <Switch
-            checked={isOutline}
-            onChange={checked => setIsOutline(checked)}
-            size="small"
-            mx="4"
+          <Flex alignItems="center">
+            <Icon icon="beaker" variant="solid" size={24} />
+            <Switch
+              checked={isOutline}
+              onChange={checked => setIsOutline(checked)}
+              size="small"
+              mx="4"
+            />
+            <Icon icon="beaker" variant="outline" />
+          </Flex>
+        </Flex>
+
+        <Box mb="24">
+          <Input
+            value={iconFilter}
+            onChange={evt => iconFilterSet(evt.target.value)}
+            leftIcon="search"
+            placeholder="Search"
+            size="large"
           />
-          <Icon icon="beaker" variant="outline" />
-        </Flex>
-      </Flex>
+        </Box>
 
-      <Box mb="24">
-        <Input
-          value={iconFilter}
-          onChange={evt => iconFilterSet(evt.target.value)}
-          leftIcon="search"
-          placeholder="Search"
-          size="large"
-        />
-      </Box>
+        <IconGrid>
+          {(icons as IconType[]).sort().map((icon, index) => (
+            <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>
+              <Icon icon={icon} variant={isOutline ? 'outline' : 'solid'} />
+            </IconCard>
+          ))}
+        </IconGrid>
 
-      <IconGrid>
-        {(icons as IconType[]).sort().map((icon, index) => (
-          <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>
-            <Icon icon={icon} variant={isOutline ? 'outline' : 'solid'} />
-          </IconCard>
-        ))}
-      </IconGrid>
-
-      {icons.length === 0 && (
-        <Flex alignItems="center" justifyContent="center" flexDirection="column">
-          <Icon icon="emoji_sad" variant="outline" mr="8" color="neutral.400" size={48} />
-          <Text fontSize="h6" color="neutral.400" textAlign="center" mt="2">
-            {`No icons found for "${iconFilter}"`}
-          </Text>
-        </Flex>
-      )}
+        {icons.length === 0 && (
+          <Flex alignItems="center" justifyContent="center" flexDirection="column">
+            <Icon icon="emoji_sad" variant="outline" mr="8" color="neutral.400" size={48} />
+            <Text fontSize="h6" color="neutral.400" textAlign="center" mt="2">
+              {`No icons found for "${iconFilter}"`}
+            </Text>
+          </Flex>
+        )}
+      </section>
     </Wrapper>
   );
 };

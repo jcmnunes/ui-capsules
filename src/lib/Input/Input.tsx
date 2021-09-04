@@ -1,12 +1,24 @@
 import React from 'react';
 import { ElementSize, IconType, IconVariant } from '../types';
 import { Icon } from '../Icon/Icon';
-import { IconWrapper, InputWrapper, StyledInput, Error, InputIcon } from './Input.styles';
+import { Label } from '../Label/Label';
+import {
+  IconWrapper,
+  InputWrapper,
+  StyledInput,
+  InputIcon,
+  InputVariant,
+  Wrapper,
+} from './Input.styles';
+import { useId } from '@reach/auto-id';
+import { HelpText } from '../HelpText/HelpText';
 
 export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   size?: ElementSize;
   disabled?: boolean;
-  error?: string;
+  label?: string;
+  helpText?: string;
+  variant?: InputVariant;
   leftIcon?: IconType;
   rightIcon?: IconType;
   iconVariant?: IconVariant;
@@ -14,52 +26,84 @@ export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'si
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
   (
-    { size = 'medium', error, disabled = false, leftIcon, rightIcon, iconVariant, ...rest },
+    {
+      size = 'medium',
+      label,
+      helpText,
+      variant,
+      disabled = false,
+      leftIcon,
+      rightIcon,
+      iconVariant,
+      id,
+      ...rest
+    },
     ref,
-  ) => (
-    <InputWrapper {...rest}>
-      {leftIcon && (
-        <IconWrapper size={size} position="left">
-          <InputIcon
-            as={Icon}
-            variant={iconVariant}
-            icon={leftIcon}
-            size={size === 'small' ? 18 : 20}
+  ) => {
+    const labelId = useId(id);
+    const descriptionId = useId();
+
+    return (
+      <Wrapper {...rest}>
+        {label && (
+          <Label labelId={labelId} variant={variant} mb="4">
+            {label}
+          </Label>
+        )}
+
+        <InputWrapper {...rest}>
+          {leftIcon && (
+            <IconWrapper size={size} position="left">
+              <InputIcon
+                as={Icon}
+                variant={iconVariant}
+                icon={leftIcon}
+                size={size === 'small' ? 18 : 20}
+              />
+            </IconWrapper>
+          )}
+
+          <StyledInput
+            id={labelId}
+            ref={ref}
+            inputSize={size}
+            variant={variant}
+            leftIcon={leftIcon}
+            rightIcon={rightIcon}
+            disabled={disabled}
+            aria-describedby={helpText ? descriptionId : undefined}
+            aria-invalid={variant === 'error'}
+            aria-errormessage={variant === 'error' ? helpText : undefined}
+            {...rest}
           />
-        </IconWrapper>
-      )}
 
-      <StyledInput
-        ref={ref}
-        inputSize={size}
-        error={error}
-        leftIcon={leftIcon}
-        rightIcon={rightIcon}
-        disabled={disabled}
-        {...rest}
-      />
+          {rightIcon && (
+            <IconWrapper size={size} position="right">
+              <InputIcon
+                as={Icon}
+                variant={iconVariant}
+                icon={rightIcon}
+                size={size === 'small' ? 18 : 20}
+              />
+            </IconWrapper>
+          )}
 
-      {rightIcon && (
-        <IconWrapper size={size} position="right">
-          <InputIcon
-            as={Icon}
-            variant={iconVariant}
-            icon={rightIcon}
-            size={size === 'small' ? 18 : 20}
-          />
-        </IconWrapper>
-      )}
-
-      {error && <Error size={size}>{error}</Error>}
-    </InputWrapper>
-  ),
+          {helpText && (
+            <HelpText id={descriptionId} variant={variant}>
+              {helpText}
+            </HelpText>
+          )}
+        </InputWrapper>
+      </Wrapper>
+    );
+  },
 );
 
 Input.displayName = 'Input';
 Input.defaultProps = {
   size: 'medium',
   disabled: false,
-  error: '',
+  variant: undefined,
   leftIcon: undefined,
   rightIcon: undefined,
   iconVariant: 'solid',

@@ -10,6 +10,7 @@ import {
   Select,
   SelectOption,
   VariantColor,
+  Text,
 } from '../../lib';
 import { GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
@@ -59,7 +60,7 @@ const ButtonDemo = () => {
           onChange={() => setIsLoading(!isLoading)}
           isDisabled={variant.value === 'link'}
         >
-          <pre>isLoading</pre>
+          <Text variant="label">isLoading</Text>
         </Checkbox>
 
         <Checkbox
@@ -67,14 +68,14 @@ const ButtonDemo = () => {
           onChange={() => setIsDisabled(!isDisabled)}
           isDisabled={variant.value === 'link'}
         >
-          <pre>disabled</pre>
+          <Text variant="label">disabled</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>children</pre>
           <Input
+            label="children"
             type="text"
             value={buttonChildren}
             onChange={ev => setButtonChildren(ev.target.value)}
@@ -82,8 +83,8 @@ const ButtonDemo = () => {
         </div>
 
         <div>
-          <pre>variant</pre>
           <Select
+            label="variant"
             value={variant}
             options={VARIANT_OPTS}
             onChange={opt => variantSet(opt as SelectOption<ButtonVariant>)}
@@ -91,8 +92,8 @@ const ButtonDemo = () => {
         </div>
 
         <div>
-          <pre>variantColor</pre>
           <Select
+            label="variantColor"
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
             onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
@@ -100,8 +101,8 @@ const ButtonDemo = () => {
         </div>
 
         <div>
-          <pre>size</pre>
           <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
@@ -109,8 +110,8 @@ const ButtonDemo = () => {
         </div>
 
         <div>
-          <pre>leftIcon</pre>
           <Select
+            label="leftIcon"
             value={leftIcon}
             options={iconOpts}
             onChange={opt => leftIconSet(opt as SelectOption<IconType>)}
@@ -119,8 +120,8 @@ const ButtonDemo = () => {
         </div>
 
         <div>
-          <pre>rightIcon</pre>
           <Select
+            label="rightIcon"
             value={rightIcon}
             options={iconOpts}
             onChange={opt => rightIconSet(opt as SelectOption<IconType>)}
@@ -129,8 +130,8 @@ const ButtonDemo = () => {
         </div>
 
         <div>
-          <pre>iconVariant</pre>
           <Select
+            label="iconVariant"
             value={iconVariant}
             options={ICON_VARIANT_OPTS}
             onChange={opt => setIconVariant(opt as SelectOption<IconVariant>)}

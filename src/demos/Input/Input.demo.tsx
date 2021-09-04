@@ -9,9 +9,11 @@ import {
   SelectOption,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL } from './Input.constants';
+import { GITHUB_URL, INPUT_VARIANT_OPTS } from './Input.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
 import { ICON_VARIANT_OPTS, SIZE_OPTS } from '../common/selectOptions';
+import { InputVariant } from '../../lib/Input/Input.styles';
+import { Text } from '../../lib/Text/Text';
 
 const InputDemo = () => {
   const iconOpts = [{ value: undefined, label: 'none' }, ...useIconOpts()];
@@ -20,17 +22,21 @@ const InputDemo = () => {
   const [value, setValue] = useState('Hello world');
   const [placeholder, setPlaceholder] = useState('Placeholder');
   const [size, setSize] = useState(SIZE_OPTS[1]);
-  const [error, setError] = useState('');
+  const [label, setLabel] = useState('Label');
+  const [helpText, setHelpText] = useState('');
   const [leftIcon, setLeftIcon] = useState(iconOpts[0]);
   const [rightIcon, setRightIcon] = useState(iconOpts[0]);
+  const [variant, setVariant] = useState(INPUT_VARIANT_OPTS[0]);
   const [iconVariant, setIconVariant] = useState(ICON_VARIANT_OPTS[0]);
 
   const Component = (
     <Input
+      label={label}
       value={value}
       onChange={ev => setValue(ev.target.value)}
       size={size.value}
-      error={error}
+      variant={variant.value}
+      helpText={helpText}
       placeholder={placeholder}
       disabled={disabled}
       leftIcon={leftIcon.value as IconType}
@@ -43,24 +49,41 @@ const InputDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={disabled} onChange={() => setDisabled(!disabled)}>
-          <pre>disabled</pre>
+          <Text variant="label">disabled</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>value</pre>
-          <Input type="text" value={value} onChange={ev => setValue(ev.target.value)} />
+          <Input
+            label="value"
+            type="text"
+            value={value}
+            onChange={ev => setValue(ev.target.value)}
+          />
         </div>
 
         <div>
-          <pre>placeholder</pre>
-          <Input type="text" value={placeholder} onChange={ev => setPlaceholder(ev.target.value)} />
+          <Input
+            label="placeholder"
+            type="text"
+            value={placeholder}
+            onChange={ev => setPlaceholder(ev.target.value)}
+          />
         </div>
 
         <div>
-          <pre>size</pre>
           <Select
+            label="variant"
+            value={variant}
+            options={INPUT_VARIANT_OPTS}
+            onChange={opt => setVariant(opt as SelectOption<InputVariant>)}
+          />
+        </div>
+
+        <div>
+          <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
@@ -68,8 +91,8 @@ const InputDemo = () => {
         </div>
 
         <div>
-          <pre>leftIcon</pre>
           <Select
+            label="leftIcon"
             value={leftIcon}
             options={iconOpts}
             onChange={opt => setLeftIcon(opt as SelectOption<IconType>)}
@@ -77,8 +100,8 @@ const InputDemo = () => {
         </div>
 
         <div>
-          <pre>rightIcon</pre>
           <Select
+            label="rightIcon"
             value={rightIcon}
             options={iconOpts}
             onChange={opt => setRightIcon(opt as SelectOption<IconType>)}
@@ -86,18 +109,28 @@ const InputDemo = () => {
         </div>
 
         <div>
-          <pre>error</pre>
           <Input
+            label="label"
+            value={label}
             type="text"
-            placeholder="Enter some error text"
-            value={error}
-            onChange={ev => setError(ev.target.value)}
+            placeholder="Enter the label"
+            onChange={ev => setLabel(ev.target.value)}
           />
         </div>
 
         <div>
-          <pre>iconVariant</pre>
+          <Input
+            label="helpText"
+            value={helpText}
+            placeholder="Enter some help text"
+            onChange={ev => setHelpText(ev.target.value)}
+            type="text"
+          />
+        </div>
+
+        <div>
           <Select
+            label="iconVariant"
             value={iconVariant}
             options={ICON_VARIANT_OPTS}
             onChange={opt => setIconVariant(opt as SelectOption<IconVariant>)}

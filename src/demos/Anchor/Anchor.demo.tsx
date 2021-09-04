@@ -13,16 +13,21 @@ const AnchorDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
-          <pre>href</pre>
           <Select
+            label="href"
             value={href}
             options={HREF_OPTS}
             onChange={opt => setHref(opt as SelectOption<string>)}
           />
         </div>
+
         <div>
-          <pre>children</pre>
-          <Input type="text" value={children} onChange={ev => setChildren(ev.target.value)} />
+          <Input
+            label="children"
+            type="text"
+            value={children}
+            onChange={ev => setChildren(ev.target.value)}
+          />
         </div>
       </Inputs>
     </Demo>

@@ -9,24 +9,29 @@ import { SELECT_PROPS } from './Select.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Select</Title>
-      <Paragraph>Select component (based on react-select).</Paragraph>
+    <Wrapper as="main">
+      <header>
+        <Title>Select</Title>
+        <Paragraph>Select component (based on react-select).</Paragraph>
+      </header>
 
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Select } from '@binarycapsule/ui-capsules';"}</Usage>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Select } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={SELECT_PROPS} />
 
-      <SubSubTitle>Note:</SubSubTitle>
-      <Paragraph>
-        This component accepts all props from the{' '}
-        <Anchor href="https://react-select.com/props">react-select API</Anchor>. Please refer to the{' '}
-        <Anchor href="https://react-select.com/props">docs</Anchor> for more information.
-      </Paragraph>
+      <section>
+        <SubSubTitle>Note:</SubSubTitle>
+        <Paragraph>
+          This component accepts all props from the{' '}
+          <Anchor href="https://react-select.com/props">react-select API</Anchor>. Please refer to
+          the <Anchor href="https://react-select.com/props">docs</Anchor> for more information.
+        </Paragraph>
+      </section>
     </Wrapper>
   );
 };

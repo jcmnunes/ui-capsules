@@ -8,13 +8,19 @@ import { PROPS } from './IconButton.constants';
 
 const AnchorDemo = () => {
   return (
-    <Wrapper>
-      <Title>IconButton</Title>
-      <Paragraph>IconButton composes the Button component. It renders only an icon.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { IconButton } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>IconButton</Title>
+        <Paragraph>IconButton composes the Button component. It renders only an icon.</Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { IconButton } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={PROPS} />
     </Wrapper>
   );

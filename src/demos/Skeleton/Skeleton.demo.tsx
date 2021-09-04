@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Skeleton, Input, theme, Checkbox } from '../../lib';
+import { Skeleton, Input, theme, Checkbox, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Skeleton.constants';
 
@@ -15,21 +15,23 @@ const SkeletonDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={circular} onChange={() => setCircular(!circular)}>
-          <pre>circular</pre>
+          <Text variant="label">circular</Text>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
-          <pre>width</pre>
-          <Input value={width} onChange={ev => setWidth(ev.target.value)} />
+          <Input label="width" value={width} onChange={ev => setWidth(ev.target.value)} />
         </div>
+
         <div>
-          <pre>height</pre>
-          <Input value={height} onChange={ev => setHeight(ev.target.value)} />
+          <Input label="height" value={height} onChange={ev => setHeight(ev.target.value)} />
         </div>
+
         <div>
-          <pre>background</pre>
-          <label htmlFor="background">
+          <Text variant="label">background</Text>
+
+          <label htmlFor="background" style={{ display: 'block' }}>
             <input
               id="background"
               type="color"

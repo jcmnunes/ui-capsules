@@ -8,19 +8,22 @@ import { PROPS } from './Splash.constants';
 
 const SplashDemo = () => {
   return (
-    <Wrapper>
-      <Title>Splash</Title>
-      <Paragraph>
-        Renders a full-page spinner. You can pass anything that can be rendered as children. The
-        common scenario is to pass the app logo (will be rendered above the spinner).
-      </Paragraph>
+    <Wrapper as="main">
+      <header>
+        <Title>Splash</Title>
+        <Paragraph>
+          Renders a full-page spinner. You can pass anything that can be rendered as children. The
+          common scenario is to pass the app logo (will be rendered above the spinner).
+        </Paragraph>
+      </header>
 
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Splash } from '@binarycapsule/ui-capsules';"}</Usage>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Splash } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>
   );

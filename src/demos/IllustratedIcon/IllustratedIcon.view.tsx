@@ -12,25 +12,37 @@ import IconCard from '../../components/IconCard/IconCard';
 
 const IllustratedIconView = () => {
   return (
-    <Wrapper>
-      <Title>IllustratedIcon</Title>
-      <Paragraph>
-        This component renders an icon from the illustrated icons collection of{' '}
-        <Anchor href="https://refactoringui.com/book/">RefactoringUI book</Anchor>.
-      </Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { IllustratedIcon } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>IllustratedIcon</Title>
+        <Paragraph>
+          This component renders an icon from the illustrated icons collection of{' '}
+          <Anchor href="https://refactoringui.com/book/">RefactoringUI book</Anchor>.
+        </Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { IllustratedIcon } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
-      <PropsTable props={ILLUSTRATED_ICON_PROPS} />
-      <SubTitle id="icons">Icons</SubTitle>
-      <IconGrid>
-        {(Object.keys(illustratedIcons) as IllustratedIconType[]).sort().map((icon, index) => (
-          <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>
-            <IllustratedIcon icon={icon} />
-          </IconCard>
-        ))}
-      </IconGrid>
+
+      <section>
+        <SubTitle>Props</SubTitle>
+        <PropsTable props={ILLUSTRATED_ICON_PROPS} />
+      </section>
+
+      <section>
+        <SubTitle id="icons">Icons</SubTitle>
+        <IconGrid>
+          {(Object.keys(illustratedIcons) as IllustratedIconType[]).sort().map((icon, index) => (
+            <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>
+              <IllustratedIcon icon={icon} />
+            </IconCard>
+          ))}
+        </IconGrid>
+      </section>
     </Wrapper>
   );
 };

@@ -16,8 +16,8 @@ const SpinnerDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
-          <pre>size</pre>
           <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
@@ -25,8 +25,8 @@ const SpinnerDemo = () => {
         </div>
 
         <div>
-          <pre>variantColor</pre>
           <Select
+            label="variantColor"
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
             onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}

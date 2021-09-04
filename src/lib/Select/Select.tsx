@@ -4,6 +4,9 @@ import { useTheme } from '@emotion/react';
 import { Option } from './components/Option';
 import { MarginProps } from '../styledProps';
 import { Theme } from '../types';
+import { Label } from '../Label/Label';
+import { useId } from '@reach/auto-id';
+import { Box } from '../Box/Box';
 
 type Size = 'medium' | 'large';
 
@@ -34,9 +37,9 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles<any, any>> => ({
     cursor: state.isDisabled ? 'not-allowed' : 'pointer',
     border: state.isFocused
       ? `1px solid ${theme.colors.primary['400']}`
-      : `1px solid ${theme.colors.neutral['300']}`,
+      : `1px solid ${theme.colors.neutral['400']}`,
     ':hover': {
-      border: `1px solid ${theme.colors.neutral['400']}`,
+      border: `1px solid ${theme.colors.neutral['500']}`,
     },
     width: '100%',
   }),
@@ -61,6 +64,15 @@ const customStyles = (size: Size, theme: Theme): Partial<Styles<any, any>> => ({
 
   indicatorSeparator: () => ({
     display: 'none',
+  }),
+
+  dropdownIndicator: provided => ({
+    ...provided,
+    color: theme.colors.neutral['400'],
+
+    ':hover': {
+      color: theme.colors.neutral['400'],
+    },
   }),
 
   menuPortal: base => ({
@@ -112,26 +124,40 @@ interface Props<OptionType, IsMulti extends boolean>
   extends RSelectProps<OptionType, IsMulti, GroupType<OptionType>>,
     MarginProps {
   size?: 'medium' | 'large';
+  label?: string;
 }
 
 export function Select<OptionType, IsMulti extends boolean = false>({
   size = 'medium',
+  label,
+  id,
   ...rest
 }: Props<OptionType, IsMulti>) {
   const theme = useTheme();
 
+  const inputId = useId(id);
+
   return (
-    <RSelect
-      {...rest}
-      size={size}
-      styles={customStyles(size, theme)}
-      theme={(rsTheme: RSTheme) => customTheme(rsTheme, size, theme)}
-      classNamePrefix="react-select"
-      components={{
-        Option,
-        ...rest.components,
-      }}
-    />
+    <Box width="100%">
+      {label && (
+        <Label labelId={inputId} mb="4">
+          {label}
+        </Label>
+      )}
+
+      <RSelect
+        {...rest}
+        inputId={inputId}
+        size={size}
+        styles={customStyles(size, theme)}
+        theme={(rsTheme: RSTheme) => customTheme(rsTheme, size, theme)}
+        classNamePrefix="react-select"
+        components={{
+          Option,
+          ...rest.components,
+        }}
+      />
+    </Box>
   );
 }
 

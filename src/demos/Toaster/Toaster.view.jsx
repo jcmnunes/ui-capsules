@@ -33,15 +33,19 @@ Toaster.success({
 
 const ToasterDemo = () => {
   return (
-    <Wrapper>
-      <Title>Toaster</Title>
-      <Paragraph>
-        Notification system based on the{' '}
-        <Anchor href="https://github.com/fkhadra/react-toastify">react-toastify</Anchor> package.
-      </Paragraph>
+    <Wrapper as="main">
+      <header>
+        <Title>Toaster</Title>
+        <Paragraph>
+          Notification system based on the{' '}
+          <Anchor href="https://github.com/fkhadra/react-toastify">react-toastify</Anchor> package.
+        </Paragraph>
+      </header>
 
-      <SubTitle>Usage</SubTitle>
-      <Usage>{usage}</Usage>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{usage}</Usage>
+      </section>
 
       <Demo />
     </Wrapper>

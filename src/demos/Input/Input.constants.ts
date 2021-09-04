@@ -1,5 +1,13 @@
+import { InputVariant } from '../../lib/Input/Input.styles';
+
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Input/Input.tsx';
+
+export const INPUT_VARIANT_OPTS: { label: string; value?: InputVariant }[] = [
+  { value: undefined, label: 'none' },
+  { value: 'success', label: 'success' },
+  { value: 'error', label: 'error' },
+];
 
 export const INPUT_PROPS = [
   {
@@ -45,17 +53,31 @@ export const INPUT_PROPS = [
     description: "Pass an icon string to render the respective icon after the input's text.",
   },
   {
+    name: 'variant',
+    isRequired: false,
+    type: '"success" | "error"',
+    defaultValue: 'undefined',
+    description: 'The input variant.',
+  },
+  {
+    name: 'label',
+    isRequired: false,
+    type: 'string',
+    defaultValue: 'undefined',
+    description: 'The input label.',
+  },
+  {
+    name: 'helpText',
+    isRequired: false,
+    type: 'string',
+    defaultValue: 'undefined',
+    description: 'Help text rendered below the input',
+  },
+  {
     name: 'iconVariant',
     isRequired: false,
     type: '"solid" | "outline"',
     defaultValue: '"solid"',
     description: 'The type of icon to render (solid or outline).',
-  },
-  {
-    name: 'error',
-    isRequired: false,
-    type: 'string',
-    defaultValue: 'undefined',
-    description: 'Pass an error message to be displayed below the input.',
   },
 ];

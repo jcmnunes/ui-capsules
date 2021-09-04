@@ -11,53 +11,58 @@ import { AlertVariant } from '../../lib/Alert/Alert.styles';
 
 const AlertDemo = () => {
   return (
-    <Wrapper>
-      <Title>Alert</Title>
-      <Paragraph>
-        Use it to display themed messages to the user (info, errors, warnings, and success
-        messages).
-      </Paragraph>
+    <Wrapper as="main">
+      <header>
+        <Title>Alert</Title>
+        <Paragraph>
+          Use it to display themed messages to the user (info, errors, warnings, and success
+          messages).
+        </Paragraph>
+      </header>
 
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Alert } from '@binarycapsule/ui-capsules';"}</Usage>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Alert } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
 
-      <SubTitle>All</SubTitle>
-      <Box>
-        {['info', 'success', 'warning', 'error'].map(variant => (
-          <Alert
-            key={variant}
-            variant={variant as AlertVariant}
-            title="Adipiscing Malesuada Inceptos"
-            message="Etiam porta sem malesuada magna mollis euismod."
-            extraAction={{
-              text: 'Extra action',
-              onClick() {
-                alert('Extra action');
-              },
-            }}
-            onRequestClose={() => alert('onRequestClose')}
-            actions={[
-              {
-                text: 'Action 1',
+      <section>
+        <SubTitle>All</SubTitle>
+        <Box>
+          {['info', 'success', 'warning', 'error'].map(variant => (
+            <Alert
+              key={variant}
+              variant={variant as AlertVariant}
+              title="Adipiscing Malesuada Inceptos"
+              message="Etiam porta sem malesuada magna mollis euismod."
+              extraAction={{
+                text: 'Extra action',
                 onClick() {
-                  alert('Action 1');
+                  alert('Extra action');
                 },
-              },
-              {
-                text: 'Action 2',
-                onClick() {
-                  alert('Action 2');
+              }}
+              onRequestClose={() => alert('onRequestClose')}
+              actions={[
+                {
+                  text: 'Action 1',
+                  onClick() {
+                    alert('Action 1');
+                  },
                 },
-              },
-            ]}
-            mb="32"
-          />
-        ))}
-      </Box>
+                {
+                  text: 'Action 2',
+                  onClick() {
+                    alert('Action 2');
+                  },
+                },
+              ]}
+              mb="32"
+            />
+          ))}
+        </Box>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>
   );

@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import styled from '@emotion/styled';
-import { typography, space, color, layout, variant } from 'styled-system';
+import { typography, space, color, layout, variant, DisplayProps } from 'styled-system';
 import shouldForwardProp from '@styled-system/should-forward-prop';
 import { ColorProps, SpaceProps, TypographyProps } from '../styledProps';
 
 export type TextVariant = 'smallCaps' | 'label' | 'helper' | 'tabular';
 
-export interface TextProps extends ColorProps, TypographyProps, SpaceProps {
+export interface TextProps
+  extends ColorProps,
+    TypographyProps,
+    SpaceProps,
+    ComponentPropsWithoutRef<'p'> {
   textAlign?: 'left' | 'right' | 'center' | 'justify';
   isTruncated?: boolean;
   variant?: TextVariant;
+  htmlFor?: string;
 }
 
 const truncatedStyle: React.CSSProperties = {
@@ -18,7 +23,7 @@ const truncatedStyle: React.CSSProperties = {
   textOverflow: 'ellipsis',
 };
 
-export const Text = styled('div', { shouldForwardProp })<TextProps>(
+export const Text = styled('p', { shouldForwardProp })<TextProps>(
   space,
   typography,
   color,
@@ -31,7 +36,7 @@ export const Text = styled('div', { shouldForwardProp })<TextProps>(
     ...(isTruncated ? truncatedStyle : {}),
   }),
 
-  variant<TypographyProps & ColorProps, TextVariant>({
+  variant<TypographyProps & ColorProps & DisplayProps, TextVariant>({
     variants: {
       smallCaps: {
         fontWeight: 600,
@@ -44,9 +49,9 @@ export const Text = styled('div', { shouldForwardProp })<TextProps>(
 
       label: {
         fontWeight: 600,
-        fontSize: 'body',
-        lineHeight: 'body',
-        color: 'neutral.600',
+        fontSize: 'small',
+        lineHeight: 'small',
+        display: 'inline-block',
       },
 
       tabular: {

@@ -49,16 +49,24 @@ const ToasterDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Inputs>
         <div>
-          <pre>Toast type</pre>
-          <Select value={toastType} options={TOAST_TYPE_OPTS} onChange={opt => setToastType(opt)} />
+          <Select
+            label="variant"
+            value={toastType}
+            options={TOAST_TYPE_OPTS}
+            onChange={opt => setToastType(opt)}
+          />
         </div>
+
         <div>
-          <pre>title</pre>
-          <Input value={toastTitle} onChange={ev => setToastTitle(ev.target.value)} />
+          <Input label="title" value={toastTitle} onChange={ev => setToastTitle(ev.target.value)} />
         </div>
+
         <div>
-          <pre>message</pre>
-          <Input value={toastMessage} onChange={ev => setToastMessage(ev.target.value)} />
+          <Input
+            label="message"
+            value={toastMessage}
+            onChange={ev => setToastMessage(ev.target.value)}
+          />
         </div>
       </Inputs>
     </Demo>

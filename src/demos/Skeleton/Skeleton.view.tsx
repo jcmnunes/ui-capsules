@@ -8,13 +8,19 @@ import { PROPS } from './Skeleton.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Skeleton</Title>
-      <Paragraph>Renders an element with a loading animation.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Skeleton } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Skeleton</Title>
+        <Paragraph>Renders an element with a loading animation.</Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Skeleton } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={PROPS} />
     </Wrapper>
   );

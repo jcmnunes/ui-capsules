@@ -10,6 +10,7 @@ import {
   Select,
   AlignmentOptions,
   SelectOption,
+  Text,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, TEXT_ALIGN_OPTS } from './Table.constants';
@@ -65,13 +66,14 @@ const TableDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Booleans>
         <Checkbox checked={noWrap} onChange={() => setNoWrap(!noWrap)}>
-          <pre>noWrap</pre>
+          <Text variant="label">noWrap</Text>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
-          <pre>textAlign</pre>
           <Select
+            label="textAlign"
             value={textAlign}
             options={TEXT_ALIGN_OPTS}
             onChange={opt => setTextAlign(opt as SelectOption<AlignmentOptions>)}

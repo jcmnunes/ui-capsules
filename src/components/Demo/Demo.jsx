@@ -72,7 +72,7 @@ const Actions = styled.div`
 
 const Demo = ({ component, code, isDark, codeURL, children }) => {
   return (
-    <>
+    <section>
       <HeaderWrapper>
         <SubTitle>Demo</SubTitle>
         <Actions>
@@ -111,7 +111,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
             filterProps: ['key'],
           })}
       </Usage>
-    </>
+    </section>
   );
 };
 
