@@ -8,13 +8,19 @@ import { PROPS } from './Spinner.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Spinner</Title>
-      <Paragraph>Renders a spinner.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Spinner } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Spinner</Title>
+        <Paragraph>Renders a spinner.</Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Spinner } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={PROPS} />
     </Wrapper>
   );

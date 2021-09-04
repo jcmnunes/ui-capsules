@@ -15,7 +15,7 @@ export const PROPS = [
     type: '"splash" | "spinner"',
     defaultValue: '"splash"',
     description:
-      'If you want to render a Splash screen, pass the variant "splash". If a full page spinner is what is needed, pass "spinner" instead.',
+      'If you want to render a Splash screen, pass the variant "splash". If a full page spinner is what you needed, pass "spinner" instead.',
   },
   {
     name: 'showSpinner',

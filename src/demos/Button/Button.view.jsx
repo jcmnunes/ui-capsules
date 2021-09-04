@@ -9,44 +9,50 @@ import { PROPS } from './Button.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Button</Title>
-      <Paragraph>
-        This component can render a large variety of buttons. Use the Demo below to generate the
-        desired button type.
-      </Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Button</Title>
+        <Paragraph>
+          This component can render a large variety of buttons. Use the Demo below to generate the
+          desired button type.
+        </Paragraph>
+      </header>
 
-      <SubTitle>All</SubTitle>
-      <Flex alignItems="flex-start" flexDirection="column">
-        {[
-          'primary',
-          'error',
-          'neutral',
-          'pink',
-          'yellow',
-          'indigo',
-          'green',
-          'purple',
-          'orange',
-          'teal',
-        ].map(variantColor => (
-          <Flex alignItems="center" mb="24" flexDirection="row">
-            {['solid', 'outline', 'ghost', 'link'].map(variant => (
-              <Box mr="12">
-                <Button variant={variant} variantColor={variantColor}>
-                  {variant} {variantColor}
-                </Button>
-              </Box>
-            ))}
-          </Flex>
-        ))}
-      </Flex>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Button } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
+      <section>
+        <SubTitle>All</SubTitle>
+        <Flex alignItems="flex-start" flexDirection="column">
+          {[
+            'primary',
+            'error',
+            'neutral',
+            'pink',
+            'yellow',
+            'indigo',
+            'green',
+            'purple',
+            'orange',
+            'teal',
+          ].map(variantColor => (
+            <Flex alignItems="center" mb="24" flexDirection="row">
+              {['solid', 'outline', 'ghost', 'link'].map(variant => (
+                <Box mr="12">
+                  <Button variant={variant} variantColor={variantColor}>
+                    {variant} {variantColor}
+                  </Button>
+                </Box>
+              ))}
+            </Flex>
+          ))}
+        </Flex>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>
   );

@@ -9,20 +9,23 @@ import { PROPS } from './Tooltip.constants';
 
 const TooltipDemo = () => {
   return (
-    <Wrapper>
-      <Title>Tooltip</Title>
-      <Paragraph>
-        Renders a custom tooltip component (based on{' '}
-        <Anchor href="https://github.com/atomiks/tippyjs-react">tippyjs-react</Anchor>
-        ).
-      </Paragraph>
+    <Wrapper as="main">
+      <header>
+        <Title>Tooltip</Title>
+        <Paragraph>
+          Renders a custom tooltip component (based on{' '}
+          <Anchor href="https://github.com/atomiks/tippyjs-react">tippyjs-react</Anchor>
+          ).
+        </Paragraph>
+      </header>
 
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Tooltip } from '@binarycapsule/ui-capsules';"}</Usage>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Tooltip } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>
   );

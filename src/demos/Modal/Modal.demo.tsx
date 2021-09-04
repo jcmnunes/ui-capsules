@@ -79,14 +79,14 @@ const ModalDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Booleans>
         <Checkbox checked={isOpen} onChange={() => setIsOpen(!isOpen)}>
-          <pre>isOpen</pre>
+          <Text variant="label">isOpen</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>size</pre>
           <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
@@ -94,8 +94,8 @@ const ModalDemo = () => {
         </div>
 
         <div>
-          <pre>contentLabel</pre>
           <Input
+            label="contentLabel"
             type="text"
             value={contentLabel}
             onChange={ev => setContentLabel(ev.target.value)}

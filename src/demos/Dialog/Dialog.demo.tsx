@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, Dialog, Checkbox } from '../../lib';
+import { Button, Input, Dialog, Checkbox, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Dialog.constants';
 
@@ -40,21 +40,32 @@ const DialogDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Booleans>
         <Checkbox checked={isOpen} onChange={() => setIsOpen(!isOpen)}>
-          <pre>isOpen</pre>
+          <Text variant="label">isOpen</Text>
         </Checkbox>
       </Booleans>
+
       <Inputs>
         <div>
-          <pre>title</pre>
-          <Input type="text" value={title} onChange={ev => setTitle(ev.target.value)} />
-        </div>
-        <div>
-          <pre>message</pre>
-          <Input type="text" value={message} onChange={ev => setMessage(ev.target.value)} />
-        </div>
-        <div>
-          <pre>contentLabel</pre>
           <Input
+            label="title"
+            type="text"
+            value={title}
+            onChange={ev => setTitle(ev.target.value)}
+          />
+        </div>
+
+        <div>
+          <Input
+            label="message"
+            type="text"
+            value={message}
+            onChange={ev => setMessage(ev.target.value)}
+          />
+        </div>
+
+        <div>
+          <Input
+            label="contentLabel"
             type="text"
             value={contentLabel}
             onChange={ev => setContentLabel(ev.target.value)}

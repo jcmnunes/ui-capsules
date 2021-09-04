@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EditableInput, Select, Input, Checkbox, ElementSize, SelectOption } from '../../lib';
+import { EditableInput, Select, Input, Checkbox, ElementSize, SelectOption, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { SIZE_OPTS, GITHUB_URL } from './EditableInput.constants';
 
@@ -23,23 +23,27 @@ const EditableInputDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={isReadonly} onChange={() => setIsReadonly(!isReadonly)}>
-          <pre>isReadonly</pre>
+          <Text variant="label">isReadonly</Text>
         </Checkbox>
 
         <Checkbox checked={hasButtons} onChange={() => setHasButtons(!hasButtons)}>
-          <pre>hasButtons</pre>
+          <Text variant="label">hasButtons</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>value</pre>
-          <Input type="text" value={value} onChange={ev => setValue(ev.target.value)} />
+          <Input
+            label="value"
+            type="text"
+            value={value}
+            onChange={ev => setValue(ev.target.value)}
+          />
         </div>
 
         <div>
-          <pre>size</pre>
           <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}

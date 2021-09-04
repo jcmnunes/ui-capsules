@@ -9,18 +9,22 @@ import { Anchor } from '../../lib';
 
 const TextDemo = () => {
   return (
-    <Wrapper>
-      <Title>Text</Title>
-      <Paragraph>
-        Use it to render text. This component accepts Color, Typography and Space props from{' '}
-        <Anchor href="https://styled-system.com/api">styled-system</Anchor>.
-      </Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Text } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Text</Title>
+        <Paragraph>
+          Use it to render text. This component accepts Color, Typography and Space props from{' '}
+          <Anchor href="https://styled-system.com/api">styled-system</Anchor>.
+        </Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Text } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>
   );

@@ -8,13 +8,19 @@ import { PROPS } from './Radio.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Radio</Title>
-      <Paragraph>Renders a custom radio with an optional label.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Radio } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Radio</Title>
+        <Paragraph>Renders a custom radio with an optional label.</Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Radio } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={PROPS} />
     </Wrapper>
   );

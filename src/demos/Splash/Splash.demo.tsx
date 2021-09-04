@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Input, Select, SelectOption, Splash } from '../../lib';
+import { Button, Checkbox, Input, Select, SelectOption, Splash, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, SPLASH_VARIANT_OPTS } from './Splash.constants';
 import { SplashVariant } from '../../lib/Splash/Splash';
@@ -30,20 +30,29 @@ const SplashDemo = () => {
     </Button>
   );
 
-  const code = `<Splash>{children}</Splash>`;
+  const code = `<Splash
+  ${showSpinner ? 'showSpinner' : 'showSpinner={false}'}
+  variant="${variant.value}"
+>
+  {children}
+</Splash>`;
 
   return (
     <Demo codeURL={GITHUB_URL} component={isVisible ? Component : Launcher} code={code}>
       <Booleans>
-        <Checkbox checked={showSpinner} onChange={() => setShowSpinner(!showSpinner)}>
-          <pre>showSpinner</pre>
+        <Checkbox
+          checked={showSpinner || variant.value === 'spinner'}
+          onChange={() => setShowSpinner(!showSpinner)}
+          isDisabled={variant.value === 'spinner'}
+        >
+          <Text variant="label">showSpinner</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>variant</pre>
           <Select
+            label="variant"
             value={variant}
             options={SPLASH_VARIANT_OPTS}
             onChange={opt => setVariant(opt as SelectOption<SplashVariant>)}
@@ -51,8 +60,7 @@ const SplashDemo = () => {
         </div>
 
         <div>
-          <pre>children</pre>
-          <Input value={children} onChange={ev => setChildren(ev.target.value)} />
+          <Input label="children" value={children} onChange={ev => setChildren(ev.target.value)} />
         </div>
       </Inputs>
     </Demo>

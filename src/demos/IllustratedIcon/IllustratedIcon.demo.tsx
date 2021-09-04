@@ -37,8 +37,9 @@ const IllustratedIconDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={onClick} onChange={() => setOnClick(!onClick)}>
-          <pre>onClick</pre>
+          <Text variant="label">onClick</Text>
         </Checkbox>
+
         <Text variant="helper">
           When passing an onClick handler, the icon is rendered as a button.
         </Text>
@@ -46,8 +47,8 @@ const IllustratedIconDemo = () => {
 
       <Inputs>
         <div>
-          <pre>icon</pre>
           <Select
+            label="icon"
             value={icon}
             options={iconOpts}
             onChange={opt => setIcon(opt as SelectOption<IllustratedIconType>)}
@@ -55,8 +56,9 @@ const IllustratedIconDemo = () => {
         </div>
 
         <div>
-          <pre>primaryColor</pre>
-          <label htmlFor="primaryColor">
+          <Text variant="label">primaryColor</Text>
+
+          <label htmlFor="primaryColor" style={{ display: 'block' }}>
             <input
               id="primaryColor"
               type="color"
@@ -68,8 +70,9 @@ const IllustratedIconDemo = () => {
         </div>
 
         <div>
-          <pre>secondaryColor</pre>
-          <label htmlFor="secondaryColor">
+          <Text variant="label">secondaryColor</Text>
+
+          <label htmlFor="secondaryColor" style={{ display: 'block' }}>
             <input
               id="secondaryColor"
               type="color"
@@ -81,8 +84,9 @@ const IllustratedIconDemo = () => {
         </div>
 
         <div>
-          <pre>primaryColorHover</pre>
-          <label htmlFor="primaryColorHover">
+          <Text variant="label">primaryColorHover</Text>
+
+          <label htmlFor="primaryColorHover" style={{ display: 'block' }}>
             <input
               id="primaryColorHover"
               type="color"
@@ -94,8 +98,9 @@ const IllustratedIconDemo = () => {
         </div>
 
         <div>
-          <pre>secondaryColorHover</pre>
-          <label htmlFor="secondaryColorHover">
+          <Text variant="label">secondaryColorHover</Text>
+
+          <label htmlFor="secondaryColorHover" style={{ display: 'block' }}>
             <input
               id="secondaryColorHover"
               type="color"

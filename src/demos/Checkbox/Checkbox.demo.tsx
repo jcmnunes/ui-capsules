@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox, ElementSize, Input, Select, SelectOption, VariantColor } from '../../lib';
+import { Checkbox, ElementSize, Input, Select, SelectOption, Text, VariantColor } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, SIZE_OPTS } from './Checkbox.constants';
 import { VARIANT_COLOR_OPTS } from '../common/selectOptions';
@@ -29,23 +29,27 @@ const CheckboxDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
-          <pre>checked</pre>
+          <Text variant="label">checked</Text>
         </Checkbox>
 
         <Checkbox checked={disabled} onChange={() => disabledSet(!disabled)}>
-          <pre>disabled</pre>
+          <Text variant="label">disabled</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>children</pre>
-          <Input type="text" value={children} onChange={ev => setChildren(ev.target.value)} />
+          <Input
+            label="children"
+            type="text"
+            value={children}
+            onChange={ev => setChildren(ev.target.value)}
+          />
         </div>
 
         <div>
-          <pre>size</pre>
           <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
@@ -53,8 +57,8 @@ const CheckboxDemo = () => {
         </div>
 
         <div>
-          <pre>variantColor</pre>
           <Select
+            label="variantColor"
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
             onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}

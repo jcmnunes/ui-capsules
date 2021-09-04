@@ -8,18 +8,22 @@ import { PROPS } from './TruncatedText.constants';
 
 const TextDemo = () => {
   return (
-    <Wrapper>
-      <Title>TruncatedText</Title>
-      <Paragraph>
-        Use this component to truncate long text by using an ellipsis. When the text is truncated a
-        tooltip displays the full content on hover.
-      </Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { TruncatedText } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>TruncatedText</Title>
+        <Paragraph>
+          Use this component to truncate long text by using an ellipsis. When the text is truncated
+          a tooltip displays the full content on hover.
+        </Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { TruncatedText } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
     </Wrapper>
   );

@@ -1,12 +1,37 @@
 import styled from '@emotion/styled';
-import { PositionProps, variant } from 'styled-system';
+import { BoxShadowProps, PositionProps, variant } from 'styled-system';
 import shouldForwardProp from '@styled-system/should-forward-prop';
-import { Wrapper } from '../Wrapper/Wrapper';
-import { LayoutProps, MarginProps, PaddingProps, TypographyProps } from '../styledProps';
+import { Wrapper as WrapperBase } from '../Wrapper/Wrapper';
+import {
+  BorderProps,
+  ColorProps,
+  LayoutProps,
+  PaddingProps,
+  PropsWithPseudo,
+  TypographyProps,
+} from '../styledProps';
 import { ElementSize, IconType } from '../types';
 import { IconProps } from '../Icon/Icon';
 
-export const InputWrapper = styled(Wrapper)({
+export type InputVariant = 'error' | 'success';
+
+type Pseudo = '&:focus';
+
+// Hide spin box for Input type number
+export const Wrapper = styled(WrapperBase)`
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  width: 100%;
+`;
+
+export const InputWrapper = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -52,20 +77,20 @@ export const IconWrapper = styled.div<IconWrapperProps>(
 
 interface StyledInputProps {
   inputSize: ElementSize;
-  error?: string;
+  variant?: InputVariant;
   leftIcon?: IconType;
   rightIcon?: IconType;
 }
 
 export const StyledInput = styled('input', { shouldForwardProp })<StyledInputProps>(
-  ({ theme, error }) => ({
+  ({ theme, variant }) => ({
     fontFamily: theme.fontFamily,
     background: theme.colors.bg,
     color: theme.colors.neutral['700'],
     borderRadius: theme.radii.medium,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: error ? theme.colors.error['500'] : theme.colors.neutral['400'],
+    borderColor: variant === 'error' ? theme.colors.error['500'] : theme.colors.neutral['400'],
     width: '100%',
 
     '&::placeholder': {
@@ -73,13 +98,15 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
     },
 
     '&:hover': {
-      borderColor: error ? theme.colors.error['700'] : theme.colors.neutral['500'],
+      borderColor: variant === 'error' ? theme.colors.error['700'] : theme.colors.neutral['500'],
     },
 
     '&:focus': {
       outline: 'none',
-      borderColor: error ? theme.colors.error['400'] : theme.colors.primary['400'],
-      boxShadow: `0 0 0 3px ${error ? theme.colors.error['200'] : theme.colors.primary['200']}`,
+      borderColor: variant === 'error' ? theme.colors.error['400'] : theme.colors.primary['400'],
+      boxShadow: `0 0 0 3px ${
+        variant === 'error' ? theme.colors.error['200'] : theme.colors.primary['200']
+      }`,
     },
 
     '&:disabled': {
@@ -88,6 +115,29 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
       borderColor: theme.colors.neutral['300'],
     },
   }),
+
+  ({ theme }) =>
+    variant<PropsWithPseudo<ColorProps & BoxShadowProps & BorderProps, Pseudo>, InputVariant>({
+      variants: {
+        success: {
+          borderColor: 'success.600',
+
+          '&:focus': {
+            boxShadow: `0 0 0 3px ${theme.colors.success['100']}`,
+            borderColor: theme.colors.success['600'],
+          },
+        },
+
+        error: {
+          borderColor: 'error.500',
+
+          '&:focus': {
+            boxShadow: `0 0 0 3px ${theme.colors.error['200']}`,
+            borderColor: theme.colors.error['500'],
+          },
+        },
+      },
+    }),
 
   ({ leftIcon, rightIcon }) =>
     variant<LayoutProps & TypographyProps & PaddingProps, ElementSize>({
@@ -115,39 +165,6 @@ export const StyledInput = styled('input', { shouldForwardProp })<StyledInputPro
         },
       },
     }),
-);
-
-interface ErrorProps {
-  size: ElementSize;
-}
-
-export const Error = styled.div<ErrorProps>(
-  ({ theme }) => ({
-    color: theme.colors.error['600'],
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    margin: '0 4px',
-  }),
-
-  variant<TypographyProps & MarginProps, ElementSize>({
-    prop: 'size',
-    variants: {
-      small: {
-        fontSize: 'small',
-        my: 2,
-      },
-      medium: {
-        fontSize: 'body',
-        my: 2,
-      },
-      large: {
-        fontSize: 'body',
-        my: 4,
-      },
-    },
-  }),
 );
 
 export const InputIcon = styled.div<IconProps>``;

@@ -8,13 +8,19 @@ import { PROPS } from './Table.constants';
 
 const ModalDemo = () => {
   return (
-    <Wrapper>
-      <Title>Table</Title>
-      <Paragraph>Renders a table.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Table } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Table</Title>
+        <Paragraph>Renders a table.</Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Table } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={PROPS} />
     </Wrapper>
   );

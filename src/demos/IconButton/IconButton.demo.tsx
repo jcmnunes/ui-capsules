@@ -8,6 +8,7 @@ import {
   IconVariant,
   Select,
   SelectOption,
+  Text,
   VariantColor,
 } from '../../lib';
 import { GITHUB_URL } from './IconButton.constants';
@@ -46,18 +47,18 @@ const IconButtonDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={isLoading} onChange={() => setIsLoading(!isLoading)}>
-          <pre>isLoading</pre>
+          <Text variant="label">isLoading</Text>
         </Checkbox>
 
         <Checkbox checked={disabled} onChange={() => setDisabled(!disabled)}>
-          <pre>disabled</pre>
+          <Text variant="label">disabled</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>icon</pre>
           <Select
+            label="icon"
             value={icon}
             options={iconOpts}
             onChange={opt => setIcon(opt as SelectOption<IconType>)}
@@ -65,8 +66,8 @@ const IconButtonDemo = () => {
         </div>
 
         <div>
-          <pre>variant</pre>
           <Select
+            label="variant"
             value={variant}
             options={VARIANT_OPTS}
             onChange={opt => variantSet(opt as SelectOption<ButtonVariant>)}
@@ -74,8 +75,8 @@ const IconButtonDemo = () => {
         </div>
 
         <div>
-          <pre>variantColor</pre>
           <Select
+            label="variantColor"
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
             onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
@@ -83,8 +84,8 @@ const IconButtonDemo = () => {
         </div>
 
         <div>
-          <pre>size</pre>
           <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ButtonSize>)}
@@ -92,8 +93,8 @@ const IconButtonDemo = () => {
         </div>
 
         <div>
-          <pre>iconVariant</pre>
           <Select
+            label="iconVariant"
             value={iconVariant}
             options={ICON_VARIANT_OPTS}
             onChange={opt => setIconVariant(opt as SelectOption<IconVariant>)}

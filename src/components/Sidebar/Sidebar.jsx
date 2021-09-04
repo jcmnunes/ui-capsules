@@ -6,7 +6,7 @@ import { Text } from '../../lib';
 
 const Sidebar = () => (
   <StyledSidebar>
-    <Link to="/">
+    <Link to="/" aria-label="Go to Home">
       <Logo />
     </Link>
 

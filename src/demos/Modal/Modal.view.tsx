@@ -10,44 +10,52 @@ import { setAppElementExample } from '../../components/Home/Home';
 
 const ModalDemo = () => {
   return (
-    <Wrapper>
-      <Title>Modal</Title>
-      <Paragraph>
-        Accessible modal based on{' '}
-        <Anchor href="http://reactcommunity.org/react-modal">react-modal</Anchor>.
-      </Paragraph>
+    <Wrapper as="main">
+      <header>
+        <Title>Modal</Title>
+        <Paragraph>
+          Accessible modal based on{' '}
+          <Anchor href="https://reactcommunity.org/react-modal">react-modal</Anchor>.
+        </Paragraph>
+      </header>
 
-      <SubTitle>Usage</SubTitle>
-      <Usage>
-        {"import { Modal, ModalBody, ModalTitle, ModalFooter } from '@binarycapsule/ui-capsules';"}
-      </Usage>
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>
+          {
+            "import { Modal, ModalBody, ModalTitle, ModalFooter } from '@binarycapsule/ui-capsules';"
+          }
+        </Usage>
 
-      <Paragraph>
-        To improve A11y, at the entry point of the app call the <code>setAppElement</code> method
-        with a query selector identifying the root of your app.
-      </Paragraph>
+        <Paragraph>
+          To improve A11y, at the entry point of the app call the <code>setAppElement</code> method
+          with a query selector identifying the root of your app.
+        </Paragraph>
 
-      <Usage>{setAppElementExample}</Usage>
-      <Paragraph>
-        See{' '}
-        <Anchor href="http://reactcommunity.org/react-modal/accessibility/#app-element">
-          react-modal docs
-        </Anchor>{' '}
-        for more information.
-      </Paragraph>
+        <Usage>{setAppElementExample}</Usage>
+
+        <Paragraph>
+          See{' '}
+          <Anchor href="https://reactcommunity.org/react-modal/accessibility/#app-element">
+            react-modal docs
+          </Anchor>{' '}
+          for more information.
+        </Paragraph>
+      </section>
 
       <Demo />
 
-      <SubTitle>Props</SubTitle>
       <PropsTable props={PROPS} />
 
-      <SubSubTitle>Note:</SubSubTitle>
-      <Paragraph>
-        This component accepts all props from the{' '}
-        <Anchor href="http://reactcommunity.org/react-modal">react-modal API</Anchor>. Please refer
-        to the <Anchor href="http://reactcommunity.org/react-modal/#usage">docs</Anchor> for more
-        information.
-      </Paragraph>
+      <section>
+        <SubSubTitle>Note:</SubSubTitle>
+        <Paragraph>
+          This component accepts all props from the{' '}
+          <Anchor href="https://reactcommunity.org/react-modal">react-modal API</Anchor>. Please
+          refer to the <Anchor href="https://reactcommunity.org/react-modal/#usage">docs</Anchor>{' '}
+          for more information.
+        </Paragraph>
+      </section>
     </Wrapper>
   );
 };

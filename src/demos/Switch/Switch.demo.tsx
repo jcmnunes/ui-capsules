@@ -6,6 +6,7 @@ import {
   Select,
   SelectOption,
   Switch,
+  Text,
   VariantColor,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
@@ -37,23 +38,27 @@ const SwitchDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={checked} onChange={() => setChecked(!checked)}>
-          <pre>checked</pre>
+          <Text variant="label">checked</Text>
         </Checkbox>
 
         <Checkbox checked={disabled} onChange={() => setDisabled(!disabled)}>
-          <pre>disabled</pre>
+          <Text variant="label">disabled</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <pre>children</pre>
-          <Input type="text" value={children} onChange={ev => setChildren(ev.target.value)} />
+          <Input
+            label="children"
+            type="text"
+            value={children}
+            onChange={ev => setChildren(ev.target.value)}
+          />
         </div>
 
         <div>
-          <pre>size</pre>
           <Select
+            label="size"
             value={size}
             options={SIZE_OPTS}
             onChange={opt => setSize(opt as SelectOption<ElementSize>)}
@@ -61,8 +66,8 @@ const SwitchDemo = () => {
         </div>
 
         <div>
-          <pre>variantColor</pre>
           <Select
+            label="variantColor"
             value={variantColor}
             options={VARIANT_COLOR_OPTS}
             onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}

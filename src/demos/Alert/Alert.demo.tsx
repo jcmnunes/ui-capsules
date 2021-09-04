@@ -16,18 +16,16 @@ const AlertDemo: React.FC = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
-          <pre>title</pre>
-          <Input value={title} onChange={ev => setTitle(ev.target.value)} />
+          <Input label="title" value={title} onChange={ev => setTitle(ev.target.value)} />
         </div>
 
         <div>
-          <pre>message</pre>
-          <Input value={message} onChange={ev => setMessage(ev.target.value)} />
+          <Input label="message" value={message} onChange={ev => setMessage(ev.target.value)} />
         </div>
 
         <div>
-          <pre>variant</pre>
           <Select
+            label="variant"
             value={variant}
             options={VARIANT_OPTS}
             onChange={opt => {

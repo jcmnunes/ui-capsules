@@ -9,16 +9,23 @@ import { SWITCH_PROPS } from './Switch.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Switch</Title>
-      <Paragraph>
-        Renders a switch with an optional label. The switch is from the{' '}
-        <Anchor href="https://github.com/markusenglund/react-switch">react-switch</Anchor> package.
-      </Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Switch } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Switch</Title>
+        <Paragraph>
+          Renders a switch with an optional label. The switch is from the{' '}
+          <Anchor href="https://github.com/markusenglund/react-switch">react-switch</Anchor>{' '}
+          package.
+        </Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Switch } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={SWITCH_PROPS} />
     </Wrapper>
   );

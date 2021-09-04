@@ -36,6 +36,7 @@
     "*.+(js|jsx|ts|tsx|json|md)": "prettier --write"
   },
   "dependencies": {
+    "@reach/auto-id": "^0.16.0",
     "@tippyjs/react": "^4.2.3",
     "downshift": "^6.1.0",
     "focus-visible": "^5.2.0",

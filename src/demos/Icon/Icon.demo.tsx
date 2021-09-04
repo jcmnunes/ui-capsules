@@ -16,8 +16,8 @@ const IconDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
-          <pre>icon</pre>
           <Select
+            label="icon"
             value={icon}
             options={iconOpts}
             onChange={opt => setIcon(opt as SelectOption<IconType>)}
@@ -25,8 +25,8 @@ const IconDemo = () => {
         </div>
 
         <div>
-          <pre>variant</pre>
           <Select
+            label="variant"
             value={variant}
             options={ICON_VARIANT_OPTS}
             onChange={opt => setVariant(opt as SelectOption<IconVariant>)}

@@ -8,13 +8,19 @@ import { CHECKBOX_PROPS } from './Checkbox.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Checkbox</Title>
-      <Paragraph>Renders a custom checkbox with an optional label.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Checkbox } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <section>
+        <Title>Checkbox</Title>
+        <Paragraph>Renders a custom checkbox with an optional label.</Paragraph>
+      </section>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Checkbox } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={CHECKBOX_PROPS} />
     </Wrapper>
   );

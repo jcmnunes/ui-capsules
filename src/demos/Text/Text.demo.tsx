@@ -14,13 +14,12 @@ const TooltipDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
-          <pre>children</pre>
-          <Input value={children} onChange={ev => setChildren(ev.target.value)} />
+          <Input label="children" value={children} onChange={ev => setChildren(ev.target.value)} />
         </div>
 
         <div>
-          <pre>variant</pre>
           <Select
+            label="variant"
             value={variant}
             options={TEXT_VARIANT_OPTS}
             onChange={opt => setVariant(opt as SelectOption<TextVariant>)}

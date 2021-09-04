@@ -8,13 +8,19 @@ import { INPUT_PROPS } from './Input.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper>
-      <Title>Input</Title>
-      <Paragraph>Renders a custom input component.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { Input } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <header>
+        <Title>Input</Title>
+        <Paragraph>Renders a custom input component.</Paragraph>
+      </header>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { Input } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={INPUT_PROPS} />
     </Wrapper>
   );

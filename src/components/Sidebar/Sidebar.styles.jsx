@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const StyledSidebar = styled.div`
+export const StyledSidebar = styled.nav`
   width: 256px;
   height: 100vh;
   padding: 48px 24px;

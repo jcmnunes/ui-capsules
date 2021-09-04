@@ -8,13 +8,19 @@ import { PROPS } from './EditableInput.constants';
 
 const EditableInputDemo = () => {
   return (
-    <Wrapper>
-      <Title>Editable Input</Title>
-      <Paragraph>Renders text that can be edited in place by clicking on it.</Paragraph>
-      <SubTitle>Usage</SubTitle>
-      <Usage>{"import { EditableInput } from '@binarycapsule/ui-capsules';"}</Usage>
+    <Wrapper as="main">
+      <section>
+        <Title>Editable Input</Title>
+        <Paragraph>Renders text that can be edited in place by clicking on it.</Paragraph>
+      </section>
+
+      <section>
+        <SubTitle>Usage</SubTitle>
+        <Usage>{"import { EditableInput } from '@binarycapsule/ui-capsules';"}</Usage>
+      </section>
+
       <Demo />
-      <SubTitle>Props</SubTitle>
+
       <PropsTable props={PROPS} />
     </Wrapper>
   );

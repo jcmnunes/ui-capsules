@@ -46,8 +46,8 @@ const MenuDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
-          <pre>placement</pre>
           <Select
+            label="placement"
             value={placement}
             options={PLACEMENT_OPTS}
             onChange={opt => setPlacement(opt as SelectOption<'left' | 'right'>)}

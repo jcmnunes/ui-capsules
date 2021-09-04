@@ -19,7 +19,7 @@ const TooltipDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
         <Checkbox checked={isLongText} onChange={() => setIsLongText(!isLongText)}>
-          <pre>Long text</pre>
+          <Text variant="label">Long text</Text>
         </Checkbox>
 
         <Text variant="helper">Notice how a tooltip is shown only when the text is truncated.</Text>
