@@ -12,6 +12,7 @@ import {
   Select,
   SelectOption,
   Text,
+  Toaster,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, SIZE_OPTS } from './Modal.constants';
@@ -134,7 +135,19 @@ const ModalDemo = () => {
             menuPortalTarget={document.body}
           />
 
-          <Button leftIcon="plus" variant="ghost" variantColor="neutral" size="small" mt="4">
+          <Button
+            leftIcon="plus"
+            variant="ghost"
+            variantColor="neutral"
+            size="small"
+            mt="4"
+            onClick={() =>
+              Toaster.error({
+                title: 'Cannot create scopes in this demo',
+                message: 'In reality, this is just a test ;)',
+              })
+            }
+          >
             Create new scope
           </Button>
         </ModalBody>

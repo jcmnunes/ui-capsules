@@ -101,7 +101,8 @@ export const theme = {
   zIndices: {
     modal: 2718281,
     select: 3141592,
-    larger: 4669201,
+    toast: 4669201,
+    splash: 5772156,
   },
 };
 

@@ -12,6 +12,8 @@ export const ToastWrapper = styled.div`
 `;
 
 export const StyledContainer = styled(RTToastContainer)`
+  z-index: ${({ theme }) => theme.zIndices.toast};
+
   .Toastify__toast-container {
     color: ${({ theme }) => theme.colors.white};
   }
