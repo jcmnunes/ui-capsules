@@ -21,7 +21,7 @@ export const Label = styled.label<LabelProps>(
     alignItems: 'center',
     position: 'relative',
     userSelect: 'none',
-    color: disabled ? theme.colors.neutral['300'] : 'inherit',
+    color: disabled ? theme.colors.neutral['400'] : 'inherit',
     cursor: disabled ? 'initial' : 'pointer',
   }),
 
@@ -70,7 +70,7 @@ export const CustomCheckbox = styled.span<CustomCheckboxProps>(
     backgroundColor: disabled ? theme.colors.neutral['50'] : theme.colors.bg,
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: disabled ? theme.colors.neutral['100'] : theme.colors.neutral['300'],
+    borderColor: disabled ? theme.colors.neutral['300'] : theme.colors.neutral['400'],
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -159,7 +159,7 @@ export const StyledInput = styled.input<StyledInputProps>`
 
     &:disabled {
       & ~ .uic-custom-checkbox {
-        opacity: 0.5;
+        opacity: 0.7;
       }
     }
   }

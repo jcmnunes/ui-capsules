@@ -25,6 +25,7 @@ export const ModalCloseButton: FC<Props> = ({ size, onClick }) => {
       size={size}
       icon="x"
       onClick={onClick}
+      aria-label="Close"
     />
   );
 };

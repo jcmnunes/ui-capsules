@@ -12,7 +12,7 @@ interface StyledMenuItemProps extends BoxProps {
 }
 
 export const StyledMenuItem = styled(Flex)<StyledMenuItemProps>(({ highlighted, theme }) => ({
-  background: highlighted ? theme.colors.neutral['100'] : 'bg',
+  background: highlighted ? theme.colors.neutral['200'] : 'bg',
   width: '100%',
   padding: '8px 16px',
   textAlign: 'left',
