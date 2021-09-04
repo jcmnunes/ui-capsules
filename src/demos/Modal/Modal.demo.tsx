@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Box,
   Button,
   Checkbox,
   ElementSize,
@@ -114,10 +115,8 @@ const ModalDemo = () => {
         <ModalCloseButton onClick={() => setIsOpen(false)} />
 
         <ModalBody>
-          <Text color="neutral.700" fontWeight={600} fontSize="small" mb="4">
-            What will you be working on?
-          </Text>
           <Input
+            label="What will you be working on?"
             value={inputValue}
             onChange={ev => setInputValue(ev.target.value)}
             size="large"
@@ -125,10 +124,10 @@ const ModalDemo = () => {
             placeholder="Task summary"
           />
 
-          <Text color="neutral.700" fontWeight={600} fontSize="small" mt="24" mb="4">
-            Task scope
-          </Text>
+          <Box mb="16" />
+
           <Select
+            label="Scope"
             value={SIZE_OPTS[0]}
             options={SIZE_OPTS}
             onChange={() => {}}
