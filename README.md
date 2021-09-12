@@ -3,7 +3,7 @@
 # UI-Capsules - React UI Kit 👷‍♂💊🚧 wip️
 
 <div>
-    <a href="https://travis-ci.org/jcmnunes/ui-capsules"><img src="https://travis-ci.org/jcmnunes/ui-capsules.svg?branch=master" alt="build status"/></a>
+    <a href="https://travis-ci.org/jcmnunes/ui-capsules"><img src="https://app.travis-ci.com/jcmnunes/ui-capsules.svg?branch=master" alt="build status"/></a>
     <a href="https://www.npmjs.com/package/@binarycapsule/ui-capsules"><img src="https://img.shields.io/npm/v/@binarycapsule/ui-capsules" alt="npm link"/></a>
     <a href="https://app.netlify.com/sites/competent-mcclintock-222a1a/deploys"><img src="https://api.netlify.com/api/v1/badges/0e3396d1-d7ea-4e54-b5b5-d33f237479d7/deploy-status" alt="netlify badge" /></a>
     <a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="prettier badge"/></a>
