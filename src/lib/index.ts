@@ -19,6 +19,7 @@ export { ModalFooter } from './Modal/ModalFooter';
 export { Splash } from './Splash/Splash';
 export { Pill } from './Pill/Pill';
 export { Radio } from './Radio/Radio';
+export { RadioPicker } from './RadioPicker/RadioPicker';
 export { Select } from './Select/Select';
 export { Spinner } from './Spinner/Spinner';
 export { Switch } from './Switch/Switch';

@@ -11,7 +11,7 @@ const ButtonDemo = () => {
     <Wrapper as="main">
       <header>
         <Title>Radio</Title>
-        <Paragraph>Renders a custom radio with an optional label.</Paragraph>
+        <Paragraph>Renders a custom radio.</Paragraph>
       </header>
 
       <section>
