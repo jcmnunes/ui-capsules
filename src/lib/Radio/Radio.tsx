@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ElementSize, VariantColor } from '../types';
 import { MarginProps } from '../styledProps';
-import { CustomRadio, Label, StyledInput } from './Radio.styles';
+import { CustomRadio, Label, StyledRadioInput } from './Radio.styles';
 import { Wrapper } from '../Wrapper/Wrapper';
 
 interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, MarginProps {
@@ -23,7 +23,7 @@ export const Radio: FC<Props> = ({
       <Label size={size} disabled={disabled}>
         {children}
 
-        <StyledInput
+        <StyledRadioInput
           checked={checked}
           onChange={onChange}
           variantColor={variantColor}

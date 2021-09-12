@@ -115,7 +115,7 @@ interface StyledInputProps {
   variantColor: VariantColor;
 }
 
-export const StyledInput = styled.input<StyledInputProps>`
+export const StyledRadioInput = styled.input<StyledInputProps>`
   position: absolute;
   opacity: 0;
   cursor: pointer;

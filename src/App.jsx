@@ -15,6 +15,7 @@ import Skeleton from './demos/Skeleton/Skeleton.view';
 import Spinner from './demos/Spinner/Spinner.view';
 import Splash from './demos/Splash/Splash.view';
 import Radio from './demos/Radio/Radio.view';
+import RadioPicker from './demos/RadioPicker/RadioPicker.view';
 import Tooltip from './demos/Tooltip/Tooltip.view';
 import EditableInput from './demos/EditableInput/EditableInput.view';
 import Modal from './demos/Modal/Modal.view';
@@ -69,6 +70,7 @@ const App = () => (
       <Route path="/modal" component={Modal} />
       <Route path="/splash" component={Splash} />
       <Route path="/radio" component={Radio} />
+      <Route path="/radio-picker" component={RadioPicker} />
       <Route path="/select" component={Select} />
       <Route path="/skeleton" component={Skeleton} />
       <Route path="/spinner" component={Spinner} />
