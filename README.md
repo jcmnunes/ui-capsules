@@ -1,4 +1,4 @@
-    <img src="https://user-images.githubusercontent.com/13286745/63065062-66f6d800-befc-11e9-882a-488ab85f6a37.png" alt="BC logo" width="100px" height="100px">
+<img src="https://user-images.githubusercontent.com/13286745/63065062-66f6d800-befc-11e9-882a-488ab85f6a37.png" alt="BC logo" width="100px" height="100px">
 
 # UI-Capsules - React UI Kit 👷‍♂💊🚧 wip️
 
