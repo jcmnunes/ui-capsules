@@ -20,13 +20,13 @@ export interface TypographyProps {
 export type Space = keyof typeof theme.space;
 
 export interface MarginProps {
-  m?: Space | number;
-  mt?: Space | number;
-  mr?: Space | number;
-  mb?: Space | number;
-  ml?: Space | number;
-  mx?: Space | number;
-  my?: Space | number;
+  m?: Space | number | 'auto';
+  mt?: Space | number | 'auto';
+  mr?: Space | number | 'auto';
+  mb?: Space | number | 'auto';
+  ml?: Space | number | 'auto';
+  mx?: Space | number | 'auto';
+  my?: Space | number | 'auto';
 }
 
 export interface PaddingProps {

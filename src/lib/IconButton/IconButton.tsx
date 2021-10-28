@@ -13,6 +13,7 @@ export interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'
   size?: ButtonSize;
   isLoading?: boolean;
   iconVariant?: IconVariant;
+  href?: string;
 }
 
 const anchorProps = {
