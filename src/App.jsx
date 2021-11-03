@@ -63,7 +63,7 @@ const App = () => {
   globalStyles();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <Flex>
       <SidebarWrapper>
         <Sidebar />
       </SidebarWrapper>
@@ -106,7 +106,7 @@ const App = () => {
         <Route path="/truncated-text" component={TruncatedText} />
         <Route path="/tooltip" component={Tooltip} />
       </ShowcaseWrapper>
-    </div>
+    </Flex>
   );
 };
 
