@@ -1,53 +1,98 @@
-import styled from '@emotion/styled';
 import { ToastContainer as RTToastContainer } from 'react-toastify';
+import { keyframes, styled } from '../stitches.config';
+import { darkTheme } from '../darkTheme';
 
-export const ToastWrapper = styled.div`
-  z-index: 2;
-  background: ${({ theme }) => theme.colors.neutral['700']};
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  color: ${({ theme }) => theme.colors.neutral['50']};
-  position: relative;
-`;
+const slideTop = keyframes({
+  '0%': {
+    transform: 'translateY(10px)',
+    opacity: 0,
+  },
+  '100%': {
+    transform: 'translateY(0)',
+    opacity: 1,
+  },
+});
 
-export const StyledContainer = styled(RTToastContainer)`
-  z-index: ${({ theme }) => theme.zIndices.toast};
+const slideBottom = keyframes({
+  '0%': {
+    transform: 'translateY(0)',
+    opacity: 1,
+  },
+  '100%': {
+    transform: 'translateY(10px)',
+    opacity: 0,
+  },
+});
 
-  .Toastify__toast-container {
-    color: ${({ theme }) => theme.colors.white};
-  }
+export const ToastWrapper = styled('div', {
+  zIndex: 2,
+  background: '$neutral700',
+  display: 'flex',
+  flexDirection: 'row',
+  overflow: 'hidden',
+  color: '$neutral50',
+  position: 'relative',
 
-  .Toastify__toast-body {
-    margin: auto 0;
-    padding: 6px 6px 10px;
-    width: 100%;
-  }
+  [`.${darkTheme} &`]: {
+    background: '$neutral100',
+  },
+});
 
-  .Toastify__toast--default,
+export const StyledContainer = styled(RTToastContainer, {
+  zIndex: '$toast',
+
+  '.Toastify__toast-container': {
+    color: '$white',
+  },
+
+  '.Toastify__toast-body': {
+    margin: 'auto 0',
+    padding: '6px 6px 10px',
+    width: '100%',
+    top: 2,
+    left: 0,
+  },
+
+  [`.Toastify__toast--default,
   .Toastify__toast--error,
   .Toastify__toast--warning,
-  .Toastify__toast--success {
-    background: ${({ theme }) => theme.colors.neutral['700']};
-    border: ${({ theme }) => `1px solid ${theme.colors.neutral['800']}`};
-    color: ${({ theme }) => theme.colors.white};
-  }
+  .Toastify__toast--success`]: {
+    background: '$neutral700',
+    border: `1px solid $neutral800`,
+    color: '$white',
 
-  .Toastify__toast-body {
-    top: 2px;
-    left: 0;
-  }
+    [`.${darkTheme} &`]: {
+      background: '$neutral100',
+      border: `1px solid $neutral400`,
+    },
+  },
 
-  .Toastify__close-button,
-  .Toastify__close-button--default {
-    color: ${({ theme }) => theme.colors.neutral['300']};
-    line-height: 16px;
-    height: 16px;
-  }
+  [`.Toastify__close-button,
+  .Toastify__close-button--default`]: {
+    color: '$neutral300',
+    lineHeight: '16px',
+    height: '16px',
 
-  .Toastify__progress-bar,
-  .Toastify__progress-bar--default {
-    background: white;
-    height: 4px;
-  }
-`;
+    [`.${darkTheme} &`]: {
+      color: '$neutral700',
+    },
+  },
+
+  [`.Toastify__progress-bar,
+  .Toastify__progress-bar--default`]: {
+    background: '$bg',
+    height: '4px',
+
+    [`.${darkTheme} &`]: {
+      background: '$neutral400',
+    },
+  },
+
+  '.slide-top': {
+    animation: `${slideTop} 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`,
+  },
+
+  '.slide-bottom': {
+    animation: `${slideBottom} 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`,
+  },
+});

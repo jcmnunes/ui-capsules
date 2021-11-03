@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
+import { styled } from '../stitches.config';
 
-export const ModalBody = styled.div`
-  padding: 8px 24px;
-`;
+export const ModalBody = styled('div', {
+  px: 24,
+  py: 8,
+});

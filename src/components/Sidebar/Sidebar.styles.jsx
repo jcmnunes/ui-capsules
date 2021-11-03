@@ -1,41 +1,37 @@
-import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import { styled } from '../../lib/stitches.config';
 
-export const StyledSidebar = styled.nav`
-  width: 256px;
-  height: 100vh;
-  padding: 48px 24px;
-`;
+export const StyledSidebar = styled('nav', {
+  width: 256,
+  height: '100vh',
+  padding: '48px 24px',
+});
 
-export const StyledSidebarLink = styled(NavLink)`
-  font-size: 14px;
-  font-weight: 500;
-  height: 32px;
-  border-radius: 4px;
-  background: ${props => props.theme.colors.neutral['100']};
-  color: ${props => props.theme.colors.neutral['700']};
-  cursor: pointer;
-  padding: 4px 12px;
+export const StyledSidebarLink = styled(NavLink, {
+  fontSize: '14px',
+  fontWeight: 500,
+  height: 32,
+  borderRadius: '$medium',
+  background: '$neutral100',
+  color: '$neutral700',
+  cursor: 'pointer',
+  padding: '4px 12px',
 
-  &:hover {
-    background: ${props => props.theme.colors.neutral['200']};
-  }
+  '&:hover': {
+    background: '$neutral200',
+  },
 
-  &.active {
-    background: ${props => props.theme.colors.neutral['200']};
-    color: ${props => props.theme.colors.pink['700']};
-
-    &:hover {
-      background: ${props => props.theme.colors.neutral['200']};
-    }
-  }
-`;
+  '&.active': {
+    background: '$neutral200',
+    color: '$secondary700',
+  },
+});
 
 export const SidebarLink = props => <StyledSidebarLink activeClassName="active" {...props} />;
 
-export const SidebarGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: -12px;
-  padding-top: 24px;
-`;
+export const SidebarGroup = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  marginLeft: -12,
+  paddingTop: 24,
+});

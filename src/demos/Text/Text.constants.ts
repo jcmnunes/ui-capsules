@@ -7,7 +7,6 @@ export const TEXT_VARIANT_OPTS: { label: string; value?: TextVariant }[] = [
   { value: undefined, label: 'none' },
   { value: 'smallCaps', label: 'smallCaps' },
   { value: 'label', label: 'label' },
-  { value: 'tabular', label: 'tabular' },
   { value: 'helper', label: 'helper' },
 ];
 

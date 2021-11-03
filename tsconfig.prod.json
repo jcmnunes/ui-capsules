@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true,
+    "target": "es2019",
+    "sourceMap": false,
     "jsx": "react",
     "declaration": true,
     "outDir": "dist",

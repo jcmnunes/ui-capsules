@@ -40,22 +40,22 @@ const ButtonDemo = () => {
       <PropsTable props={ICON_PROPS} />
 
       <section>
-        <Flex justifyContent="space-between" mt="12">
+        <Flex justify="between" css={{ mt: '$3' }}>
           <SubTitle id="icons">Icons</SubTitle>
 
-          <Flex alignItems="center">
+          <Flex align="center">
             <Icon icon="beaker" variant="solid" size={24} />
             <Switch
               checked={isOutline}
               onChange={checked => setIsOutline(checked)}
-              size="small"
-              mx="4"
+              size="medium"
+              css={{ mx: '$1' }}
             />
             <Icon icon="beaker" variant="outline" />
           </Flex>
         </Flex>
 
-        <Box mb="24">
+        <Box css={{ mb: '$4' }}>
           <Input
             value={iconFilter}
             onChange={evt => iconFilterSet(evt.target.value)}
@@ -74,9 +74,14 @@ const ButtonDemo = () => {
         </IconGrid>
 
         {icons.length === 0 && (
-          <Flex alignItems="center" justifyContent="center" flexDirection="column">
-            <Icon icon="emoji_sad" variant="outline" mr="8" color="neutral.400" size={48} />
-            <Text fontSize="h6" color="neutral.400" textAlign="center" mt="2">
+          <Flex align="center" justify="center" direction="column">
+            <Icon
+              icon="emoji_sad"
+              variant="outline"
+              size={48}
+              css={{ color: '$gray400', mr: '$2' }}
+            />
+            <Text css={{ fontSize: '$3', color: '$neutral400', textAlign: 'center', mt: 2 }}>
               {`No icons found for "${iconFilter}"`}
             </Text>
           </Flex>

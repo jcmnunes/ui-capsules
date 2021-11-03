@@ -1,22 +1,14 @@
-import React, { FC } from 'react';
-import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
-import { Box, BoxProps } from '../Box/Box';
+import { styled, keyframes } from '../stitches.config';
+import { Box } from '../Box/Box';
 
-const loading = keyframes`
-  100% {
-    transform: translateX(100%);
-  }
-`;
+const loading = keyframes({
+  '100%': { transform: 'translateX(100%)' },
+});
 
-interface Props extends BoxProps {
-  circular?: boolean;
-}
-
-const StyledSkeleton = styled(Box)<Props>(({ circular, theme }) => ({
+export const Skeleton = styled(Box, {
   position: 'relative',
-  borderRadius: circular ? 999 : theme.radii.medium,
   overflow: 'hidden',
+  borderRadius: '$medium',
 
   '&:after': {
     content: '""',
@@ -30,12 +22,17 @@ const StyledSkeleton = styled(Box)<Props>(({ circular, theme }) => ({
     animationDuration: '1s',
     animationIterationCount: 'infinite',
   },
-}));
 
-export const Skeleton: FC<Props> = props => <StyledSkeleton {...props} />;
+  variants: {
+    circular: {
+      true: {
+        borderRadius: '$full',
+      },
+    },
+  },
+});
 
 Skeleton.displayName = 'Skeleton';
 Skeleton.defaultProps = {
   circular: false,
-  bg: 'neutral.200',
 };

@@ -1,57 +1,55 @@
 import React, { FC, useEffect } from 'react';
-import styled from '@emotion/styled';
 import { Spinner } from '../Spinner/Spinner';
-import { variant } from 'styled-system';
-import { ColorProps } from '../styledProps';
+import { styled } from '../stitches.config';
+import { darkTheme } from '../darkTheme';
 
 export type SplashVariant = 'splash' | 'spinner';
 
-const Container = styled.div<{ variant: SplashVariant }>(
-  ({ theme }) => ({
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    height: '100vh',
-    width: '100vw',
-    backgroundColor: 'rgba(60, 63, 75, 0.5)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: theme.zIndices.splash,
-  }),
+const Container = styled('div', {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  height: '100vh',
+  width: '100vw',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  zIndex: '$splash',
 
-  variant<ColorProps, SplashVariant>({
-    variants: {
+  variants: {
+    variant: {
       spinner: {
         bg: 'rgba(60, 63, 75, 0.5)',
       },
       splash: {
-        bg: 'neutral.50',
+        bg: '$neutral50',
       },
     },
-  }),
-);
+  },
+});
 
-const LargeText = styled.div<{ variant: SplashVariant }>(
-  ({ theme }) => ({
-    color: theme.colors.neutral['50'],
-    fontSize: theme.fontSizes.h3,
-    fontWeight: 700,
-    opacity: 1,
-  }),
+const LargeText = styled('div', {
+  color: '$neutral50',
+  fontSize: '$7',
+  fontWeight: 700,
+  opacity: 1,
 
-  variant<ColorProps, SplashVariant>({
-    variants: {
+  variants: {
+    variant: {
       spinner: {
-        color: 'neutral.50',
+        color: '$neutral100',
+
+        [`.${darkTheme} &`]: {
+          color: '$neutral600',
+        },
       },
       splash: {
-        color: 'neutral.400',
+        color: '$neutral600',
       },
     },
-  }),
-);
+  },
+});
 
 interface Props {
   variant: SplashVariant;
@@ -76,7 +74,11 @@ export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => 
       )}
 
       {(showSpinner || variant === 'spinner') && (
-        <Spinner size="large" variantColor="neutral" my="16" />
+        <Spinner
+          size="large"
+          variant={variant === 'spinner' ? 'light' : 'dark'}
+          css={{ my: '$4' }}
+        />
       )}
     </Container>
   );

@@ -1,7 +1,7 @@
-import styled from '@emotion/styled/macro';
+import { styled } from '../../lib/stitches.config';
 
-const Wrapper = styled.main`
-  width: 600px;
-`;
+const Wrapper = styled('main', {
+  width: 600,
+});
 
 export default Wrapper;

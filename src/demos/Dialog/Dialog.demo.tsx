@@ -75,12 +75,12 @@ const DialogDemo = () => {
 
       <Dialog
         isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
+        onClose={() => setIsOpen(false)}
         contentLabel="Example Modal"
         actions={[
           {
             text: 'Cancel',
-            variant: 'neutral',
+            variant: 'ghostGray',
             onClick: () => setIsOpen(false),
           },
           {

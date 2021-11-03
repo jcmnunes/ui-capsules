@@ -1,32 +1,29 @@
 import React, { FC } from 'react';
-import { ElementSize, VariantColor } from '../types';
-import { MarginProps } from '../styledProps';
+import { Box } from '../Box/Box';
+import { CSSProp, DualSize } from '../types';
 import { CustomRadio, Label, StyledRadioInput } from './Radio.styles';
-import { Wrapper } from '../Wrapper/Wrapper';
 
-interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, MarginProps {
-  variantColor?: VariantColor;
-  size?: ElementSize;
+interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, CSSProp {
+  size?: DualSize;
 }
 
 export const Radio: FC<Props> = ({
   checked,
   onChange,
-  size = 'small',
-  variantColor = 'primary',
+  size = 'medium',
   disabled,
   children,
+  css,
   ...rest
 }) => {
   return (
-    <Wrapper {...rest}>
+    <Box css={css}>
       <Label size={size} disabled={disabled}>
         {children}
 
         <StyledRadioInput
           checked={checked}
           onChange={onChange}
-          variantColor={variantColor}
           type="radio"
           disabled={disabled}
           {...rest}
@@ -34,13 +31,12 @@ export const Radio: FC<Props> = ({
 
         <CustomRadio className="uic-custom-radio" size={size} disabled={disabled} />
       </Label>
-    </Wrapper>
+    </Box>
   );
 };
 
 Radio.displayName = 'Radio';
 Radio.defaultProps = {
-  variantColor: 'primary',
-  size: 'small',
+  size: 'medium',
   disabled: false,
 };

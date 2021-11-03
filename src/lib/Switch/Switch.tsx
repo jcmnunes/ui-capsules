@@ -1,63 +1,58 @@
 import React, { FC } from 'react';
 import RSwitch, { ReactSwitchProps } from 'react-switch';
-import styled from '@emotion/styled';
-import { useTheme } from '@emotion/react';
-import { ElementSize, VariantColor } from '../types';
-import { margin } from 'styled-system';
-import { MarginProps } from '../styledProps';
+import { colors } from '../colors';
+import { styled } from '../stitches.config';
+import { CSSProp, DualSize } from '../types';
 
-const Label = styled.label`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+const Label = styled('label', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+});
 
-  ${margin}
-`;
+const LabelText = styled('span', {
+  fontSize: '$2',
+  fontWeight: 500,
+  marginLeft: '$2',
+  color: '$neutral700',
 
-const LabelText = styled.span<{ disabled?: boolean; size: ElementSize }>`
-  font-size: ${({ size }) => (size === 'large' ? '16px' : '14px')};
-  margin-left: 8px;
-  color: ${({ disabled, theme }) => disabled && theme.colors.neutral['400']};
-`;
+  variants: {
+    disabled: {
+      true: {
+        color: '$neutral400',
+      },
+    },
+  },
+});
 
 const DIMENSIONS = {
-  small: {
-    width: 28,
-    height: 16,
-    diameter: 14,
-  },
-
   medium: {
-    width: 35,
-    height: 20,
-    diameter: 16,
+    width: 32,
+    height: 16,
+    diameter: 12,
   },
 
   large: {
-    width: 50,
-    height: 28,
-    diameter: 24,
+    width: 48,
+    height: 24,
+    diameter: 20,
   },
 };
 
-interface SwitchProps extends Pick<ReactSwitchProps, 'checked' | 'onChange'>, MarginProps {
+interface SwitchProps extends Pick<ReactSwitchProps, 'checked' | 'onChange'>, CSSProp {
   disabled?: boolean;
   children?: string;
-  size?: ElementSize;
-  variantColor?: VariantColor;
+  size?: DualSize;
 }
 
 export const Switch: FC<SwitchProps> = ({
   checked,
   onChange,
   size = 'medium',
-  variantColor = 'green',
   disabled,
   children,
   ...rest
 }) => {
-  const theme = useTheme();
-
   return (
     <Label {...rest}>
       <RSwitch
@@ -68,24 +63,17 @@ export const Switch: FC<SwitchProps> = ({
         width={DIMENSIONS[size].width}
         height={DIMENSIONS[size].height}
         handleDiameter={DIMENSIONS[size].diameter}
-        uncheckedIcon={false}
-        checkedIcon={false}
-        onColor={theme.colors[variantColor]['500']}
-        offColor={theme.colors.neutral['300']}
+        onColor={colors.blue500}
+        offColor={colors.gray500}
         {...rest}
       />
 
-      {!!children && (
-        <LabelText disabled={disabled} size={size}>
-          {children}
-        </LabelText>
-      )}
+      {!!children && <LabelText disabled={disabled}>{children}</LabelText>}
     </Label>
   );
 };
 
 Switch.displayName = 'Switch';
 Switch.defaultProps = {
-  variantColor: 'green',
   size: 'medium',
 };

@@ -16,13 +16,6 @@ export const PROPS = [
     description: 'Controls the look of the button.',
   },
   {
-    name: 'variantColor',
-    isRequired: false,
-    type: 'VariantColor',
-    defaultValue: '"primary"',
-    description: 'The color of the button. Can be any of one of the theme colors.',
-  },
-  {
     name: 'as',
     isRequired: false,
     type: '"a" | "button"',

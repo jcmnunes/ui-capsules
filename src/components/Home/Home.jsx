@@ -1,21 +1,21 @@
 import React from 'react';
-import { Anchor, Button, Alert } from '../../lib';
-import styled from '@emotion/styled/macro';
+import { Alert, Anchor, Button } from '../../lib';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
+import { styled } from '../../lib/stitches.config';
 
-export const Description = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-`;
+export const Description = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  marginBottom: 16,
+});
 
-export const StyledParagraph = styled(Paragraph)`
-  margin: 24px 0 16px;
-`;
+export const StyledParagraph = styled(Paragraph, {
+  margin: '24px 0 16px',
+});
 
 export const setAppElementExample = `import { setAppElement } from '@binarycapsule/ui-capsules';
 
@@ -27,14 +27,14 @@ ReactDOM.render(
 );
 `;
 
-export const providersExample = `import { ThemeProvider, theme, ToastContainer } from '@binarycapsule/ui-capsules';
+export const providersExample = `import { ToastContainer } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}> 
+  <> 
     <App />
 
     <ToastContainer />
-  </ThemeProvider>,
+  </>,
   document.getElementById('root'),
 );
 `;
@@ -50,13 +50,17 @@ const Home = () => (
       </Paragraph>
 
       <a href="https://github.com/jcmnunes/ui-capsules" target="_blank" rel="noreferrer noopener">
-        <Button variant="ghost" variantColor="neutral" leftIcon="github">
+        <Button variant="ghostGray" leftIcon="github">
           View source on GitHub
         </Button>
       </a>
     </Description>
 
-    <Alert variant="warning" message="Work in progress" />
+    <Alert
+      variant="warning"
+      title="🚨 Breakable toy 🚨"
+      message="This library is a breakable toy. New versions will often contain breaking changes, even for non-major releases."
+    />
 
     <div>
       <SubTitle>Install</SubTitle>
@@ -65,13 +69,10 @@ const Home = () => (
       <Usage>npm i @binarycapsule/ui-capsules</Usage>
 
       <StyledParagraph>The following peer dependencies should also be installed:</StyledParagraph>
-      <Usage>
-        npm i react react-dom @emotion/react @emotion/styled styled-system
-        @styled-system/should-forward-prop
-      </Usage>
+      <Usage>npm i react react-dom @stitches/react</Usage>
 
       <StyledParagraph>As well as the following devDependencies:</StyledParagraph>
-      <Usage>npm i -D @types/styled-system @types/react-modal @types/react-select</Usage>
+      <Usage>npm i -D @types/react-modal @types/react-select</Usage>
 
       <SubTitle>Setup</SubTitle>
 
@@ -87,9 +88,7 @@ const Home = () => (
       </StyledParagraph>
       <Usage>{setAppElementExample}</Usage>
 
-      <StyledParagraph>
-        Wrap your app in the ThemeProvider and render the ToastContainer:
-      </StyledParagraph>
+      <StyledParagraph>Render the ToastContainer:</StyledParagraph>
       <Usage>{providersExample}</Usage>
     </div>
   </Wrapper>

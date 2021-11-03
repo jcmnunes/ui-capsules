@@ -1,166 +1,133 @@
-import styled from '@emotion/styled';
-import { ElementSize, VariantColor } from '../types';
-import { PositionProps, variant } from 'styled-system';
-import {
-  BorderProps,
-  ColorProps,
-  LayoutProps,
-  PaddingProps,
-  PropsWithPseudo,
-  TypographyProps,
-} from '../styledProps';
+import { styled } from '../stitches.config';
 
-interface LabelProps {
-  size: ElementSize;
-  disabled: boolean;
-}
+export const Label = styled('label', {
+  display: 'flex',
+  alignItems: 'center',
+  position: 'relative',
+  userSelect: 'none',
+  cursor: 'pointer',
+  fontWeight: 500,
+  color: '$neutral700',
 
-export const Label = styled.label<LabelProps>(
-  ({ theme, disabled }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    position: 'relative',
-    userSelect: 'none',
-    color: disabled ? theme.colors.neutral['400'] : 'inherit',
-    cursor: disabled ? 'initial' : 'pointer',
-  }),
-
-  variant<LayoutProps & TypographyProps & PaddingProps & ColorProps, ElementSize>({
-    prop: 'size',
-    variants: {
-      small: {
-        height: 16,
-        fontSize: 'body',
-        pl: 22,
-        lineHeight: '16px',
+  variants: {
+    disabled: {
+      true: {
+        color: '$neutral400',
+        cursor: 'initial',
       },
+    },
+
+    size: {
       medium: {
-        height: 20,
-        fontSize: 'body',
-        pl: 28,
-        lineHeight: '20px',
+        height: 18,
+        fontSize: '$2',
+        paddingLeft: 24,
+        lineHeight: '18px',
       },
+
       large: {
         height: 25,
-        fontSize: 'h6',
-        pl: 35,
+        fontSize: '$2',
+        paddingLeft: 35,
         lineHeight: '25px',
       },
     },
-  }),
-);
+  },
+});
 
-interface StyledInputProps {
-  variantColor: VariantColor;
-}
+export const CustomCheckbox = styled('span', {
+  position: 'absolute',
+  borderRadius: '$medium',
+  top: 0,
+  left: 0,
+  backgroundColor: '$bg',
+  borderWidth: 1,
+  border: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  boxShadow: '$border',
 
-interface CustomCheckboxProps {
-  size: 'small' | 'medium' | 'large';
-  disabled: boolean;
-}
+  '&:hover': {
+    backgroundColor: '$neutral50',
+  },
 
-type Pseudo = '&:after';
-
-export const CustomCheckbox = styled.span<CustomCheckboxProps>(
-  ({ disabled, theme }) => ({
+  '&:after': {
+    content: '""',
     position: 'absolute',
-    borderRadius: theme.radii.medium,
-    top: 0,
-    left: 0,
-    backgroundColor: disabled ? theme.colors.neutral['50'] : theme.colors.bg,
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: disabled ? theme.colors.neutral['300'] : theme.colors.neutral['400'],
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: 'none',
+    border: 'solid white',
+    transform: 'rotate(45deg)',
+  },
 
-    '&:hover': {
-      backgroundColor: theme.colors.neutral['50'],
+  variants: {
+    disabled: {
+      true: {
+        background: '$neutral300',
+        boxShadow: 'none',
+        pointerEvents: 'none',
+      },
     },
 
-    '&:after': {
-      content: '""',
-      position: 'absolute',
-      display: 'none',
-      border: 'solid white',
-      transform: 'rotate(45deg)',
-    },
-  }),
-
-  variant<PropsWithPseudo<LayoutProps & PositionProps & BorderProps, Pseudo>, ElementSize>({
-    prop: 'size',
-    variants: {
-      small: {
-        width: 16,
-        height: 16,
+    size: {
+      medium: {
+        width: 18,
+        height: 18,
 
         '&:after': {
-          left: '5px',
-          top: '2px',
-          width: 5,
-          height: 9,
+          left: '6px',
+          top: '3px',
+          width: 6,
+          height: 10,
           borderWidth: '0 2px 2px 0',
         },
       },
-      medium: {
-        width: 20,
-        height: 20,
 
-        '&:after': {
-          top: '2px',
-          left: '6px',
-          width: 7,
-          height: 12,
-          borderWidth: '0 3px 3px 0',
-        },
-      },
       large: {
         width: 24,
         height: 24,
 
         '&:after': {
-          top: '3px',
-          left: '7px',
+          top: 4,
+          left: 8,
           width: 8,
           height: 13,
           borderWidth: '0 3px 3px 0',
         },
       },
     },
-  }),
-);
+  },
+});
 
-export const StyledInput = styled.input<StyledInputProps>`
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+export const StyledInput = styled('input', {
+  position: 'absolute',
+  opacity: 0,
+  cursor: 'pointer',
+  height: 0,
+  width: 0,
 
-  &[data-focus-visible-added]:focus {
-    & ~ .uic-custom-checkbox {
-      outline: none;
-      box-shadow: ${({ theme }) => `0 0 0 3px ${theme.colors.primary['200']}`};
-    }
-  }
+  '&[data-focus-visible-added]:focus': {
+    '& ~ .uic-custom-checkbox': {
+      outline: 'none',
+      boxShadow: '$focus',
+    },
+  },
 
-  &:checked {
-    & ~ .uic-custom-checkbox {
-      background-color: ${({ theme, variantColor }) =>
-        theme.colors[variantColor as keyof typeof theme.colors]['500']};
-      border-color: ${({ theme, variantColor }) =>
-        theme.colors[variantColor as keyof typeof theme.colors]['500']};
+  '&:checked': {
+    '& ~ .uic-custom-checkbox': {
+      backgroundColor: '$primary500',
+      borderColor: '$primary500',
+      boxShadow: '$borderPrimary',
 
-      &:after {
-        display: block;
-      }
-    }
+      '&:after': {
+        display: 'block',
+      },
+    },
 
-    &:disabled {
-      & ~ .uic-custom-checkbox {
-        opacity: 0.7;
-      }
-    }
-  }
-`;
+    '&:disabled': {
+      '& ~ .uic-custom-checkbox': {
+        opacity: 0.7,
+      },
+    },
+  },
+});

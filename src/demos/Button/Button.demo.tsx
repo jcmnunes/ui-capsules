@@ -9,18 +9,12 @@ import {
   Input,
   Select,
   SelectOption,
-  VariantColor,
   Text,
 } from '../../lib';
 import { GITHUB_URL } from './Button.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
 import { ButtonVariant } from '../../lib/Button/Button.styles';
-import {
-  ICON_VARIANT_OPTS,
-  SIZE_OPTS,
-  VARIANT_COLOR_OPTS,
-  VARIANT_OPTS,
-} from '../common/selectOptions';
+import { ICON_VARIANT_OPTS, SIZE_OPTS, BTN_VARIANT_OPTS } from '../common/selectOptions';
 
 const ButtonDemo = () => {
   const iconOpts = [{ value: '', label: 'none' }, ...useIconOpts()];
@@ -28,10 +22,7 @@ const ButtonDemo = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const [buttonChildren, setButtonChildren] = useState('Button Text');
-  const [variant, variantSet] = useState(VARIANT_OPTS.find(opt => opt.value === 'solid')!);
-  const [variantColor, variantColorSet] = useState(
-    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
-  );
+  const [variant, variantSet] = useState(BTN_VARIANT_OPTS.find(opt => opt.value === 'primary')!);
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [leftIcon, leftIconSet] = useState(iconOpts[0]);
   const [rightIcon, rightIconSet] = useState(iconOpts[0]);
@@ -42,7 +33,6 @@ const ButtonDemo = () => {
       isLoading={isLoading}
       disabled={isDisabled}
       variant={variant.value}
-      variantColor={variantColor.value}
       size={size.value}
       leftIcon={(leftIcon.value as IconType) || undefined}
       rightIcon={(rightIcon.value as IconType) || undefined}
@@ -58,7 +48,7 @@ const ButtonDemo = () => {
         <Checkbox
           checked={isLoading}
           onChange={() => setIsLoading(!isLoading)}
-          isDisabled={variant.value === 'link'}
+          // isDisabled={variant.value === 'link'}
         >
           <Text variant="label">isLoading</Text>
         </Checkbox>
@@ -66,7 +56,7 @@ const ButtonDemo = () => {
         <Checkbox
           checked={isDisabled}
           onChange={() => setIsDisabled(!isDisabled)}
-          isDisabled={variant.value === 'link'}
+          // isDisabled={variant.value === 'link'}
         >
           <Text variant="label">disabled</Text>
         </Checkbox>
@@ -86,17 +76,8 @@ const ButtonDemo = () => {
           <Select
             label="variant"
             value={variant}
-            options={VARIANT_OPTS}
+            options={BTN_VARIANT_OPTS}
             onChange={opt => variantSet(opt as SelectOption<ButtonVariant>)}
-          />
-        </div>
-
-        <div>
-          <Select
-            label="variantColor"
-            value={variantColor}
-            options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
           />
         </div>
 

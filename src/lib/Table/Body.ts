@@ -1,3 +1,3 @@
-import styled from '@emotion/styled';
+import { styled } from '../stitches.config';
 
-export const Body = styled.tbody``;
+export const Body = styled('tbody', {});

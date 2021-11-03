@@ -15,43 +15,31 @@ interface Props extends ReactModal.Props {
   message: string;
   contentLabel: string;
   actions: Action[];
-  onRequestClose(): void;
+  onClose: ReactModal.Props['onRequestClose'];
 }
 
 export const Dialog: FC<Props> = ({
   isOpen,
   actions,
   contentLabel,
-  onRequestClose,
+  onClose,
   title,
   message,
   ...rest
 }) => {
   return (
-    <Modal
-      isOpen={isOpen}
-      contentLabel={contentLabel}
-      onRequestClose={onRequestClose}
-      size="small"
-      {...rest}
-    >
+    <Modal isOpen={isOpen} contentLabel={contentLabel} onClose={onClose} size="small" {...rest}>
       <ModalHeader>{title}</ModalHeader>
 
-      <ModalCloseButton size="small" onClick={onRequestClose} />
+      {onClose && <ModalCloseButton size="small" onClick={onClose} />}
 
       <ModalBody>
-        <Text fontSize="body">{message}</Text>
+        <Text css={{ fontSize: '$2' }}>{message}</Text>
       </ModalBody>
 
       <ModalFooter>
         {actions.map(({ text, onClick, variant }) => (
-          <Button
-            key={text}
-            type="button"
-            variant={variant === 'neutral' ? 'ghost' : 'solid'}
-            variantColor={variant || 'primary'}
-            onClick={onClick}
-          >
+          <Button key={text} type="button" variant={variant} onClick={onClick}>
             {text}
           </Button>
         ))}

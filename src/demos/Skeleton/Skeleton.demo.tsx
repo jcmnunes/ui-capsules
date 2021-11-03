@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Skeleton, Input, theme, Checkbox, Text } from '../../lib';
+import { Skeleton, Input, Checkbox, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Skeleton.constants';
+import { colors } from '../../lib/colors';
 
 const SkeletonDemo = () => {
   const [circular, setCircular] = useState(false);
   const [width, setWidth] = useState('150px');
   const [height, setHeight] = useState('30px');
-  const [background, setBackground] = useState(theme.colors.neutral['200']);
+  const [background, setBackground] = useState(colors.gray200);
 
-  const Component = <Skeleton circular={circular} width={width} height={height} bg={background} />;
+  const Component = <Skeleton circular={circular} css={{ width, height, background }} />;
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>

@@ -1,10 +1,7 @@
 import React, { FC } from 'react';
 import ReactModal from 'react-modal';
-import styled from '@emotion/styled';
-import { theme } from '../theme';
-import { variant } from 'styled-system';
-import { LayoutProps } from '../styledProps';
 import { ElementSize } from '../types';
+import { styled } from '../stitches.config';
 
 const styles = {
   overlay: {
@@ -12,32 +9,27 @@ const styles = {
   },
 };
 
-interface StyledModalProps {
-  size: ElementSize;
-}
+const StyledModal = styled(ReactModal, {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  right: 'auto',
+  bottom: 'auto',
+  marginRight: '-50%',
+  transform: 'translate(-50%, -50%)',
+  background: '$bg',
+  overflow: 'auto',
+  '-webkit-overflow-scrolling': 'touch',
+  outline: 'none',
+  width: '100%',
+  boxShadow: 'rgba(0, 0, 0, 0.15) 0 10px 20px, rgba(0, 0, 0, 0.1) 0 3px 6px',
+  border: 'none',
+  borderRadius: '8px',
+  borderImage: 'initial',
+  zIndex: '$modal',
 
-const StyledModal = styled(ReactModal)<StyledModalProps>`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  outline: none;
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.15) 0 10px 20px, rgba(0, 0, 0, 0.1) 0 3px 6px;
-  border: none;
-  border-radius: 8px;
-  border-image: initial;
-  z-index: ${theme.zIndices.modal};
-
-  ${variant<LayoutProps, ElementSize>({
-    prop: 'size',
-    variants: {
+  variants: {
+    size: {
       small: {
         maxWidth: '400px',
       },
@@ -48,34 +40,25 @@ const StyledModal = styled(ReactModal)<StyledModalProps>`
         maxWidth: '800px',
       },
     },
-  })}
-`;
+  },
+});
 
 interface Props extends ReactModal.Props {
   isOpen: boolean;
   contentLabel: string;
-  onRequestClose?(): void;
+  onClose: ReactModal.Props['onRequestClose'];
   size?: ElementSize;
 }
 
-export const Modal: FC<Props> = ({
-  isOpen,
-  onRequestClose,
-  contentLabel,
-  size = 'medium',
-  children,
-  ...rest
-}) => (
+export const Modal: FC<Props> = ({ isOpen, onClose, contentLabel, size = 'medium', ...rest }) => (
   <StyledModal
     isOpen={isOpen}
-    onRequestClose={onRequestClose}
+    onRequestClose={onClose}
     contentLabel={contentLabel}
     size={size}
     style={styles}
     {...rest}
-  >
-    {children}
-  </StyledModal>
+  />
 );
 Modal.displayName = 'Modal';
 Modal.defaultProps = {

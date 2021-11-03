@@ -55,7 +55,7 @@ const AlertDemo = () => {
                   },
                 },
               ]}
-              mb="32"
+              css={{ mb: '$6' }}
             />
           ))}
         </Box>

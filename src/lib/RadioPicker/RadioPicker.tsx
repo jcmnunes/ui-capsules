@@ -1,46 +1,42 @@
 import React, { useState } from 'react';
-import { Box, Text, Wrapper } from '..';
+import { Box, CSSProp, Flex, Text } from '..';
 import { CustomRadio, StyledRadioInput } from '../Radio/Radio.styles';
-import { MarginProps } from '../styledProps';
 import { RadioPickerWrapper } from './RadioPicker.styles';
 
-interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, MarginProps {
+interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, CSSProp {
   label: string;
   helpText?: string;
 }
 
-export const RadioPicker: React.FC<Props> = ({ checked, label, helpText, ...rest }) => {
+export const RadioPicker: React.FC<Props> = ({ checked, label, helpText, css, ...rest }) => {
   const [hasFocus, setHasFocus] = useState(false);
 
   return (
-    <Wrapper {...rest}>
+    <Box css={css}>
       <RadioPickerWrapper as="label" checked={checked} hasFocus={hasFocus}>
-        <Box position="relative" height={16}>
+        <Box css={{ position: 'relative', height: 16 }}>
           <StyledRadioInput
             checked={checked}
-            variantColor="primary"
             type="radio"
             onFocus={() => setHasFocus(true)}
             onBlur={() => setHasFocus(false)}
             {...rest}
           />
 
-          <CustomRadio className="uic-custom-radio" size="small" />
+          <CustomRadio className="uic-custom-radio" />
         </Box>
 
-        <Box display="flex" flexDirection="column" ml={26}>
-          <Text fontWeight={500} color="inherit">
-            {label}
-          </Text>
+        <Flex direction="column" css={{ ml: 26 }}>
+          <Text css={{ fontWeight: 500, color: 'inherit' }}>{label}</Text>
 
           {!!helpText && (
-            <Text fontSize="small" color={checked ? 'primary.600' : 'neutral.500'}>
+            <Text css={{ fontSize: '$1', color: checked ? '$primary600' : '$neutral500' }}>
               {helpText}
             </Text>
           )}
-        </Box>
+        </Flex>
       </RadioPickerWrapper>
-    </Wrapper>
+    </Box>
   );
 };
 

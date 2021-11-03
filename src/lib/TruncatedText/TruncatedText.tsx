@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Text, TextProps } from '../Text/Text';
+import { Text } from '../Text/Text';
 import { Tooltip } from '../Tooltip/Tooltip';
 
 export const isTruncated = (node: any) => {
@@ -10,7 +10,7 @@ export const isTruncated = (node: any) => {
   return node.scrollWidth > node.clientWidth;
 };
 
-export const TruncatedText: React.FC<TextProps> = ({ children, ...rest }) => {
+export const TruncatedText: React.FC<any> = ({ children, ...rest }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const ref = useCallback(node => {

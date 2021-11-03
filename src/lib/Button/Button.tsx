@@ -1,8 +1,7 @@
 import React from 'react';
 import { Spinner } from '../Spinner/Spinner';
-import { MarginProps } from '../styledProps';
-import { ButtonIcon, ButtonSize, ButtonText, ButtonVariant, StyledButton } from './Button.styles';
-import { IconType, IconVariant, VariantColor } from '../types';
+import { ButtonSize, ButtonVariant, StyledButton } from './Button.styles';
+import { CSSProp, IconType, IconVariant } from '../types';
 import { solidIcons } from '../Icon/Icon.constants';
 import { Icon } from '../Icon/Icon';
 
@@ -11,9 +10,8 @@ const anchorProps = {
   rel: 'noreferrer noopener',
 };
 
-export interface Props extends React.ComponentPropsWithRef<'button'>, MarginProps {
+export interface Props extends React.ComponentPropsWithRef<'button'>, CSSProp {
   variant?: ButtonVariant;
-  variantColor?: VariantColor;
   size?: ButtonSize;
   isLoading?: boolean;
   leftIcon?: keyof typeof solidIcons | string;
@@ -26,8 +24,7 @@ export interface Props extends React.ComponentPropsWithRef<'button'>, MarginProp
 export const Button = React.forwardRef<HTMLButtonElement, Props>(
   (
     {
-      variant = 'solid',
-      variantColor = 'primary',
+      variant = 'primary',
       size = 'medium',
       as = 'button',
       type = 'button',
@@ -44,7 +41,6 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
     return (
       <StyledButton
         variant={variant}
-        variantColor={variantColor}
         size={size}
         disabled={disabled || isLoading}
         as={as}
@@ -53,31 +49,40 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
         {...(as === 'a' ? anchorProps : {})}
         {...rest}
       >
-        {isLoading && <Spinner size={size} position="absolute" variantColor={variantColor} />}
-
-        {leftIcon && (
-          <ButtonIcon
-            as={Icon}
-            variant={iconVariant}
-            icon={leftIcon as IconType}
-            size={size === 'small' ? 18 : 20}
-            isLeft={!!children}
-            isLoading={isLoading}
-            buttonSize={size}
+        {isLoading && (
+          <Spinner
+            variant={variant === 'primary' || variant === 'error' ? 'light' : 'dark'}
+            css={{ position: 'absolute' }}
           />
         )}
 
-        <ButtonText isLoading={isLoading}>{children}</ButtonText>
+        {leftIcon && (
+          <Icon
+            variant={iconVariant}
+            icon={leftIcon as IconType}
+            size={size === 'small' ? 18 : 20}
+            css={{
+              opacity: isLoading ? 0 : 1,
+              height: size === 'small' ? 18 : 20,
+              mr: children ? '$1' : 0,
+              display: 'flex',
+            }}
+          />
+        )}
+
+        <span style={{ opacity: isLoading ? 0 : 1 }}>{children}</span>
 
         {rightIcon && (
-          <ButtonIcon
-            as={Icon}
+          <Icon
             variant={iconVariant}
             icon={rightIcon as IconType}
             size={size === 'small' ? 18 : 20}
-            isRight={!!children}
-            isLoading={isLoading}
-            buttonSize={size}
+            css={{
+              opacity: isLoading ? 0 : 1,
+              height: size === 'small' ? 18 : 20,
+              ml: '$1',
+              display: 'flex',
+            }}
           />
         )}
       </StyledButton>
@@ -88,8 +93,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
 Button.displayName = 'Button';
 
 Button.defaultProps = {
-  variant: 'solid',
-  variantColor: 'primary',
+  variant: 'primary',
   isLoading: false,
   disabled: false,
   leftIcon: undefined,

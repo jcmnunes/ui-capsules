@@ -21,9 +21,7 @@ export const Tooltip: FC<TooltipProps> = ({
       render={attrs => (
         <Wrapper tabIndex={-1} {...attrs}>
           {typeof content === 'string' ? (
-            <Text color="neutral.50" fontSize="small" fontWeight={500}>
-              {content}
-            </Text>
+            <Text css={{ color: '$neutral50', fontSize: '$1', fontWeight: 500 }}>{content}</Text>
           ) : (
             content
           )}
