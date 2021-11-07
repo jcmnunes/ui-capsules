@@ -3,7 +3,7 @@ import React from 'react';
 import { Text } from '../Text/Text';
 import { Icon } from '../Icon/Icon';
 import { IconType } from '../types';
-import { StyledContainer, ToastWrapper } from './Toaster.styles';
+import { StyledContainer, ToastWrapper } from './Toast.styles';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 
@@ -76,7 +76,7 @@ interface ToastParams {
   options?: ToastOptions;
 }
 
-const toast = ({ title, message, options }: ToastParams) =>
+const _toast = ({ title, message, options }: ToastParams) =>
   rtToast(<Toast title={title} message={message} variant="info" />, options);
 
 const createToast = (variant: ToastVariant) => {
@@ -84,11 +84,11 @@ const createToast = (variant: ToastVariant) => {
     rtToast(<Toast title={title} message={message} variant={variant} />, options);
 };
 
-toast.info = createToast('info');
-toast.success = createToast('success');
-toast.warning = createToast('warning');
-toast.error = createToast('error');
+_toast.info = createToast('info');
+_toast.success = createToast('success');
+_toast.warning = createToast('warning');
+_toast.error = createToast('error');
 
-const Toaster = Object.assign(rtToast, toast);
+const toast = Object.assign(rtToast, _toast);
 
-export { ToastContainer, Toaster };
+export { ToastContainer, toast };

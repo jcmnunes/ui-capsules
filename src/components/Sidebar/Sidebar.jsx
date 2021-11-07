@@ -39,7 +39,7 @@ const Sidebar = () => (
       <SidebarLink to="/table">Table</SidebarLink>
       <SidebarLink to="/text">Text</SidebarLink>
       <SidebarLink to="/truncated-text">TruncatedText</SidebarLink>
-      <SidebarLink to="/toaster">Toaster</SidebarLink>
+      <SidebarLink to="/toast">Toast</SidebarLink>
       <SidebarLink to="/tooltip">Tooltip</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>

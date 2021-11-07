@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Input, Select, SelectOption, Tooltip } from '../../lib';
+import { Button, Input, Tooltip } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, PLACEMENT_OPTS, TooltipPlacementOptions } from './Tooltip.constants';
+import { GITHUB_URL } from './Tooltip.constants';
 
 const TooltipDemo = () => {
-  const [content, setContent] = useState('Tooltip text');
-  const [delay, setDelay] = useState(300);
-  const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
+  const [label, setLabel] = useState('Tooltip text');
 
   const Component = (
-    <Tooltip content={content} placement={placement.value} delay={delay}>
+    <Tooltip label={label}>
       <Button leftIcon="eye">Hover over me</Button>
     </Tooltip>
   );
@@ -18,26 +16,7 @@ const TooltipDemo = () => {
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Inputs>
         <div>
-          <Input
-            label="delay"
-            value={delay}
-            type="number"
-            step={100}
-            onChange={ev => setDelay(parseFloat(ev.target.value))}
-          />
-        </div>
-
-        <div>
-          <Input label="content" value={content} onChange={ev => setContent(ev.target.value)} />
-        </div>
-
-        <div>
-          <Select
-            label="placement"
-            value={placement}
-            options={PLACEMENT_OPTS}
-            onChange={opt => setPlacement(opt as SelectOption<TooltipPlacementOptions>)}
-          />
+          <Input label="label" value={label} onChange={ev => setLabel(ev.target.value)} />
         </div>
       </Inputs>
     </Demo>

@@ -25,7 +25,7 @@ export { Splash } from './Splash/Splash';
 export { Switch } from './Switch/Switch';
 export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from './Table';
 export { Text } from './Text/Text';
-export { Toaster, ToastContainer } from './Toaster/Toaster';
+export { toast, ToastContainer } from './Toast/Toast';
 export {
   MenuItem,
   MenuList,

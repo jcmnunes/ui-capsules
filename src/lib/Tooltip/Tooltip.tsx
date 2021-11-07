@@ -1,41 +1,23 @@
 import React, { FC } from 'react';
-import Tippy, { TippyProps } from '@tippyjs/react/headless';
-import { Text } from '../Text/Text';
-import { Wrapper } from './Tooltip.styles';
+import { StyledTooltip } from './Tooltip.styles';
+import { TooltipProps } from '@reach/tooltip';
 
-export interface TooltipProps extends Partial<Omit<TippyProps, 'delay'>> {
-  delay?: number;
-}
+const centered = (triggerRect: any, tooltipRect: any) => {
+  const triggerCenter = triggerRect.left + triggerRect.width / 2;
+  const left = triggerCenter - tooltipRect.width / 2;
+  const maxLeft = window.innerWidth - tooltipRect.width - 2;
+  return {
+    left: Math.min(Math.max(2, left), maxLeft) + window.scrollX,
+    top: triggerRect.bottom + 8 + window.scrollY,
+  };
+};
 
-export const Tooltip: FC<TooltipProps> = ({
-  children,
-  placement = 'auto',
-  delay = 300,
-  content,
-  ...rest
-}) => {
+export const Tooltip: FC<TooltipProps> = ({ children, ...rest }) => {
   return (
-    <Tippy
-      placement={placement}
-      delay={[delay, 0]}
-      render={attrs => (
-        <Wrapper tabIndex={-1} {...attrs}>
-          {typeof content === 'string' ? (
-            <Text css={{ color: '$neutral50', fontSize: '$1', fontWeight: 500 }}>{content}</Text>
-          ) : (
-            content
-          )}
-        </Wrapper>
-      )}
-      {...rest}
-    >
+    <StyledTooltip position={centered} {...rest}>
       {children}
-    </Tippy>
+    </StyledTooltip>
   );
 };
 
 Tooltip.displayName = 'Tooltip';
-Tooltip.defaultProps = {
-  placement: 'auto',
-  delay: 300,
-};

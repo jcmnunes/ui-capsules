@@ -23,7 +23,7 @@ import SplashView from './demos/Splash/Splash.view';
 import SwitchView from './demos/Switch/Switch.view';
 import TableView from './demos/Table/Table.view';
 import TextView from './demos/Text/Text.view';
-import ToasterView from './demos/Toaster/Toaster.view';
+import ToastView from './demos/Toast/Toast.view';
 import TooltipView from './demos/Tooltip/Tooltip.view';
 import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -113,7 +113,7 @@ const App = () => {
         <Route path="/switch" component={SwitchView} />
         <Route path="/table" component={TableView} />
         <Route path="/text" component={TextView} />
-        <Route path="/toaster" component={ToasterView} />
+        <Route path="/toast" component={ToastView} />
         <Route path="/tooltip" component={TooltipView} />
         <Route path="/truncated-text" component={TruncatedTextView} />
       </ShowcaseWrapper>

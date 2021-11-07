@@ -38,10 +38,9 @@
   "dependencies": {
     "@reach/auto-id": "^0.16.0",
     "@reach/menu-button": "^0.16.2",
-    "@tippyjs/react": "^4.2.3",
+    "@reach/tooltip": "^0.16.2",
     "focus-visible": "^5.2.0",
     "react-modal": "^3.12.1",
-    "react-popper": "^2.2.4",
     "react-select": "^4.3.1",
     "react-switch": "^6.0.0",
     "react-toastify": "^7.0.4"

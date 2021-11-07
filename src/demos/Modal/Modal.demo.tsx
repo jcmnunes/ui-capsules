@@ -13,7 +13,7 @@ import {
   Select,
   SelectOption,
   Text,
-  Toaster,
+  toast,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, SIZE_OPTS } from './Modal.constants';
@@ -139,7 +139,7 @@ const ModalDemo = () => {
             variant="ghostGray"
             size="small"
             onClick={() =>
-              Toaster.error({
+              toast.error({
                 title: 'Cannot create scopes in this demo',
                 message: 'In reality, this is just a test ;)',
               })

@@ -1,13 +1,23 @@
 import { styled } from '../stitches.config';
+import RTooltip from '@reach/tooltip';
+import { darkTheme } from '../darkTheme';
 
-export const Wrapper = styled('div', {
+export const StyledTooltip = styled(RTooltip, {
   padding: '4px 8px',
   background: '$neutral700',
-  color: '$neutral100',
+  color: '$white',
   fontSize: '$1',
   lineHeight: '$1',
   fontWeight: 500,
   borderRadius: '$medium',
-  boxShadow: '0 1px 2px rgba(55, 65, 81, 0.06), 0 1px 3px rgba(55, 65, 81, 0.1)',
+  boxShadow: '$300',
   maxWidth: '250px',
+  border: 'none',
+  whiteSpace: 'normal',
+
+  [`.${darkTheme} &`]: {
+    background: '$neutral100',
+    border: `1px solid $neutral200`,
+    color: '$neutral600',
+  },
 });
