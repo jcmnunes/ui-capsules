@@ -205,4 +205,14 @@ export const StyledButton = styled('button', {
       },
     },
   },
+
+  compoundVariants: [
+    {
+      disabled: true,
+      variant: 'secondary',
+      css: {
+        boxShadow: '$borderDisabled',
+      },
+    },
+  ],
 });

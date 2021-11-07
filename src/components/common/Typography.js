@@ -3,8 +3,9 @@ import { styled } from '../../lib/stitches.config';
 export const Title = styled('h1', {
   color: '$neutral700',
   fontSize: '$8',
+  lineHeight: '$8',
   fontWeight: 700,
-  marginBottom: '$6',
+  marginBottom: '$4',
 });
 
 export const SubTitle = styled('h2', {

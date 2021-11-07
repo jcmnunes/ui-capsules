@@ -25,6 +25,7 @@ export const darkTheme = createTheme({
     primary700: '$blue200',
     primary800: '$blue100',
     primary900: '$blue50',
+    primaryDisabled: '#174878',
 
     error50: '$red900',
     error100: '$red800',
@@ -36,6 +37,7 @@ export const darkTheme = createTheme({
     error700: '$red200',
     error800: '$red100',
     error900: '$red50',
+    errorDisabled: '#7d1f3b',
 
     warning50: '$yellow900',
     warning100: '$yellow800',
@@ -90,5 +92,6 @@ export const darkTheme = createTheme({
     borderErrorHover: '$300, inset 0px 0px 0px 1px $colors$error300',
     borderSuccess: '$300, inset 0px 0px 0px 1px $colors$success400',
     borderSuccessHover: '$300, inset 0px 0px 0px 1px $colors$success300',
+    borderDisabled: 'inset 0px 0px 0px 1px $colors$neutral500',
   },
 });

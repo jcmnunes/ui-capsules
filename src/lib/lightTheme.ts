@@ -25,6 +25,7 @@ export const lightTheme = createTheme({
     primary700: '$blue700',
     primary800: '$blue800',
     primary900: '$blue900',
+    primaryDisabled: '#8fbcea',
 
     error50: '$red50',
     error100: '$red100',
@@ -36,6 +37,7 @@ export const lightTheme = createTheme({
     error700: '$red700',
     error800: '$red800',
     error900: '$red900',
+    errorDisabled: '#f496ae',
 
     warning50: '$yellow50',
     warning100: '$yellow100',
@@ -90,5 +92,6 @@ export const lightTheme = createTheme({
     borderSuccess: '$300, inset 0px 0px 0px 1px $colors$success500',
     borderSuccessHover: '$300, inset 0px 0px 0px 1px $colors$success600',
     borderHover: '$300, inset 0px 0px 0px 1px $colors$neutral500',
+    borderDisabled: 'inset 0px 0px 0px 1px $colors$neutral400',
   },
 });

@@ -1,29 +1,31 @@
+/* eslint-disable no-alert */
 import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import Home from './components/Home/Home';
-import Alert from './demos/Alert/Alert.view';
-import Button from './demos/Button/Button.view';
-import IllustratedIcon from './demos/IllustratedIcon/IllustratedIcon.view';
-import Icon from './demos/Icon/Icon.view';
-import Checkbox from './demos/Checkbox/Checkbox.view';
-import Input from './demos/Input/Input.view';
-import Toaster from './demos/Toaster/Toaster.view';
-import Skeleton from './demos/Skeleton/Skeleton.view';
-import Spinner from './demos/Spinner/Spinner.view';
-import Splash from './demos/Splash/Splash.view';
-import Select from './demos/Select/Select.view';
-import Radio from './demos/Radio/Radio.view';
-import RadioPicker from './demos/RadioPicker/RadioPicker.view';
-import Tooltip from './demos/Tooltip/Tooltip.view';
-import EditableInput from './demos/EditableInput/EditableInput.view';
-import Modal from './demos/Modal/Modal.view';
-import Dialog from './demos/Dialog/Dialog.view';
-import Anchor from './demos/Anchor/Anchor.view';
+import AlertView from './demos/Alert/Alert.view';
+import AnchorView from './demos/Anchor/Anchor.view';
+import ButtonView from './demos/Button/Button.view';
+import CheckboxView from './demos/Checkbox/Checkbox.view';
+import DialogView from './demos/Dialog/Dialog.view';
+import EditableInputView from './demos/EditableInput/EditableInput.view';
+import HomeView from './components/Home/Home';
 import IconButtonView from './demos/IconButton/IconButton.view';
-import Table from './demos/Table/Table.view';
-import Text from './demos/Text/Text.view';
+import IconView from './demos/Icon/Icon.view';
+import IllustratedIconView from './demos/IllustratedIcon/IllustratedIcon.view';
+import InputView from './demos/Input/Input.view';
+import MenuView from './demos/Menu/Menu.view';
+import ModalView from './demos/Modal/Modal.view';
+import RadioPickerView from './demos/RadioPicker/RadioPicker.view';
+import RadioView from './demos/Radio/Radio.view';
+import SelectView from './demos/Select/Select.view';
+import SkeletonView from './demos/Skeleton/Skeleton.view';
+import SpinnerView from './demos/Spinner/Spinner.view';
+import SplashView from './demos/Splash/Splash.view';
 import SwitchView from './demos/Switch/Switch.view';
-import TruncatedText from './demos/TruncatedText/TruncatedText.view';
+import TableView from './demos/Table/Table.view';
+import TextView from './demos/Text/Text.view';
+import ToasterView from './demos/Toaster/Toaster.view';
+import TooltipView from './demos/Tooltip/Tooltip.view';
+import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
 import { styled } from './lib/stitches.config';
 import { Flex, IconButton } from './lib';
@@ -47,7 +49,14 @@ export const ShowcaseWrapper = styled('div', {
 });
 
 const globalStyles = globalCss({
-  body: { color: '$neutral700' },
+  body: {
+    color: '$neutral700',
+    background: '$bg',
+
+    [`&.${darkTheme}`]: {
+      background: '$bg',
+    },
+  },
 });
 
 const App = () => {
@@ -58,6 +67,8 @@ const App = () => {
   useEffect(() => {
     document.body.classList.remove(isDarkTheme ? lightTheme : darkTheme);
     document.body.classList.add(isDarkTheme ? darkTheme : lightTheme);
+
+    document.documentElement.style.colorScheme = isDarkTheme ? 'dark' : 'light';
   }, [isDarkTheme]);
 
   globalStyles();
@@ -79,32 +90,32 @@ const App = () => {
         </Flex>
 
         <Route exact path="/" render={() => <Redirect to="/getting-started" />} />
-        <Route path="/getting-started" component={Home} />
+        <Route path="/getting-started" component={HomeView} />
 
-        <Route path="/alert" component={Alert} />
-        <Route path="/anchor" component={Anchor} />
-        <Route path="/button" component={Button} />
-        <Route path="/checkbox" component={Checkbox} />
-        <Route path="/dialog" component={Dialog} />
-        <Route path="/editable-input" component={EditableInput} />
-        <Route path="/icon" component={Icon} />
+        <Route path="/alert" component={AlertView} />
+        <Route path="/anchor" component={AnchorView} />
+        <Route path="/button" component={ButtonView} />
+        <Route path="/checkbox" component={CheckboxView} />
+        <Route path="/dialog" component={DialogView} />
+        <Route path="/editable-input" component={EditableInputView} />
+        <Route path="/icon" component={IconView} />
         <Route path="/icon-button" component={IconButtonView} />
-        <Route path="/illustrated-icon" component={IllustratedIcon} />
-        <Route path="/input" component={Input} />
-        {/*<Route path="/menu" component={Menu} />*/}
-        <Route path="/modal" component={Modal} />
-        <Route path="/splash" component={Splash} />
-        <Route path="/radio" component={Radio} />
-        <Route path="/radio-picker" component={RadioPicker} />
-        <Route path="/select" component={Select} />
-        <Route path="/skeleton" component={Skeleton} />
-        <Route path="/spinner" component={Spinner} />
+        <Route path="/illustrated-icon" component={IllustratedIconView} />
+        <Route path="/input" component={InputView} />
+        <Route path="/menu" component={MenuView} />
+        <Route path="/modal" component={ModalView} />
+        <Route path="/radio" component={RadioView} />
+        <Route path="/radio-picker" component={RadioPickerView} />
+        <Route path="/select" component={SelectView} />
+        <Route path="/skeleton" component={SkeletonView} />
+        <Route path="/spinner" component={SpinnerView} />
+        <Route path="/splash" component={SplashView} />
         <Route path="/switch" component={SwitchView} />
-        <Route path="/table" component={Table} />
-        <Route path="/text" component={Text} />
-        <Route path="/toaster" component={Toaster} />
-        <Route path="/truncated-text" component={TruncatedText} />
-        <Route path="/tooltip" component={Tooltip} />
+        <Route path="/table" component={TableView} />
+        <Route path="/text" component={TextView} />
+        <Route path="/toaster" component={ToasterView} />
+        <Route path="/tooltip" component={TooltipView} />
+        <Route path="/truncated-text" component={TruncatedTextView} />
       </ShowcaseWrapper>
     </Flex>
   );

@@ -26,6 +26,15 @@ export { Switch } from './Switch/Switch';
 export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from './Table';
 export { Text } from './Text/Text';
 export { Toaster, ToastContainer } from './Toaster/Toaster';
+export {
+  MenuItem,
+  MenuList,
+  MenuItems,
+  MenuButton,
+  MenuLink,
+  MenuPopover,
+  Menu,
+} from './Menu/Menu';
 export { Tooltip } from './Tooltip/Tooltip';
 export { TruncatedText } from './TruncatedText/TruncatedText';
 export { setAppElement } from 'react-modal';

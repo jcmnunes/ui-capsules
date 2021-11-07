@@ -71,14 +71,16 @@ export const Dot = styled('span', {
   },
 });
 
-interface Props extends VariantProps<typeof Dot>, CSSProp {}
+interface Props extends VariantProps<typeof Dot>, CSSProp {
+  dotColor?: string;
+}
 
-export const Spinner: React.FC<Props> = ({ css, ...rest }) => {
+export const Spinner: React.FC<Props> = ({ css, dotColor, ...rest }) => {
   return (
     <Dots css={css} size={rest.size}>
-      <Dot css={{ animationDelay: '0.12s' }} {...rest} />
-      <Dot css={{ animationDelay: '0.24s' }} {...rest} />
-      <Dot css={{ animationDelay: '0.36s' }} {...rest} />
+      <Dot css={{ '&&': { animationDelay: '0.12s', backgroundColor: dotColor } }} {...rest} />
+      <Dot css={{ '&&': { animationDelay: '0.24s', backgroundColor: dotColor } }} {...rest} />
+      <Dot css={{ '&&': { animationDelay: '0.36s', backgroundColor: dotColor } }} {...rest} />
     </Dots>
   );
 };

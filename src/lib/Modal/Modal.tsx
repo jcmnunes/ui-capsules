@@ -6,6 +6,7 @@ import { styled } from '../stitches.config';
 const styles = {
   overlay: {
     backgroundColor: 'rgba(60, 63, 75, 0.65)',
+    backdropFilter: 'blur(4px)',
   },
 };
 

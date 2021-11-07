@@ -51,8 +51,9 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       >
         {isLoading && (
           <Spinner
-            variant={variant === 'primary' || variant === 'error' ? 'light' : 'dark'}
+            variant="dark"
             css={{ position: 'absolute' }}
+            dotColor={variant === 'primary' || variant === 'error' ? '#fff' : undefined}
           />
         )}
 
