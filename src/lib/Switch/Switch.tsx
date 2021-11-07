@@ -1,79 +1,48 @@
-import React, { FC } from 'react';
-import RSwitch, { ReactSwitchProps } from 'react-switch';
-import { colors } from '../colors';
-import { styled } from '../stitches.config';
+import React, { ComponentPropsWithRef } from 'react';
 import { CSSProp, DualSize } from '../types';
+import { Text } from '../Text/Text';
+import { Icons, LeftIcon, RightIcon, StyledSwitch, StyledToggle } from './Switch.styles';
 
-const Label = styled('label', {
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-});
-
-const LabelText = styled('span', {
-  fontSize: '$2',
-  fontWeight: 500,
-  marginLeft: '$2',
-  color: '$neutral700',
-
-  variants: {
-    disabled: {
-      true: {
-        color: '$neutral400',
-      },
-    },
-  },
-});
-
-const DIMENSIONS = {
-  medium: {
-    width: 32,
-    height: 16,
-    diameter: 12,
-  },
-
-  large: {
-    width: 48,
-    height: 24,
-    diameter: 20,
-  },
-};
-
-interface SwitchProps extends Pick<ReactSwitchProps, 'checked' | 'onChange'>, CSSProp {
-  disabled?: boolean;
+export interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'>, CSSProp {
   children?: string;
   size?: DualSize;
+  checked?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Switch: FC<SwitchProps> = ({
-  checked,
-  onChange,
-  size = 'medium',
-  disabled,
-  children,
-  ...rest
-}) => {
-  return (
-    <Label {...rest}>
-      <RSwitch
-        key={size}
-        checked={checked}
-        onChange={onChange}
-        disabled={disabled}
-        width={DIMENSIONS[size].width}
-        height={DIMENSIONS[size].height}
-        handleDiameter={DIMENSIONS[size].diameter}
-        onColor={colors.blue500}
-        offColor={colors.gray500}
-        {...rest}
-      />
+export const Switch = React.forwardRef<HTMLInputElement, Props>(
+  ({ children, size = 'large', checked, onChange, disabled, css, ...rest }, ref) => {
+    return (
+      <StyledToggle disabled={disabled} css={css}>
+        <input
+          ref={ref}
+          type="checkbox"
+          onChange={onChange}
+          checked={checked}
+          disabled={disabled}
+          {...rest}
+        />
+        <StyledSwitch size={size}>
+          <Icons>
+            <LeftIcon icon="check" size={size === 'medium' ? 12 : 16} />
 
-      {!!children && <LabelText disabled={disabled}>{children}</LabelText>}
-    </Label>
-  );
-};
+            <RightIcon icon="x" size={size === 'medium' ? 12 : 16} />
+          </Icons>
+        </StyledSwitch>
+
+        {!!children && (
+          <Text
+            css={{ fontWeight: 500, color: disabled ? '$neutral500' : '$neutral700', ml: '$2' }}
+          >
+            {children}
+          </Text>
+        )}
+      </StyledToggle>
+    );
+  },
+);
 
 Switch.displayName = 'Switch';
 Switch.defaultProps = {
-  size: 'medium',
+  size: 'large',
 };

@@ -85,6 +85,9 @@ export const lightTheme = createTheme({
   },
 
   shadows: {
+    focus: '0px 0px 0px 3px $colors$primary300, inset 0px 0px 0px 1px $colors$primary500',
+    focusSuccess: '0px 0px 0px 3px $colors$success200, inset 0px 0px 0px 1px $colors$success500',
+    focusError: '0px 0px 0px 3px $colors$error200, inset 0px 0px 0px 1px $colors$error500',
     border: '$300, inset 0px 0px 0px 1px $colors$neutral400',
     borderPrimary: '$300, inset 0px 0px 0px 1px $colors$primary500',
     borderError: '$300, inset 0px 0px 0px 1px $colors$error500',

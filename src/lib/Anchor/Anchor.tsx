@@ -1,6 +1,7 @@
 import React, { ComponentPropsWithRef, forwardRef } from 'react';
 import { styled } from '../stitches.config';
 import { CSSProp } from '../types';
+import { darkTheme } from '../darkTheme';
 
 const StyledAnchor = styled('a', {
   color: '$primary500',
@@ -10,6 +11,10 @@ const StyledAnchor = styled('a', {
 
   '&:hover': {
     color: '$primary700',
+
+    [`.${darkTheme} &`]: {
+      color: '$primary600',
+    },
   },
 
   '&[data-focus-visible-added]:focus': {

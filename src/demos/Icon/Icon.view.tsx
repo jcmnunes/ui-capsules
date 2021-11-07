@@ -47,7 +47,7 @@ const ButtonDemo = () => {
             <Icon icon="beaker" variant="solid" size={24} />
             <Switch
               checked={isOutline}
-              onChange={checked => setIsOutline(checked)}
+              onChange={evt => setIsOutline(evt.target.checked)}
               size="medium"
               css={{ mx: '$1' }}
             />

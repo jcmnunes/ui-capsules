@@ -1,5 +1,4 @@
 import React from 'react';
-import { Anchor } from '../../lib';
 import Demo from './Switch.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
@@ -12,11 +11,7 @@ const ButtonDemo = () => {
     <Wrapper as="main">
       <header>
         <Title>Switch</Title>
-        <Paragraph>
-          Renders a switch with an optional label. The switch is from the{' '}
-          <Anchor href="https://github.com/markusenglund/react-switch">react-switch</Anchor>{' '}
-          package.
-        </Paragraph>
+        <Paragraph>The Switch component is used as a Checkbox alternative.</Paragraph>
       </header>
 
       <section>
