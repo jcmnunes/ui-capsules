@@ -15,7 +15,16 @@ React UI kit used by BinaryCapsule
 
 The Components demo (wip) can be visited [here](https://uic.binarycapsule.tech).
 
-<img src="https://user-images.githubusercontent.com/13286745/79010931-de980800-7b5a-11ea-9a2c-32323ead8596.png" alt="playground-screenshot" width="100%" style="box-shadow: 0 0 10px 0 rgba(181,181,181,1);">
+<table>
+<tr>
+<td>
+<img src="https://user-images.githubusercontent.com/13286745/142729462-3df116d0-7dba-4c59-82c9-6c2816f24c1d.png" alt="UIC light mode" width="100%" />
+</td>
+<td>
+<img src="https://user-images.githubusercontent.com/13286745/142729495-a89bc49a-3b40-4900-b268-2fec32a18f1a.png" alt="UIC dark mode" width="100%" />
+</td>
+</tr>
+</table>
 
 ## Install
 
@@ -28,13 +37,13 @@ npm i @binarycapsule/ui-capsules
 The following peer dependencies should also be installed:
 
 ```
-npm i react react-dom @emotion/react @emotion/styled styled-system @styled-system/should-forward-prop
+npm i react react-dom @stitches/react
 ```
 
 As well as the following devDependencies:
 
 ```
-npm i -D @types/styled-system @types/react-modal @types/react-select
+npm i -D @types/react-modal @types/react-select
 ```
 
 ## Setup
@@ -56,21 +65,17 @@ setAppElement('#root');
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-Wrap your app in the ThemeProvider and render the ToastContainer:
+Render the ToastContainer:
 
 ```jsx
-import {
-  ThemeProvider,
-  theme,
-  ToastContainer,
-} from '@binarycapsule/ui-capsules';
+import { ToastContainer } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
+  <>
     <App />
 
     <ToastContainer />
-  </ThemeProvider>,
+  </>,
   document.getElementById('root'),
 );
 ```
