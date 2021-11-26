@@ -38,5 +38,10 @@ export {
 export { Tooltip } from './Tooltip/Tooltip';
 export { TruncatedText } from './TruncatedText/TruncatedText';
 export { setAppElement } from 'react-modal';
+export { useTheme } from './hooks/useTheme';
+export { useLocalStorage } from './hooks/useLocalStorage';
+export { useGlobalStyles } from './hooks/useGlobalStyles';
+export { lightTheme } from './lightTheme';
+export { darkTheme } from './darkTheme';
 
 export * from './types';

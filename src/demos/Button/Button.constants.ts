@@ -13,7 +13,7 @@ export const PROPS = [
     isRequired: false,
     type: '"primary" | "secondary" | "error" | "ghost" | "ghostGray" | "link"',
     defaultValue: '"primary"',
-    description: 'Controls the the button appearance.',
+    description: 'Controls the button appearance.',
   },
   {
     name: 'as',

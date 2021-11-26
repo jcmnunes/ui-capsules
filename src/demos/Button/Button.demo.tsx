@@ -48,7 +48,7 @@ const ButtonDemo = () => {
         <Checkbox
           checked={isLoading}
           onChange={() => setIsLoading(!isLoading)}
-          // isDisabled={variant.value === 'link'}
+          disabled={variant.value === 'link'}
         >
           <Text variant="label">isLoading</Text>
         </Checkbox>
@@ -56,7 +56,7 @@ const ButtonDemo = () => {
         <Checkbox
           checked={isDisabled}
           onChange={() => setIsDisabled(!isDisabled)}
-          // isDisabled={variant.value === 'link'}
+          disabled={variant.value === 'link'}
         >
           <Text variant="label">disabled</Text>
         </Checkbox>

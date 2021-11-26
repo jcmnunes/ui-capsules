@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import AlertView from './demos/Alert/Alert.view';
 import AnchorView from './demos/Anchor/Anchor.view';
@@ -28,11 +28,7 @@ import TooltipView from './demos/Tooltip/Tooltip.view';
 import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
 import { styled } from './lib/stitches.config';
-import { Flex, IconButton } from './lib';
-import { lightTheme } from './lib/lightTheme';
-import { darkTheme } from './lib/darkTheme';
-import { globalCss } from '@stitches/react';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { Flex, IconButton, useTheme, useGlobalStyles } from './lib';
 
 export const SidebarWrapper = styled('div', {
   flex: 2,
@@ -48,30 +44,10 @@ export const ShowcaseWrapper = styled('div', {
   background: '$bg',
 });
 
-const globalStyles = globalCss({
-  body: {
-    color: '$neutral700',
-    background: '$bg',
-
-    [`&.${darkTheme}`]: {
-      background: '$bg',
-    },
-  },
-});
-
 const App = () => {
-  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  useGlobalStyles();
 
-  const isDarkTheme = theme === 'dark';
-
-  useEffect(() => {
-    document.body.classList.remove(isDarkTheme ? lightTheme : darkTheme);
-    document.body.classList.add(isDarkTheme ? darkTheme : lightTheme);
-
-    document.documentElement.style.colorScheme = isDarkTheme ? 'dark' : 'light';
-  }, [isDarkTheme]);
-
-  globalStyles();
+  const { isDark, setTheme } = useTheme();
 
   return (
     <Flex>
@@ -82,9 +58,9 @@ const App = () => {
       <ShowcaseWrapper>
         <Flex justify="end" css={{ width: 600 }}>
           <IconButton
-            icon={isDarkTheme ? 'moon' : 'sun'}
+            icon={isDark ? 'moon' : 'sun'}
             variant="ghostGray"
-            onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
+            onClick={() => setTheme(isDark ? 'light' : 'dark')}
             aria-label="Change theme"
           />
         </Flex>

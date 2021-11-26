@@ -30,13 +30,26 @@ ReactDOM.render(
 export const providersExample = `import { ToastContainer } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
-  <> 
+  <React.StrictMode> 
     <App />
 
     <ToastContainer />
-  </>,
+  </React.StrictMode>,
   document.getElementById('root'),
 );
+`;
+
+export const useThemeExample = `import { useGlobalStyles } from '@binarycapsule/ui-capsules';
+
+function App() {
+  useGlobalStyles();
+
+  return (
+    <div>
+      ...
+    </div>
+  );
+}
 `;
 
 const Home = () => (
@@ -90,6 +103,9 @@ const Home = () => (
 
       <StyledParagraph>Render the ToastContainer:</StyledParagraph>
       <Usage>{providersExample}</Usage>
+
+      <StyledParagraph>Render the useGlobalStyles hook:</StyledParagraph>
+      <Usage>{useThemeExample}</Usage>
     </div>
   </Wrapper>
 );

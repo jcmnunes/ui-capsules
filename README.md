@@ -62,7 +62,12 @@ import { setAppElement } from '@binarycapsule/ui-capsules';
 
 setAppElement('#root');
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
 ```
 
 Render the ToastContainer:
@@ -71,13 +76,29 @@ Render the ToastContainer:
 import { ToastContainer } from '@binarycapsule/ui-capsules';
 
 ReactDOM.render(
-  <>
+  <React.StrictMode>
     <App />
 
     <ToastContainer />
-  </>,
+  </React.StrictMode>,
   document.getElementById('root'),
 );
+```
+
+Render the useGlobalStyles hook:
+
+```jsx
+import { useGlobalStyles } from '@binarycapsule/ui-capsules';
+
+function App() {
+  useGlobalStyles();
+
+  return (
+    <div>
+      ...
+    </div>
+  );
+}
 ```
 
 ## Usage
