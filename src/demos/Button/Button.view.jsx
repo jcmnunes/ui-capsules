@@ -24,29 +24,15 @@ const ButtonDemo = () => {
       </section>
 
       <section>
-        <SubTitle>All</SubTitle>
-        <Flex alignItems="flex-start" flexDirection="column">
-          {[
-            'primary',
-            'error',
-            'neutral',
-            'pink',
-            'yellow',
-            'indigo',
-            'green',
-            'purple',
-            'orange',
-            'teal',
-          ].map(variantColor => (
-            <Flex alignItems="center" mb="24" flexDirection="row">
-              {['solid', 'outline', 'ghost', 'link'].map(variant => (
-                <Box mr="12">
-                  <Button variant={variant} variantColor={variantColor}>
-                    {variant} {variantColor}
-                  </Button>
-                </Box>
-              ))}
-            </Flex>
+        <SubTitle>Variants</SubTitle>
+
+        <Flex align="center" css={{ mb: '$5' }}>
+          {['primary', 'secondary', 'error', 'ghost', 'ghostGray', 'link'].map(variant => (
+            <Box key={variant} css={{ mr: '$3' }}>
+              <Button variant={variant}>
+                {variant.charAt(0).toUpperCase() + variant.slice(1)}
+              </Button>
+            </Box>
           ))}
         </Flex>
       </section>

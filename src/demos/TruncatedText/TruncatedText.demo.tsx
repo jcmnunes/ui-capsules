@@ -10,7 +10,7 @@ const TooltipDemo = () => {
   const [isLongText, setIsLongText] = useState(false);
 
   const Component = (
-    <Box width={200}>
+    <Box css={{ width: 200 }}>
       <TruncatedText>{isLongText ? longText : shortText}</TruncatedText>
     </Box>
   );

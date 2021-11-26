@@ -14,7 +14,7 @@ const TooltipDemo = () => {
         <Title>Tooltip</Title>
         <Paragraph>
           Renders a custom tooltip component (based on{' '}
-          <Anchor href="https://github.com/atomiks/tippyjs-react">tippyjs-react</Anchor>
+          <Anchor href="https://reach.tech/tooltip">Reach UI's Tooltip</Anchor>
           ).
         </Paragraph>
       </header>

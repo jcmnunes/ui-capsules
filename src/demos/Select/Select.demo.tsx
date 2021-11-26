@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select, DualSize, SelectOption, Input } from '../../lib';
+import { DualSize, Input, Select, SelectOption } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, OPTIONS, SIZE_OPTS } from './Select.constants';
 

@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
-import styled from '@emotion/styled';
+import { styled } from '../stitches.config';
 
-const StyledHead = styled.thead(({ theme }) => ({
-  fontSize: `${theme.fontSizes.small}px`,
+const StyledHead = styled('thead', {
+  fontSize: '$1',
   textAlign: 'left',
-  borderBottom: `1px solid ${theme.colors.neutral['300']}`,
+  borderBottom: `1px solid $neutral300`,
   fontWeight: 600,
-  color: theme.colors.neutral['500'],
+  color: '$neutral500',
   textTransform: 'uppercase',
-  letterSpacing: theme.letterSpacings.wide,
-}));
+  letterSpacing: '$wide',
+});
 
 export const Head: FC = ({ children }) => {
   return (

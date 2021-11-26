@@ -1,5 +1,5 @@
 import React from 'react';
-import { ElementSize, IconType, IconVariant } from '../types';
+import { CSSProp, ElementSize, IconType, IconVariant } from '../types';
 import { Icon } from '../Icon/Icon';
 import { Label } from '../Label/Label';
 import {
@@ -13,7 +13,7 @@ import {
 import { useId } from '@reach/auto-id';
 import { HelpText } from '../HelpText/HelpText';
 
-export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
+export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, CSSProp {
   size?: ElementSize;
   disabled?: boolean;
   label?: string;
@@ -36,6 +36,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       rightIcon,
       iconVariant,
       id,
+      css,
       ...rest
     },
     ref,
@@ -44,9 +45,9 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     const descriptionId = useId();
 
     return (
-      <Wrapper {...rest}>
+      <Wrapper css={css}>
         {label && (
-          <Label labelId={labelId} variant={variant} mb="4">
+          <Label labelId={labelId} variant={variant} css={{ mb: '$1' }}>
             {label}
           </Label>
         )}
@@ -68,8 +69,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             ref={ref}
             inputSize={size}
             variant={variant}
-            leftIcon={leftIcon}
-            rightIcon={rightIcon}
+            hasLeftIcon={!!leftIcon}
+            hasRightIcon={!!rightIcon}
             disabled={disabled}
             aria-describedby={helpText ? descriptionId : undefined}
             aria-invalid={variant === 'error'}
@@ -78,7 +79,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
           />
 
           {rightIcon && (
-            <IconWrapper size={size} position="right">
+            <IconWrapper size={size}>
               <InputIcon
                 as={Icon}
                 variant={iconVariant}

@@ -1,15 +1,13 @@
 import React, { forwardRef } from 'react';
 import { ButtonSize, ButtonVariant } from '../Button/Button.styles';
-import { MarginProps } from '../styledProps';
-import { StyledIconButton } from './IconButton.styles';
-import { IconVariant, VariantColor } from '../types';
+import { CSSProp, IconVariant } from '../types';
 import { solidIcons } from '../Icon/Icon.constants';
+import { Button } from '../Button/Button';
 
-export interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'>, MarginProps {
+export interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'>, CSSProp {
   icon: keyof typeof solidIcons;
   as?: 'button' | 'a';
   variant?: ButtonVariant;
-  variantColor?: VariantColor;
   size?: ButtonSize;
   isLoading?: boolean;
   iconVariant?: IconVariant;
@@ -25,10 +23,10 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     {
       icon,
       as = 'button',
-      variant = 'solid',
-      variantColor = 'primary',
+      variant = 'primary',
       size = 'medium',
       iconVariant = 'solid',
+      css,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       children,
       ...rest
@@ -36,16 +34,23 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     ref,
   ) => {
     return (
-      <StyledIconButton
+      <Button
         ref={ref}
         as={as}
         variant={variant}
-        variantColor={variantColor}
         size={size}
         leftIcon={icon}
         iconVariant={iconVariant}
         {...(as === 'a' ? anchorProps : {})}
         {...rest}
+        isLoading={false}
+        disabled={rest.disabled || rest.isLoading}
+        css={{
+          height: size === 'small' ? 24 : size === 'medium' ? 32 : 40,
+          width: size === 'small' ? 24 : size === 'medium' ? 32 : 40,
+          p: 0,
+          ...css,
+        }}
       />
     );
   },
@@ -53,9 +58,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 
 IconButton.displayName = 'IconButton';
 IconButton.defaultProps = {
-  variant: 'solid',
+  variant: 'primary',
   as: 'button',
-  variantColor: 'primary',
   size: 'medium',
   iconVariant: 'solid',
 };

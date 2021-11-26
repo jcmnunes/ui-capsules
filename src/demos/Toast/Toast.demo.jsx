@@ -1,27 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Input, Select, Toaster } from '../../lib';
+import { Button, Input, Select, toast } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, TOAST_TYPE_OPTS } from './Toaster.constants';
+import { GITHUB_URL, toastTypeOpts } from './Toast.constants';
 
-const toastType2Appearance = {
-  info: 'primary',
-  success: 'primary',
-  warning: 'error',
-  error: 'error',
-};
-
-const ToasterDemo = () => {
-  const [toastType, setToastType] = useState(TOAST_TYPE_OPTS[0]);
+const ToastDemo = () => {
+  const [toastType, setToastType] = useState(toastTypeOpts[0]);
   const [toastTitle, setToastTitle] = useState('Done!');
   const [toastMessage, setToastMessage] = useState('Super awesome notification');
 
   const Component = (
     <Button
-      variantColor={toastType2Appearance[toastType.value]}
       disabled={toastTitle.length === 0 && toastMessage.length === 0}
       leftIcon="bell"
       onClick={() =>
-        Toaster[toastType.value]({
+        toast[toastType.value]({
           title: toastTitle,
           message: toastMessage,
         })
@@ -32,9 +24,8 @@ const ToasterDemo = () => {
   );
 
   const code = `<Button
-  variantColor={${toastType2Appearance[toastType.value]}}
   onClick={() =>
-    Toaster.${toastType.value}({
+    toast.${toastType.value}({
       title: ${toastTitle},
       message: ${toastMessage}
     })
@@ -52,7 +43,7 @@ const ToasterDemo = () => {
           <Select
             label="variant"
             value={toastType}
-            options={TOAST_TYPE_OPTS}
+            options={toastTypeOpts}
             onChange={opt => setToastType(opt)}
           />
         </div>
@@ -73,4 +64,4 @@ const ToasterDemo = () => {
   );
 };
 
-export default ToasterDemo;
+export default ToastDemo;

@@ -1,26 +1,13 @@
 import React, { useState } from 'react';
-import {
-  Checkbox,
-  ElementSize,
-  Input,
-  Radio,
-  Select,
-  SelectOption,
-  Text,
-  VariantColor,
-} from '../../lib';
+import { Checkbox, DualSize, Input, Radio, Select, SelectOption, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL } from './Radio.constants';
-import { SIZE_OPTS, VARIANT_COLOR_OPTS } from '../common/selectOptions';
+import { GITHUB_URL, SIZE_OPTS } from './Radio.constants';
 
 const RadioDemo = () => {
   const [checked, setChecked] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [size, setSize] = useState(SIZE_OPTS[0]);
   const [children, setChildren] = useState('Hello world');
-  const [variantColor, variantColorSet] = useState(
-    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
-  );
 
   const Component = (
     <Radio
@@ -28,7 +15,6 @@ const RadioDemo = () => {
       disabled={disabled}
       onChange={() => setChecked(!checked)}
       size={size.value}
-      variantColor={variantColor.value}
     >
       {children}
     </Radio>
@@ -61,16 +47,7 @@ const RadioDemo = () => {
             label="size"
             value={size}
             options={SIZE_OPTS}
-            onChange={opt => setSize(opt as SelectOption<ElementSize>)}
-          />
-        </div>
-
-        <div>
-          <Select
-            label="variantColor"
-            value={variantColor}
-            options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
+            onChange={opt => setSize(opt as SelectOption<DualSize>)}
           />
         </div>
       </Inputs>

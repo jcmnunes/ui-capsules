@@ -1,19 +1,20 @@
 import React from 'react';
-import { WrapperProps } from '../Wrapper/Wrapper';
-import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
 import { Button } from '../Button/Button';
 import { AlertIcon, AlertVariant, AlertWrapper, ICON_MAP, StyledAlert } from './Alert.styles';
 import { CloseButton } from '../CloseButton/CloseButton';
 import { Action } from '../types';
+import { Flex } from '../Flex/Flex';
+import { CSS } from '../stitches.config';
 
-export interface Props extends WrapperProps {
+export interface Props {
   title?: string;
   message?: string;
   variant?: AlertVariant;
   onRequestClose?(): void;
   actions?: Action[];
   extraAction?: Action;
+  css?: CSS;
 }
 
 export const Alert: React.FC<Props> = ({
@@ -30,33 +31,46 @@ export const Alert: React.FC<Props> = ({
       <StyledAlert variant={variant}>
         <AlertIcon alertVariant={variant} icon={ICON_MAP[variant]} />
 
-        <Box display="flex" flexDirection="column" flex={1}>
+        <Flex direction="column" css={{ flex: 1 }}>
           {!!title && (
-            <Text fontWeight={600} color="inherit" mb={message ? '4' : '0'}>
-              {title}
-            </Text>
+            <Text css={{ fontWeight: 600, color: 'inherit', mb: message ? '$1' : 0 }}>{title}</Text>
           )}
 
-          {!!message && <Text color="inherit">{message}</Text>}
+          {!!message && <Text css={{ color: 'inherit', lineHeight: '$2' }}>{message}</Text>}
 
           {actions && (
-            <Box display="flex" mt="8">
+            <Flex css={{ mt: '$2' }}>
               {actions.map(({ text, onClick }) => (
-                <Button key={text} variant="link" variantColor={variant} onClick={onClick} mr="16">
+                <Button
+                  key={text}
+                  variant="link"
+                  onClick={onClick}
+                  css={{ mr: '$4', color: 'inherit', '&:hover': { color: 'inherit' } }}
+                >
                   {text}
                 </Button>
               ))}
-            </Box>
+            </Flex>
           )}
-        </Box>
+        </Flex>
 
         {extraAction && (
-          <Button key={extraAction.text} variant="link" onClick={extraAction.onClick} ml="16">
+          <Button
+            key={extraAction.text}
+            variant="link"
+            onClick={extraAction.onClick}
+            css={{ ml: '$4', color: 'inherit', '&:hover': { color: 'inherit', bg: 'transparent' } }}
+          >
             {`${extraAction.text} →`}
           </Button>
         )}
 
-        {onRequestClose && <CloseButton onClick={onRequestClose} ml="16" />}
+        {onRequestClose && (
+          <CloseButton
+            onClick={onRequestClose}
+            css={{ ml: '$4', color: 'inherit', '&:hover': { color: 'inherit', bg: 'transparent' } }}
+          />
+        )}
       </StyledAlert>
     </AlertWrapper>
   );

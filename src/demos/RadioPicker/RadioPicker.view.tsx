@@ -5,7 +5,7 @@ import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { EXAMPLE_RADIOS, PROPS } from './RadioPicker.constants';
-import { Box, RadioPicker } from '../../lib';
+import { Flex, RadioPicker } from '../../lib';
 
 const ButtonDemo = () => {
   const [checked, setChecked] = useState<number | null>(null);
@@ -27,7 +27,7 @@ const ButtonDemo = () => {
       <section>
         <SubTitle>Example</SubTitle>
 
-        <Box display="flex" flexDirection="column">
+        <Flex direction="column">
           {EXAMPLE_RADIOS.map(({ id, label, helpText }) => (
             <RadioPicker
               key={id}
@@ -35,10 +35,10 @@ const ButtonDemo = () => {
               onChange={() => setChecked(id)}
               label={label}
               helpText={helpText}
-              mb="16"
+              css={{ mb: '$4' }}
             />
           ))}
-        </Box>
+        </Flex>
       </section>
 
       <PropsTable props={PROPS} />

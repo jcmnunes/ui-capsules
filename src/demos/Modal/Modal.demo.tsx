@@ -13,7 +13,7 @@ import {
   Select,
   SelectOption,
   Text,
-  Toaster,
+  toast,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, SIZE_OPTS } from './Modal.constants';
@@ -106,7 +106,7 @@ const ModalDemo = () => {
 
       <Modal
         isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
+        onClose={() => setIsOpen(false)}
         contentLabel="Example Modal"
         size={size.value}
       >
@@ -124,7 +124,7 @@ const ModalDemo = () => {
             placeholder="Task summary"
           />
 
-          <Box mb="16" />
+          <Box css={{ mb: '$4' }} />
 
           <Select
             label="Scope"
@@ -136,23 +136,22 @@ const ModalDemo = () => {
 
           <Button
             leftIcon="plus"
-            variant="ghost"
-            variantColor="neutral"
+            variant="ghostGray"
             size="small"
-            mt="4"
             onClick={() =>
-              Toaster.error({
+              toast.error({
                 title: 'Cannot create scopes in this demo',
                 message: 'In reality, this is just a test ;)',
               })
             }
+            css={{ mt: '$1' }}
           >
             Create new scope
           </Button>
         </ModalBody>
 
         <ModalFooter>
-          <Button variant="ghost" variantColor="neutral" onClick={() => setIsOpen(false)}>
+          <Button variant="ghostGray" onClick={() => setIsOpen(false)}>
             Cancel
           </Button>
           <Button>Add Task</Button>

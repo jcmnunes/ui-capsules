@@ -1,26 +1,13 @@
 import React, { useState } from 'react';
-import {
-  Checkbox,
-  ElementSize,
-  Input,
-  Select,
-  SelectOption,
-  Switch,
-  Text,
-  VariantColor,
-} from '../../lib';
+import { Checkbox, DualSize, Input, Select, SelectOption, Switch, Text } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL } from './Switch.constants';
-import { SIZE_OPTS, VARIANT_COLOR_OPTS } from '../common/selectOptions';
+import { GITHUB_URL, SIZE_OPTS } from './Switch.constants';
 
 const SwitchDemo = () => {
   const [checked, setChecked] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [size, setSize] = useState(SIZE_OPTS[1]);
   const [children, setChildren] = useState('Hello world');
-  const [variantColor, variantColorSet] = useState(
-    VARIANT_COLOR_OPTS.find(opt => opt.value === 'green')!,
-  );
 
   const Component = (
     <Switch
@@ -28,7 +15,6 @@ const SwitchDemo = () => {
       disabled={disabled}
       onChange={() => setChecked(!checked)}
       size={size.value}
-      variantColor={variantColor.value}
     >
       {children}
     </Switch>
@@ -61,16 +47,7 @@ const SwitchDemo = () => {
             label="size"
             value={size}
             options={SIZE_OPTS}
-            onChange={opt => setSize(opt as SelectOption<ElementSize>)}
-          />
-        </div>
-
-        <div>
-          <Select
-            label="variantColor"
-            value={variantColor}
-            options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
+            onChange={opt => setSize(opt as SelectOption<DualSize>)}
           />
         </div>
       </Inputs>

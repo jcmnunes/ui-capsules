@@ -1,5 +1,5 @@
 import React from 'react';
-import Demo from './Toaster.demo';
+import Demo from './Toast.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Wrapper from '../../components/common/Wrapper';
@@ -18,24 +18,24 @@ ReactDOM.render(
 );
 
 // Launch toasts everywhere else in your app by using
-// one of the static Toaster methods:
+// one of the static toast methods:
 // - success
 // - warning
 // - error
 // - info
-import { Toaster } from '@binarycapsule/ui-capsules';
+import { toast } from '@binarycapsule/ui-capsules';
 
-Toaster.success({
+toast.success({
   title: 'Success',
   message: 'A success toast is visible on the screen',
 });
 `;
 
-const ToasterDemo = () => {
+const ToastView = () => {
   return (
     <Wrapper as="main">
       <header>
-        <Title>Toaster</Title>
+        <Title>Toast</Title>
         <Paragraph>
           Notification system based on the{' '}
           <Anchor href="https://github.com/fkhadra/react-toastify">react-toastify</Anchor> package.
@@ -52,4 +52,4 @@ const ToasterDemo = () => {
   );
 };
 
-export default ToasterDemo;
+export default ToastView;

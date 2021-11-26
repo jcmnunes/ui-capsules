@@ -1,40 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled/macro';
+import { styled } from '../../lib/stitches.config';
 
-const Card = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border: ${({ theme }) => `1px solid ${theme.colors.neutral['200']}`};
-  border-radius: 8px;
-  overflow: hidden;
-  color: ${({ theme }) => `1px solid ${theme.colors.neutral['700']}`};
-  width: 132px;
-  height: 100px;
-  margin-bottom: 24px;
-  margin-right: ${props => (props.isLastInRow ? 0 : '24px')};
-`;
+const Card = styled('div', {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  border: `1px solid $neutral200`,
+  borderRadius: '$large',
+  overflow: 'hidden',
+  color: `1px solid $neutral700`,
+  width: 132,
+  height: 100,
+  marginBottom: 24,
+  marginRight: 24,
 
-const Icon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-`;
+  variants: {
+    isLastInRow: {
+      true: {
+        marginRight: 0,
+      },
+    },
+  },
+});
 
-const Label = styled.div`
-  color: ${({ theme }) => `1px solid ${theme.colors.neutral['500']}`};
-  background: ${({ theme }) => `1px solid ${theme.colors.neutral['50']}`};
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: lowercase;
-  height: 30px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
+const Icon = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 1,
+});
+
+const Label = styled('div', {
+  color: '$neutral600',
+  background: '$neutral100 ',
+  fontSize: '12px',
+  fontWeight: 700,
+  textTransform: 'lowercase',
+  height: 30,
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
 
 const IconCard = ({ label, isLastInRow, children }) => {
   return (

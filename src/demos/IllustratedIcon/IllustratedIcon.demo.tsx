@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import {
   Select,
   IllustratedIcon,
-  theme,
   Checkbox,
   IllustratedIconType,
   SelectOption,
@@ -12,15 +11,16 @@ import {
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { useIconOpts } from './IllustratedIcon.hooks';
 import { GITHUB_URL } from './IllustratedIcon.constants';
+import { colors } from '../../lib/colors';
 
 const IllustratedIconDemo = () => {
   const iconOpts = useIconOpts();
   const [onClick, setOnClick] = useState(false);
   const [icon, setIcon] = useState(iconOpts[0]);
-  const [primaryColor, setPrimaryColor] = useState(theme.colors.neutral['300']);
-  const [secondaryColor, setSecondaryColor] = useState(theme.colors.neutral['600']);
-  const [primaryColorHover, setPrimaryColorHover] = useState(theme.colors.neutral['300']);
-  const [secondaryColorHover, setSecondaryColorHover] = useState(theme.colors.neutral['700']);
+  const [primaryColor, setPrimaryColor] = useState(colors.gray300);
+  const [secondaryColor, setSecondaryColor] = useState(colors.gray600);
+  const [primaryColorHover, setPrimaryColorHover] = useState(colors.gray300);
+  const [secondaryColorHover, setSecondaryColorHover] = useState(colors.gray700);
 
   const Component = (
     <IllustratedIcon
