@@ -1,10 +1,9 @@
-import { ElementSize } from '../../lib';
+import { DualSize } from '../../lib';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Checkbox/Checkbox.tsx';
 
-export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
-  { value: 'small', label: 'small' },
+export const SIZE_OPTS: { label: string; value: DualSize }[] = [
   { value: 'medium', label: 'medium' },
   { value: 'large', label: 'large' },
 ];
@@ -23,7 +22,7 @@ export const CHECKBOX_PROPS = [
     description: 'The function to handle the onChange event.',
   },
   {
-    name: 'isDisabled',
+    name: 'disabled',
     isRequired: false,
     type: 'boolean',
     defaultValue: 'false',
@@ -32,8 +31,8 @@ export const CHECKBOX_PROPS = [
   {
     name: 'size',
     isRequired: false,
-    type: '"small" | "medium" | "large"',
-    defaultValue: '"small"',
+    type: '"medium" | "large"',
+    defaultValue: '"medium"',
     description: 'The size of the checkbox.',
   },
   {
@@ -41,13 +40,6 @@ export const CHECKBOX_PROPS = [
     isRequired: false,
     type: 'ReactNode',
     defaultValue: 'undefined',
-    description: 'The Checkbox label.',
-  },
-  {
-    name: 'variantColor',
-    isRequired: false,
-    type: 'VariantColor',
-    defaultValue: 'primary',
-    description: 'The color of the checkbox.',
+    description: 'The Checkbox label. If omitted, remember to add an aria-label.',
   },
 ];

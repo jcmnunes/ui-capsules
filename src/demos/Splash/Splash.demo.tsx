@@ -43,7 +43,7 @@ const SplashDemo = () => {
         <Checkbox
           checked={showSpinner || variant.value === 'spinner'}
           onChange={() => setShowSpinner(!showSpinner)}
-          isDisabled={variant.value === 'spinner'}
+          disabled={variant.value === 'spinner'}
         >
           <Text variant="label">showSpinner</Text>
         </Checkbox>

@@ -1,74 +1,81 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, theme } from '../../lib';
-import styled from '@emotion/styled/macro';
+import { Button } from '../../lib';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Usage from '../Usage/Usage';
 import { SubSubTitle, SubTitle } from '../common/Typography';
+import { styled } from '../../lib/stitches.config';
 
-export const Booleans = styled.div`
-  display: inline-flex;
-  flex-direction: column;
+export const Booleans = styled('div', {
+  display: 'inline-flex',
+  flexDirection: 'column',
 
-  & > * {
-    margin-bottom: 8px;
-  }
-`;
+  '& > *': {
+    marginBottom: 8,
+  },
+});
 
-export const Inputs = styled.div`
-  & > * {
-    margin: 8px 0;
-    max-width: 200px;
-  }
-`;
+export const Inputs = styled('div', {
+  '& > *': {
+    margin: '8px 0',
+    maxWidth: 200,
+  },
+});
 
-export const DemoWrapper = styled.div`
-  border-radius: 12px;
-  background-color: ${props => props.theme.colors.neutral['100']};
-  padding: 12px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-`;
+export const DemoWrapper = styled('div', {
+  borderRadius: '12px',
+  backgroundColor: '$neutral100',
+  padding: '$3',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'stretch',
+});
 
-export const Display = styled.div`
-  flex: 1;
-  background: ${props => (props.isDark ? theme.colors.neutral['400'] : 'white')};
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  transition: background-color 0.2s ease;
-`;
+export const Display = styled('div', {
+  flex: 1,
+  background: '$bg',
+  borderRadius: '$medium',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '$3',
 
-export const PropAdjuster = styled.div`
-  flex: 1;
-  padding: 0 6px 0 18px;
-`;
+  variants: {
+    isDark: {
+      true: {
+        background: '$neutral400',
+      },
+    },
+  },
+});
 
-const HeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+export const PropAdjuster = styled('div', {
+  flex: 1,
+  padding: '0 6px 0 18px',
+});
 
-  ${SubTitle} {
-    flex: 1;
-  }
-`;
+const HeaderWrapper = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'flex-end',
 
-const Actions = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: ${props => props.theme.colors.neutral['400']};
-  margin-bottom: 12px;
+  [`${SubTitle}`]: {
+    flex: 1,
+  },
+});
 
-  &:hover {
-    color: ${props => props.theme.colors.neutral['700']};
-  }
-`;
+const Actions = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  color: '$neutral400',
+  marginBottom: '$3',
+
+  '&:hover': {
+    color: '$neutral700',
+  },
+});
 
 const Demo = ({ component, code, isDark, codeURL, children }) => {
   return (
@@ -79,8 +86,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
           <Button
             as="a"
             href={codeURL}
-            variant="ghost"
-            variantColor="neutral"
+            variant="ghostGray"
             size="medium"
             leftIcon="github"
             iconVariant="outline"

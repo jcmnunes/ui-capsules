@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import {
+  AlignmentOptions,
+  Checkbox,
+  Select,
+  SelectOption,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeaderCell,
   TableRow,
-  Checkbox,
-  Select,
-  AlignmentOptions,
-  SelectOption,
   Text,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';

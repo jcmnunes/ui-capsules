@@ -23,7 +23,7 @@ export const PROPS = [
       'String indicating how the content container should be announced to screen-readers.',
   },
   {
-    name: 'onRequestClose',
+    name: 'onClose',
     isRequired: true,
     type: 'function',
     description: 'Function that closes the Dialog.',

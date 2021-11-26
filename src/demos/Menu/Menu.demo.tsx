@@ -1,59 +1,66 @@
 /* eslint-disable no-alert, no-console */
-import React, { useState } from 'react';
-import { Button, Icon, Menu, MenuItem, Select, SelectOption, Switch } from '../../lib';
-import Demo, { Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL, PLACEMENT_OPTS } from './Menu.constants';
+import React from 'react';
+import { Anchor, Flex, Icon, IconButton, Menu, MenuItem, Text } from '../../lib';
+import Demo from '../../components/Demo/Demo';
+import { MenuButton, MenuList } from '../../lib/Menu/Menu';
+import { styled } from '../../lib/stitches.config';
+import { GITHUB_URL } from './Menu.constants';
+
+const Trigger = styled(IconButton, {
+  '&[data-reach-menu-button][aria-expanded="true"]': {
+    bg: '$neutral200',
+  },
+});
+
+const code = `const Trigger = styled(IconButton, {
+  '&[data-reach-menu-button][aria-expanded="true"]': {
+    bg: '$neutral200',
+  },
+});
+
+<Menu>
+  <MenuButton as={Trigger} variant="ghostGray" icon="dots_h" />
+  <MenuList>
+    <MenuItem onSelect={() => {}}>Menu item #1</MenuItem>
+    <MenuItem onSelect={() => {}}>Menu item #2</MenuItem>
+    <MenuItem onSelect={() => {}}>Menu item #3</MenuItem>
+    <MenuItem onSelect={() => {}}>
+      <Flex align="center">
+        <Icon icon="beaker" css={{ mr: '$1' }} />
+        Beaker
+      </Flex>
+    </MenuItem>
+  </MenuList>
+</Menu>
+`;
 
 const MenuDemo = () => {
-  const [placement, setPlacement] = useState(PLACEMENT_OPTS[0]);
-
-  const Trigger = (
-    <Button variant="ghost" variantColor="neutral" rightIcon="chev_down">
-      Open Menu
-    </Button>
-  );
-
   const Component = (
-    <Menu trigger={Trigger} placement={placement.value}>
-      <MenuItem text="Hello World" onClick={() => console.log('Hello there 1')} leftIcon="search" />
-
-      <MenuItem
-        text="Hello World 2"
-        onClick={() => console.log('Hello there 2')}
-        leftIcon="beaker"
-        rightIcon="info_c"
-      />
-
-      <MenuItem
-        text="Hello World 3"
-        helperText="Helper text"
-        leftAddon={<Icon icon="annotation" size={18} color="red.500" />}
-        rightAddon={<Switch checked onChange={() => {}} size="small" />}
-        onClick={() => console.log('Hello there 3')}
-        closeOnAction={false}
-      />
-
-      <MenuItem
-        text="Hello World 3"
-        onClick={() => console.log('Hello there 4')}
-        isLoading
-        closeOnAction={false}
-      />
+    <Menu>
+      <MenuButton as={Trigger} variant="ghostGray" icon="dots_h" />
+      <MenuList>
+        <MenuItem onSelect={() => {}}>Menu item #1</MenuItem>
+        <MenuItem onSelect={() => {}}>Menu item #2</MenuItem>
+        <MenuItem onSelect={() => {}}>Menu item #3</MenuItem>
+        <MenuItem onSelect={() => {}}>
+          <Flex align="center">
+            <Icon icon="beaker" css={{ mr: '$1' }} />
+            Beaker
+          </Flex>
+        </MenuItem>
+      </MenuList>
     </Menu>
   );
 
   return (
-    <Demo codeURL={GITHUB_URL} component={Component}>
-      <Inputs>
-        <div>
-          <Select
-            label="placement"
-            value={placement}
-            options={PLACEMENT_OPTS}
-            onChange={opt => setPlacement(opt as SelectOption<'left' | 'right'>)}
-          />
-        </div>
-      </Inputs>
+    <Demo codeURL={GITHUB_URL} component={Component} code={code}>
+      <Flex direction="column">
+        <Text size="2">No knobs available</Text>
+        <Text variant="helper">
+          Please, follow the <Anchor href="https://reach.tech/menu-button">Reach UI docs</Anchor> to
+          learn how to use this component
+        </Text>
+      </Flex>
     </Demo>
   );
 };

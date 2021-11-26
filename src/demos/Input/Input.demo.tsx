@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import {
   Checkbox,
+  ElementSize,
+  IconType,
   IconVariant,
   Input,
   Select,
-  ElementSize,
-  IconType,
   SelectOption,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, INPUT_VARIANT_OPTS } from './Input.constants';
 import { useIconOpts } from '../Icon/Icon.hooks';
 import { ICON_VARIANT_OPTS, SIZE_OPTS } from '../common/selectOptions';
-import { InputVariant } from '../../lib/Input/Input.styles';
 import { Text } from '../../lib/Text/Text';
+import { InputVariant } from '../../lib/Input/Input.styles';
 
 const InputDemo = () => {
   const iconOpts = [{ value: undefined, label: 'none' }, ...useIconOpts()];

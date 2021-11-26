@@ -1,5 +1,12 @@
+import { DualSize } from '../../lib';
+
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Radio/Radio.tsx';
+
+export const SIZE_OPTS: { label: string; value: DualSize }[] = [
+  { value: 'medium', label: 'medium' },
+  { value: 'large', label: 'large' },
+];
 
 export const PROPS = [
   {
@@ -33,13 +40,6 @@ export const PROPS = [
     isRequired: false,
     type: 'string',
     defaultValue: 'undefined',
-    description: 'The Checkbox label.',
-  },
-  {
-    name: 'variantColor',
-    isRequired: false,
-    type: 'VariantColor',
-    defaultValue: 'primary',
-    description: 'The color of the radio.',
+    description: 'The radio label.',
   },
 ];

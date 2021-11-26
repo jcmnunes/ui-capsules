@@ -1,9 +1,9 @@
 import React, { FC, useMemo } from 'react';
-import { solidIcons, outlineIcons } from './Icon.constants';
-import { IconType, IconVariant } from '../types';
-import { Box, BoxProps } from '../Box/Box';
+import { outlineIcons, solidIcons } from './Icon.constants';
+import { CSSProp, IconType, IconVariant } from '../types';
+import { Box } from '../Box/Box';
 
-export interface IconProps extends BoxProps {
+export interface IconProps extends CSSProp {
   icon: IconType;
   variant?: IconVariant;
   size?: number;
@@ -19,7 +19,7 @@ export const Icon: FC<IconProps> = ({ icon, size, variant = 'solid', ...rest }) 
   }, [size, variant]);
 
   return (
-    <Box height={iconSize} {...rest}>
+    <Box as="span" {...rest} css={{ height: iconSize, display: 'inline-flex', ...rest?.css }}>
       <svg
         width={`${iconSize}px`}
         height={`${iconSize}px`}

@@ -1,44 +1,35 @@
-import React, { FC } from 'react';
-import { ElementSize, VariantColor } from '../types';
+import React, { ComponentPropsWithRef, forwardRef } from 'react';
+import { Box } from '../Box/Box';
+import { CSSProp, DualSize } from '../types';
 import { CustomCheckbox, Label, StyledInput } from './Checkbox.styles';
-import { Wrapper, WrapperProps } from '../Wrapper/Wrapper';
 
-interface Props extends WrapperProps {
-  checked: boolean;
-  isDisabled?: boolean;
-  variantColor?: VariantColor;
-  size?: ElementSize;
+interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'>, CSSProp {
+  size?: DualSize;
 }
 
-export const Checkbox: FC<Props> = ({
-  checked,
-  variantColor = 'primary',
-  size = 'small',
-  isDisabled = false,
-  children,
-  onChange,
-  ...rest
-}) => (
-  <Wrapper {...rest}>
-    <Label size={size} onClick={e => e.stopPropagation()} disabled={isDisabled}>
-      {children && <span>{children}</span>}
+export const Checkbox = forwardRef<HTMLInputElement, Props>(
+  ({ checked, size = 'medium', disabled = false, children, onChange, css, ...rest }, ref) => (
+    <Box css={css}>
+      <Label size={size} onClick={e => e.stopPropagation()} disabled={disabled}>
+        {children && <span>{children}</span>}
 
-      <StyledInput
-        type="checkbox"
-        checked={checked}
-        onChange={onChange}
-        variantColor={variantColor}
-        disabled={isDisabled}
-      />
+        <StyledInput
+          ref={ref}
+          type="checkbox"
+          checked={checked}
+          onChange={onChange}
+          disabled={disabled}
+          {...rest}
+        />
 
-      <CustomCheckbox className="uic-custom-checkbox" size={size} disabled={isDisabled} />
-    </Label>
-  </Wrapper>
+        <CustomCheckbox className="uic-custom-checkbox" size={size} disabled={disabled} />
+      </Label>
+    </Box>
+  ),
 );
 
 Checkbox.displayName = 'Checkbox';
 Checkbox.defaultProps = {
-  variantColor: 'primary',
-  size: 'small',
-  isDisabled: false,
+  size: 'medium',
+  disabled: false,
 };

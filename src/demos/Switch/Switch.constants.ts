@@ -1,7 +1,13 @@
 import { PropsDoc } from '../types';
+import { DualSize } from '../../lib';
 
 export const GITHUB_URL =
   'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Switch/Switch.tsx';
+
+export const SIZE_OPTS: { label: string; value: DualSize }[] = [
+  { value: 'medium', label: 'medium' },
+  { value: 'large', label: 'large' },
+];
 
 export const SWITCH_PROPS: PropsDoc[] = [
   {
@@ -36,12 +42,5 @@ export const SWITCH_PROPS: PropsDoc[] = [
     type: 'string',
     defaultValue: 'null',
     description: 'The switch label.',
-  },
-  {
-    name: 'variantColor',
-    isRequired: false,
-    type: 'VariantColor',
-    defaultValue: 'primary',
-    description: 'The color of the Switch.',
   },
 ];

@@ -1,10 +1,10 @@
-import styled from '@emotion/styled/macro';
+import { styled } from '../../lib/stitches.config';
 
-const IconGrid = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
+const IconGrid = styled('div', {
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+});
 
 export default IconGrid;

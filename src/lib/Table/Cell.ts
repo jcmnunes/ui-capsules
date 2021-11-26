@@ -1,12 +1,32 @@
-import styled from '@emotion/styled';
+import { styled } from '../stitches.config';
 
-interface Props {
-  textAlign?: 'left' | 'center' | 'right';
-  noWrap?: boolean;
-}
+export const Cell = styled('td', {
+  padding: '8px 16px',
 
-export const Cell = styled.td<Props>`
-  padding: 8px 16px;
-  text-align: ${({ textAlign }) => textAlign};
-  white-space: ${({ noWrap }) => noWrap && 'nowrap'};
-`;
+  variants: {
+    textAlign: {
+      left: {
+        textAlign: 'left',
+      },
+
+      center: {
+        textAlign: 'center',
+      },
+
+      right: {
+        textAlign: 'right',
+      },
+    },
+
+    noWrap: {
+      true: {
+        whiteSpace: 'nowrap',
+      },
+    },
+  },
+
+  defaultVariants: {
+    textAlign: 'left',
+    noWrap: 'false',
+  },
+});

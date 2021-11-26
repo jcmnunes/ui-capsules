@@ -1,7 +1,7 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Toaster/Toaster.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Toast/Toast.jsx';
 
-export const TOAST_TYPE_OPTS = [
+export const toastTypeOpts = [
   { value: 'success', label: 'success' },
   { value: 'warning', label: 'warning' },
   { value: 'error', label: 'error' },

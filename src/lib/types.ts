@@ -1,30 +1,12 @@
 import { illustratedIcons } from './IllustratedIcon/IllustratedIcon.constants';
-import { theme } from './theme';
 import { MouseEvent } from 'react';
 import { solidIcons } from './Icon/Icon.constants';
-
-export type VariantColor =
-  | 'neutral'
-  | 'primary'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'blue'
-  | 'indigo'
-  | 'purple'
-  | 'pink'
-  | 'red'
-  | 'orange'
-  | 'yellow'
-  | 'green'
-  | 'teal';
-
-type ActionVariant = 'primary' | 'neutral' | 'error';
+import { CSS } from './stitches.config';
+import { ButtonVariant } from './Button/Button.styles';
 
 export type Action = {
   text: string;
-  variant?: ActionVariant;
+  variant?: ButtonVariant;
   onClick(e: MouseEvent<HTMLButtonElement>): void;
 };
 
@@ -40,10 +22,8 @@ export type IconVariant = 'solid' | 'outline';
 
 export type IllustratedIconType = keyof typeof illustratedIcons;
 
-export type Theme = typeof theme;
+export type SelectOption<T> = { label: string; value: T };
 
-export type SelectOption<T> = { label: 'string'; value: T };
-
-export type { WrapperProps } from './Wrapper/Wrapper';
-
-export type { BoxProps } from './Box/Box';
+export interface CSSProp {
+  css?: CSS;
+}

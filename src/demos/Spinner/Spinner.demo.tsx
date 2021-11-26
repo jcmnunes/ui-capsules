@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
-import { ElementSize, Select, SelectOption, Spinner, VariantColor } from '../../lib';
+import { DualSize, Select, SelectOption, Spinner } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
-import { GITHUB_URL } from './Spinner.constants';
-import { SIZE_OPTS, VARIANT_COLOR_OPTS } from '../common/selectOptions';
+import { GITHUB_URL, SIZE_OPTS, VARIANT_OPTS } from './Spinner.constants';
 
 const SpinnerDemo = () => {
-  const [size, setSize] = useState(SIZE_OPTS[1]);
-  const [variantColor, variantColorSet] = useState(
-    VARIANT_COLOR_OPTS.find(opt => opt.value === 'primary')!,
-  );
+  const [size, setSize] = useState(SIZE_OPTS[0]);
+  const [variant, setVariant] = useState(VARIANT_OPTS[0]);
 
-  const Component = <Spinner size={size.value} variantColor={variantColor.value} />;
+  const Component = <Spinner size={size.value} variant={variant.value} />;
 
   return (
-    <Demo codeURL={GITHUB_URL} component={Component}>
+    <Demo codeURL={GITHUB_URL} component={Component} isDark={variant.value === 'light'}>
       <Inputs>
         <div>
           <Select
             label="size"
             value={size}
             options={SIZE_OPTS}
-            onChange={opt => setSize(opt as SelectOption<ElementSize>)}
+            onChange={opt => setSize(opt as SelectOption<DualSize>)}
           />
         </div>
 
         <div>
           <Select
             label="variantColor"
-            value={variantColor}
-            options={VARIANT_COLOR_OPTS}
-            onChange={opt => variantColorSet(opt as SelectOption<VariantColor>)}
+            value={variant}
+            options={VARIANT_OPTS}
+            onChange={opt => setVariant(opt as SelectOption<'light' | 'dark'>)}
           />
         </div>
       </Inputs>

@@ -1,23 +1,33 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Pill, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '../../lib';
 import { SubTitle } from '../common/Typography';
+import { styled } from '../../lib/stitches.config';
 
-export const PropType = styled.span`
-  font-weight: 700;
-  margin-right: 12px;
-  font-size: 14px;
-`;
+export const PropType = styled('span', {
+  fontWeight: 700,
+  marginRight: 12,
+  fontSize: '14px',
+  color: '$neutral700',
+});
 
-export const DefaultValue = styled.span`
-  font-size: 12px;
+export const DefaultValue = styled('span', {
+  fontSize: '12px',
+  color: '$neutral700',
 
-  span {
-    font-family: Hack, monospace;
-    color: ${props => props.theme.colors.pink['600']};
-  }
-`;
+  span: {
+    fontFamily: '$hack',
+    color: '$secondary600',
+  },
+});
+
+const StyledProp = styled('pre', {
+  color: '$neutral700',
+});
+
+const StyledDescription = styled('div', {
+  color: '$neutral700',
+});
 
 const PropsTable = ({ props: propsArray }) => {
   return (
@@ -34,7 +44,7 @@ const PropsTable = ({ props: propsArray }) => {
           {propsArray.map(({ name, isRequired, type, defaultValue, description }) => (
             <TableRow key={name}>
               <TableCell>
-                <pre>{name}</pre>
+                <StyledProp>{name}</StyledProp>
                 {isRequired && <Pill>Required</Pill>}
               </TableCell>
               <TableCell>
@@ -47,7 +57,7 @@ const PropsTable = ({ props: propsArray }) => {
                     </DefaultValue>
                   )}
                 </div>
-                <div>{description}</div>
+                <StyledDescription>{description}</StyledDescription>
               </TableCell>
             </TableRow>
           ))}

@@ -1,8 +1,8 @@
 import React, { FC, MouseEvent } from 'react';
-import styled from '@emotion/styled';
 import { IconButton } from '../IconButton/IconButton';
+import { styled } from '../stitches.config';
 
-const StyledIconButton = styled(IconButton)({
+const StyledIconButton = styled(IconButton, {
   position: 'absolute',
   top: 24,
   right: 24,
@@ -20,8 +20,7 @@ interface Props {
 export const ModalCloseButton: FC<Props> = ({ size, onClick }) => {
   return (
     <StyledIconButton
-      variant="ghost"
-      variantColor="neutral"
+      variant="ghostGray"
       size={size}
       icon="x"
       onClick={onClick}
