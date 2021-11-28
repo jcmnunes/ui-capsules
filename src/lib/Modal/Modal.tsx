@@ -47,7 +47,7 @@ const StyledModal = styled(ReactModal, {
 interface Props extends ReactModal.Props {
   isOpen: boolean;
   contentLabel: string;
-  onClose: ReactModal.Props['onRequestClose'];
+  onClose?: ReactModal.Props['onRequestClose'];
   size?: ElementSize;
 }
 

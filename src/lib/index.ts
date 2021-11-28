@@ -43,5 +43,6 @@ export { useLocalStorage } from './hooks/useLocalStorage';
 export { useGlobalStyles } from './hooks/useGlobalStyles';
 export { lightTheme } from './lightTheme';
 export { darkTheme } from './darkTheme';
+export { styled, keyframes } from './stitches.config';
 
 export * from './types';
