@@ -26,7 +26,7 @@ export const Label = styled('label', {
       },
 
       large: {
-        height: 25,
+        height: 24,
         fontSize: '$2',
         paddingLeft: 35,
         lineHeight: '25px',

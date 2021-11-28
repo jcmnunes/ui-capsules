@@ -31,14 +31,12 @@ export const StyledButton = styled('button', {
     zIndex: 1,
   },
 
-  variants: {
-    disabled: {
-      true: {
-        opacity: 0.5,
-        pointerEvents: 'none',
-      },
-    },
+  '&:disabled': {
+    opacity: 0.5,
+    pointerEvents: 'none',
+  },
 
+  variants: {
     variant: {
       primary: {
         background: '$primary500',
@@ -88,6 +86,10 @@ export const StyledButton = styled('button', {
 
         '&:active': {
           background: '$neutral200',
+        },
+
+        '&:disabled': {
+          boxShadow: '$borderDisabled',
         },
       },
 
@@ -205,14 +207,4 @@ export const StyledButton = styled('button', {
       },
     },
   },
-
-  compoundVariants: [
-    {
-      disabled: true,
-      variant: 'secondary',
-      css: {
-        boxShadow: '$borderDisabled',
-      },
-    },
-  ],
 });
