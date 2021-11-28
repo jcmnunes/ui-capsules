@@ -3,7 +3,7 @@ import { IconButton } from '../IconButton/IconButton';
 import { styled } from '../stitches.config';
 
 const StyledIconButton = styled(IconButton, {
-  position: 'absolute',
+  position: 'absolute !important',
   top: 24,
   right: 24,
 
