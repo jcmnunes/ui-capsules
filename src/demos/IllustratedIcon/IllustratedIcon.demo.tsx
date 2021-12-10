@@ -7,20 +7,20 @@ import {
   IllustratedIconType,
   SelectOption,
   Text,
+  Input,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { useIconOpts } from './IllustratedIcon.hooks';
 import { GITHUB_URL } from './IllustratedIcon.constants';
-import { colors } from '../../lib/colors';
 
 const IllustratedIconDemo = () => {
   const iconOpts = useIconOpts();
   const [onClick, setOnClick] = useState(false);
   const [icon, setIcon] = useState(iconOpts[0]);
-  const [primaryColor, setPrimaryColor] = useState(colors.gray300);
-  const [secondaryColor, setSecondaryColor] = useState(colors.gray600);
-  const [primaryColorHover, setPrimaryColorHover] = useState(colors.gray300);
-  const [secondaryColorHover, setSecondaryColorHover] = useState(colors.gray700);
+  const [primaryColor, setPrimaryColor] = useState('$neutral300');
+  const [secondaryColor, setSecondaryColor] = useState('$neutral600');
+  const [primaryColorHover, setPrimaryColorHover] = useState('$neutral400');
+  const [secondaryColorHover, setSecondaryColorHover] = useState('$neutral700');
 
   const Component = (
     <IllustratedIcon
@@ -56,59 +56,39 @@ const IllustratedIconDemo = () => {
         </div>
 
         <div>
-          <Text variant="label">primaryColor</Text>
-
-          <label htmlFor="primaryColor" style={{ display: 'block' }}>
-            <input
-              id="primaryColor"
-              type="color"
-              value={primaryColor}
-              onChange={ev => setPrimaryColor(ev.target.value)}
-            />{' '}
-            {primaryColor.toUpperCase()}
-          </label>
+          <Input
+            label="primaryColor"
+            type="text"
+            value={primaryColor}
+            onChange={ev => setPrimaryColor(ev.target.value)}
+          />
         </div>
 
         <div>
-          <Text variant="label">secondaryColor</Text>
-
-          <label htmlFor="secondaryColor" style={{ display: 'block' }}>
-            <input
-              id="secondaryColor"
-              type="color"
-              value={secondaryColor}
-              onChange={ev => setSecondaryColor(ev.target.value)}
-            />{' '}
-            {secondaryColor.toUpperCase()}
-          </label>
+          <Input
+            label="secondaryColor"
+            type="text"
+            value={secondaryColor}
+            onChange={ev => setSecondaryColor(ev.target.value)}
+          />
         </div>
 
         <div>
-          <Text variant="label">primaryColorHover</Text>
-
-          <label htmlFor="primaryColorHover" style={{ display: 'block' }}>
-            <input
-              id="primaryColorHover"
-              type="color"
-              value={primaryColorHover}
-              onChange={ev => setPrimaryColorHover(ev.target.value)}
-            />{' '}
-            {primaryColorHover.toUpperCase()}
-          </label>
+          <Input
+            label="primaryColorHover"
+            type="text"
+            value={primaryColorHover}
+            onChange={ev => setPrimaryColorHover(ev.target.value)}
+          />
         </div>
 
         <div>
-          <Text variant="label">secondaryColorHover</Text>
-
-          <label htmlFor="secondaryColorHover" style={{ display: 'block' }}>
-            <input
-              id="secondaryColorHover"
-              type="color"
-              value={secondaryColorHover}
-              onChange={ev => setSecondaryColorHover(ev.target.value)}
-            />{' '}
-            {secondaryColorHover.toUpperCase()}
-          </label>
+          <Input
+            label="secondaryColorHover"
+            type="text"
+            value={secondaryColorHover}
+            onChange={ev => setSecondaryColorHover(ev.target.value)}
+          />
         </div>
       </Inputs>
     </Demo>
