@@ -27,8 +27,8 @@ import ToastView from './demos/Toast/Toast.view';
 import TooltipView from './demos/Tooltip/Tooltip.view';
 import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
-import { styled } from './lib/stitches.config';
-import { Flex, IconButton, useTheme, useGlobalStyles } from './lib';
+import { Editor } from './demos/Editor/Editor';
+import { Flex, IconButton, useTheme, useGlobalStyles, styled } from './lib';
 
 export const SidebarWrapper = styled('div', {
   flex: 2,
@@ -74,6 +74,7 @@ const App = () => {
         <Route path="/checkbox" component={CheckboxView} />
         <Route path="/dialog" component={DialogView} />
         <Route path="/editable-input" component={EditableInputView} />
+        <Route path="/editor" component={Editor} />
         <Route path="/icon" component={IconView} />
         <Route path="/icon-button" component={IconButtonView} />
         <Route path="/illustrated-icon" component={IllustratedIconView} />

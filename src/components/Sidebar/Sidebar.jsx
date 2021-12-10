@@ -23,6 +23,7 @@ const Sidebar = () => (
       <SidebarLink to="/checkbox">Checkbox</SidebarLink>
       <SidebarLink to="/dialog">Dialog</SidebarLink>
       <SidebarLink to="/editable-input">Editable Input</SidebarLink>
+      <SidebarLink to="/editor">Editor</SidebarLink>
       <SidebarLink to="/icon">Icon</SidebarLink>
       <SidebarLink to="/icon-button">IconButton</SidebarLink>
       <SidebarLink to="/illustrated-icon">IllustratedIcon</SidebarLink>
