@@ -1,4 +1,4 @@
-import { styled } from '../../lib/stitches.config';
+import { styled } from '../../lib';
 
 const Wrapper = styled('main', {
   width: 600,
