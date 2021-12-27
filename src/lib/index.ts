@@ -23,6 +23,8 @@ export { Skeleton } from './Skeleton/Skeleton';
 export { Spinner } from './Spinner/Spinner';
 export { Splash } from './Splash/Splash';
 export { Switch } from './Switch/Switch';
+export { Stat } from './Stat/Stat';
+export { Card } from './Card/Card';
 export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from './Table';
 export { Text } from './Text/Text';
 export { toast, ToastContainer } from './Toast/Toast';
