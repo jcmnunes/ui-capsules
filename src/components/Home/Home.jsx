@@ -3,7 +3,7 @@ import { Alert, Anchor, Button } from '../../lib';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
-import { styled } from '../../lib/stitches.config';
+import { styled } from '../../lib';
 
 export const Description = styled('div', {
   display: 'flex',
@@ -57,10 +57,7 @@ const Home = () => (
     <Title>Getting Started</Title>
 
     <Description>
-      <Paragraph>
-        React UI kit (used by <Anchor href="https://binarycapsule.tech">Binary Capsule</Anchor>
-        ).
-      </Paragraph>
+      <Paragraph>React UI kit.</Paragraph>
 
       <a href="https://github.com/jcmnunes/ui-capsules" target="_blank" rel="noreferrer noopener">
         <Button variant="ghostGray" leftIcon="github">
@@ -94,7 +91,7 @@ const Home = () => (
 
       <StyledParagraph>
         If using the modal component, call setAppElement with a selector for the root element{' '}
-        <Anchor href="http://reactcommunity.org/react-modal/accessibility/">
+        <Anchor href="https://reactcommunity.org/react-modal/accessibility/">
           (see react-modal docs)
         </Anchor>
         :
