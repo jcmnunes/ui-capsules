@@ -10,8 +10,11 @@
 
 ---
 
-React UI kit used by BinaryCapsule
-([binarycapsule.tech](https://binarycapsule.tech)).
+React UI kit.
+
+🚨 Breakable toy 🚨
+
+This library is a breakable toy. New versions will often contain breaking changes, even for non-major releases.
 
 The Components demo (wip) can be visited [here](https://uic.binarycapsule.tech).
 

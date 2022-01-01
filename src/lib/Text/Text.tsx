@@ -16,6 +16,7 @@ export const Text = styled('span', {
   fontWeight: 400,
   fontSize: '$2',
   color: '$neutral700',
+  display: 'block',
 
   variants: {
     isTruncated: {
