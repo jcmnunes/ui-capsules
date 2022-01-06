@@ -1,6 +1,6 @@
 import React from 'react';
-import RSelect, { Props as RSelectProps, Styles, Theme as RSTheme } from 'react-select';
-import { Option } from './components/Option';
+import RSelect, { GroupBase, Props as RSProps, StylesConfig, Theme as RSTheme } from 'react-select';
+import { Option as OptionComponent } from './components/Option';
 import { Label } from '../Label/Label';
 import { useId } from '@reach/auto-id';
 import { Box } from '../Box/Box';
@@ -23,7 +23,7 @@ const dimensions = {
   },
 };
 
-const customStyles = (size: Size): Partial<Styles<any, any>> => ({
+const customStyles = (size: Size): Partial<StylesConfig<any, any>> => ({
   container: provided => ({
     ...provided,
     width: '100%',
@@ -120,26 +120,21 @@ const StyledReactSelect = styled(RSelect, {
   },
 });
 
-interface GroupType<OptionType> {
-  options: OptionType[];
-
-  [key: string]: any;
-}
-
-interface Props<OptionType, IsMulti extends boolean>
-  extends RSelectProps<OptionType, IsMulti, GroupType<OptionType>>,
+interface Props<
+  Option = unknown,
+  IsMulti extends boolean = false,
+  Group extends GroupBase<Option> = GroupBase<Option>
+> extends RSProps<Option, IsMulti, Group>,
     CSSProp {
   size?: 'medium' | 'large';
   label?: string;
 }
 
-export function Select<OptionType, IsMulti extends boolean = false>({
-  size = 'medium',
-  label,
-  id,
-  css,
-  ...rest
-}: Props<OptionType, IsMulti>) {
+export function Select<
+  Option,
+  IsMulti extends boolean = false,
+  Group extends GroupBase<Option> = GroupBase<Option>
+>({ size = 'medium', label, id, css, ...rest }: Props<Option, IsMulti, Group>) {
   const inputId = useId(id);
 
   return (
@@ -150,17 +145,20 @@ export function Select<OptionType, IsMulti extends boolean = false>({
         </Label>
       )}
 
+      {/* https://github.com/JedWatson/react-select/pull/4941 */}
+      {/* @ts-ignore */}
       <StyledReactSelect
         {...rest}
         inputId={inputId}
-        size={size}
         styles={customStyles(size)}
         theme={(rsTheme: RSTheme) => customTheme(rsTheme, size)}
         classNamePrefix="react-select"
-        components={{
-          Option,
-          ...rest.components,
-        }}
+        components={
+          {
+            Option: OptionComponent,
+            ...rest.components,
+          } as any
+        }
       />
     </Box>
   );
