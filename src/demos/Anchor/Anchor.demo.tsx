@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Anchor, Input, Select, SelectOption } from '../../lib';
+import { Anchor, Input, Select } from '../../lib';
 import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, HREF_OPTS } from './Anchor.constants';
 
@@ -17,7 +17,9 @@ const AnchorDemo = () => {
             label="href"
             value={href}
             options={HREF_OPTS}
-            onChange={opt => setHref(opt as SelectOption<string>)}
+            onChange={opt => {
+              if (opt) setHref(opt);
+            }}
           />
         </div>
 
