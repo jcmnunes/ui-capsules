@@ -1,6 +1,8 @@
 import React from 'react';
 import { styled } from '../stitches.config';
 import { Icon } from '../Icon/Icon';
+import { darkTheme } from '../darkTheme';
+import { IconType, Status } from '../types';
 
 export const StyledModalHeader = styled('div', {
   display: 'flex',
@@ -24,50 +26,79 @@ export const IconContainer = styled('div', {
     variant: {
       success: {
         background: '$success100',
+
+        [`.${darkTheme} &`]: {
+          background: '$neutral100',
+        },
       },
 
       warning: {
         background: '$warning100',
+
+        [`.${darkTheme} &`]: {
+          background: '$neutral100',
+        },
       },
 
       error: {
         background: '$error100',
+
+        [`.${darkTheme} &`]: {
+          background: '$neutral100',
+        },
       },
     },
   },
 });
 
-const SuccessIcon = () => {
-  return <Icon icon="check_c" size={24} css={{ color: '$success700' }} />;
-};
+const StyledIcon = styled(Icon, {
+  variants: {
+    variant: {
+      success: {
+        color: '$success700',
 
-const WarningIcon = () => {
-  return <Icon icon="exclamation_t" size={24} css={{ color: '$yellow700' }} />;
-};
+        [`.${darkTheme} &`]: {
+          color: '$success400',
+        },
+      },
 
-const ErrorIcon = () => {
-  return <Icon icon="exclamation_c" size={24} css={{ color: '$error600' }} />;
-};
+      warning: {
+        color: '$warning700',
+
+        [`.${darkTheme} &`]: {
+          color: '$warning300',
+        },
+      },
+
+      error: {
+        color: '$error700',
+
+        [`.${darkTheme} &`]: {
+          color: '$error400',
+        },
+      },
+    },
+  },
+});
 
 interface ModalHeaderProps {
-  variant?: 'success' | 'warning' | 'error';
+  variant?: Status;
 }
 
+const iconMap: Record<Status, IconType> = {
+  success: 'check_c',
+  warning: 'exclamation_t',
+  error: 'exclamation_c',
+};
+
 export const ModalHeader: React.FC<ModalHeaderProps> = ({ variant, children }) => {
-  let Icon;
-  if (variant === 'success') {
-    Icon = SuccessIcon;
-  } else if (variant === 'warning') {
-    Icon = WarningIcon;
-  } else if (variant === 'error') {
-    Icon = ErrorIcon;
-  }
+  const icon = variant ? iconMap[variant] : null;
 
   return (
     <StyledModalHeader>
-      {Icon && (
+      {icon && (
         <IconContainer variant={variant}>
-          <Icon />
+          <StyledIcon icon={icon} variant={variant} size={24} />
         </IconContainer>
       )}
 
