@@ -1,7 +1,7 @@
 import { ElementSize } from '../../lib';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Modal/Modal.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Modal/Modal.tsx';
 
 export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
   { value: 'small', label: 'small' },

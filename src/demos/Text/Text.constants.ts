@@ -1,7 +1,6 @@
 import { TextVariant } from '../../lib/Text/Text';
 
-export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Text/Text.tsx';
+export const GITHUB_URL = 'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Text/Text.tsx';
 
 export const TEXT_VARIANT_OPTS: { label: string; value?: TextVariant }[] = [
   { value: undefined, label: 'none' },

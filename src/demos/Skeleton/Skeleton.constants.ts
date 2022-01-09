@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Skeleton/Skeleton.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Skeleton/Skeleton.tsx';
 
 export const PROPS = [
   {

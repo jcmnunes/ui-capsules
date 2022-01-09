@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/TruncatedText/TruncatedText.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/TruncatedText/TruncatedText.tsx';
 
 export const PROPS = [
   {

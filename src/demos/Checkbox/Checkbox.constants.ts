@@ -1,7 +1,7 @@
 import { DualSize } from '../../lib';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Checkbox/Checkbox.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Checkbox/Checkbox.tsx';
 
 export const SIZE_OPTS: { label: string; value: DualSize }[] = [
   { value: 'medium', label: 'medium' },

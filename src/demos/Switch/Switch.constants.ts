@@ -2,7 +2,7 @@ import { PropsDoc } from '../types';
 import { DualSize } from '../../lib';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Switch/Switch.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Switch/Switch.tsx';
 
 export const SIZE_OPTS: { label: string; value: DualSize }[] = [
   { value: 'medium', label: 'medium' },
