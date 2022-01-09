@@ -10,7 +10,7 @@ export { Icon } from './Icon/Icon';
 export { IconButton } from './IconButton/IconButton';
 export { IllustratedIcon } from './IllustratedIcon/IllustratedIcon';
 export { Input } from './Input/Input';
-export { Modal, ReactModal } from './Modal/Modal';
+export { Modal } from './Modal/Modal';
 export { ModalBody } from './Modal/ModalBody';
 export { ModalCloseButton } from './Modal/ModalCloseButton';
 export { ModalFooter } from './Modal/ModalFooter';
@@ -39,7 +39,6 @@ export {
 } from './Menu/Menu';
 export { Tooltip } from './Tooltip/Tooltip';
 export { TruncatedText } from './TruncatedText/TruncatedText';
-export { setAppElement } from 'react-modal';
 export { useTheme } from './hooks/useTheme';
 export { useLocalStorage } from './hooks/useLocalStorage';
 export { useGlobalStyles } from './hooks/useGlobalStyles';

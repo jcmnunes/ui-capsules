@@ -6,7 +6,6 @@ import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { Anchor } from '../../lib';
 import { PROPS } from './Modal.constants';
-import { setAppElementExample } from '../../components/Home/Home';
 
 const ModalDemo = () => {
   return (
@@ -15,7 +14,7 @@ const ModalDemo = () => {
         <Title>Modal</Title>
         <Paragraph>
           Accessible modal based on{' '}
-          <Anchor href="https://reactcommunity.org/react-modal">react-modal</Anchor>.
+          <Anchor href="https://reach.tech/dialog">Reach UI's Dialog.</Anchor>.
         </Paragraph>
       </header>
 
@@ -26,21 +25,6 @@ const ModalDemo = () => {
             "import { Modal, ModalBody, ModalTitle, ModalFooter } from '@binarycapsule/ui-capsules';"
           }
         </Usage>
-
-        <Paragraph>
-          To improve A11y, at the entry point of the app call the <code>setAppElement</code> method
-          with a query selector identifying the root of your app.
-        </Paragraph>
-
-        <Usage>{setAppElementExample}</Usage>
-
-        <Paragraph>
-          See{' '}
-          <Anchor href="https://reactcommunity.org/react-modal/accessibility/#app-element">
-            react-modal docs
-          </Anchor>{' '}
-          for more information.
-        </Paragraph>
       </section>
 
       <Demo />
@@ -50,10 +34,10 @@ const ModalDemo = () => {
       <section>
         <SubSubTitle>Note:</SubSubTitle>
         <Paragraph>
-          This component accepts all props from the{' '}
-          <Anchor href="https://reactcommunity.org/react-modal">react-modal API</Anchor>. Please
-          refer to the <Anchor href="https://reactcommunity.org/react-modal/#usage">docs</Anchor>{' '}
-          for more information.
+          This component accepts all props from{' '}
+          <Anchor href="https://reach.tech/dialog/#dialogoverlay">DialogOverlay props</Anchor>.
+          Please refer to the <Anchor href="https://reach.tech">Reach UI docs</Anchor> for more
+          information.
         </Paragraph>
       </section>
     </Wrapper>

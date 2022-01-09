@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import ReactModal from 'react-modal';
 import { Button } from '../Button/Button';
-import { Modal } from '../Modal/Modal';
+import { Modal, ModalProps } from '../Modal/Modal';
 import { ModalBody } from '../Modal/ModalBody';
 import { ModalCloseButton } from '../Modal/ModalCloseButton';
 import { ModalFooter } from '../Modal/ModalFooter';
@@ -9,13 +8,11 @@ import { ModalHeader } from '../Modal/ModalHeader';
 import { Text } from '../Text/Text';
 import { Action } from '../types';
 
-interface Props extends ReactModal.Props {
-  isOpen: boolean;
+interface Props extends ModalProps {
   title?: string;
   message: string;
-  contentLabel: string;
   actions: Action[];
-  onClose: ReactModal.Props['onRequestClose'];
+  variant?: 'success' | 'warning' | 'error';
 }
 
 export const Dialog: FC<Props> = ({
@@ -25,11 +22,12 @@ export const Dialog: FC<Props> = ({
   onClose,
   title,
   message,
+  variant,
   ...rest
 }) => {
   return (
-    <Modal isOpen={isOpen} contentLabel={contentLabel} onClose={onClose} size="small" {...rest}>
-      <ModalHeader>{title}</ModalHeader>
+    <Modal isOpen={isOpen} contentLabel={contentLabel} onClose={onClose} {...rest}>
+      <ModalHeader variant={variant}>{title}</ModalHeader>
 
       {onClose && <ModalCloseButton size="small" onClick={onClose} />}
 

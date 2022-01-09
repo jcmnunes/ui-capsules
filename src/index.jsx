@@ -4,21 +4,19 @@ import '@reach/menu-button/styles.css';
 import '@reach/tooltip/styles.css';
 import './lib/styles/global.css';
 
-import { setAppElement, ToastContainer } from './lib';
+import { ToastContainer } from './lib';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
-setAppElement('#root');
-
 ReactDOM.render(
-  <>
+  <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
 
     <ToastContainer />
-  </>,
+  </React.StrictMode>,
   document.getElementById('root'),
 );

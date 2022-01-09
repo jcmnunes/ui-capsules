@@ -1,4 +1,4 @@
-import { ElementSize, IconVariant } from '../../lib';
+import { ElementSize, IconVariant, Status } from '../../lib';
 import { ButtonVariant } from '../../lib/Button/Button.styles';
 
 export const BTN_VARIANT_OPTS: { label: string; value: ButtonVariant }[] = [
@@ -19,4 +19,10 @@ export const SIZE_OPTS: { label: string; value: ElementSize }[] = [
 export const ICON_VARIANT_OPTS: { label: string; value: IconVariant }[] = [
   { value: 'solid', label: 'solid' },
   { value: 'outline', label: 'outline' },
+];
+
+export const STATUS_OPTS: { label: string; value: Status }[] = [
+  { value: 'success', label: 'success' },
+  { value: 'warning', label: 'warning' },
+  { value: 'error', label: 'error' },
 ];

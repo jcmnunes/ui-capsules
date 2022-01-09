@@ -24,6 +24,8 @@ export type IllustratedIconType = keyof typeof illustratedIcons;
 
 export type SelectOption<T> = { label: string; value: T };
 
+export type Status = 'success' | 'warning' | 'error';
+
 export interface CSSProp {
   css?: CSS;
 }

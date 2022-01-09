@@ -6,50 +6,35 @@ import { Paragraph, SubSubTitle, SubTitle, Title } from '../../components/common
 import Wrapper from '../../components/common/Wrapper';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Dialog.constants';
-import { setAppElementExample } from '../../components/Home/Home';
 
 const DialogDemo = () => {
   return (
     <Wrapper as="main">
       <header>
         <Title>Dialog</Title>
+
         <Paragraph>
           Accessible dialog based on{' '}
-          <Anchor href="http://reactcommunity.org/react-modal">react-modal</Anchor>.
+          <Anchor href="https://reach.tech/dialog">Reach UI's Dialog</Anchor>.
         </Paragraph>
       </header>
 
       <section>
         <SubTitle>Usage</SubTitle>
         <Usage>{"import { Dialog } from '@binarycapsule/ui-capsules';"}</Usage>
-
-        <Paragraph>
-          To improve A11y, at the entry point of the app call the <code>setAppElement</code> method
-          with a query selector identifying the root of your app.
-        </Paragraph>
-
-        <Usage>{setAppElementExample}</Usage>
-
-        <Paragraph>
-          See{' '}
-          <Anchor href="http://reactcommunity.org/react-modal/accessibility/#app-element">
-            react-modal docs
-          </Anchor>{' '}
-          for more information.
-        </Paragraph>
       </section>
 
       <Demo />
 
       <PropsTable props={PROPS} />
 
-      <section>
+      <section style={{ marginTop: 16 }}>
         <SubSubTitle>Note:</SubSubTitle>
         <Paragraph>
-          This component accepts all props from the{' '}
-          <Anchor href="http://reactcommunity.org/react-modal">react-modal API</Anchor>. Please
-          refer to the <Anchor href="http://reactcommunity.org/react-modal/#usage">docs</Anchor> for
-          more information.
+          This component accepts all props from{' '}
+          <Anchor href="https://reach.tech/dialog/#dialogoverlay">DialogOverlay props</Anchor>.
+          Please refer to the <Anchor href="https://reach.tech">Reach UI docs</Anchor> for more
+          information.
         </Paragraph>
       </section>
     </Wrapper>
