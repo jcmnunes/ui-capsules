@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import AlertView from './demos/Alert/Alert.view';
