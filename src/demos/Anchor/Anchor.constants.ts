@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Anchor/Anchor.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Anchor/Anchor.tsx';
 
 export const HREF_OPTS = [
   { value: 'http://example.com', label: 'http://example.com' },

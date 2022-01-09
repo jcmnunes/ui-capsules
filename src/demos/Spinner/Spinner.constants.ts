@@ -1,7 +1,7 @@
 import { DualSize } from '../../lib';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Spinner/Spinner.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Spinner/Spinner.tsx';
 
 export const SIZE_OPTS: { label: string; value: DualSize }[] = [
   { value: 'medium', label: 'medium' },

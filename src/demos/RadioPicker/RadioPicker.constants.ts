@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/RadioPicker/RadioPicker.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/RadioPicker/RadioPicker.tsx';
 
 export const EXAMPLE_RADIOS = [
   { id: 1, label: 'Lorem Ipsum', helpText: 'Praesent commodo cursus magna.' },

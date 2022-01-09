@@ -1,7 +1,7 @@
 import { SplashVariant } from '../../lib/Splash/Splash';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Splash/Splash.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Splash/Splash.tsx';
 
 export const SPLASH_VARIANT_OPTS: { label: string; value: SplashVariant }[] = [
   { label: 'splash', value: 'splash' },

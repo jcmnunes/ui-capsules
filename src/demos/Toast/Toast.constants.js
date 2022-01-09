@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Toast/Toast.jsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Toast/Toast.jsx';
 
 export const toastTypeOpts = [
   { value: 'success', label: 'success' },

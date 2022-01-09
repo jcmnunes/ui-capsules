@@ -1,7 +1,7 @@
 import { InputVariant } from '../../lib/Input/Input.styles';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Input/Input.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Input/Input.tsx';
 
 export const INPUT_VARIANT_OPTS: { label: string; value?: InputVariant }[] = [
   { value: undefined, label: 'none' },

@@ -1,7 +1,7 @@
 import { AlertVariant } from '../../lib/Alert/Alert.styles';
 
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/Alert/Alert.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/Alert/Alert.tsx';
 
 export const VARIANT_OPTS: { label: string; value: AlertVariant }[] = [
   { value: 'info', label: 'info' },

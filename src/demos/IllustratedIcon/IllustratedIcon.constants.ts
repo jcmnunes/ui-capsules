@@ -1,5 +1,5 @@
 export const GITHUB_URL =
-  'https://github.com/jcmnunes/ui-capsules/blob/master/src/lib/IllustratedIcon/IllustratedIcon.tsx';
+  'https://github.com/jcmnunes/ui-capsules/blob/main/src/lib/IllustratedIcon/IllustratedIcon.tsx';
 
 export const ILLUSTRATED_ICON_PROPS = [
   {
