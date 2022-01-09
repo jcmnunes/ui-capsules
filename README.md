@@ -46,7 +46,7 @@ npm i react react-dom @stitches/react
 As well as the following devDependencies:
 
 ```
-npm i -D @types/react-modal @types/react-select
+npm i -D @types/react-modal
 ```
 
 ## Setup
