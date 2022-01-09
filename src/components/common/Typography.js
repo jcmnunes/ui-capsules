@@ -1,4 +1,4 @@
-import { styled } from '../../lib/stitches.config';
+import { styled } from '../../lib';
 
 export const Title = styled('h1', {
   color: '$neutral700',
@@ -21,22 +21,11 @@ export const SubSubTitle = styled('h3', {
   fontSize: '$2',
   fontWeight: 700,
   marginTop: '$4',
-  marginBottom: '$3',
+  marginBottom: '$2',
 });
 
 export const Paragraph = styled('p', {
   color: '$neutral600',
   fontSize: '$2',
   lineHeight: '$2',
-});
-
-export const UL = styled('ul', {
-  listStyle: 'disc outside none',
-  paddindLeft: 18,
-  margin: '16px 0',
-  lineHeight: '1.5em',
-
-  li: {
-    marginBottom: 6,
-  },
 });

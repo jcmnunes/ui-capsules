@@ -43,34 +43,12 @@ The following peer dependencies should also be installed:
 npm i react react-dom @stitches/react
 ```
 
-As well as the following devDependencies:
-
-```
-npm i -D @types/react-modal
-```
-
 ## Setup
 
 Import the setup script at the entry point of you app:
 
 ```jsx
 import '@binarycapsule/ui-capsules/dist/setup';
-```
-
-If using the modal component, call setAppElement with a selector for the root
-element:
-
-```jsx
-import { setAppElement } from '@binarycapsule/ui-capsules';
-
-setAppElement('#root');
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
 ```
 
 Render the ToastContainer:

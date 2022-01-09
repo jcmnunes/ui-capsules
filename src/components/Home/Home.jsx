@@ -1,9 +1,8 @@
 import React from 'react';
-import { Alert, Anchor, Button } from '../../lib';
+import { Alert, Button, styled } from '../../lib';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import Wrapper from '../common/Wrapper';
-import { styled } from '../../lib';
 
 export const Description = styled('div', {
   display: 'flex',
@@ -16,16 +15,6 @@ export const Description = styled('div', {
 export const StyledParagraph = styled(Paragraph, {
   margin: '24px 0 16px',
 });
-
-export const setAppElementExample = `import { setAppElement } from '@binarycapsule/ui-capsules';
-
-setAppElement('#root');
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root'),
-);
-`;
 
 export const providersExample = `import { ToastContainer } from '@binarycapsule/ui-capsules';
 
@@ -81,22 +70,10 @@ const Home = () => (
       <StyledParagraph>The following peer dependencies should also be installed:</StyledParagraph>
       <Usage>npm i react react-dom @stitches/react</Usage>
 
-      <StyledParagraph>As well as the following devDependencies:</StyledParagraph>
-      <Usage>npm i -D @types/react-modal</Usage>
-
       <SubTitle>Setup</SubTitle>
 
       <StyledParagraph>Import the setup script at the entry point of you app:</StyledParagraph>
       <Usage>import &apos;@binarycapsule/ui-capsules/dist/setup&apos;;</Usage>
-
-      <StyledParagraph>
-        If using the modal component, call setAppElement with a selector for the root element{' '}
-        <Anchor href="https://reactcommunity.org/react-modal/accessibility/">
-          (see react-modal docs)
-        </Anchor>
-        :
-      </StyledParagraph>
-      <Usage>{setAppElementExample}</Usage>
 
       <StyledParagraph>Render the ToastContainer:</StyledParagraph>
       <Usage>{providersExample}</Usage>
