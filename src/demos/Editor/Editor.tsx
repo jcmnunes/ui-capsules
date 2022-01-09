@@ -18,7 +18,7 @@ export const Editor = () => {
           <Usage>{"import { Editor } from '@binarycapsule/editor';"}</Usage>
         </section>
 
-        <Box css={{ position: 'relative', flex: 1 }}>
+        <Box css={{ position: 'relative', height: '100vh' }}>
           <iframe
             title="Editor landing page"
             src="https://editor.binarycapsule.tech/"
