@@ -23,8 +23,7 @@
     "build": "npm run clean && tsc -p tsconfig.prod.json && cp -rf src/lib/styles assets && cp -rf src/lib/setup.js dist",
     "validate": "npm-run-all --parallel types format lint build",
     "pack": "npm run build && npm pack",
-    "semantic-release": "semantic-release",
-    "commit": "git-cz"
+    "semantic-release": "semantic-release"
   },
   "husky": {
     "hooks": {
