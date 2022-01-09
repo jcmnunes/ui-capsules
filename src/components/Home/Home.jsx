@@ -82,7 +82,7 @@ const Home = () => (
       <Usage>npm i react react-dom @stitches/react</Usage>
 
       <StyledParagraph>As well as the following devDependencies:</StyledParagraph>
-      <Usage>npm i -D @types/react-modal @types/react-select</Usage>
+      <Usage>npm i -D @types/react-modal</Usage>
 
       <SubTitle>Setup</SubTitle>
 
