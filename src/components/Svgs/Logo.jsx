@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { styled } from '../../lib/stitches.config';
+import { styled } from '../../lib';
 
 const Svg = styled('svg', {
   path: {
