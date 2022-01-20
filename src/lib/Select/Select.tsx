@@ -113,6 +113,10 @@ const StyledReactSelect = styled(RSelect, {
     color: '$neutral600',
   },
 
+  '.react-select__menu': {
+    background: '$bg',
+  },
+
   '.react-select__menu-list': {
     background: '$bg',
     border: '1px solid $neutral200',

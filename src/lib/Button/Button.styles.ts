@@ -206,5 +206,49 @@ export const StyledButton = styled('button', {
         paddingRight: '$5',
       },
     },
+
+    hasLeftIcon: {
+      true: {
+        paddingLeft: '$3',
+      },
+    },
+
+    hasRightIcon: {
+      true: {
+        paddingLeft: '$3',
+      },
+    },
   },
+
+  compoundVariants: [
+    {
+      hasLeftIcon: true,
+      size: 'small',
+      css: {
+        paddingLeft: '$1',
+      },
+    },
+    {
+      hasLeftIcon: true,
+      size: 'large',
+      css: {
+        paddingLeft: 20,
+      },
+    },
+
+    {
+      hasRightIcon: true,
+      size: 'small',
+      css: {
+        paddingRight: '$1',
+      },
+    },
+    {
+      hasRightIcon: true,
+      size: 'large',
+      css: {
+        paddingRight: 20,
+      },
+    },
+  ],
 });

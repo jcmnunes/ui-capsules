@@ -46,6 +46,8 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
         as={as}
         ref={ref}
         type={type}
+        hasLeftIcon={!!leftIcon}
+        hasRightIcon={!!rightIcon}
         {...(as === 'a' ? anchorProps : {})}
         {...rest}
       >
