@@ -15,6 +15,7 @@ const SelectDemo = () => {
       options={OPTIONS}
       onChange={opt => setOption(opt as SelectOption<string>)}
       size={size.value}
+      isClearable
     />
   );
 
