@@ -122,6 +122,14 @@ const StyledReactSelect = styled(RSelect, {
     border: '1px solid $neutral200',
     borderRadius: '$medium',
   },
+
+  '.react-select__clear-indicator': {
+    color: '$neutral400',
+
+    '&:hover': {
+      color: '$neutral700',
+    },
+  },
 });
 
 interface Props<
