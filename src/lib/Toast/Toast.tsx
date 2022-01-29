@@ -62,9 +62,17 @@ export const Toast: React.FC<ToastProps> = ({ variant, title, message }) => {
       </Box>
 
       <Flex direction="column" css={{ ml: '28px' }}>
-        {title && <Text css={{ fontWeight: 600, color: '$white' }}>{title}</Text>}
+        {title && (
+          <Text size="sm" css={{ fontWeight: 600, color: '$white' }}>
+            {title}
+          </Text>
+        )}
 
-        {message && <Text css={{ color: '$white' }}>{message}</Text>}
+        {message && (
+          <Text size="sm" css={{ color: '$white' }}>
+            {message}
+          </Text>
+        )}
       </Flex>
     </ToastWrapper>
   );

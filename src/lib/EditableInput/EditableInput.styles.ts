@@ -45,22 +45,22 @@ export const Value = styled('button', {
       small: {
         px: 8,
         py: 2,
-        fontSize: '$1',
-        height: 32,
+        fontSize: '$sm',
+        height: 36,
       },
 
       medium: {
         px: 8,
         py: 4,
-        fontSize: '$2',
-        height: 32,
+        fontSize: '$md',
+        height: 40,
       },
 
       large: {
         px: 8,
         py: 12,
-        fontSize: '$2',
-        height: 40,
+        fontSize: '$md',
+        height: 48,
       },
     },
   },

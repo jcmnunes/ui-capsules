@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { styled } from '../stitches.config';
 
 const StyledHead = styled('thead', {
-  fontSize: '$1',
+  fontSize: '$xs',
   textAlign: 'left',
   borderBottom: `1px solid $neutral300`,
   fontWeight: 600,
