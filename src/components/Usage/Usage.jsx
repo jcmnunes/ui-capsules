@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '../../lib';
+import { Button, styled } from '../../lib';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { styled } from '../../lib/stitches.config';
 
 const Wrapper = styled('div', {
   margin: '24px 0',

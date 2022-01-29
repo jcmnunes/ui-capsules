@@ -14,7 +14,7 @@ export const Text = styled('span', {
   fontFamily: '$inter',
   fontVariantNumeric: 'tabular-nums',
   fontWeight: 400,
-  fontSize: '$2',
+  fontSize: '$md',
   color: '$neutral700',
   display: 'block',
 
@@ -28,8 +28,8 @@ export const Text = styled('span', {
     variant: {
       smallCaps: {
         fontWeight: 600,
-        fontSize: '$1',
-        lineHeight: '$1',
+        fontSize: '$xs',
+        lineHeight: '$xs',
         color: '$neutral500',
         letterSpacing: '$wide',
         textTransform: 'uppercase',
@@ -37,55 +37,59 @@ export const Text = styled('span', {
 
       label: {
         fontWeight: 600,
-        fontSize: '$1',
-        lineHeight: '$1',
+        fontSize: '$sm',
+        lineHeight: '$sm',
         display: 'inline-block',
       },
 
       helper: {
         fontWeight: 500,
-        fontSize: '$1',
-        lineHeight: '$1',
+        fontSize: '$sm',
+        lineHeight: '$sm',
         color: '$neutral500',
       },
     },
 
     size: {
-      1: {
-        fontSize: '$1',
-        lineHeight: '$1',
+      xs: {
+        fontSize: '$xs',
+        lineHeight: '$xs',
       },
-      2: {
-        fontSize: '$2',
-        lineHeight: '$2',
+      sm: {
+        fontSize: '$sm',
+        lineHeight: '$sm',
       },
-      3: {
-        fontSize: '$3',
-        lineHeight: '$3',
+      md: {
+        fontSize: '$md',
+        lineHeight: '$md',
       },
-      4: {
-        fontSize: '$4',
-        lineHeight: '$4',
+      lg: {
+        fontSize: '$lg',
+        lineHeight: '$lg',
       },
-      5: {
-        fontSize: '$5',
-        lineHeight: '$5',
+      xl: {
+        fontSize: '$xl',
+        lineHeight: '$xl',
       },
-      6: {
-        fontSize: '$6',
-        lineHeight: '$6',
+      '2xl': {
+        fontSize: '$2xl',
+        lineHeight: '$2xl',
       },
-      7: {
-        fontSize: '$7',
-        lineHeight: '$7',
+      '3xl': {
+        fontSize: '$3xl',
+        lineHeight: '$3xl',
       },
-      8: {
-        fontSize: '$8',
-        lineHeight: '$8',
+      '4xl': {
+        fontSize: '$4xl',
+        lineHeight: '$4xl',
       },
-      9: {
-        fontSize: '$9',
-        lineHeight: '$9',
+      '5xl': {
+        fontSize: '$5xl',
+        lineHeight: '$5xl',
+      },
+      '6xl': {
+        fontSize: '$6xl',
+        lineHeight: '$6xl',
       },
     },
   },

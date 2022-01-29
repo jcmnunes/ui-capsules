@@ -61,7 +61,6 @@ const ButtonDemo = () => {
             onChange={evt => iconFilterSet(evt.target.value)}
             leftIcon="search"
             placeholder="Search"
-            size="large"
           />
         </Box>
 
@@ -81,7 +80,7 @@ const ButtonDemo = () => {
               size={48}
               css={{ color: '$gray400', mr: '$2' }}
             />
-            <Text css={{ fontSize: '$3', color: '$neutral400', textAlign: 'center', mt: 2 }}>
+            <Text size="lg" css={{ color: '$neutral400', textAlign: 'center', mt: 2 }}>
               {`No icons found for "${iconFilter}"`}
             </Text>
           </Flex>

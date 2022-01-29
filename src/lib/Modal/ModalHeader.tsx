@@ -10,7 +10,7 @@ export const StyledModalHeader = styled('div', {
   alignItems: 'center',
   padding: '24px 64px 4px 24px',
   color: '$neutral700',
-  fontSize: '$5',
+  fontSize: '$xl',
   fontWeight: 500,
   lineHeight: '32px',
 });
