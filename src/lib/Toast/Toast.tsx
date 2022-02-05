@@ -43,6 +43,7 @@ const ToastContainer: React.FC<ToastContainerProps> = props => {
       transition={slide}
       autoClose={5000}
       limit={3}
+      newestOnTop
       {...props}
     />
   );
