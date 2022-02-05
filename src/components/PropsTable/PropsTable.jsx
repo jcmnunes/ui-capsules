@@ -26,6 +26,7 @@ const StyledProp = styled('pre', {
 });
 
 const StyledDescription = styled('div', {
+  fontSize: '$sm',
   color: '$neutral700',
 });
 
