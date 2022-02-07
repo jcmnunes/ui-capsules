@@ -147,21 +147,21 @@ export const StyledInput = styled('input', {
     inputSize: {
       small: {
         height: 32,
-        fontSize: '$1',
+        fontSize: '$sm',
         pr: 8,
         pl: 8,
       },
 
       medium: {
         height: 36,
-        fontSize: '$2',
+        fontSize: '$md',
         pr: 8,
         pl: 8,
       },
 
       large: {
         height: 40,
-        fontSize: '$2',
+        fontSize: '$lg',
         pr: 8,
         pl: 8,
       },

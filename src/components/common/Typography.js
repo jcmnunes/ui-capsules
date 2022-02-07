@@ -2,15 +2,15 @@ import { styled } from '../../lib';
 
 export const Title = styled('h1', {
   color: '$neutral700',
-  fontSize: '$8',
-  lineHeight: '$8',
+  fontSize: '$5xl',
+  lineHeight: '$5xl',
   fontWeight: 700,
   marginBottom: '$4',
 });
 
 export const SubTitle = styled('h2', {
   color: '$neutral700',
-  fontSize: '$5',
+  fontSize: '$2xl',
   fontWeight: 700,
   marginTop: '$6',
   marginBottom: '$4',
@@ -18,7 +18,7 @@ export const SubTitle = styled('h2', {
 
 export const SubSubTitle = styled('h3', {
   color: '$neutral700',
-  fontSize: '$2',
+  fontSize: '$md',
   fontWeight: 700,
   marginTop: '$4',
   marginBottom: '$2',
@@ -26,6 +26,6 @@ export const SubSubTitle = styled('h3', {
 
 export const Paragraph = styled('p', {
   color: '$neutral600',
-  fontSize: '$2',
-  lineHeight: '$2',
+  fontSize: '$md',
+  lineHeight: '$md',
 });

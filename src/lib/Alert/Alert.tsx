@@ -36,7 +36,7 @@ export const Alert: React.FC<Props> = ({
             <Text css={{ fontWeight: 600, color: 'inherit', mb: message ? '$1' : 0 }}>{title}</Text>
           )}
 
-          {!!message && <Text css={{ color: 'inherit', lineHeight: '$2' }}>{message}</Text>}
+          {!!message && <Text css={{ color: 'inherit' }}>{message}</Text>}
 
           {actions && (
             <Flex css={{ mt: '$2' }}>

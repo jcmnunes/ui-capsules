@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { styled } from '../../lib/stitches.config';
+import { styled } from '../../lib';
 
 const Card = styled('div', {
   position: 'relative',
@@ -34,7 +34,7 @@ const Icon = styled('div', {
 const Label = styled('div', {
   color: '$neutral600',
   background: '$neutral100 ',
-  fontSize: '12px',
+  fontSize: '$sm',
   fontWeight: 700,
   textTransform: 'lowercase',
   height: 30,

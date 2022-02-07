@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { styled } from '../../lib/stitches.config';
+import { styled } from '../../lib';
 
 export const StyledSidebar = styled('nav', {
   width: 256,
@@ -8,7 +8,7 @@ export const StyledSidebar = styled('nav', {
 });
 
 export const StyledSidebarLink = styled(NavLink, {
-  fontSize: '14px',
+  fontSize: '$md',
   fontWeight: 500,
   height: 32,
   borderRadius: '$medium',
@@ -16,6 +16,7 @@ export const StyledSidebarLink = styled(NavLink, {
   color: '$neutral700',
   cursor: 'pointer',
   padding: '4px 12px',
+  position: 'relative',
 
   '&:hover': {
     background: '$neutral200',
@@ -24,6 +25,18 @@ export const StyledSidebarLink = styled(NavLink, {
   '&.active': {
     background: '$neutral200',
     color: '$secondary700',
+
+    '&::after': {
+      content: '""',
+      display: 'inline-block',
+      height: 16,
+      width: 3,
+      borderRadius: '0 2px 2px 0',
+      background: '$secondary500',
+      position: 'absolute',
+      left: 0,
+      top: 8,
+    },
   },
 });
 

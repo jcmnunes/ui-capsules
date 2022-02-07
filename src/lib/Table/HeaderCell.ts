@@ -4,6 +4,7 @@ export const HeaderCell = styled('th', {
   height: '38px',
   verticalAlign: 'middle',
   padding: '0 18px',
+  fontWeight: 600,
 
   variants: {
     textAlign: {

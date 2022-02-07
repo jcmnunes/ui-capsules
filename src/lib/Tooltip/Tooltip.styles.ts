@@ -6,8 +6,8 @@ export const StyledTooltip = styled(RTooltip, {
   padding: '4px 8px',
   background: '$neutral700',
   color: '$white',
-  fontSize: '$1',
-  lineHeight: '$1',
+  fontSize: '$sm',
+  lineHeight: '$sm',
   fontWeight: 500,
   borderRadius: '$medium',
   boxShadow: '$300',
@@ -16,8 +16,7 @@ export const StyledTooltip = styled(RTooltip, {
   whiteSpace: 'normal',
 
   [`.${darkTheme} &`]: {
-    background: '$neutral100',
-    border: `1px solid $neutral200`,
+    background: '$neutral200',
     color: '$neutral600',
   },
 });

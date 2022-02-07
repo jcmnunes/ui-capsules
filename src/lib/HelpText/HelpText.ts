@@ -1,8 +1,8 @@
 import { styled } from '../stitches.config';
 
 export const HelpText = styled('div', {
-  fontSize: '$1',
-  lineHeight: '$1',
+  fontSize: '$sm',
+  lineHeight: '$sm',
   color: '$neutral500',
   display: 'flex',
   flexDirection: 'row',

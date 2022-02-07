@@ -8,7 +8,7 @@ export const { styled, css, keyframes, config, createTheme } = createStitches({
     colors,
 
     fonts: {
-      inter: 'Inter, -apple-system, system-ui, sans-serif',
+      inter: '"Inter", -apple-system, system-ui, sans-serif',
       hack: 'Hack, monospace',
     },
 
@@ -25,15 +25,15 @@ export const { styled, css, keyframes, config, createTheme } = createStitches({
     },
 
     fontSizes: {
-      1: '12px',
-      2: '14px',
-      3: '16px',
-      4: '18px',
-      5: '20px',
-      6: '24px',
-      7: '32px',
-      8: '36px',
-      9: '48px',
+      sm: '12px',
+      md: '14px',
+      lg: '16px',
+      xl: '18px',
+      '2xl': '20px',
+      '3xl': '24px',
+      '4xl': '32px',
+      '5xl': '36px',
+      '6xl': '48px',
     },
 
     fontWeights: {
@@ -48,15 +48,15 @@ export const { styled, css, keyframes, config, createTheme } = createStitches({
     },
 
     lineHeights: {
-      1: '18px',
-      2: '21px',
-      3: '24px',
-      4: '24px',
-      5: '32px',
-      6: '32px',
-      7: '48px',
-      8: '56px',
-      9: '72px',
+      sm: '18px',
+      md: '21px',
+      lg: '24px',
+      xl: '24px',
+      '2xl': '32px',
+      '3xl': '32px',
+      '4xl': '48px',
+      '5xl': '56px',
+      '6xl': '72px',
     },
 
     radii: {
@@ -67,20 +67,6 @@ export const { styled, css, keyframes, config, createTheme } = createStitches({
       xl: '8px',
       round: '50%',
       full: '999px',
-    },
-
-    shadows: {
-      focus: '0px 0px 0px 3px #7EC4F6, inset 0px 0px 0px 1px #0078D4',
-      focusSuccess: '0px 0px 0px 3px #84E1BC, inset 0px 0px 0px 1px #007A5A',
-      focusError: '0px 0px 0px 3px #FEAEB6, inset 0px 0px 0px 1px #E01E5A',
-      inset: 'inset 0px 1px 2px rgba(55, 65, 81, 0.06)',
-      100: '0px 1px 1px rgba(55, 65, 81, 0.06)',
-      200: '0px 1px 2px rgba(55, 65, 81, 0.08)',
-      300: '0px 1px 2px rgba(55, 65, 81, 0.06), 0px 1px 3px rgba(55, 65, 81, 0.1)',
-      400: '0px 0px 4px rgba(55, 65, 81, 0.06), 0px 2px 6px rgba(55, 65, 81, 0.1)',
-      500: '0px 8px 16px rgba(55, 65, 81, 0.1), 0px 2px 6px rgba(55, 65, 81, 0.05)',
-      600: '0px 12px 25px rgba(55, 65, 81, 0.1), 0px 8px 10px rgba(55, 65, 81, 0.04)',
-      700: '0px 24px 50px rgba(55, 65, 81, 0.25)',
     },
 
     zIndices: {

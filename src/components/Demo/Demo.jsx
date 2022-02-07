@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '../../lib';
+import { Button, styled } from '../../lib';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Usage from '../Usage/Usage';
 import { SubSubTitle, SubTitle } from '../common/Typography';
-import { styled } from '../../lib/stitches.config';
 
 export const Booleans = styled('div', {
   display: 'inline-flex',
@@ -18,7 +17,7 @@ export const Booleans = styled('div', {
 export const Inputs = styled('div', {
   '& > *': {
     margin: '8px 0',
-    maxWidth: 200,
+    maxWidth: 264,
   },
 });
 

@@ -31,7 +31,7 @@ const Container = styled('div', {
 
 const LargeText = styled('div', {
   color: '$neutral50',
-  fontSize: '$7',
+  fontSize: '$4xl',
   fontWeight: 700,
   opacity: 1,
 

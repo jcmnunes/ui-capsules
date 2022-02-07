@@ -30,7 +30,7 @@ export const RadioPicker: React.FC<Props> = ({ checked, label, helpText, css, ..
           <Text css={{ fontWeight: 500, color: 'inherit' }}>{label}</Text>
 
           {!!helpText && (
-            <Text css={{ fontSize: '$1', color: checked ? '$primary600' : '$neutral500' }}>
+            <Text size="sm" css={{ color: checked ? '$primary600' : '$neutral500' }}>
               {helpText}
             </Text>
           )}

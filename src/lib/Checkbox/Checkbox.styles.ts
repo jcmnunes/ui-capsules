@@ -20,14 +20,14 @@ export const Label = styled('label', {
     size: {
       medium: {
         height: 18,
-        fontSize: '$2',
+        fontSize: '$md',
         paddingLeft: 24,
         lineHeight: '18px',
       },
 
       large: {
         height: 24,
-        fontSize: '$2',
+        fontSize: '$md',
         paddingLeft: 35,
         lineHeight: '25px',
       },
