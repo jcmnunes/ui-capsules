@@ -183,8 +183,8 @@ export const StyledButton = styled('button', {
 
     size: {
       small: {
-        height: 32,
-        fontSize: '$sm',
+        height: 24,
+        fontSize: '$1',
         lineHeight: '24px',
         paddingLeft: '$1',
         paddingRight: '$1',
@@ -192,7 +192,7 @@ export const StyledButton = styled('button', {
 
       medium: {
         height: 36,
-        fontSize: '$sm',
+        fontSize: '$2',
         lineHeight: '36px',
         paddingLeft: '$4',
         paddingRight: '$4',
@@ -200,7 +200,7 @@ export const StyledButton = styled('button', {
 
       large: {
         height: 48,
-        fontSize: '$md',
+        fontSize: '$2',
         lineHeight: '48px',
         paddingLeft: '$5',
         paddingRight: '$5',
@@ -232,7 +232,7 @@ export const StyledButton = styled('button', {
       hasLeftIcon: true,
       size: 'large',
       css: {
-        paddingLeft: 18,
+        paddingLeft: 20,
       },
     },
 
@@ -247,7 +247,7 @@ export const StyledButton = styled('button', {
       hasRightIcon: true,
       size: 'large',
       css: {
-        paddingRight: 18,
+        paddingRight: 20,
       },
     },
   ],

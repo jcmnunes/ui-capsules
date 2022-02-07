@@ -33,16 +33,10 @@ export const Alert: React.FC<Props> = ({
 
         <Flex direction="column" css={{ flex: 1 }}>
           {!!title && (
-            <Text size="sm" css={{ fontWeight: 600, color: 'inherit', mb: message ? '$1' : 0 }}>
-              {title}
-            </Text>
+            <Text css={{ fontWeight: 600, color: 'inherit', mb: message ? '$1' : 0 }}>{title}</Text>
           )}
 
-          {!!message && (
-            <Text size="sm" css={{ color: 'inherit' }}>
-              {message}
-            </Text>
-          )}
+          {!!message && <Text css={{ color: 'inherit', lineHeight: '$2' }}>{message}</Text>}
 
           {actions && (
             <Flex css={{ mt: '$2' }}>
@@ -65,7 +59,6 @@ export const Alert: React.FC<Props> = ({
             key={extraAction.text}
             variant="link"
             onClick={extraAction.onClick}
-            size="small"
             css={{ ml: '$4', color: 'inherit', '&:hover': { color: 'inherit', bg: 'transparent' } }}
           >
             {`${extraAction.text} →`}

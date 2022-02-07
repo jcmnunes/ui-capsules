@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { styled } from '../../lib';
+import { styled } from '../../lib/stitches.config';
 
 export const StyledSidebar = styled('nav', {
   width: 256,
@@ -8,7 +8,7 @@ export const StyledSidebar = styled('nav', {
 });
 
 export const StyledSidebarLink = styled(NavLink, {
-  fontSize: '$sm',
+  fontSize: '14px',
   fontWeight: 500,
   height: 32,
   borderRadius: '$medium',

@@ -27,7 +27,7 @@ export const MenuList = styled(RMenuList, {
 
 export const MenuItem = styled(RMenuItem, {
   fontFamily: '$inter',
-  fontSize: '$md',
+  fontSize: '$2',
   fontWeight: 500,
   color: '$neutral700',
   padding: '6px 12px',

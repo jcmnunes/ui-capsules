@@ -118,6 +118,7 @@ const ModalDemo = () => {
             label="What will you be working on?"
             value={inputValue}
             onChange={ev => setInputValue(ev.target.value)}
+            size="large"
             placeholder="Task summary"
           />
 

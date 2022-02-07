@@ -29,7 +29,7 @@ const Content = styled(DialogContent, {
   '-webkit-overflow-scrolling': 'touch',
   outline: 'none',
   width: '100%',
-  boxShadow: '$400',
+  boxShadow: 'rgba(0, 0, 0, 0.15) 0 10px 20px, rgba(0, 0, 0, 0.1) 0 3px 6px',
   border: 'none',
   borderRadius: '8px',
   borderImage: 'initial',

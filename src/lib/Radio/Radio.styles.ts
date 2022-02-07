@@ -1,7 +1,7 @@
 import { styled } from '../stitches.config';
 
 export const Label = styled('label', {
-  fontSize: '$md',
+  fontSize: '$2',
   fontWeight: 500,
   fontFamily: '$inter',
   display: 'inline-flex',
@@ -23,13 +23,13 @@ export const Label = styled('label', {
       medium: {
         height: 16,
         pl: 22,
-        fontSize: '$md',
+        fontSize: '$2',
       },
 
       large: {
         height: 20,
         pl: 28,
-        fontSize: '$md',
+        fontSize: '$2',
       },
     },
   },

@@ -2,92 +2,73 @@
   font-family: 'Hack';
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/hack-regular.woff2') format('woff2');
+  src: local('Hack'), local('Hack-Regular'), url('./fonts/hack-regular.woff') format('woff2'),
+    url('./fonts/hack-regular.woff2') format('woff');
 }
 
 @font-face {
   font-family: 'Hack';
   font-style: normal;
   font-weight: 700;
-  src: url('./fonts/hack-bold.woff2') format('woff2');
+  src: local('Hack Bold'), local('Hack-Bold'), url('./fonts/hack-bold.woff') format('woff2'),
+    url('./fonts/hack-bold.woff2') format('woff');
 }
 
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
   font-style: normal;
-  font-weight: 400;
-  src: url('./fonts/Inter-Regular.woff2') format('woff2');
+  font-named-instance: 'Regular';
+  src: url('./fonts/Inter-roman.var.woff2?v=3.15') format('woff2');
 }
-
 @font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  src: url('./fonts/Inter-Medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  src: url('./fonts/Inter-SemiBold.woff2') format('woff2');
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url('./fonts/Inter-italic.var.woff2?v=3.15') format('woff2');
 }
 
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 * {
   margin: 0;
 }
-html,
-body,
-#root,
-#__next {
+html {
+  --reach-dialog: 1;
+}
+html, body, #root, #__next {
   height: 100%;
 }
 body {
   line-height: 1.5;
   /* -webkit-font-smoothing: antialiased; */
 }
-img,
-picture,
-video,
-canvas,
-svg {
+img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
-input,
-button,
-textarea,
-select {
+input, button, textarea, select {
   font: inherit;
 }
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-#root,
-#__next {
+#root, #__next {
   isolation: isolate;
 }
 
 /* Own Styles */
 html {
   box-sizing: border-box;
-  font-size: 16px;
-  --reach-dialog: 1;
+  font-size: 14px;
 }
 *,
 *:before,
@@ -97,9 +78,9 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: 14px;
   line-height: 24px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter var', sans-serif;
   height: 100%;
 }
 a {
@@ -107,7 +88,7 @@ a {
   color: #3e4c59;
 }
 input {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter var', sans-serif;
 }
 button {
   border: none;
@@ -143,13 +124,29 @@ button::-moz-focus-inner {
 pre,
 code {
   font-family: Hack, monospace;
-  font-size: 0.875rem;
-  line-height: 24px;
+  font-size: 14px;
   font-weight: 400;
 }
 
 a {
   outline: none;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  z-index: 2718281;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
 }
 
 .ui-capsules-icon-primary {
@@ -158,10 +155,6 @@ a {
 
 .ui-capsules-icon-secondary {
   color: #52616d;
-}
-
-.react-select__menu {
-  background-color: var(--colors-bg) !important;
 }
 
 input[type='number']::-webkit-outer-spin-button,

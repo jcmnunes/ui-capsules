@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Pill, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '../../lib';
 import { SubTitle } from '../common/Typography';
-import { styled } from '../../lib';
+import { styled } from '../../lib/stitches.config';
 
 export const PropType = styled('span', {
-  fontWeight: 600,
+  fontWeight: 700,
   marginRight: 12,
-  fontSize: '$sm',
+  fontSize: '14px',
   color: '$neutral700',
 });
 
 export const DefaultValue = styled('span', {
-  fontSize: '$xs',
+  fontSize: '12px',
   color: '$neutral700',
 
   span: {
