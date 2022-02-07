@@ -7,7 +7,8 @@ const StyledAnchor = styled('a', {
   color: '$primary500',
   cursor: 'pointer',
   fontWeight: 500,
-  lineHeight: '$2',
+  fontSize: '$md',
+  lineHeight: '$md',
 
   '&:hover': {
     color: '$primary700',

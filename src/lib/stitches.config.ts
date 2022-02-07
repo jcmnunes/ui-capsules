@@ -25,16 +25,15 @@ export const { styled, css, keyframes, config, createTheme } = createStitches({
     },
 
     fontSizes: {
-      xs: '0.75rem',
-      sm: '0.875rem',
-      md: '1rem',
-      lg: '1.125rem',
-      xl: '1.25rem',
-      '2xl': '1.5rem',
-      '3xl': '2rem',
-      '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '3.5rem',
+      sm: '12px',
+      md: '14px',
+      lg: '16px',
+      xl: '18px',
+      '2xl': '20px',
+      '3xl': '24px',
+      '4xl': '32px',
+      '5xl': '36px',
+      '6xl': '48px',
     },
 
     fontWeights: {
@@ -49,16 +48,15 @@ export const { styled, css, keyframes, config, createTheme } = createStitches({
     },
 
     lineHeights: {
-      xs: '1.125rem',
-      sm: '1.3125rem',
-      md: '1.5rem',
-      lg: '1.6875rem',
-      xl: '1.875rem',
-      '2xl': '2.25rem',
-      '3xl': '3rem',
-      '4xl': '3.375rem',
-      '5xl': '4.5rem',
-      '6xl': '5.25rem',
+      sm: '18px',
+      md: '21px',
+      lg: '24px',
+      xl: '24px',
+      '2xl': '32px',
+      '3xl': '32px',
+      '4xl': '48px',
+      '5xl': '56px',
+      '6xl': '72px',
     },
 
     radii: {

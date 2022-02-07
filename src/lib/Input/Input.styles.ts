@@ -40,13 +40,13 @@ export const IconWrapper = styled('div', {
       },
 
       medium: {
-        top: 10,
+        top: 8,
         left: 'auto',
         right: 8,
       },
 
       large: {
-        top: 14,
+        top: 10,
         left: 'auto',
         right: 8,
       },
@@ -109,7 +109,7 @@ export const StyledInput = styled('input', {
   },
 
   '&:disabled': {
-    color: '$neutral500',
+    color: '$neutral400',
     background: '$neutral100',
     borderColor: '$neutral300',
     pointerEvents: 'none',
@@ -153,15 +153,15 @@ export const StyledInput = styled('input', {
       },
 
       medium: {
-        height: 40,
+        height: 36,
         fontSize: '$md',
         pr: 8,
         pl: 8,
       },
 
       large: {
-        height: 48,
-        fontSize: '$md',
+        height: 40,
+        fontSize: '$lg',
         pr: 8,
         pl: 8,
       },

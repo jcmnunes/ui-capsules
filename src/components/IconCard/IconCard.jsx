@@ -34,8 +34,8 @@ const Icon = styled('div', {
 const Label = styled('div', {
   color: '$neutral600',
   background: '$neutral100 ',
-  fontSize: '$xs',
-  fontWeight: 600,
+  fontSize: '$sm',
+  fontWeight: 700,
   textTransform: 'lowercase',
   height: 30,
   display: 'flex',

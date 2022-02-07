@@ -32,7 +32,7 @@ export const Dialog: FC<Props> = ({
       {onClose && <ModalCloseButton size="small" onClick={onClose} />}
 
       <ModalBody>
-        <Text css={{ fontSize: '$md' }}>{message}</Text>
+        <Text size="md">{message}</Text>
       </ModalBody>
 
       <ModalFooter>

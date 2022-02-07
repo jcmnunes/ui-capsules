@@ -61,6 +61,7 @@ const ButtonDemo = () => {
             onChange={evt => iconFilterSet(evt.target.value)}
             leftIcon="search"
             placeholder="Search"
+            size="large"
           />
         </Box>
 

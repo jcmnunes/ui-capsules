@@ -16,8 +16,7 @@ export const StyledTooltip = styled(RTooltip, {
   whiteSpace: 'normal',
 
   [`.${darkTheme} &`]: {
-    background: '$neutral100',
-    border: `1px solid $neutral200`,
+    background: '$neutral200',
     color: '$neutral600',
   },
 });

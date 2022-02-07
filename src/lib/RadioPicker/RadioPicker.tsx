@@ -26,7 +26,7 @@ export const RadioPicker: React.FC<Props> = ({ checked, label, helpText, css, ..
           <CustomRadio className="uic-custom-radio" />
         </Box>
 
-        <Flex direction="column" css={{ ml: 30 }}>
+        <Flex direction="column" css={{ ml: 26 }}>
           <Text css={{ fontWeight: 500, color: 'inherit' }}>{label}</Text>
 
           {!!helpText && (

@@ -46,21 +46,21 @@ export const Value = styled('button', {
         px: 8,
         py: 2,
         fontSize: '$sm',
-        height: 36,
+        height: 32,
       },
 
       medium: {
         px: 8,
         py: 4,
         fontSize: '$md',
-        height: 40,
+        height: 32,
       },
 
       large: {
         px: 8,
         py: 12,
-        fontSize: '$md',
-        height: 48,
+        fontSize: '$lg',
+        height: 40,
       },
     },
   },

@@ -15,6 +15,7 @@ export const Text = styled('span', {
   fontVariantNumeric: 'tabular-nums',
   fontWeight: 400,
   fontSize: '$md',
+  lineHeight: '$md',
   color: '$neutral700',
   display: 'block',
 
@@ -28,8 +29,8 @@ export const Text = styled('span', {
     variant: {
       smallCaps: {
         fontWeight: 600,
-        fontSize: '$xs',
-        lineHeight: '$xs',
+        fontSize: '$sm',
+        lineHeight: '$sm',
         color: '$neutral500',
         letterSpacing: '$wide',
         textTransform: 'uppercase',
@@ -51,10 +52,6 @@ export const Text = styled('span', {
     },
 
     size: {
-      xs: {
-        fontSize: '$xs',
-        lineHeight: '$xs',
-      },
       sm: {
         fontSize: '$sm',
         lineHeight: '$sm',

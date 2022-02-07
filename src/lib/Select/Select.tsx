@@ -12,14 +12,14 @@ type Size = 'medium' | 'large';
 
 const dimensions = {
   medium: {
-    baseUnit: 4,
-    minHeight: 40,
-    fontSize: '$md',
+    baseUnit: 2,
+    minHeight: 36,
+    fontSize: '14px',
   },
   large: {
     baseUnit: 4,
-    minHeight: 48,
-    fontSize: '$md',
+    minHeight: 40,
+    fontSize: '14px',
   },
 };
 
@@ -33,7 +33,7 @@ const customStyles = (size: Size): Partial<StylesConfig<any, any>> => ({
 
   valueContainer: provided => ({
     ...provided,
-    padding: size === 'medium' ? '1px 7px' : '2px 12px',
+    padding: size === 'medium' ? '1px 8px' : '2px 12px',
   }),
 
   indicatorSeparator: () => ({
@@ -113,7 +113,7 @@ const StyledReactSelect = styled(RSelect, {
     color: '$neutral600',
   },
 
-  'body.react-select__menu': {
+  '.react-select__menu': {
     background: '$bg',
   },
 
@@ -129,10 +129,6 @@ const StyledReactSelect = styled(RSelect, {
     '&:hover': {
       color: '$neutral700',
     },
-  },
-
-  '.react-select__input-container': {
-    color: '$neutral700',
   },
 });
 

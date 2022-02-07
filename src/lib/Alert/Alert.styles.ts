@@ -51,12 +51,12 @@ export const StyledAlert = styled(Box, {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  fontSize: '$sm',
+  fontSize: '$md',
   color: '$neutral700',
 
   '&::before': {
     fontFamily: '"Font Awesome 5 Pro"',
-    fontSize: '$md',
+    fontSize: '$lg',
     fontWeight: 600,
     position: 'absolute',
     marginRight: 16,

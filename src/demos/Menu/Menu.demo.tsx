@@ -54,10 +54,14 @@ const MenuDemo = () => {
   return (
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
       <Flex direction="column">
-        <Text size="md">No knobs available</Text>
+        <Text>No knobs available</Text>
+
         <Text variant="helper">
-          Please, follow the <Anchor href="https://reach.tech/menu-button">Reach UI docs</Anchor> to
-          learn how to use this component
+          Please, follow the{' '}
+          <Anchor href="https://reach.tech/menu-button" css={{ fontSize: '$sm' }}>
+            Reach UI docs
+          </Anchor>{' '}
+          to learn how to use this component
         </Text>
       </Flex>
     </Demo>

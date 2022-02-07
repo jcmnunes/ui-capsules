@@ -99,7 +99,7 @@ body {
   margin: 0;
   font-size: 1rem;
   line-height: 24px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
   height: 100%;
 }
 a {
@@ -107,7 +107,7 @@ a {
   color: #3e4c59;
 }
 input {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
 }
 button {
   border: none;

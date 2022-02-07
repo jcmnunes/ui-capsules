@@ -2,17 +2,16 @@ import { styled } from '../../lib';
 
 export const Title = styled('h1', {
   color: '$neutral700',
-  fontSize: '$3xl',
-  lineHeight: '$3xl',
-  fontWeight: 600,
+  fontSize: '$5xl',
+  lineHeight: '$5xl',
+  fontWeight: 700,
   marginBottom: '$4',
 });
 
 export const SubTitle = styled('h2', {
   color: '$neutral700',
-  fontSize: '$xl',
-  lineHeight: '$xl',
-  fontWeight: 600,
+  fontSize: '$2xl',
+  fontWeight: 700,
   marginTop: '$6',
   marginBottom: '$4',
 });
@@ -20,8 +19,7 @@ export const SubTitle = styled('h2', {
 export const SubSubTitle = styled('h3', {
   color: '$neutral700',
   fontSize: '$md',
-  lineHeight: '$md',
-  fontWeight: 600,
+  fontWeight: 700,
   marginTop: '$4',
   marginBottom: '$2',
 });
