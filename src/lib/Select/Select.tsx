@@ -110,7 +110,11 @@ const StyledReactSelect = styled(RSelect, {
   },
 
   '.react-select__single-value': {
-    color: '$neutral600',
+    color: '$neutral700',
+  },
+
+  '.react-select__input-container': {
+    color: '$neutral700',
   },
 
   '.react-select__menu': {
