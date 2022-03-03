@@ -8,6 +8,9 @@
     <a href="https://app.netlify.com/sites/competent-mcclintock-222a1a/deploys"><img src="https://api.netlify.com/api/v1/badges/0e3396d1-d7ea-4e54-b5b5-d33f237479d7/deploy-status" alt="netlify badge" /></a>
 </div>
 
+### 🚨 **Breakable toy - Do not use in real projects** 🚨
+**This library is a breakable toy. New versions will often contain breaking changes, even for non-major releases.**
+
 ---
 
 React UI kit.
