@@ -26,7 +26,7 @@ export const Dialog: FC<Props> = ({
   ...rest
 }) => {
   return (
-    <Modal isOpen={isOpen} contentLabel={contentLabel} onClose={onClose} {...rest}>
+    <Modal isOpen={isOpen} contentLabel={contentLabel} onClose={onClose} isDialog {...rest}>
       <ModalHeader variant={variant}>{title}</ModalHeader>
 
       {onClose && <ModalCloseButton size="small" onClick={onClose} />}

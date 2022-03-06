@@ -18,12 +18,10 @@ const Overlay = styled(DialogOverlay, {
 
 const Content = styled(DialogContent, {
   position: 'absolute',
-  top: '50%',
-  left: '50%',
-  right: 'auto',
-  bottom: 'auto',
-  marginRight: '-50%',
-  transform: 'translate(-50%, -50%)',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
   background: '$bg',
   overflow: 'auto',
   '-webkit-overflow-scrolling': 'touch',
@@ -31,20 +29,48 @@ const Content = styled(DialogContent, {
   width: '100%',
   boxShadow: '$400',
   border: 'none',
-  borderRadius: '8px',
+  borderRadius: 0,
   borderImage: 'initial',
   zIndex: '$modal',
+
+  '@sm': {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    borderRadius: '8px',
+  },
 
   variants: {
     size: {
       small: {
-        maxWidth: '400px',
+        '@sm': {
+          maxWidth: '400px',
+        },
       },
       medium: {
-        maxWidth: '600px',
+        '@sm': {
+          maxWidth: '600px',
+        },
       },
       large: {
-        maxWidth: '800px',
+        '@sm': {
+          maxWidth: '800px',
+        },
+      },
+    },
+
+    isDialog: {
+      true: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        borderRadius: '8px',
       },
     },
   },
@@ -55,6 +81,7 @@ export interface ModalProps extends DialogOverlayProps {
   contentLabel: string;
   onClose?(): void;
   size?: ElementSize;
+  isDialog?: boolean;
 }
 
 export const Modal: FC<ModalProps> = ({
@@ -63,10 +90,11 @@ export const Modal: FC<ModalProps> = ({
   contentLabel,
   size = 'medium',
   children,
+  isDialog,
   ...rest
 }) => (
   <Overlay isOpen={isOpen} onDismiss={onClose} {...rest}>
-    <Content aria-label={contentLabel} size={size}>
+    <Content aria-label={contentLabel} size={size} isDialog={isDialog}>
       {children}
     </Content>
   </Overlay>
