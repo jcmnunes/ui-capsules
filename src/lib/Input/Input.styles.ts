@@ -15,6 +15,7 @@ export const Wrapper = styled('div', {
   },
 
   width: '100%',
+  isolation: 'isolate',
 });
 
 export const InputWrapper = styled('div', {
