@@ -94,6 +94,8 @@ export const StyledInput = styled('input', {
   border: 'none',
   width: '100%',
   boxShadow: '$border',
+  '-webkit-appearance': 'none',
+  appearance: 'none',
 
   '&::placeholder': {
     color: '$neutral400',
