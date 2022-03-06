@@ -1,14 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SidebarGroup, SidebarLink, StyledSidebar } from './Sidebar.styles';
+import {
+  CloseButton,
+  SidebarGroup,
+  SidebarHeader,
+  SidebarLink,
+  StyledSidebar,
+} from './Sidebar.styles';
 import Logo from '../Svgs/Logo';
 import { Text } from '../../lib';
 
-const Sidebar = () => (
+interface Props {
+  onClose(): void;
+}
+
+const Sidebar: React.FC<Props> = ({ onClose }) => (
   <StyledSidebar>
-    <Link to="/" aria-label="Go to Home">
-      <Logo />
-    </Link>
+    <CloseButton icon="x" variant="ghostGray" size="small" onClick={onClose} aria-label="Close" />
+
+    <SidebarHeader>
+      <Link to="/" aria-label="Go to Home">
+        <Logo />
+      </Link>
+    </SidebarHeader>
 
     <SidebarGroup>
       <SidebarLink to="/getting-started">Getting Started</SidebarLink>

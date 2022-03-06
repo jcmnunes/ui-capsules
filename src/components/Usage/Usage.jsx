@@ -10,11 +10,10 @@ const Wrapper = styled('div', {
 
 const StyledUsage = styled('div', {
   position: 'relative',
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
+  display: 'grid',
   background: '$neutral100',
   borderRadius: '12px',
+  overflow: 'hidden',
 });
 
 const Code = styled('pre', {
@@ -48,6 +47,7 @@ const Usage = ({ children }) => {
           <StyledCode>{children}</StyledCode>
         </Code>
       </StyledUsage>
+
       <Actions>
         <CopyToClipboard
           text={children}
