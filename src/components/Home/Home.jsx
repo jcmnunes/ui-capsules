@@ -48,11 +48,16 @@ const Home = () => (
     <Description>
       <Paragraph>React UI kit.</Paragraph>
 
-      <a href="https://github.com/jcmnunes/ui-capsules" target="_blank" rel="noreferrer noopener">
-        <Button variant="ghostGray" leftIcon="github">
-          View source on GitHub
-        </Button>
-      </a>
+      <Button
+        as="a"
+        href="https://github.com/jcmnunes/ui-capsules"
+        target="_blank"
+        rel="noreferrer noopener"
+        variant="ghostGray"
+        leftIcon="github"
+      >
+        View source on GitHub
+      </Button>
     </Description>
 
     <Alert

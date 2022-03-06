@@ -1,10 +1,28 @@
 import { NavLink } from 'react-router-dom';
-import { styled } from '../../lib';
+import { IconButton, styled } from '../../lib';
 
 export const StyledSidebar = styled('nav', {
   width: 256,
-  height: '100vh',
-  padding: '48px 24px',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  overflowY: 'hidden',
+});
+
+export const SidebarHeader = styled('div', {
+  padding: '48px 24px 24px',
+  background: '$neutral100',
+  zIndex: 1,
+});
+
+export const SidebarGroup = styled('div', {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  marginLeft: -12,
+  paddingTop: 24,
+  padding: '0 24px 48px',
+  overflowY: 'auto',
 });
 
 export const StyledSidebarLink = styled(NavLink, {
@@ -42,9 +60,13 @@ export const StyledSidebarLink = styled(NavLink, {
 
 export const SidebarLink = props => <StyledSidebarLink activeClassName="active" {...props} />;
 
-export const SidebarGroup = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  marginLeft: -12,
-  paddingTop: 24,
+export const CloseButton = styled(IconButton, {
+  position: 'absolute',
+  top: 12,
+  right: 12,
+  zIndex: 2,
+
+  '@md': {
+    display: 'none',
+  },
 });
