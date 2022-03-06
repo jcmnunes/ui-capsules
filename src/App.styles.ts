@@ -4,7 +4,6 @@ export const SidebarWrapper = styled('div', {
   position: 'fixed',
   flex: 2,
   background: '$neutral100',
-  border: `1px solid $neutral200`,
   display: 'none',
   justifyContent: 'flex-end',
   zIndex: 1,
@@ -15,6 +14,7 @@ export const SidebarWrapper = styled('div', {
     display: 'flex',
     position: 'relative',
     boxShadow: 'revert',
+    borderRight: `1px solid $neutral200`,
   },
 
   variants: {
@@ -28,13 +28,13 @@ export const SidebarWrapper = styled('div', {
 
 export const ShowcaseWrapper = styled('div', {
   flex: 3,
-  padding: '32px',
+  padding: '32px 32px 64px',
   background: '$bg',
   height: '100%',
   overflowY: 'auto',
 
   '@sm': {
-    padding: '32px 48px 48px',
+    padding: '32px 48px 64px',
   },
 
   '@lg': {

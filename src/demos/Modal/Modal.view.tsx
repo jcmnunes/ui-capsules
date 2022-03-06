@@ -14,7 +14,7 @@ const ModalDemo = () => {
         <Title>Modal</Title>
         <Paragraph>
           Accessible modal based on{' '}
-          <Anchor href="https://reach.tech/dialog">Reach UI's Dialog.</Anchor>.
+          <Anchor href="https://reach.tech/dialog">Reach UI's Dialog</Anchor>.
         </Paragraph>
       </header>
 

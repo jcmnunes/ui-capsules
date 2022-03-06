@@ -26,8 +26,12 @@ export const DemoWrapper = styled('div', {
   backgroundColor: '$neutral100',
   padding: '$3',
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   alignItems: 'stretch',
+
+  '@lg': {
+    flexDirection: 'row',
+  },
 });
 
 export const Display = styled('div', {
@@ -94,6 +98,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
           </Button>
         </Actions>
       </HeaderWrapper>
+
       <DemoWrapper>
         <Display width="300px" isDark={isDark}>
           {component}
@@ -108,6 +113,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
           {children}
         </PropAdjuster>
       </DemoWrapper>
+
       <Usage>
         {code ||
           reactElementToJSXString(component, {
