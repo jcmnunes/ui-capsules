@@ -1,4 +1,5 @@
 import React, { FC, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Spinner } from '../Spinner/Spinner';
 import { styled } from '../stitches.config';
 import { darkTheme } from '../darkTheme';
@@ -65,7 +66,7 @@ export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => 
     };
   }, []);
 
-  return (
+  return ReactDOM.createPortal(
     <Container variant={variant}>
       {typeof children === 'string' ? (
         <LargeText variant={variant}>{children}</LargeText>
@@ -80,7 +81,8 @@ export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => 
           css={{ my: '$4' }}
         />
       )}
-    </Container>
+    </Container>,
+    document.body,
   );
 };
 
