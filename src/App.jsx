@@ -1,6 +1,6 @@
 import '../src/lib/styles/global.css';
-import React, { useState } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Redirect, Route, useLocation } from 'react-router-dom';
 import AlertView from './demos/Alert/Alert.view';
 import AnchorView from './demos/Anchor/Anchor.view';
 import ButtonView from './demos/Button/Button.view';
@@ -28,55 +28,8 @@ import TooltipView from './demos/Tooltip/Tooltip.view';
 import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
 import { Editor } from './demos/Editor/Editor';
-import { Flex, IconButton, useTheme, useGlobalStyles, styled } from './lib';
-
-export const SidebarWrapper = styled('div', {
-  position: 'fixed',
-  flex: 2,
-  background: '$neutral100',
-  border: `1px solid $neutral200`,
-  display: 'none',
-  justifyContent: 'flex-end',
-  zIndex: 1,
-  boxShadow: '$500',
-  height: '100%',
-
-  '@md': {
-    display: 'flex',
-    position: 'relative',
-    boxShadow: 'revert',
-  },
-
-  variants: {
-    isOpen: {
-      true: {
-        display: 'flex',
-      },
-    },
-  },
-});
-
-export const ShowcaseWrapper = styled('div', {
-  flex: 3,
-  padding: '32px',
-  background: '$bg',
-  height: '100%',
-  overflowY: 'auto',
-
-  '@sm': {
-    padding: '32px 48px 48px',
-  },
-
-  '@lg': {
-    padding: '32px 64px 64px',
-  },
-});
-
-export const ShowcaseContent = styled('div', {
-  '@md': {
-    maxWidth: 600,
-  },
-});
+import { Flex, IconButton, useGlobalStyles, useTheme } from './lib';
+import { SidebarOverlay, SidebarWrapper, ShowcaseWrapper, ShowcaseContent } from './App.styles';
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -85,8 +38,16 @@ const App = () => {
 
   const { isDark, setTheme } = useTheme();
 
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [pathname]);
+
   return (
     <Flex css={{ height: '100%' }}>
+      {isSidebarOpen && <SidebarOverlay onClick={() => setIsSidebarOpen(false)} />}
+
       <SidebarWrapper isOpen={isSidebarOpen}>
         <Sidebar onClose={() => setIsSidebarOpen(false)} />
       </SidebarWrapper>
