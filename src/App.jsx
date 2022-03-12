@@ -31,8 +31,6 @@ import { Editor } from './demos/Editor/Editor';
 import { Flex, IconButton, useGlobalStyles, useTheme } from './lib';
 import { SidebarOverlay, SidebarWrapper, ShowcaseWrapper, ShowcaseContent } from './App.styles';
 
-export const shouldFocusTitle = false;
-
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
