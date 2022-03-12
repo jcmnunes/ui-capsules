@@ -1,12 +1,17 @@
 import React from 'react';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Usage from '../../components/Usage/Usage';
-import Wrapper from '../../components/common/Wrapper';
-import { Box, Flex } from '../../lib';
+import { Main } from '../../components/common/Main';
+import { Box, Flex, styled } from '../../lib';
+
+const StyledWrapper = styled(Main, {
+  height: '100%',
+  position: 'relative',
+});
 
 export const Editor = () => {
   return (
-    <Wrapper as="main" css={{ height: '100%', position: 'relative' }}>
+    <StyledWrapper>
       <Flex direction="column" css={{ height: '100%' }}>
         <section>
           <Title>Editor</Title>
@@ -28,6 +33,6 @@ export const Editor = () => {
           />
         </Box>
       </Flex>
-    </Wrapper>
+    </StyledWrapper>
   );
 };

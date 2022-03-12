@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { IconButton, styled } from '../../lib';
 
 export const StyledSidebar = styled('nav', {
@@ -25,6 +25,16 @@ export const SidebarGroup = styled('div', {
   overflowY: 'auto',
 });
 
+export const LogoLink = styled(Link, {
+  display: 'block',
+  padding: '$3',
+  marginLeft: '-$3',
+
+  '&[data-focus-visible-added]:focus': {
+    boxShadow: 'inset 0px 0px 0px 1px $colors$pink600',
+  },
+});
+
 export const StyledSidebarLink = styled(NavLink, {
   fontSize: '$md',
   fontWeight: 500,
@@ -38,6 +48,10 @@ export const StyledSidebarLink = styled(NavLink, {
 
   '&:hover': {
     background: '$neutral200',
+  },
+
+  '&[data-focus-visible-added]:focus': {
+    boxShadow: 'inset 0px 0px 0px 1px $colors$pink600',
   },
 
   '&.active': {

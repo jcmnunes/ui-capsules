@@ -2,13 +2,13 @@ import React from 'react';
 import Demo from './Splash.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Splash.constants';
 
 const SplashDemo = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Splash</Title>
         <Paragraph>
@@ -25,7 +25,7 @@ const SplashDemo = () => {
       <Demo />
 
       <PropsTable props={PROPS} />
-    </Wrapper>
+    </Main>
   );
 };
 

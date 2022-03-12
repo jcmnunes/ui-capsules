@@ -2,13 +2,13 @@ import React from 'react';
 import Demo from './Anchor.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Anchor.constants';
 
 const AnchorDemo = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Anchor</Title>
         <Paragraph>
@@ -27,7 +27,7 @@ const AnchorDemo = () => {
       <Demo />
 
       <PropsTable props={PROPS} />
-    </Wrapper>
+    </Main>
   );
 };
 

@@ -2,14 +2,14 @@ import React from 'react';
 import Demo from './Modal.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubSubTitle, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { Anchor } from '../../lib';
 import { PROPS } from './Modal.constants';
 
 const ModalDemo = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Modal</Title>
         <Paragraph>
@@ -40,7 +40,7 @@ const ModalDemo = () => {
           information.
         </Paragraph>
       </section>
-    </Wrapper>
+    </Main>
   );
 };
 
