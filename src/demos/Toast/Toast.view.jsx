@@ -2,7 +2,7 @@ import React from 'react';
 import Demo from './Toast.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import { Anchor } from '../../lib';
 
 const usage = `// Add the ToastContainer component to the app
@@ -33,7 +33,7 @@ toast.success({
 
 const ToastView = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Toast</Title>
         <Paragraph>
@@ -48,7 +48,7 @@ const ToastView = () => {
       </section>
 
       <Demo />
-    </Wrapper>
+    </Main>
   );
 };
 

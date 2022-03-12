@@ -3,7 +3,7 @@ import Demo from './Icon.demo';
 import { solidIcons } from '../../lib/Icon/Icon.constants';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import IconGrid from '../../components/IconGrid/IconGrid';
 import { ICON_PROPS } from './Icon.constants';
@@ -21,7 +21,7 @@ const ButtonDemo = () => {
   }, [iconFilter]);
 
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Icon</Title>
         <Paragraph>
@@ -87,7 +87,7 @@ const ButtonDemo = () => {
           </Flex>
         )}
       </section>
-    </Wrapper>
+    </Main>
   );
 };
 

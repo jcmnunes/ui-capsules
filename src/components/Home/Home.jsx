@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert, Button, styled } from '../../lib';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
-import Wrapper from '../common/Wrapper';
+import { Main } from '../common/Main';
 
 export const Description = styled('div', {
   display: 'flex',
@@ -42,7 +42,7 @@ function App() {
 `;
 
 const Home = () => (
-  <Wrapper>
+  <Main>
     <Title>Getting Started</Title>
 
     <Description>
@@ -86,7 +86,7 @@ const Home = () => (
       <StyledParagraph>Render the useGlobalStyles hook:</StyledParagraph>
       <Usage>{useThemeExample}</Usage>
     </div>
-  </Wrapper>
+  </Main>
 );
 
 export default Home;

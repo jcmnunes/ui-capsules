@@ -4,14 +4,14 @@ import { Alert, Box } from '../../lib';
 import Demo from './Alert.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Alert.constants';
 import { AlertVariant } from '../../lib/Alert/Alert.styles';
 
 const AlertDemo = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Alert</Title>
         <Paragraph>
@@ -58,7 +58,7 @@ const AlertDemo = () => {
       <Demo />
 
       <PropsTable props={PROPS} />
-    </Wrapper>
+    </Main>
   );
 };
 

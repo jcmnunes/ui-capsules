@@ -2,12 +2,12 @@ import React from 'react';
 import Demo from './Menu.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import { Anchor } from '../../lib';
 
 const MenuView = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Menu</Title>
         <Paragraph>
@@ -22,7 +22,7 @@ const MenuView = () => {
       </section>
 
       <Demo />
-    </Wrapper>
+    </Main>
   );
 };
 

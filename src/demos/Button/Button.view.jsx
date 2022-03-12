@@ -3,13 +3,13 @@ import { Box, Button, Flex } from '../../lib';
 import Demo from './Button.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Button.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Button</Title>
         <Paragraph>
@@ -40,7 +40,7 @@ const ButtonDemo = () => {
       <Demo />
 
       <PropsTable props={PROPS} />
-    </Wrapper>
+    </Main>
   );
 };
 

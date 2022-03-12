@@ -2,13 +2,13 @@ import React from 'react';
 import Demo from './Skeleton.demo';
 import Usage from '../../components/Usage/Usage';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
-import Wrapper from '../../components/common/Wrapper';
+import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Skeleton.constants';
 
 const ButtonDemo = () => {
   return (
-    <Wrapper as="main">
+    <Main>
       <header>
         <Title>Skeleton</Title>
         <Paragraph>Renders an element with a loading animation.</Paragraph>
@@ -22,7 +22,7 @@ const ButtonDemo = () => {
       <Demo />
 
       <PropsTable props={PROPS} />
-    </Wrapper>
+    </Main>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   CloseButton,
+  LogoLink,
   SidebarGroup,
   SidebarHeader,
   SidebarLink,
@@ -19,9 +19,9 @@ const Sidebar: React.FC<Props> = ({ onClose }) => (
     <CloseButton icon="x" variant="ghostGray" size="small" onClick={onClose} aria-label="Close" />
 
     <SidebarHeader>
-      <Link to="/" aria-label="Go to Home">
+      <LogoLink to="/" aria-label="Go to Home">
         <Logo />
-      </Link>
+      </LogoLink>
     </SidebarHeader>
 
     <SidebarGroup>
