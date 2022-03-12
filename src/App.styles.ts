@@ -32,6 +32,7 @@ export const ShowcaseWrapper = styled('div', {
   background: '$bg',
   height: '100%',
   overflowY: 'auto',
+  isolation: 'isolate',
 
   '@sm': {
     padding: '32px 48px 64px',
