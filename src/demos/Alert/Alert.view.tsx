@@ -34,12 +34,6 @@ const AlertDemo = () => {
               variant={variant as AlertVariant}
               title="Adipiscing Malesuada Inceptos"
               message="Etiam porta sem malesuada magna mollis euismod."
-              extraAction={{
-                text: 'Extra action',
-                onClick() {
-                  alert('Extra action');
-                },
-              }}
               onRequestClose={() => alert('onRequestClose')}
               actions={[
                 {
