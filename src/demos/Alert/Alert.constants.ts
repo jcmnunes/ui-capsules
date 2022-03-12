@@ -47,12 +47,4 @@ export const PROPS = [
     description:
       'An array of actions. These actions will be rendered in order at the bottom of the Alert, as link buttons.',
   },
-  {
-    name: 'extraAction',
-    isRequired: false,
-    defaultValue: 'undefined',
-    type: 'Action',
-    description:
-      'Use this prop to render an additional action positioned in the right-side of the alert.',
-  },
 ];

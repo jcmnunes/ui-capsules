@@ -13,7 +13,6 @@ export interface Props {
   variant?: AlertVariant;
   onRequestClose?(): void;
   actions?: Action[];
-  extraAction?: Action;
   css?: CSS;
 }
 
@@ -23,7 +22,6 @@ export const Alert: React.FC<Props> = ({
   message,
   onRequestClose,
   actions,
-  extraAction,
   ...rest
 }) => {
   return (
@@ -54,17 +52,6 @@ export const Alert: React.FC<Props> = ({
           )}
         </Flex>
 
-        {extraAction && (
-          <Button
-            key={extraAction.text}
-            variant="link"
-            onClick={extraAction.onClick}
-            css={{ ml: '$4', color: 'inherit', '&:hover': { color: 'inherit', bg: 'transparent' } }}
-          >
-            {`${extraAction.text} →`}
-          </Button>
-        )}
-
         {onRequestClose && (
           <CloseButton
             onClick={onRequestClose}
@@ -84,5 +71,4 @@ Alert.defaultProps = {
   variant: 'error',
   onRequestClose: undefined,
   actions: undefined,
-  extraAction: undefined,
 };
