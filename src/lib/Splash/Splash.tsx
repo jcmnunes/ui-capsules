@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { ComponentPropsWithoutRef, FC, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Spinner } from '../Spinner/Spinner';
 import { styled } from '../stitches.config';
@@ -52,12 +52,12 @@ const LargeText = styled('div', {
   },
 });
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<'div'> {
   variant: SplashVariant;
   showSpinner?: boolean;
 }
 
-export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => {
+export const Splash: FC<Props> = ({ children, showSpinner = true, variant, ...rest }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
@@ -67,7 +67,7 @@ export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => 
   }, []);
 
   return ReactDOM.createPortal(
-    <Container variant={variant}>
+    <Container variant={variant} data-ui-caps="splash" {...rest}>
       {typeof children === 'string' ? (
         <LargeText variant={variant}>{children}</LargeText>
       ) : (

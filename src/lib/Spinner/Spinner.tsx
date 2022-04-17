@@ -77,7 +77,7 @@ interface Props extends VariantProps<typeof Dot>, CSSProp {
 
 export const Spinner: React.FC<Props> = ({ css, dotColor, ...rest }) => {
   return (
-    <Dots css={css} size={rest.size}>
+    <Dots css={css} size={rest.size} data-ui-caps="spinner">
       <Dot css={{ '&&': { animationDelay: '0.12s', backgroundColor: dotColor } }} {...rest} />
       <Dot css={{ '&&': { animationDelay: '0.24s', backgroundColor: dotColor } }} {...rest} />
       <Dot css={{ '&&': { animationDelay: '0.36s', backgroundColor: dotColor } }} {...rest} />

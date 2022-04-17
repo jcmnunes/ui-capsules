@@ -9,5 +9,12 @@ const StyledIconButton = styled(IconButton, {
 });
 
 export const CloseButton: FC<Omit<IconButtonProps, 'icon'>> = ({ size, onClick, ...rest }) => (
-  <StyledIconButton icon="x" variant="ghostGray" size={size} onClick={onClick} {...rest} />
+  <StyledIconButton
+    icon="x"
+    variant="ghostGray"
+    size={size}
+    onClick={onClick}
+    aria-label="Close"
+    {...rest}
+  />
 );
