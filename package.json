@@ -13,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build:app": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
-    "test": "react-scripts test --passWithNoTests",
+    "test": "react-scripts test",
     "test:nowatch": "CI=true npm run test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{js,jsx}",
@@ -52,9 +52,12 @@
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.13.0",
     "@stitches/react": "^1.2.7",
+    "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^14.1.1",
     "@types/jest": "^26.0.20",
+    "@types/jest-axe": "^3.5.3",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
@@ -71,6 +74,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "husky": "^5.1.3",
+    "jest-axe": "^6.0.0",
     "lint-staged": "^10.5.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
@@ -86,9 +90,9 @@
     "typescript": "^4.2.2"
   },
   "peerDependencies": {
+    "@stitches/react": "^1.2.7",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "@stitches/react": "^1.2.7"
+    "react-dom": "^17.0.1"
   },
   "browserslist": {
     "production": [

@@ -7,7 +7,7 @@ import { Action } from '../types';
 import { Flex } from '../Flex/Flex';
 import { CSS } from '../stitches.config';
 
-export interface Props {
+export interface AlertProps {
   title?: string;
   message?: string;
   variant?: AlertVariant;
@@ -16,7 +16,7 @@ export interface Props {
   css?: CSS;
 }
 
-export const Alert: React.FC<Props> = ({
+export const Alert: React.FC<AlertProps> = ({
   variant = 'error',
   title,
   message,
@@ -25,9 +25,9 @@ export const Alert: React.FC<Props> = ({
   ...rest
 }) => {
   return (
-    <AlertWrapper variant={variant} {...rest}>
+    <AlertWrapper role="alert" variant={variant} {...rest}>
       <StyledAlert variant={variant}>
-        <AlertIcon alertVariant={variant} icon={ICON_MAP[variant]} />
+        <AlertIcon alertVariant={variant} icon={ICON_MAP[variant]} data-ui-caps="alert-icon" />
 
         <Flex direction="column" css={{ flex: 1 }}>
           {!!title && (

@@ -23,17 +23,19 @@ const StyledAnchor = styled('a', {
   },
 });
 
-interface Props extends ComponentPropsWithRef<'a'>, CSSProp {
+export interface AnchorProps extends ComponentPropsWithRef<'a'>, CSSProp {
   href: string;
   children: string;
 }
 
-export const Anchor = forwardRef<HTMLAnchorElement, Props>(({ href, children, ...rest }, ref) => {
-  return (
-    <StyledAnchor ref={ref} href={href} target="_blank" rel="noreferrer noopener" {...rest}>
-      {children}
-    </StyledAnchor>
-  );
-});
+export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
+  ({ href, children, ...rest }, ref) => {
+    return (
+      <StyledAnchor ref={ref} href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+        {children}
+      </StyledAnchor>
+    );
+  },
+);
 
 Anchor.displayName = 'Anchor';
