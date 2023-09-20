@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { ElementSize } from '../types';
-import { styled } from '../stitches.config';
 import { DialogContent, DialogOverlay, DialogOverlayProps } from '@reach/dialog';
+import { styled } from 'styled-components';
 
-const Overlay = styled(DialogOverlay, {
+const Overlay = styled(DialogOverlay)({
   position: 'fixed',
   top: 0,
   left: 0,
@@ -16,54 +16,68 @@ const Overlay = styled(DialogOverlay, {
   backdropFilter: 'blur(4px)',
 });
 
-const Content = styled(DialogContent, {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  background: '$bg',
-  overflow: 'auto',
-  '-webkit-overflow-scrolling': 'touch',
-  outline: 'none',
-  width: '100%',
-  boxShadow: '$400',
-  border: 'none',
-  borderRadius: 0,
-  borderImage: 'initial',
-  zIndex: '$modal',
+interface DialogContentProps {
+  size?: ElementSize;
+  isDialog?: boolean;
+}
 
-  '@sm': {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    borderRadius: '8px',
+const Content = styled(DialogContent)<DialogContentProps>(
+  ({ theme }) => ({
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    background: theme.colors.bg,
+    overflow: 'auto',
+    '-webkit-overflow-scrolling': 'touch',
+    outline: 'none',
+    width: '100%',
+    boxShadow: theme.shadows['400'],
+    border: 'none',
+    borderRadius: 0,
+    borderImage: 'initial',
+    zIndex: theme.zIndices.modal,
+
+    [theme.media.sm]: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      borderRadius: '8px',
+    },
+  }),
+
+  ({ theme, size }) => {
+    switch (size) {
+      case 'small':
+        return {
+          [theme.media.sm]: {
+            maxWidth: '400px',
+          },
+        };
+      case 'medium':
+        return {
+          [theme.media.sm]: {
+            maxWidth: '600px',
+          },
+        };
+      case 'large':
+        return {
+          [theme.media.sm]: {
+            maxWidth: '800px',
+          },
+        };
+      default:
+        return {};
+    }
   },
 
-  variants: {
-    size: {
-      small: {
-        '@sm': {
-          maxWidth: '400px',
-        },
-      },
-      medium: {
-        '@sm': {
-          maxWidth: '600px',
-        },
-      },
-      large: {
-        '@sm': {
-          maxWidth: '800px',
-        },
-      },
-    },
-
-    isDialog: {
-      true: {
+  ({ isDialog }) => {
+    if (isDialog) {
+      return {
         top: '50%',
         left: '50%',
         right: 'auto',
@@ -71,10 +85,10 @@ const Content = styled(DialogContent, {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         borderRadius: '8px',
-      },
-    },
+      };
+    }
   },
-});
+);
 
 export interface ModalProps extends DialogOverlayProps {
   isOpen: boolean;

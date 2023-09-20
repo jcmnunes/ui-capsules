@@ -1,7 +1,6 @@
 import { illustratedIcons } from './IllustratedIcon/IllustratedIcon.constants';
 import { MouseEvent } from 'react';
 import { solidIcons } from './Icon/Icon.constants';
-import { CSS } from './stitches.config';
 import { ButtonVariant } from './Button/Button.styles';
 
 export type Action = {
@@ -26,6 +25,4 @@ export type SelectOption<T> = { label: string; value: T };
 
 export type Status = 'success' | 'warning' | 'error';
 
-export interface CSSProp {
-  css?: CSS;
-}
+// export interface CSSProp {} // TODO

@@ -1,20 +1,12 @@
-import { darkTheme } from '../darkTheme';
-import { globalCss } from '@stitches/react';
-import { useTheme } from './useTheme';
+import { createGlobalStyle } from 'styled-components';
 
-const globalStyles = globalCss({
-  body: {
-    color: '$neutral700',
-    background: '$bg',
+export const GlobalStyles = createGlobalStyle`
+  body {
+    color: ${({ theme }) => theme.colors.neutral700};
+    background: ${({ theme }) => theme.colors.bg};
 
-    [`&.${darkTheme}`]: {
-      background: '$bg',
-    },
-  },
-});
-
-export const useGlobalStyles = () => {
-  useTheme();
-
-  globalStyles();
-};
+    &.darkTheme {
+      background: ${({ theme }) => theme.colors.bg};
+    }
+  }
+`;

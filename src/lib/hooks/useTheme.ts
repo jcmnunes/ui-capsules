@@ -1,6 +1,6 @@
 import { useLocalStorage } from './useLocalStorage';
 import { useEffect } from 'react';
-import { lightTheme } from '../lightTheme';
+import { theme as lightTheme } from '../theme';
 import { darkTheme } from '../darkTheme';
 
 export const useTheme = () => {
@@ -9,12 +9,11 @@ export const useTheme = () => {
   const isDark = theme === 'dark';
 
   useEffect(() => {
-    document.body.classList.remove(isDark ? lightTheme : darkTheme);
-    document.body.classList.add(isDark ? darkTheme : lightTheme);
+    document.body.classList.remove(isDark ? 'lightTheme' : 'darkTheme');
+    document.body.classList.add(isDark ? 'darkTheme' : 'lightTheme');
 
-    // @ts-ignore
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
   }, [isDark]);
 
-  return { isDark, setTheme };
+  return { isDark, setTheme, theme: isDark ? darkTheme : lightTheme };
 };

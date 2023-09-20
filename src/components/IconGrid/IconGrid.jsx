@@ -1,6 +1,6 @@
-import { styled } from '../../lib/stitches.config';
+import styled from 'styled-components';
 
-const IconGrid = styled('div', {
+const IconGrid = styled.div({
   width: '100%',
   display: 'flex',
   flexDirection: 'row',

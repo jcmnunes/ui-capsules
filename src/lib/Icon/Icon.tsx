@@ -1,15 +1,20 @@
-import React, { FC, useMemo } from 'react';
+import React, { ComponentPropsWithoutRef, useMemo } from 'react';
 import { outlineIcons, solidIcons } from './Icon.constants';
-import { CSSProp, IconType, IconVariant } from '../types';
-import { Box } from '../Box/Box';
+import { IconType, IconVariant } from '../types';
+import { styled } from 'styled-components';
 
-export interface IconProps extends CSSProp {
+const Wrapper = styled.span<{ $iconSize: number }>(({ $iconSize }) => ({
+  height: $iconSize,
+  display: 'inline-flex',
+}));
+
+export interface IconProps extends ComponentPropsWithoutRef<'span'> {
   icon: IconType;
   variant?: IconVariant;
   size?: number;
 }
 
-export const Icon: FC<IconProps> = ({ icon, size, variant = 'solid', ...rest }) => {
+export const Icon = ({ icon, size, variant = 'solid', ...rest }: IconProps) => {
   const iconSize = useMemo(() => {
     if (size) {
       return size;
@@ -19,7 +24,7 @@ export const Icon: FC<IconProps> = ({ icon, size, variant = 'solid', ...rest }) 
   }, [size, variant]);
 
   return (
-    <Box as="span" {...rest} css={{ height: iconSize, display: 'inline-flex', ...rest?.css }}>
+    <Wrapper $iconSize={iconSize} {...rest}>
       <svg
         width={`${iconSize}px`}
         height={`${iconSize}px`}
@@ -39,7 +44,7 @@ export const Icon: FC<IconProps> = ({ icon, size, variant = 'solid', ...rest }) 
           />
         )}
       </svg>
-    </Box>
+    </Wrapper>
   );
 };
 

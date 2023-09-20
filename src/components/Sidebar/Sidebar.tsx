@@ -27,7 +27,14 @@ const Sidebar: React.FC<Props> = ({ onClose }) => (
     <SidebarGroup>
       <SidebarLink to="/getting-started">Getting Started</SidebarLink>
 
-      <Text variant="smallCaps" css={{ ml: '$3', mt: '$4', mb: '$1' }}>
+      <Text
+        variant="smallCaps"
+        css={({ theme }) => ({
+          marginLeft: theme.space[12],
+          marginTop: theme.space[16],
+          marginBottom: theme.space[4],
+        })}
+      >
         Components
       </Text>
 

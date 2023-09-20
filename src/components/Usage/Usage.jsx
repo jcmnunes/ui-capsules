@@ -1,41 +1,41 @@
 import React, { useState } from 'react';
+import { styled } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Button } from '../../lib';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { styled } from '../../lib';
 
-const Wrapper = styled('div', {
+const Wrapper = styled.div({
   margin: '24px 0',
 });
 
-const StyledUsage = styled('div', {
+const StyledUsage = styled.div(({ theme }) => ({
   position: 'relative',
   display: 'grid',
-  background: '$neutral100',
+  background: theme.colors.neutral100,
   borderRadius: '12px',
   overflow: 'hidden',
-});
+}));
 
-const Code = styled('pre', {
+const Code = styled.pre({
   flex: 1,
   padding: 32,
   width: '100%',
   overflowX: 'auto',
 });
 
-const StyledCode = styled('code', {
-  color: '$neutral700',
-});
+const StyledCode = styled.code(({ theme }) => ({
+  color: theme.colors.neutral700,
+}));
 
-const Actions = styled('div', {
+const Actions = styled.div(({ theme }) => ({
   marginTop: 4,
   padding: '0 8px 0',
-  color: '$neutral400',
+  color: theme.colors.neutral400,
 
   '&:hover': {
-    color: '$neutral700',
+    color: theme.colors.neutral700,
   },
-});
+}));
 
 const Usage = ({ children }) => {
   const [isCopied, setIsCopied] = useState(false);

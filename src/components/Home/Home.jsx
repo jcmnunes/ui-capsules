@@ -1,10 +1,11 @@
 import React from 'react';
-import { Alert, Button, styled } from '../../lib';
+import { styled } from 'styled-components';
+import { Alert, Button } from '../../lib';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import { Main } from '../common/Main';
 
-export const Description = styled('div', {
+export const Description = styled.div({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -12,7 +13,7 @@ export const Description = styled('div', {
   marginBottom: 16,
 });
 
-export const StyledParagraph = styled(Paragraph, {
+export const StyledParagraph = styled(Paragraph)({
   margin: '24px 0 16px',
 });
 

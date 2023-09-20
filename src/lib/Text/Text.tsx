@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
 export type TextVariant = 'smallCaps' | 'label' | 'helper';
 
@@ -10,87 +10,112 @@ const truncatedStyle: React.CSSProperties = {
   display: 'block',
 };
 
-export const Text = styled('span', {
-  fontFamily: '$inter',
-  fontVariantNumeric: 'tabular-nums',
-  fontWeight: 400,
-  fontSize: '$md',
-  lineHeight: '$md',
-  color: '$neutral700',
-  display: 'block',
+export interface TextProps {
+  color?: string;
+  isTruncated?: boolean;
+  variant?: TextVariant;
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+}
 
-  variants: {
-    isTruncated: {
-      true: {
-        ...truncatedStyle,
-      },
-    },
+export const Text = styled.span<TextProps>(
+  ({ theme, isTruncated }) => ({
+    fontFamily: theme.fonts.inter,
+    fontVariantNumeric: 'tabular-nums',
+    fontWeight: 400,
+    fontSize: theme.fontSizes.md,
+    lineHeight: theme.lineHeights.md,
+    color: theme.colors.neutral700,
+    display: 'block',
+    ...(isTruncated && truncatedStyle),
+  }),
 
-    variant: {
-      smallCaps: {
-        fontWeight: 600,
-        fontSize: '$sm',
-        lineHeight: '$sm',
-        color: '$neutral500',
-        letterSpacing: '$wide',
-        textTransform: 'uppercase',
-      },
-
-      label: {
-        fontWeight: 600,
-        fontSize: '$sm',
-        lineHeight: '$sm',
-        display: 'inline-block',
-      },
-
-      helper: {
-        fontWeight: 500,
-        fontSize: '$sm',
-        lineHeight: '$sm',
-        color: '$neutral500',
-      },
-    },
-
-    size: {
-      sm: {
-        fontSize: '$sm',
-        lineHeight: '$sm',
-      },
-      md: {
-        fontSize: '$md',
-        lineHeight: '$md',
-      },
-      lg: {
-        fontSize: '$lg',
-        lineHeight: '$lg',
-      },
-      xl: {
-        fontSize: '$xl',
-        lineHeight: '$xl',
-      },
-      '2xl': {
-        fontSize: '$2xl',
-        lineHeight: '$2xl',
-      },
-      '3xl': {
-        fontSize: '$3xl',
-        lineHeight: '$3xl',
-      },
-      '4xl': {
-        fontSize: '$4xl',
-        lineHeight: '$4xl',
-      },
-      '5xl': {
-        fontSize: '$5xl',
-        lineHeight: '$5xl',
-      },
-      '6xl': {
-        fontSize: '$6xl',
-        lineHeight: '$6xl',
-      },
-    },
+  ({ theme, variant }) => {
+    switch (variant) {
+      case 'smallCaps':
+        return {
+          fontWeight: 600,
+          fontSize: theme.fontSizes.sm,
+          lineHeight: theme.lineHeights.sm,
+          color: theme.colors.neutral500,
+          letterSpacing: theme.letterSpacings.wide,
+          textTransform: 'uppercase',
+        };
+      case 'label':
+        return {
+          fontWeight: 600,
+          fontSize: theme.fontSizes.sm,
+          lineHeight: theme.lineHeights.sm,
+          display: 'inline-block',
+        };
+      case 'helper':
+        return {
+          fontWeight: 500,
+          fontSize: theme.fontSizes.sm,
+          lineHeight: theme.lineHeights.sm,
+          color: theme.colors.neutral500,
+        };
+      default:
+        return {};
+    }
   },
-});
+
+  ({ theme, size }) => {
+    switch (size) {
+      case 'sm':
+        return {
+          fontSize: theme.fontSizes.sm,
+          lineHeight: theme.lineHeights.sm,
+        };
+      case 'md':
+        return {
+          fontSize: theme.fontSizes.md,
+          lineHeight: theme.lineHeights.md,
+        };
+      case 'lg':
+        return {
+          fontSize: theme.fontSizes.lg,
+          lineHeight: theme.lineHeights.lg,
+        };
+      case 'xl':
+        return {
+          fontSize: theme.fontSizes.xl,
+          lineHeight: theme.lineHeights.xl,
+        };
+      case '2xl':
+        return {
+          fontSize: theme.fontSizes['2xl'],
+          lineHeight: theme.lineHeights['2xl'],
+        };
+      case '3xl':
+        return {
+          fontSize: theme.fontSizes['3xl'],
+          lineHeight: theme.lineHeights['3xl'],
+        };
+      case '4xl':
+        return {
+          fontSize: theme.fontSizes['4xl'],
+          lineHeight: theme.lineHeights['4xl'],
+        };
+      case '5xl':
+        return {
+          fontSize: theme.fontSizes['5xl'],
+          lineHeight: theme.lineHeights['5xl'],
+        };
+      case '6xl':
+        return {
+          fontSize: theme.fontSizes['6xl'],
+          lineHeight: theme.lineHeights['6xl'],
+        };
+    }
+  },
+
+  ({ color }) => {
+    if (color)
+      return {
+        color,
+      };
+  },
+);
 
 Text.displayName = 'Text';
 Text.defaultProps = {

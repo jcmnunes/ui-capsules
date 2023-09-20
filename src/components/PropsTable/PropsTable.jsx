@@ -1,42 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Pill,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeaderCell,
-  TableRow,
-  styled,
-} from '../../lib';
+import { Pill, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '../../lib';
 import { SubTitle } from '../common/Typography';
+import { styled } from 'styled-components';
 
-export const PropType = styled('span', {
+export const PropType = styled.span(({ theme }) => ({
   fontWeight: 700,
   marginRight: 12,
-  fontSize: '$md',
-  color: '$neutral700',
-});
+  fontSize: theme.fontSizes.sm,
+  color: theme.colors.neutral700,
+}));
 
-export const DefaultValue = styled('span', {
-  fontSize: '$sm',
-  color: '$neutral700',
+export const DefaultValue = styled.span(({ theme }) => ({
+  fontSize: theme.fontSizes.sm,
+  color: theme.colors.neutral700,
 
   span: {
-    fontFamily: '$hack',
-    color: '$secondary600',
+    fontFamily: theme.fonts.hack,
+    color: theme.colors.secondary600,
   },
-});
+}));
 
-const StyledProp = styled('pre', {
-  color: '$neutral700',
-});
+const StyledProp = styled.pre(({ theme }) => ({
+  color: theme.colors.neutral700,
+}));
 
-const StyledDescription = styled('div', {
-  fontSize: '$sm',
-  color: '$neutral700',
-});
+const StyledDescription = styled.div(({ theme }) => ({
+  fontSize: theme.fontSizes.sm,
+  color: theme.colors.neutral700,
+}));
 
 const PropsTable = ({ props: propsArray }) => {
   return (

@@ -120,7 +120,7 @@ const ModalDemo = () => {
             placeholder="Task summary"
           />
 
-          <Box css={{ mb: '$4' }} />
+          <Box css={{ marginBottom: 16 }} />
 
           <Select
             label="Scope"
@@ -130,7 +130,7 @@ const ModalDemo = () => {
             menuPortalTarget={document.body}
           />
 
-          <Button leftIcon="plus" variant="ghostGray" size="small" css={{ mt: '$1' }}>
+          <Button leftIcon="plus" variant="ghostGray" size="small" css={{ marginTop: 4 }}>
             Create new scope
           </Button>
         </ModalBody>

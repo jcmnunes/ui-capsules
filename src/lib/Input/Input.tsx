@@ -1,5 +1,5 @@
 import React from 'react';
-import { CSSProp, ElementSize, IconType, IconVariant } from '../types';
+import { ElementSize, IconType, IconVariant } from '../types';
 import { Icon } from '../Icon/Icon';
 import { Label } from '../Label/Label';
 import {
@@ -13,7 +13,7 @@ import {
 import { useId } from '@reach/auto-id';
 import { HelpText } from '../HelpText/HelpText';
 
-export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, CSSProp {
+export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   size?: ElementSize;
   disabled?: boolean;
   label?: string;
@@ -54,7 +54,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
 
         <InputWrapper {...rest}>
           {leftIcon && (
-            <IconWrapper size={size} position="left">
+            <IconWrapper $size={size} $position="left">
               <InputIcon
                 as={Icon}
                 variant={iconVariant}
@@ -67,10 +67,10 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
           <StyledInput
             id={labelId}
             ref={ref}
-            inputSize={size}
-            variant={variant}
-            hasLeftIcon={!!leftIcon}
-            hasRightIcon={!!rightIcon}
+            $size={size}
+            $variant={variant}
+            $hasLeftIcon={!!leftIcon}
+            $hasRightIcon={!!rightIcon}
             disabled={disabled}
             aria-describedby={helpText ? descriptionId : undefined}
             aria-invalid={variant === 'error'}
@@ -79,7 +79,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
           />
 
           {rightIcon && (
-            <IconWrapper size={size}>
+            <IconWrapper $size={size} $position="right">
               <InputIcon
                 as={Icon}
                 variant={iconVariant}

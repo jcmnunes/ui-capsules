@@ -1,16 +1,16 @@
 import React, { ComponentPropsWithRef, forwardRef } from 'react';
 import { Box } from '../Box/Box';
-import { CSSProp, DualSize } from '../types';
+import { DualSize } from '../types';
 import { CustomCheckbox, Label, StyledInput } from './Checkbox.styles';
 
-interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'>, CSSProp {
+interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'> {
   size?: DualSize;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, Props>(
   ({ checked, size = 'medium', disabled = false, children, onChange, css, ...rest }, ref) => (
     <Box css={css}>
-      <Label size={size} onClick={e => e.stopPropagation()} disabled={disabled}>
+      <Label $size={size} onClick={e => e.stopPropagation()} $disabled={disabled}>
         {children && <span>{children}</span>}
 
         <StyledInput
@@ -22,7 +22,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
           {...rest}
         />
 
-        <CustomCheckbox className="uic-custom-checkbox" size={size} disabled={disabled} />
+        <CustomCheckbox className="uic-custom-checkbox" $size={size} $disabled={disabled} />
       </Label>
     </Box>
   ),

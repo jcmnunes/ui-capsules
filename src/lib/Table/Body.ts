@@ -1,3 +1,3 @@
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-export const Body = styled('tbody', {});
+export const Body = styled.tbody``;

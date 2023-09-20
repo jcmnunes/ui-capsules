@@ -49,7 +49,7 @@ const AlertDemo = () => {
                   },
                 },
               ]}
-              css={{ mb: '$6' }}
+              css={({ theme }) => ({ marginBottom: theme.space[32] })}
             />
           ))}
         </Box>

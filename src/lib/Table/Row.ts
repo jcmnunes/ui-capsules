@@ -1,7 +1,7 @@
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-export const Row = styled('tr', {
+export const Row = styled.tr(({ theme }) => ({
   '&:nth-child(even)': {
-    background: '$neutral100',
+    background: theme.colors.neutral100,
   },
-});
+}));

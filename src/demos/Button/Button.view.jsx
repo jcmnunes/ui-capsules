@@ -28,7 +28,7 @@ const ButtonDemo = () => {
 
         <Flex align="center" css={{ mb: '$5' }}>
           {['primary', 'secondary', 'error', 'ghost', 'ghostGray', 'link'].map(variant => (
-            <Box key={variant} css={{ mr: '$3' }}>
+            <Box key={variant} css={{ marginRight: 12 }}>
               <Button variant={variant}>
                 {variant.charAt(0).toUpperCase() + variant.slice(1)}
               </Button>

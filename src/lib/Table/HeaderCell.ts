@@ -1,35 +1,33 @@
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-export const HeaderCell = styled('th', {
-  height: '38px',
-  verticalAlign: 'middle',
-  padding: '0 18px',
-  fontWeight: 600,
+interface HeaderCellProps {
+  textAlign?: 'left' | 'center' | 'right';
+  noWrap?: boolean;
+}
 
-  variants: {
-    textAlign: {
-      left: {
-        textAlign: 'left',
-      },
+export const HeaderCell = styled.th<HeaderCellProps>(
+  ({ noWrap }) => ({
+    height: '38px',
+    verticalAlign: 'middle',
+    padding: '0 18px',
+    fontWeight: 600,
+    whiteSpace: noWrap ? 'nowrap' : 'normal',
+  }),
 
-      center: {
-        textAlign: 'center',
-      },
-
-      right: {
-        textAlign: 'right',
-      },
-    },
-
-    noWrap: {
-      true: {
-        whiteSpace: 'nowrap',
-      },
-    },
+  ({ textAlign }) => {
+    switch (textAlign) {
+      case 'center':
+        return {
+          textAlign: 'center',
+        };
+      case 'right':
+        return {
+          textAlign: 'right',
+        };
+      default:
+        return {
+          textAlign: 'left',
+        };
+    }
   },
-
-  defaultVariants: {
-    textAlign: 'left',
-    noWrap: 'false',
-  },
-});
+);

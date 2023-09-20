@@ -5,45 +5,55 @@ import { AlertIcon, AlertVariant, AlertWrapper, ICON_MAP, StyledAlert } from './
 import { CloseButton } from '../CloseButton/CloseButton';
 import { Action } from '../types';
 import { Flex } from '../Flex/Flex';
-import { CSS } from '../stitches.config';
 
-export interface Props {
+export interface Props extends React.ComponentPropsWithoutRef<'div'> {
   title?: string;
   message?: string;
   variant?: AlertVariant;
   onRequestClose?(): void;
   actions?: Action[];
-  css?: CSS;
 }
 
-export const Alert: React.FC<Props> = ({
+export const Alert = ({
   variant = 'error',
   title,
   message,
   onRequestClose,
   actions,
   ...rest
-}) => {
+}: Props) => {
   return (
-    <AlertWrapper variant={variant} {...rest}>
-      <StyledAlert variant={variant}>
-        <AlertIcon alertVariant={variant} icon={ICON_MAP[variant]} />
+    <AlertWrapper $variant={variant} {...rest}>
+      <StyledAlert $variant={variant}>
+        <AlertIcon $alertVariant={variant} icon={ICON_MAP[variant]} />
 
-        <Flex direction="column" css={{ flex: 1 }}>
+        <Flex $direction="column" css={{ flex: 1 }}>
           {!!title && (
-            <Text css={{ fontWeight: 600, color: 'inherit', mb: message ? '$1' : 0 }}>{title}</Text>
+            <Text
+              style={{ marginBottom: message ? 4 : 0 }}
+              css={{
+                fontWeight: 600,
+                color: 'inherit',
+              }}
+            >
+              {title}
+            </Text>
           )}
 
           {!!message && <Text css={{ color: 'inherit' }}>{message}</Text>}
 
           {actions && (
-            <Flex css={{ mt: '$2' }}>
+            <Flex css={({ theme }) => ({ marginTop: theme.space[8] })}>
               {actions.map(({ text, onClick }) => (
                 <Button
                   key={text}
                   variant="link"
                   onClick={onClick}
-                  css={{ mr: '$4', color: 'inherit', '&:hover': { color: 'inherit' } }}
+                  css={({ theme }) => ({
+                    marginRight: theme.space[16],
+                    color: 'inherit',
+                    '&:hover': { color: 'inherit' },
+                  })}
                 >
                   {text}
                 </Button>
@@ -55,7 +65,11 @@ export const Alert: React.FC<Props> = ({
         {onRequestClose && (
           <CloseButton
             onClick={onRequestClose}
-            css={{ ml: '$4', color: 'inherit', '&:hover': { color: 'inherit', bg: 'transparent' } }}
+            css={({ theme }) => ({
+              ml: theme.space[16],
+              color: 'inherit',
+              '&:hover': { color: 'inherit', background: 'transparent' },
+            })}
           />
         )}
       </StyledAlert>

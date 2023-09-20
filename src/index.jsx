@@ -4,7 +4,7 @@ import '@reach/menu-button/styles.css';
 import '@reach/tooltip/styles.css';
 import './lib/styles/global.css';
 
-import { ToastContainer } from './lib';
+// import { ToastContainer } from './lib';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,7 +16,7 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
 
-    <ToastContainer />
+    {/*<ToastContainer />*/}
   </React.StrictMode>,
   document.getElementById('root'),
 );

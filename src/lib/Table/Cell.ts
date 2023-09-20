@@ -1,32 +1,30 @@
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-export const Cell = styled('td', {
-  padding: '8px 16px',
+interface CellProps {
+  textAlign?: 'left' | 'center' | 'right';
+  noWrap?: boolean;
+}
 
-  variants: {
-    textAlign: {
-      left: {
-        textAlign: 'left',
-      },
+export const Cell = styled.td<CellProps>(
+  ({ noWrap }) => ({
+    padding: '8px 16px',
+    whiteSpace: noWrap ? 'nowrap' : 'normal',
+  }),
 
-      center: {
-        textAlign: 'center',
-      },
-
-      right: {
-        textAlign: 'right',
-      },
-    },
-
-    noWrap: {
-      true: {
-        whiteSpace: 'nowrap',
-      },
-    },
+  ({ textAlign }) => {
+    switch (textAlign) {
+      case 'center':
+        return {
+          textAlign: 'center',
+        };
+      case 'right':
+        return {
+          textAlign: 'right',
+        };
+      default:
+        return {
+          textAlign: 'left',
+        };
+    }
   },
-
-  defaultVariants: {
-    textAlign: 'left',
-    noWrap: 'false',
-  },
-});
+);

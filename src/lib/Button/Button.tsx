@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spinner } from '../Spinner/Spinner';
 import { ButtonSize, ButtonVariant, StyledButton } from './Button.styles';
-import { CSSProp, IconType, IconVariant } from '../types';
+import { IconType, IconVariant } from '../types';
 import { solidIcons } from '../Icon/Icon.constants';
 import { Icon } from '../Icon/Icon';
 
@@ -10,7 +10,7 @@ const anchorProps = {
   rel: 'noreferrer noopener',
 };
 
-export interface Props extends React.ComponentPropsWithRef<'button'>, CSSProp {
+export interface Props extends React.ComponentPropsWithRef<'button'> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   isLoading?: boolean;
@@ -34,28 +34,30 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       children,
       disabled,
       isLoading,
+      className,
       ...rest
     },
     ref,
   ) => {
     return (
       <StyledButton
-        variant={variant}
-        size={size}
+        $variant={variant}
+        $size={size}
         disabled={disabled || isLoading}
         as={as}
         ref={ref}
         type={type}
-        hasLeftIcon={!!leftIcon}
-        hasRightIcon={!!rightIcon}
+        $hasLeftIcon={!!leftIcon}
+        $hasRightIcon={!!rightIcon}
+        className={className}
         {...(as === 'a' ? anchorProps : {})}
         {...rest}
       >
         {isLoading && (
           <Spinner
             variant="dark"
-            css={{ position: 'absolute' }}
             dotColor={variant === 'primary' || variant === 'error' ? '#fff' : undefined}
+            css="position: absolute"
           />
         )}
 
@@ -64,10 +66,10 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
             variant={iconVariant}
             icon={leftIcon as IconType}
             size={size === 'small' ? 18 : 20}
-            css={{
+            style={{
               opacity: isLoading ? 0 : 1,
               height: size === 'small' ? 18 : 20,
-              mr: children ? '$1' : 0,
+              marginRight: children ? 4 : 0,
               display: 'flex',
             }}
           />
@@ -80,10 +82,10 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
             variant={iconVariant}
             icon={rightIcon as IconType}
             size={size === 'small' ? 18 : 20}
-            css={{
+            style={{
               opacity: isLoading ? 0 : 1,
               height: size === 'small' ? 18 : 20,
-              ml: '$1',
+              marginLeft: 4,
               display: 'flex',
             }}
           />

@@ -1,7 +1,9 @@
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { IconButton, styled } from '../../lib';
+import { IconButton } from '../../lib';
+import { styled } from 'styled-components';
 
-export const StyledSidebar = styled('nav', {
+export const StyledSidebar = styled.nav({
   width: 256,
   height: '100%',
   display: 'flex',
@@ -9,13 +11,13 @@ export const StyledSidebar = styled('nav', {
   overflowY: 'hidden',
 });
 
-export const SidebarHeader = styled('div', {
+export const SidebarHeader = styled.div(({ theme }) => ({
   padding: '48px 24px 24px',
-  background: '$neutral100',
+  background: theme.colors.neutral100,
   zIndex: 1,
-});
+}));
 
-export const SidebarGroup = styled('div', {
+export const SidebarGroup = styled.div({
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
@@ -25,38 +27,38 @@ export const SidebarGroup = styled('div', {
   overflowY: 'auto',
 });
 
-export const LogoLink = styled(Link, {
+export const LogoLink = styled(Link)(({ theme }) => ({
   display: 'block',
-  padding: '$3',
-  marginLeft: '-$3',
+  padding: 12,
+  marginLeft: -12,
 
   '&[data-focus-visible-added]:focus': {
-    boxShadow: 'inset 0px 0px 0px 1px $colors$pink600',
+    boxShadow: `inset 0px 0px 0px 1px ${theme.colors.pink600}`,
   },
-});
+}));
 
-export const StyledSidebarLink = styled(NavLink, {
-  fontSize: '$md',
+export const StyledSidebarLink = styled(NavLink)(({ theme }) => ({
+  fontSize: theme.fontSizes.md,
   fontWeight: 500,
   height: 32,
-  borderRadius: '$medium',
-  background: '$neutral100',
-  color: '$neutral700',
+  borderRadius: theme.radii.medium,
+  background: theme.colors.neutral100,
+  color: theme.colors.neutral700,
   cursor: 'pointer',
   padding: '4px 12px',
   position: 'relative',
 
   '&:hover': {
-    background: '$neutral200',
+    background: theme.colors.neutral200,
   },
 
   '&[data-focus-visible-added]:focus': {
-    boxShadow: 'inset 0px 0px 0px 1px $colors$pink600',
+    boxShadow: `inset 0px 0px 0px 1px ${theme.colors.pink600}`,
   },
 
   '&.active': {
-    background: '$neutral200',
-    color: '$secondary700',
+    background: theme.colors.neutral200,
+    color: theme.colors.secondary700,
 
     '&::after': {
       content: '""',
@@ -64,23 +66,23 @@ export const StyledSidebarLink = styled(NavLink, {
       height: 16,
       width: 3,
       borderRadius: '0 2px 2px 0',
-      background: '$secondary500',
+      background: theme.colors.secondary500,
       position: 'absolute',
       left: 0,
       top: 8,
     },
   },
-});
+}));
 
 export const SidebarLink = props => <StyledSidebarLink activeClassName="active" {...props} />;
 
-export const CloseButton = styled(IconButton, {
+export const CloseButton = styled(IconButton)(({ theme }) => ({
   position: 'absolute',
   top: 12,
   right: 12,
   zIndex: 2,
 
-  '@md': {
+  [theme.media.md]: {
     display: 'none',
   },
-});
+}));

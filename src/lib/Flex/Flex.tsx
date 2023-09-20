@@ -1,105 +1,125 @@
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
+import { Box } from '../Box/Box';
+import { theme } from '../theme';
 
-export const Flex = styled('div', {
-  boxSizing: 'border-box',
-  display: 'flex',
+interface FlexProps {
+  $direction?: 'row' | 'column' | 'rowReverse' | 'columnReverse';
+  $align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+  $justify?: 'start' | 'center' | 'end' | 'between';
+  $wrap?: 'noWrap' | 'wrap' | 'wrapReverse';
+  $gap?: keyof (typeof theme)['space'];
+}
 
-  variants: {
-    direction: {
-      row: {
-        flexDirection: 'row',
-      },
-      column: {
-        flexDirection: 'column',
-      },
-      rowReverse: {
-        flexDirection: 'row-reverse',
-      },
-      columnReverse: {
-        flexDirection: 'column-reverse',
-      },
-    },
-
-    align: {
-      start: {
-        alignItems: 'flex-start',
-      },
-      center: {
-        alignItems: 'center',
-      },
-      end: {
-        alignItems: 'flex-end',
-      },
-      stretch: {
-        alignItems: 'stretch',
-      },
-      baseline: {
-        alignItems: 'baseline',
-      },
-    },
-
-    justify: {
-      start: {
-        justifyContent: 'flex-start',
-      },
-      center: {
-        justifyContent: 'center',
-      },
-      end: {
-        justifyContent: 'flex-end',
-      },
-      between: {
-        justifyContent: 'space-between',
-      },
-    },
-
-    wrap: {
-      noWrap: {
-        flexWrap: 'nowrap',
-      },
-      wrap: {
-        flexWrap: 'wrap',
-      },
-      wrapReverse: {
-        flexWrap: 'wrap-reverse',
-      },
-    },
-
-    gap: {
-      1: {
-        gap: '$1',
-      },
-      2: {
-        gap: '$2',
-      },
-      3: {
-        gap: '$3',
-      },
-      4: {
-        gap: '$4',
-      },
-      5: {
-        gap: '$5',
-      },
-      6: {
-        gap: '$6',
-      },
-      7: {
-        gap: '$7',
-      },
-      8: {
-        gap: '$8',
-      },
-      9: {
-        gap: '$9',
-      },
-    },
+export const Flex = styled(Box)<FlexProps>(
+  {
+    display: 'flex',
   },
 
-  defaultVariants: {
-    direction: 'row',
-    align: 'stretch',
-    justify: 'start',
-    wrap: 'noWrap',
+  ({ $direction }) => {
+    switch ($direction) {
+      case 'row':
+        return {
+          flexDirection: 'row',
+        };
+      case 'column':
+        return {
+          flexDirection: 'column',
+        };
+      case 'rowReverse':
+        return {
+          flexDirection: 'row-reverse',
+        };
+      case 'columnReverse':
+        return {
+          flexDirection: 'column-reverse',
+        };
+      default:
+        return {
+          flexDirection: 'row',
+        };
+    }
   },
-});
+
+  ({ $align }) => {
+    switch ($align) {
+      case 'start':
+        return {
+          alignItems: 'flex-start',
+        };
+      case 'center':
+        return {
+          alignItems: 'center',
+        };
+      case 'end':
+        return {
+          alignItems: 'flex-end',
+        };
+      case 'stretch':
+        return {
+          alignItems: 'stretch',
+        };
+      case 'baseline':
+        return {
+          alignItems: 'baseline',
+        };
+      default:
+        return {
+          alignItems: 'flex-start',
+        };
+    }
+  },
+
+  ({ $justify }) => {
+    switch ($justify) {
+      case 'start':
+        return {
+          justifyContent: 'flex-start',
+        };
+      case 'center':
+        return {
+          justifyContent: 'center',
+        };
+      case 'end':
+        return {
+          justifyContent: 'flex-end',
+        };
+      case 'between':
+        return {
+          justifyContent: 'space-between',
+        };
+      default:
+        return {
+          justifyContent: 'flex-start',
+        };
+    }
+  },
+
+  ({ $wrap }) => {
+    switch ($wrap) {
+      case 'noWrap':
+        return {
+          flexWrap: 'nowrap',
+        };
+      case 'wrap':
+        return {
+          flexWrap: 'wrap',
+        };
+      case 'wrapReverse':
+        return {
+          flexWrap: 'wrap-reverse',
+        };
+      default:
+        return {
+          flexWrap: 'nowrap',
+        };
+    }
+  },
+
+  ({ $gap, theme }) => {
+    if ($gap) {
+      return {
+        gap: theme.space[$gap],
+      };
+    }
+  },
+);
