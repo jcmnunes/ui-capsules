@@ -8,7 +8,7 @@ export { EditableInput } from './EditableInput/EditableInput';
 export { Flex } from './Flex/Flex';
 export { Icon } from './Icon/Icon';
 export { IconButton } from './IconButton/IconButton';
-// export { IllustratedIcon } from './IllustratedIcon/IllustratedIcon';
+export { IllustratedIcon } from './IllustratedIcon/IllustratedIcon';
 export { Input } from './Input/Input';
 export { Modal } from './Modal/Modal';
 export { ModalBody } from './Modal/ModalBody';
@@ -37,7 +37,7 @@ export {
   MenuPopover,
   Menu,
 } from './Menu/Menu';
-// export { Tooltip } from './Tooltip/Tooltip';
+export { Tooltip } from './Tooltip/Tooltip';
 export { TruncatedText } from './TruncatedText/TruncatedText';
 export { useTheme } from './hooks/useTheme';
 export { useLocalStorage } from './hooks/useLocalStorage';

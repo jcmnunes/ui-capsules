@@ -8,6 +8,7 @@ import {
   SelectOption,
   Text,
   Input,
+  ColorKey,
 } from '../../lib';
 import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { useIconOpts } from './IllustratedIcon.hooks';
@@ -17,10 +18,10 @@ const IllustratedIconDemo = () => {
   const iconOpts = useIconOpts();
   const [onClick, setOnClick] = useState(false);
   const [icon, setIcon] = useState(iconOpts[0]);
-  const [primaryColor, setPrimaryColor] = useState('$neutral300');
-  const [secondaryColor, setSecondaryColor] = useState('$neutral600');
-  const [primaryColorHover, setPrimaryColorHover] = useState('$neutral400');
-  const [secondaryColorHover, setSecondaryColorHover] = useState('$neutral700');
+  const [primaryColor, setPrimaryColor] = useState<ColorKey>('neutral300');
+  const [secondaryColor, setSecondaryColor] = useState<ColorKey>('neutral600');
+  const [primaryColorHover, setPrimaryColorHover] = useState<ColorKey>('neutral400');
+  const [secondaryColorHover, setSecondaryColorHover] = useState<ColorKey>('neutral700');
 
   const Component = (
     <IllustratedIcon
@@ -60,7 +61,7 @@ const IllustratedIconDemo = () => {
             label="primaryColor"
             type="text"
             value={primaryColor}
-            onChange={ev => setPrimaryColor(ev.target.value)}
+            onChange={ev => setPrimaryColor(ev.target.value as ColorKey)}
           />
         </div>
 
@@ -69,7 +70,7 @@ const IllustratedIconDemo = () => {
             label="secondaryColor"
             type="text"
             value={secondaryColor}
-            onChange={ev => setSecondaryColor(ev.target.value)}
+            onChange={ev => setSecondaryColor(ev.target.value as ColorKey)}
           />
         </div>
 
@@ -78,7 +79,7 @@ const IllustratedIconDemo = () => {
             label="primaryColorHover"
             type="text"
             value={primaryColorHover}
-            onChange={ev => setPrimaryColorHover(ev.target.value)}
+            onChange={ev => setPrimaryColorHover(ev.target.value as ColorKey)}
           />
         </div>
 
@@ -87,7 +88,7 @@ const IllustratedIconDemo = () => {
             label="secondaryColorHover"
             type="text"
             value={secondaryColorHover}
-            onChange={ev => setSecondaryColorHover(ev.target.value)}
+            onChange={ev => setSecondaryColorHover(ev.target.value as ColorKey)}
           />
         </div>
       </Inputs>

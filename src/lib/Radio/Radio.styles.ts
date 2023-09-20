@@ -55,8 +55,8 @@ interface CustomRadioProps {
   $size: DualSize;
 }
 
-export const CustomRadio = styled.span<CustomRadioProps>(({ theme }) => (
-  {
+export const CustomRadio = styled.span<CustomRadioProps>(
+  ({ theme }) => ({
     position: 'absolute',
     top: 0,
     left: 0,
@@ -121,6 +121,7 @@ export const CustomRadio = styled.span<CustomRadioProps>(({ theme }) => (
   },
 );
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export const StyledRadioInput = styled.input(({ theme }) => ({
   position: 'absolute',

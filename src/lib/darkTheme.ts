@@ -7,6 +7,8 @@ export const darkTheme = {
   ...theme,
 
   colors: {
+    ...colors,
+
     bg: '#18191B',
 
     neutral50: colors.gray900,

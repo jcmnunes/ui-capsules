@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from '../Icon/Icon';
-import { darkTheme } from '../darkTheme';
 import { IconType, Status } from '../types';
 import { styled } from 'styled-components';
 

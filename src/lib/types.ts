@@ -2,6 +2,7 @@ import { illustratedIcons } from './IllustratedIcon/IllustratedIcon.constants';
 import { MouseEvent } from 'react';
 import { solidIcons } from './Icon/Icon.constants';
 import { ButtonVariant } from './Button/Button.styles';
+import { theme } from './theme';
 
 export type Action = {
   text: string;
@@ -16,6 +17,8 @@ export type DualSize = 'medium' | 'large';
 export type AlignmentOptions = 'left' | 'center' | 'right';
 
 export type IconType = keyof typeof solidIcons;
+
+export type ColorKey = keyof typeof theme.colors;
 
 export type IconVariant = 'solid' | 'outline';
 

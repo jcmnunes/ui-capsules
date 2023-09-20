@@ -10,7 +10,7 @@ import EditableInputView from './demos/EditableInput/EditableInput.view';
 import HomeView from './components/Home/Home';
 import IconButtonView from './demos/IconButton/IconButton.view';
 import IconView from './demos/Icon/Icon.view';
-// import IllustratedIconView from './demos/IllustratedIcon/IllustratedIcon.view';
+import IllustratedIconView from './demos/IllustratedIcon/IllustratedIcon.view';
 import InputView from './demos/Input/Input.view';
 import MenuView from './demos/Menu/Menu.view';
 import ModalView from './demos/Modal/Modal.view';
@@ -91,7 +91,7 @@ const App = () => {
             {/*<Route path="/editor" component={Editor} />*/}
             <Route path="/icon" component={IconView} />
             <Route path="/icon-button" component={IconButtonView} />
-            {/*<Route path="/illustrated-icon" component={IllustratedIconView} />*/}
+            <Route path="/illustrated-icon" component={IllustratedIconView} />
             <Route path="/input" component={InputView} />
             <Route path="/menu" component={MenuView} />
             <Route path="/modal" component={ModalView} />
@@ -113,86 +113,5 @@ const App = () => {
     </ThemeProvider>
   );
 };
-
-// const App = () => {
-//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-//
-//   useGlobalStyles();
-//
-//   const { isDark, setTheme, theme } = useTheme();
-//
-//   const { pathname } = useLocation();
-//
-//   useEffect(() => {
-//     setIsSidebarOpen(false);
-//   }, [pathname]);
-//
-//   return (
-//     <ThemeProvider theme={theme}>
-//       <Flex css={{ height: '100%' }}>
-//         {isSidebarOpen && <SidebarOverlay onClick={() => setIsSidebarOpen(false)} />}
-//
-//         <SidebarWrapper isOpen={isSidebarOpen}>
-//           <Sidebar onClose={() => setIsSidebarOpen(false)} />
-//         </SidebarWrapper>
-//
-//         <ShowcaseWrapper>
-//           <ShowcaseContent>
-//             <Flex justify="between">
-//               <IconButton
-//                 icon="menu"
-//                 variant="ghostGray"
-//                 onClick={() => setIsSidebarOpen(true)}
-//                 aria-label="Open navigation"
-//                 css={{
-//                   '@md': {
-//                     display: 'none',
-//                   },
-//                 }}
-//               />
-//
-//               <IconButton
-//                 icon={isDark ? 'moon' : 'sun'}
-//                 variant="ghostGray"
-//                 onClick={() => setTheme(isDark ? 'light' : 'dark')}
-//                 aria-label="Change theme"
-//                 css={{ ml: 'auto' }}
-//               />
-//             </Flex>
-//
-//             <Route exact path="/" render={() => <Redirect to="/getting-started" />} />
-//             <Route path="/getting-started" component={HomeView} />
-//
-//             <Route path="/alert" component={AlertView} />
-//             <Route path="/anchor" component={AnchorView} />
-//             <Route path="/button" component={ButtonView} />
-//             <Route path="/checkbox" component={CheckboxView} />
-//             <Route path="/dialog" component={DialogView} />
-//             <Route path="/editable-input" component={EditableInputView} />
-//             <Route path="/editor" component={Editor} />
-//             <Route path="/icon" component={IconView} />
-//             <Route path="/icon-button" component={IconButtonView} />
-//             <Route path="/illustrated-icon" component={IllustratedIconView} />
-//             <Route path="/input" component={InputView} />
-//             <Route path="/menu" component={MenuView} />
-//             <Route path="/modal" component={ModalView} />
-//             <Route path="/radio" component={RadioView} />
-//             <Route path="/radio-picker" component={RadioPickerView} />
-//             <Route path="/select" component={SelectView} />
-//             <Route path="/skeleton" component={SkeletonView} />
-//             <Route path="/spinner" component={SpinnerView} />
-//             <Route path="/splash" component={SplashView} />
-//             <Route path="/switch" component={SwitchView} />
-//             <Route path="/table" component={TableView} />
-//             <Route path="/text" component={TextView} />
-//             <Route path="/toast" component={ToastView} />
-//             <Route path="/tooltip" component={TooltipView} />
-//             <Route path="/truncated-text" component={TruncatedTextView} />
-//           </ShowcaseContent>
-//         </ShowcaseWrapper>
-//       </Flex>
-//     </ThemeProvider>
-//   );
-// };
 
 export default App;

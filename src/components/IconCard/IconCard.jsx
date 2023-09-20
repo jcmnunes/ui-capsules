@@ -9,7 +9,8 @@ const Card = styled.div(({ theme }) => ({
   border: `1px solid ${theme.colors.neutral200}`,
   borderRadius: theme.radii.large,
   overflow: 'hidden',
-  color: `1px solid ${theme.colors.neutral700}`,
+  color: `1px solid $neutral700`,
+  width: 132,
   height: 100,
 }));
 
