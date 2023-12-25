@@ -12,7 +12,7 @@ import IconButtonView from './demos/IconButton/IconButton.view';
 import IconView from './demos/Icon/Icon.view';
 // import IllustratedIconView from './demos/IllustratedIcon/IllustratedIcon.view';
 import InputView from './demos/Input/Input.view';
-// import MenuView from './demos/Menu/Menu.view';
+import MenuView from './demos/Menu/Menu.view';
 import ModalView from './demos/Modal/Modal.view';
 // import RadioPickerView from './demos/RadioPicker/RadioPicker.view';
 // import RadioView from './demos/Radio/Radio.view';
@@ -93,7 +93,7 @@ const App = () => {
             <Route path="/icon-button" component={IconButtonView} />
             {/*<Route path="/illustrated-icon" component={IllustratedIconView} />*/}
             <Route path="/input" component={InputView} />
-            {/*<Route path="/menu" component={MenuView} />*/}
+            <Route path="/menu" component={MenuView} />
             <Route path="/modal" component={ModalView} />
             {/*<Route path="/radio" component={RadioView} />*/}
             {/*<Route path="/radio-picker" component={RadioPickerView} />*/}

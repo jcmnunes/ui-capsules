@@ -28,15 +28,15 @@ export { Switch } from './Switch/Switch';
 export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from './Table';
 export { Text } from './Text/Text';
 // export { toast, ToastContainer } from './Toast/Toast';
-// export {
-//   MenuItem,
-//   MenuList,
-//   MenuItems,
-//   MenuButton,
-//   MenuLink,
-//   MenuPopover,
-//   Menu,
-// } from './Menu/Menu';
+export {
+  MenuItem,
+  MenuList,
+  MenuItems,
+  MenuButton,
+  MenuLink,
+  MenuPopover,
+  Menu,
+} from './Menu/Menu';
 // export { Tooltip } from './Tooltip/Tooltip';
 // export { TruncatedText } from './TruncatedText/TruncatedText';
 export { useTheme } from './hooks/useTheme';
