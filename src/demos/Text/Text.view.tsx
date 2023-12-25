@@ -5,17 +5,13 @@ import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Text.constants';
-import { Anchor } from '../../lib';
 
-const TextDemo = () => {
+const TextView = () => {
   return (
     <Main>
       <header>
         <Title>Text</Title>
-        <Paragraph>
-          Use it to render text. This component accepts Color, Typography and Space props from{' '}
-          <Anchor href="https://styled-system.com/api">styled-system</Anchor>.
-        </Paragraph>
+        <Paragraph>Use it to render text.</Paragraph>
       </header>
 
       <section>
@@ -30,4 +26,4 @@ const TextDemo = () => {
   );
 };
 
-export default TextDemo;
+export default TextView;

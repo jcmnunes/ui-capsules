@@ -4,7 +4,7 @@ import Demo, { Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL, TEXT_VARIANT_OPTS } from './Text.constants';
 import { TextVariant } from '../../lib/Text/Text';
 
-const TooltipDemo = () => {
+const TextDemo = () => {
   const [children, setChildren] = useState('Lorem ipsum');
   const [variant, setVariant] = useState(TEXT_VARIANT_OPTS[0]);
 
@@ -30,4 +30,4 @@ const TooltipDemo = () => {
   );
 };
 
-export default TooltipDemo;
+export default TextDemo;
