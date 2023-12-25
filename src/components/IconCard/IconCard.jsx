@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 
-const Card = styled.div(({ theme, $isLastInRow }) => ({
+const Card = styled.div(({ theme }) => ({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
@@ -10,10 +10,7 @@ const Card = styled.div(({ theme, $isLastInRow }) => ({
   borderRadius: theme.radii.large,
   overflow: 'hidden',
   color: `1px solid ${theme.colors.neutral700}`,
-  width: 132,
   height: 100,
-  marginBottom: 24,
-  marginRight: $isLastInRow ? 0 : 24,
 }));
 
 const Icon = styled.div({

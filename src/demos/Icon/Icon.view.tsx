@@ -66,8 +66,8 @@ const ButtonDemo = () => {
         </Box>
 
         <IconGrid>
-          {(icons as IconType[]).sort().map((icon, index) => (
-            <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>
+          {(icons as IconType[]).sort().map(icon => (
+            <IconCard key={icon} label={icon}>
               <Icon icon={icon} variant={isOutline ? 'outline' : 'solid'} />
             </IconCard>
           ))}
