@@ -19,9 +19,9 @@ import RadioView from './demos/Radio/Radio.view';
 import SelectView from './demos/Select/Select.view';
 import SkeletonView from './demos/Skeleton/Skeleton.view';
 import SpinnerView from './demos/Spinner/Spinner.view';
-// import SplashView from './demos/Splash/Splash.view';
+import SplashView from './demos/Splash/Splash.view';
 import SwitchView from './demos/Switch/Switch.view';
-// import TableView from './demos/Table/Table.view';
+import TableView from './demos/Table/Table.view';
 // import TextView from './demos/Text/Text.view';
 // import ToastView from './demos/Toast/Toast.view';
 // import TooltipView from './demos/Tooltip/Tooltip.view';
@@ -100,9 +100,9 @@ const App = () => {
             <Route path="/select" component={SelectView} />
             <Route path="/skeleton" component={SkeletonView} />
             <Route path="/spinner" component={SpinnerView} />
-            {/*<Route path="/splash" component={SplashView} />*/}
+            <Route path="/splash" component={SplashView} />
             <Route path="/switch" component={SwitchView} />
-            {/*<Route path="/table" component={TableView} />*/}
+            <Route path="/table" component={TableView} />
             {/*<Route path="/text" component={TextView} />*/}
             {/*<Route path="/toast" component={ToastView} />*/}
             {/*<Route path="/tooltip" component={TooltipView} />*/}

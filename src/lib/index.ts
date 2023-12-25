@@ -21,7 +21,7 @@ export { RadioPicker } from './RadioPicker/RadioPicker';
 export { Select } from './Select/Select';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Spinner } from './Spinner/Spinner';
-// export { Splash } from './Splash/Splash';
+export { Splash } from './Splash/Splash';
 export { Switch } from './Switch/Switch';
 // export { Stat } from './Stat/Stat';
 // export { Card } from './Card/Card';

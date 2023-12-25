@@ -6,7 +6,7 @@ import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Splash.constants';
 
-const SplashDemo = () => {
+const SplashView = () => {
   return (
     <Main>
       <header>
@@ -29,4 +29,4 @@ const SplashDemo = () => {
   );
 };
 
-export default SplashDemo;
+export default SplashView;
