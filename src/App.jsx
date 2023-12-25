@@ -18,7 +18,7 @@ import RadioPickerView from './demos/RadioPicker/RadioPicker.view';
 import RadioView from './demos/Radio/Radio.view';
 import SelectView from './demos/Select/Select.view';
 import SkeletonView from './demos/Skeleton/Skeleton.view';
-// import SpinnerView from './demos/Spinner/Spinner.view';
+import SpinnerView from './demos/Spinner/Spinner.view';
 // import SplashView from './demos/Splash/Splash.view';
 import SwitchView from './demos/Switch/Switch.view';
 // import TableView from './demos/Table/Table.view';
@@ -99,7 +99,7 @@ const App = () => {
             <Route path="/radio-picker" component={RadioPickerView} />
             <Route path="/select" component={SelectView} />
             <Route path="/skeleton" component={SkeletonView} />
-            {/*<Route path="/spinner" component={SpinnerView} />*/}
+            <Route path="/spinner" component={SpinnerView} />
             {/*<Route path="/splash" component={SplashView} />*/}
             <Route path="/switch" component={SwitchView} />
             {/*<Route path="/table" component={TableView} />*/}

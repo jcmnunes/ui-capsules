@@ -15,7 +15,7 @@ interface DotsProps {
 
 export const Dots = styled.span<DotsProps>(
   {
-    display: 'inline-block',
+    display: 'inline-flex',
   },
 
   ({ $size }) => {
@@ -43,6 +43,7 @@ export const Dot = styled.span<DotProps>(
     animationFillMode: 'both',
     animationIterationCount: 'infinite',
     animationDuration: '0.75s',
+    transformOrigin: 'center,'
   },
 
   css`
@@ -59,7 +60,7 @@ export const Dot = styled.span<DotProps>(
         return {
           backgroundColor: theme.colors.white,
 
-          '.darkTheme} &': {
+          '.darkTheme &': {
             backgroundColor: theme.colors.neutral600,
           },
         };
@@ -90,9 +91,9 @@ interface Props extends React.ComponentPropsWithRef<'span'> {
   dotColor?: string;
 }
 
-export const Spinner = ({ dotColor, variant, size }: Props) => {
+export const Spinner = ({ dotColor, variant, size, ...rest }: Props) => {
   return (
-    <Dots $size={size}>
+    <Dots $size={size} {...rest}>
       <Dot
         css={{ '&&': { animationDelay: '0.12s', backgroundColor: dotColor } }}
         $variant={variant}
