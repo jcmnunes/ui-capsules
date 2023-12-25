@@ -1,40 +1,48 @@
-import { styled } from '../stitches.config';
-import { Box } from '../Box/Box';
+import { styled } from 'styled-components';
 
-export const RadioPickerWrapper = styled(Box, {
-  display: 'flex',
-  alignItems: 'center',
-  borderRadius: '$medium',
-  borderWidth: '1px',
-  borderColor: '$neutral300',
-  borderStyle: 'solid',
-  backgroundColor: '$bg',
-  color: '$neutral700',
-  boxShadow: '0px 1px 2px rgba(55, 65, 81, 0.08)',
-  position: 'relative',
-  padding: 16,
+interface RadioPickerWrapperProps {
+  $checked?: boolean;
+  $hasFocus: boolean;
+}
 
-  '&:hover': {
-    backgroundColor: '$neutral50',
-  },
+export const RadioPickerWrapper = styled.label<RadioPickerWrapperProps>(
+  ({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: theme.radii.medium,
+    borderWidth: '1px',
+    borderColor: theme.colors.neutral300,
+    borderStyle: 'solid',
+    backgroundColor: theme.colors.bg,
+    color: theme.colors.neutral700,
+    boxShadow: '0px 1px 2px rgba(55, 65, 81, 0.08)',
+    position: 'relative',
+    padding: 16,
 
-  variants: {
-    checked: {
-      true: {
-        color: '$primary600',
-        borderColor: '$primary300',
-        backgroundColor: '$primary50',
+    '&:hover': {
+      backgroundColor: theme.colors.neutral50,
+    },
+  }),
+
+  ({ $checked, theme }) => {
+    if ($checked) {
+      return {
+        color: theme.colors.primary600,
+        borderColor: theme.colors.primary300,
+        backgroundColor: theme.colors.primary50,
 
         '&:hover': {
-          backgroundColor: '$primary100',
+          backgroundColor: theme.colors.primary100,
         },
-      },
-    },
-
-    hasFocus: {
-      true: {
-        boxShadow: '$focus',
-      },
-    },
+      };
+    }
   },
-});
+
+  ({ $hasFocus, theme }) => {
+    if ($hasFocus) {
+      return {
+        boxShadow: theme.shadows.focus,
+      };
+    }
+  },
+);

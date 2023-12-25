@@ -27,7 +27,7 @@ const ButtonDemo = () => {
       <section>
         <SubTitle>Example</SubTitle>
 
-        <Flex direction="column">
+        <Flex $direction="column" $align="stretch" $gap={16}>
           {EXAMPLE_RADIOS.map(({ id, label, helpText }) => (
             <RadioPicker
               key={id}
@@ -35,7 +35,6 @@ const ButtonDemo = () => {
               onChange={() => setChecked(id)}
               label={label}
               helpText={helpText}
-              css={{ mb: '$4' }}
             />
           ))}
         </Flex>

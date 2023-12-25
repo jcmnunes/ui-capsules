@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Box, CSSProp, Flex, Text } from '..';
+import { Box, Flex, Text } from '..';
 import { CustomRadio, StyledRadioInput } from '../Radio/Radio.styles';
 import { RadioPickerWrapper } from './RadioPicker.styles';
 
-interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'>, CSSProp {
+interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   label: string;
   helpText?: string;
 }
@@ -13,7 +13,7 @@ export const RadioPicker: React.FC<Props> = ({ checked, label, helpText, css, ..
 
   return (
     <Box css={css}>
-      <RadioPickerWrapper as="label" checked={checked} hasFocus={hasFocus}>
+      <RadioPickerWrapper $checked={checked} $hasFocus={hasFocus}>
         <Box css={{ position: 'relative', height: 16 }}>
           <StyledRadioInput
             checked={checked}
@@ -23,10 +23,10 @@ export const RadioPicker: React.FC<Props> = ({ checked, label, helpText, css, ..
             {...rest}
           />
 
-          <CustomRadio className="uic-custom-radio" />
+          <CustomRadio $size="medium" className="uic-custom-radio" />
         </Box>
 
-        <Flex direction="column" css={{ ml: 26 }}>
+        <Flex $direction="column" css={{ marginLeft: 26 }}>
           <Text css={{ fontWeight: 500, color: 'inherit' }}>{label}</Text>
 
           {!!helpText && (

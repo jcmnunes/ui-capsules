@@ -14,8 +14,8 @@ import IconView from './demos/Icon/Icon.view';
 import InputView from './demos/Input/Input.view';
 import MenuView from './demos/Menu/Menu.view';
 import ModalView from './demos/Modal/Modal.view';
-// import RadioPickerView from './demos/RadioPicker/RadioPicker.view';
-// import RadioView from './demos/Radio/Radio.view';
+import RadioPickerView from './demos/RadioPicker/RadioPicker.view';
+import RadioView from './demos/Radio/Radio.view';
 // import SelectView from './demos/Select/Select.view';
 // import SkeletonView from './demos/Skeleton/Skeleton.view';
 // import SpinnerView from './demos/Spinner/Spinner.view';
@@ -95,8 +95,8 @@ const App = () => {
             <Route path="/input" component={InputView} />
             <Route path="/menu" component={MenuView} />
             <Route path="/modal" component={ModalView} />
-            {/*<Route path="/radio" component={RadioView} />*/}
-            {/*<Route path="/radio-picker" component={RadioPickerView} />*/}
+            <Route path="/radio" component={RadioView} />
+            <Route path="/radio-picker" component={RadioPickerView} />
             {/*<Route path="/select" component={SelectView} />*/}
             {/*<Route path="/skeleton" component={SkeletonView} />*/}
             {/*<Route path="/spinner" component={SpinnerView} />*/}
