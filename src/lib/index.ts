@@ -38,7 +38,7 @@ export {
   Menu,
 } from './Menu/Menu';
 // export { Tooltip } from './Tooltip/Tooltip';
-// export { TruncatedText } from './TruncatedText/TruncatedText';
+export { TruncatedText } from './TruncatedText/TruncatedText';
 export { useTheme } from './hooks/useTheme';
 export { useLocalStorage } from './hooks/useLocalStorage';
 export { theme } from './theme';

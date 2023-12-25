@@ -6,7 +6,7 @@ import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './TruncatedText.constants';
 
-const TextDemo = () => {
+const TruncatedTextView = () => {
   return (
     <Main>
       <header>
@@ -29,4 +29,4 @@ const TextDemo = () => {
   );
 };
 
-export default TextDemo;
+export default TruncatedTextView;

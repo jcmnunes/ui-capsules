@@ -25,7 +25,7 @@ import TableView from './demos/Table/Table.view';
 import TextView from './demos/Text/Text.view';
 // import ToastView from './demos/Toast/Toast.view';
 // import TooltipView from './demos/Tooltip/Tooltip.view';
-// import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
+import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
 // import { Editor } from './demos/Editor/Editor';
 import { Flex, IconButton, useTheme } from './lib';
@@ -106,7 +106,7 @@ const App = () => {
             <Route path="/text" component={TextView} />
             {/*<Route path="/toast" component={ToastView} />*/}
             {/*<Route path="/tooltip" component={TooltipView} />*/}
-            {/*<Route path="/truncated-text" component={TruncatedTextView} />*/}
+            <Route path="/truncated-text" component={TruncatedTextView} />
           </ShowcaseContent>
         </ShowcaseWrapper>
       </Flex>
