@@ -19,7 +19,7 @@ export { Pill } from './Pill/Pill';
 export { Radio } from './Radio/Radio';
 export { RadioPicker } from './RadioPicker/RadioPicker';
 export { Select } from './Select/Select';
-// export { Skeleton } from './Skeleton/Skeleton';
+export { Skeleton } from './Skeleton/Skeleton';
 // export { Spinner } from './Spinner/Spinner';
 // export { Splash } from './Splash/Splash';
 export { Switch } from './Switch/Switch';
