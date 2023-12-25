@@ -126,7 +126,7 @@ const StyledReactSelect = styled(RSelect)<StyledReactSelectProps>(({ uiTheme: th
   },
 
   '.react-select__menu-list': {
-    background: '$bg',
+    background: theme.colors.bg,
     border: `1px solid ${theme.colors.neutral200}`,
     borderRadius: theme.radii.medium,
   },
