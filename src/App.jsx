@@ -8,7 +8,7 @@ import CheckboxView from './demos/Checkbox/Checkbox.view';
 import DialogView from './demos/Dialog/Dialog.view';
 import EditableInputView from './demos/EditableInput/EditableInput.view';
 import HomeView from './components/Home/Home';
-// import IconButtonView from './demos/IconButton/IconButton.view';
+import IconButtonView from './demos/IconButton/IconButton.view';
 import IconView from './demos/Icon/Icon.view';
 // import IllustratedIconView from './demos/IllustratedIcon/IllustratedIcon.view';
 // import InputView from './demos/Input/Input.view';
@@ -90,7 +90,7 @@ const App = () => {
             <Route path="/editable-input" component={EditableInputView} />
             {/*<Route path="/editor" component={Editor} />*/}
             <Route path="/icon" component={IconView} />
-            {/*<Route path="/icon-button" component={IconButtonView} />*/}
+            <Route path="/icon-button" component={IconButtonView} />
             {/*<Route path="/illustrated-icon" component={IllustratedIconView} />*/}
             {/*<Route path="/input" component={InputView} />*/}
             {/*<Route path="/menu" component={MenuView} />*/}
