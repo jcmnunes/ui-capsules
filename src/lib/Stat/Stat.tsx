@@ -1,15 +1,14 @@
 import React from 'react';
 import { Text } from '../Text/Text';
-import { CSSProp } from '../types';
 import { Box } from '../Box/Box';
 
-interface Props extends CSSProp {
+interface Props {
   label: string;
 }
 
-export const Stat: React.FC<Props> = ({ label, css, children }) => {
+export const Stat: React.FC<Props> = ({ label, children, ...rest }) => {
   return (
-    <Box css={css}>
+    <Box {...rest}>
       <Text as="p" variant="smallCaps" css={{ mb: '$1' }}>
         {label}
       </Text>

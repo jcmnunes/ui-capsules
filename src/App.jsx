@@ -23,12 +23,12 @@ import SplashView from './demos/Splash/Splash.view';
 import SwitchView from './demos/Switch/Switch.view';
 import TableView from './demos/Table/Table.view';
 import TextView from './demos/Text/Text.view';
-// import ToastView from './demos/Toast/Toast.view';
+import ToastView from './demos/Toast/Toast.view';
 // import TooltipView from './demos/Tooltip/Tooltip.view';
 import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
 // import { Editor } from './demos/Editor/Editor';
-import { Flex, IconButton, useTheme } from './lib';
+import { Flex, IconButton, ToastContainer, useTheme } from './lib';
 import { SidebarWrapper, ShowcaseWrapper, ShowcaseContent, SidebarOverlay } from './App.styles';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './lib/hooks/useGlobalStyles';
@@ -104,12 +104,14 @@ const App = () => {
             <Route path="/switch" component={SwitchView} />
             <Route path="/table" component={TableView} />
             <Route path="/text" component={TextView} />
-            {/*<Route path="/toast" component={ToastView} />*/}
+            <Route path="/toast" component={ToastView} />
             {/*<Route path="/tooltip" component={TooltipView} />*/}
             <Route path="/truncated-text" component={TruncatedTextView} />
           </ShowcaseContent>
         </ShowcaseWrapper>
       </Flex>
+
+      <ToastContainer />
     </ThemeProvider>
   );
 };

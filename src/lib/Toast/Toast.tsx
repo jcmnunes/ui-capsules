@@ -1,8 +1,9 @@
 import { cssTransition, toast as rtToast, ToastContainerProps, ToastOptions } from 'react-toastify';
 import React from 'react';
+import { useTheme } from 'styled-components';
 import { Text } from '../Text/Text';
 import { Icon } from '../Icon/Icon';
-import { IconType } from '../types';
+import { ColorKey, IconType } from '../types';
 import { StyledContainer, ToastWrapper } from './Toast.styles';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -17,22 +18,22 @@ const slide = cssTransition({
 const icons: Record<ToastVariant, { icon: string; color: string }> = {
   info: {
     icon: 'info_c',
-    color: '$blue300',
+    color: 'blue300',
   },
 
   success: {
     icon: 'check_c',
-    color: '$green400',
+    color: 'green400',
   },
 
   warning: {
     icon: 'exclamation_t',
-    color: '$yellow300',
+    color: 'yellow300',
   },
 
   error: {
     icon: 'exclamation_c',
-    color: '$red300',
+    color: 'red300',
   },
 };
 
@@ -56,16 +57,21 @@ interface ToastProps {
 }
 
 export const Toast: React.FC<ToastProps> = ({ variant, title, message }) => {
+  const theme = useTheme();
+
   return (
     <ToastWrapper>
       <Box css={{ position: 'absolute', top: 2, left: 0 }}>
-        <Icon icon={icons[variant].icon as IconType} css={{ color: icons[variant].color }} />
+        <Icon
+          icon={icons[variant].icon as IconType}
+          css={{ color: theme.colors[icons[variant].color as ColorKey] }}
+        />
       </Box>
 
-      <Flex direction="column" css={{ ml: '28px' }}>
-        {title && <Text css={{ fontWeight: 600, color: '$white' }}>{title}</Text>}
+      <Flex $direction="column" css={{ marginLeft: 28 }}>
+        {title && <Text css={{ fontWeight: 600, color: 'white' }}>{title}</Text>}
 
-        {message && <Text css={{ color: '$white' }}>{message}</Text>}
+        {message && <Text css={{ color: 'white' }}>{message}</Text>}
       </Flex>
     </ToastWrapper>
   );
