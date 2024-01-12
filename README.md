@@ -39,7 +39,7 @@ npm i @binarycapsule/ui-capsules
 The following peer dependencies should also be installed:
 
 ```
-npm i react react-dom @stitches/react
+npm i react react-dom styled-components
 ```
 
 ## Setup

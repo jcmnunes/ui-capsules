@@ -74,7 +74,7 @@ const Home = () => (
       <Usage>npm i @binarycapsule/ui-capsules</Usage>
 
       <StyledParagraph>The following peer dependencies should also be installed:</StyledParagraph>
-      <Usage>npm i react react-dom @stitches/react</Usage>
+      <Usage>npm i react react-dom styled-components</Usage>
 
       <SubTitle>Setup</SubTitle>
 
