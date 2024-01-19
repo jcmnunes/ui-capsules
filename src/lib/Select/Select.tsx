@@ -4,9 +4,9 @@ import { Option as OptionComponent } from './components/Option';
 import { Label } from '../Label/Label';
 import { useId } from '@reach/auto-id';
 import { Box } from '../Box/Box';
-import { CSSProp } from '../types';
 import { colors } from '../colors';
-import { styled } from '../stitches.config';
+import { styled, useTheme } from 'styled-components';
+import { ThemeType } from '../../styled-components';
 
 type Size = 'medium' | 'large';
 
@@ -88,60 +88,63 @@ export const customTheme = (rsTheme: RSTheme, size: Size) => ({
   },
 });
 
-const StyledReactSelect = styled(RSelect, {
+interface StyledReactSelectProps {
+  uiTheme: ThemeType;
+}
+
+const StyledReactSelect = styled(RSelect)<StyledReactSelectProps>(({ uiTheme: theme }) => ({
   '.react-select__control': {
-    boxShadow: '$border',
+    boxShadow: theme.shadows.border,
     cursor: 'pointer',
     width: '100%',
-    background: '$bg',
+    background: theme.colors.bg,
     border: 'none',
 
     '&:hover': {
-      boxShadow: '$borderHover',
+      boxShadow: theme.shadows.borderHover,
     },
   },
 
   '.react-select__control--is-focused': {
-    boxShadow: '$focus',
+    boxShadow: theme.shadows.focus,
 
     '&:hover': {
-      boxShadow: '$focus',
+      boxShadow: theme.shadows.focus,
     },
   },
 
   '.react-select__single-value': {
-    color: '$neutral700',
+    color: theme.colors.neutral700,
   },
 
   '.react-select__input-container': {
-    color: '$neutral700',
+    color: theme.colors.neutral700,
   },
 
   '.react-select__menu': {
-    background: '$bg',
+    background: theme.colors.bg,
   },
 
   '.react-select__menu-list': {
-    background: '$bg',
-    border: '1px solid $neutral200',
-    borderRadius: '$medium',
+    background: theme.colors.bg,
+    border: `1px solid ${theme.colors.neutral200}`,
+    borderRadius: theme.radii.medium,
   },
 
   '.react-select__clear-indicator': {
-    color: '$neutral400',
+    color: theme.colors.neutral400,
 
     '&:hover': {
-      color: '$neutral700',
+      color: theme.colors.neutral700,
     },
   },
-});
+}));
 
 interface Props<
   Option = unknown,
   IsMulti extends boolean = false,
-  Group extends GroupBase<Option> = GroupBase<Option>
-> extends RSProps<Option, IsMulti, Group>,
-    CSSProp {
+  Group extends GroupBase<Option> = GroupBase<Option>,
+> extends RSProps<Option, IsMulti, Group> {
   size?: 'medium' | 'large';
   label?: string;
 }
@@ -149,24 +152,27 @@ interface Props<
 export function Select<
   Option,
   IsMulti extends boolean = false,
-  Group extends GroupBase<Option> = GroupBase<Option>
->({ size = 'medium', label, id, css, ...rest }: Props<Option, IsMulti, Group>) {
+  Group extends GroupBase<Option> = GroupBase<Option>,
+>({ size = 'medium', label, id, ...rest }: Props<Option, IsMulti, Group>) {
   const inputId = useId(id);
+  const uiTheme = useTheme();
 
   return (
-    <Box css={{ width: '100%', ...css }}>
+    <Box style={{ width: '100%' }}>
       {label && (
-        <Label labelId={inputId} css={{ mb: '$1' }}>
+        <Label labelId={inputId} style={{ marginBottom: 4 }}>
           {label}
         </Label>
       )}
 
       {/* https://github.com/JedWatson/react-select/pull/4941 */}
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-ignore */}
       <StyledReactSelect
         {...rest}
         inputId={inputId}
         styles={customStyles(size)}
+        uiTheme={uiTheme}
         theme={(rsTheme: RSTheme) => customTheme(rsTheme, size)}
         classNamePrefix="react-select"
         components={

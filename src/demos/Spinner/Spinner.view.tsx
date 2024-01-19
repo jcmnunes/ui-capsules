@@ -6,7 +6,7 @@ import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Spinner.constants';
 
-const ButtonDemo = () => {
+const SpinnerView = () => {
   return (
     <Main>
       <header>
@@ -26,4 +26,4 @@ const ButtonDemo = () => {
   );
 };
 
-export default ButtonDemo;
+export default SpinnerView;

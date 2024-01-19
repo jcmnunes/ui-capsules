@@ -1,17 +1,17 @@
 import React, { FC } from 'react';
 import PropTypes from 'prop-types';
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-export const StyledPill = styled('span', {
+export const StyledPill = styled.span(({ theme }) => ({
   fontSize: '8px',
-  borderRadius: '$full',
-  border: '1px solid $secondary600',
-  backgroundColor: '$secondary50',
-  color: '$secondary600',
+  borderRadius: theme.radii.full,
+  border: `1px solid ${theme.colors.secondary600}`,
+  backgroundColor: theme.colors.secondary50,
+  color: theme.colors.secondary600,
   padding: '0 4px',
   textTransform: 'uppercase',
   fontWeight: 600,
-});
+}));
 
 export const Pill: FC = ({ children }) => <StyledPill>{children}</StyledPill>;
 

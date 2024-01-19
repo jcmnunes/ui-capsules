@@ -1,13 +1,21 @@
 import React, { ComponentPropsWithRef } from 'react';
-import { CSSProp, DualSize } from '../types';
-import { Text } from '../Text/Text';
-import { Icons, LeftIcon, RightIcon, StyledSwitch, StyledToggle } from './Switch.styles';
+import { CSSProp } from 'styled-components';
+import { DualSize } from '../types';
+import {
+  Icons,
+  LeftIcon,
+  RightIcon,
+  StyledText,
+  StyledSwitch,
+  StyledToggle,
+} from './Switch.styles';
 
-export interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'>, CSSProp {
+export interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'> {
   children?: string;
   size?: DualSize;
   checked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  css?: CSSProp;
 }
 
 export const Switch = React.forwardRef<HTMLInputElement, Props>(
@@ -30,13 +38,7 @@ export const Switch = React.forwardRef<HTMLInputElement, Props>(
           </Icons>
         </StyledSwitch>
 
-        {!!children && (
-          <Text
-            css={{ fontWeight: 500, color: disabled ? '$neutral500' : '$neutral700', ml: '$2' }}
-          >
-            {children}
-          </Text>
-        )}
+        {!!children && <StyledText $disabled={disabled}>{children}</StyledText>}
       </StyledToggle>
     );
   },

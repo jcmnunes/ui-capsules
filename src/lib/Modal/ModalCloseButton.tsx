@@ -1,8 +1,10 @@
 import React, { FC, MouseEvent } from 'react';
 import { IconButton } from '../IconButton/IconButton';
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-const StyledIconButton = styled(IconButton, {
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const StyledIconButton = styled(IconButton)({
   position: 'absolute !important',
   top: 24,
   right: 24,

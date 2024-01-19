@@ -6,7 +6,7 @@ import { GITHUB_URL } from './TruncatedText.constants';
 const shortText = 'Lorem ipsum';
 const longText = 'Morbi leo risus, porta ac consectetur ac, vestibulum at eros.';
 
-const TooltipDemo = () => {
+const TruncatedTextDemo = () => {
   const [isLongText, setIsLongText] = useState(false);
 
   const Component = (
@@ -28,4 +28,4 @@ const TooltipDemo = () => {
   );
 };
 
-export default TooltipDemo;
+export default TruncatedTextDemo;

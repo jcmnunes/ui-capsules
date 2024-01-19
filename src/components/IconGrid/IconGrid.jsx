@@ -1,10 +1,10 @@
-import { styled } from '../../lib/stitches.config';
+import styled from 'styled-components';
 
-const IconGrid = styled('div', {
+const IconGrid = styled.div({
   width: '100%',
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+  gap: 24,
 });
 
 export default IconGrid;

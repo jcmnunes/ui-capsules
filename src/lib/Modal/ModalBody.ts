@@ -1,6 +1,5 @@
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-export const ModalBody = styled('div', {
-  px: 24,
-  py: 8,
+export const ModalBody = styled.div({
+  padding: '8px 24px',
 });

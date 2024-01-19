@@ -6,7 +6,7 @@ import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './IconButton.constants';
 
-const AnchorDemo = () => {
+const IconButtonView = () => {
   return (
     <Main>
       <header>
@@ -26,4 +26,4 @@ const AnchorDemo = () => {
   );
 };
 
-export default AnchorDemo;
+export default IconButtonView;

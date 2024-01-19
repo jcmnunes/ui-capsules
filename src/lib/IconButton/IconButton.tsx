@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import { ButtonSize, ButtonVariant } from '../Button/Button.styles';
-import { CSSProp, IconVariant } from '../types';
+import { IconVariant } from '../types';
 import { solidIcons } from '../Icon/Icon.constants';
 import { Button } from '../Button/Button';
 
-export interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'>, CSSProp {
+export interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   icon: keyof typeof solidIcons;
   as?: 'button' | 'a';
   variant?: ButtonVariant;
@@ -26,7 +26,6 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       variant = 'primary',
       size = 'medium',
       iconVariant = 'solid',
-      css,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       children,
       ...rest
@@ -45,11 +44,10 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         {...rest}
         isLoading={false}
         disabled={rest.disabled || rest.isLoading}
-        css={{
+        style={{
           height: size === 'small' ? 24 : size === 'medium' ? 32 : 40,
           width: size === 'small' ? 24 : size === 'medium' ? 32 : 40,
-          p: 0,
-          ...css,
+          padding: 0,
         }}
       />
     );

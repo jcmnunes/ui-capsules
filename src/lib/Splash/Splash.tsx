@@ -1,56 +1,79 @@
 import React, { FC, useEffect } from 'react';
+import { styled } from 'styled-components';
 import ReactDOM from 'react-dom';
 import { Spinner } from '../Spinner/Spinner';
-import { styled } from '../stitches.config';
-import { darkTheme } from '../darkTheme';
 
 export type SplashVariant = 'splash' | 'spinner';
 
-const Container = styled('div', {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  height: '100vh',
-  width: '100vw',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  zIndex: '$splash',
+interface ContainerProps {
+  $variant: SplashVariant;
+}
 
-  variants: {
-    variant: {
-      spinner: {
-        bg: 'rgba(60, 63, 75, 0.5)',
-      },
-      splash: {
-        bg: '$neutral50',
-      },
-    },
+const Container = styled.div<ContainerProps>(
+  ({ theme }) => ({
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: theme.zIndices.splash,
+  }),
+
+  ({ $variant, theme }) => {
+    switch ($variant) {
+      case 'spinner':
+        return {
+          background: 'rgba(60, 63, 75, 0.5)',
+        };
+
+      case 'splash':
+        return {
+          background: theme.colors.neutral50,
+        };
+
+      default:
+        return {};
+    }
   },
-});
+);
 
-const LargeText = styled('div', {
-  color: '$neutral50',
-  fontSize: '$4xl',
-  fontWeight: 700,
-  opacity: 1,
+interface LargeTextProps {
+  $variant: SplashVariant;
+}
 
-  variants: {
-    variant: {
-      spinner: {
-        color: '$neutral100',
+const LargeText = styled.div<LargeTextProps>(
+  ({ theme }) => ({
+    color: theme.colors.neutral50,
+    fontSize: theme.fontSizes['4xl'],
+    fontWeight: 700,
+    opacity: 1,
+  }),
 
-        [`.${darkTheme} &`]: {
-          color: '$neutral600',
-        },
-      },
-      splash: {
-        color: '$neutral600',
-      },
-    },
+  ({ $variant, theme }) => {
+    switch ($variant) {
+      case 'spinner':
+        return {
+          color: theme.colors.neutral100,
+
+          '.darkTheme &': {
+            color: theme.colors.neutral600,
+          },
+        };
+
+      case 'splash':
+        return {
+          color: theme.colors.neutral600,
+        };
+
+      default:
+        return {};
+    }
   },
-});
+);
 
 interface Props {
   variant: SplashVariant;
@@ -67,9 +90,9 @@ export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => 
   }, []);
 
   return ReactDOM.createPortal(
-    <Container variant={variant}>
+    <Container $variant={variant}>
       {typeof children === 'string' ? (
-        <LargeText variant={variant}>{children}</LargeText>
+        <LargeText $variant={variant}>{children}</LargeText>
       ) : (
         children
       )}
@@ -78,7 +101,7 @@ export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => 
         <Spinner
           size="large"
           variant={variant === 'spinner' ? 'light' : 'dark'}
-          css={{ my: '$4' }}
+          style={{ marginTop: 16, marginBottom: 16 }}
         />
       )}
     </Container>,

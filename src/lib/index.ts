@@ -27,7 +27,7 @@ export { Stat } from './Stat/Stat';
 export { Card } from './Card/Card';
 export { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from './Table';
 export { Text } from './Text/Text';
-export { toast, ToastContainer } from './Toast/Toast';
+export { toast, Toaster } from './Toast/Toast';
 export {
   MenuItem,
   MenuList,
@@ -39,11 +39,10 @@ export {
 } from './Menu/Menu';
 export { Tooltip } from './Tooltip/Tooltip';
 export { TruncatedText } from './TruncatedText/TruncatedText';
-export { useTheme } from './hooks/useTheme';
-export { useLocalStorage } from './hooks/useLocalStorage';
-export { useGlobalStyles } from './hooks/useGlobalStyles';
-export { lightTheme } from './lightTheme';
+
+export { UiCaps, useUiCapsContext } from './UiCaps';
+
+export { theme } from './theme';
 export { darkTheme } from './darkTheme';
-export { styled, keyframes } from './stitches.config';
 
 export * from './types';

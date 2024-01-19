@@ -40,22 +40,22 @@ const ButtonDemo = () => {
       <PropsTable props={ICON_PROPS} />
 
       <section>
-        <Flex justify="between" css={{ mt: '$3' }}>
+        <Flex $justify="between" $align="end" css={{ marginTop: 12 }}>
           <SubTitle id="icons">Icons</SubTitle>
 
-          <Flex align="center">
+          <Flex $align="center" $gap={4} css="margin-bottom: 16px">
             <Icon icon="beaker" variant="solid" size={24} />
             <Switch
               checked={isOutline}
               onChange={evt => setIsOutline(evt.target.checked)}
               size="medium"
-              css={{ mx: '$1' }}
+              css={{ marginLeft: 4, marginRight: 4 }}
             />
             <Icon icon="beaker" variant="outline" />
           </Flex>
         </Flex>
 
-        <Box css={{ mb: '$4' }}>
+        <Box css={{ marginBottom: 16 }}>
           <Input
             value={iconFilter}
             onChange={evt => iconFilterSet(evt.target.value)}
@@ -66,22 +66,29 @@ const ButtonDemo = () => {
         </Box>
 
         <IconGrid>
-          {(icons as IconType[]).sort().map((icon, index) => (
-            <IconCard key={icon} label={icon} isLastInRow={(index + 1) % 4 === 0}>
+          {(icons as IconType[]).sort().map(icon => (
+            <IconCard key={icon} label={icon}>
               <Icon icon={icon} variant={isOutline ? 'outline' : 'solid'} />
             </IconCard>
           ))}
         </IconGrid>
 
         {icons.length === 0 && (
-          <Flex align="center" justify="center" direction="column">
+          <Flex $align="center" $justify="center" $direction="column">
             <Icon
               icon="emoji_sad"
               variant="outline"
               size={48}
-              css={{ color: '$gray400', mr: '$2' }}
+              css={({ theme }) => ({ color: theme.colors.gray400, marginRight: 8 })}
             />
-            <Text size="lg" css={{ color: '$neutral400', textAlign: 'center', mt: 2 }}>
+            <Text
+              size="lg"
+              css={({ theme }) => ({
+                color: theme.colors.neutral400,
+                textAlign: 'center',
+                marginTop: 2,
+              })}
+            >
               {`No icons found for "${iconFilter}"`}
             </Text>
           </Flex>

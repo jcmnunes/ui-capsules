@@ -1,254 +1,224 @@
-import { styled } from '../stitches.config';
-import { darkTheme } from '../darkTheme';
+import { styled } from 'styled-components';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'error' | 'ghostGray' | 'ghost' | 'link';
 export type ButtonSize = 'small' | 'medium' | 'large';
 
-export const StyledButton = styled('button', {
-  fontFamily: '$inter',
-  borderRadius: '$medium',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  opacity: 1,
-  pointerEvents: 'initial',
-  padding: '0 12px',
-  position: 'relative',
-  fontWeight: 500,
-  display: 'inline-flex',
-  appearance: 'none',
-  userSelect: 'none',
-  whiteSpace: 'nowrap',
-  outline: 'none',
-  borderWidth: '1px',
-  borderStyle: 'solid',
-  verticalAlign: 'middle',
-  width: 'auto',
-  border: 'none',
+interface StyledButtonProps {
+  $variant: ButtonVariant;
+  $size: ButtonSize;
+  $hasLeftIcon: boolean;
+  $hasRightIcon: boolean;
+}
 
-  '&[data-focus-visible-added]:focus': {
-    boxShadow: '$focus',
-    zIndex: 1,
+export const StyledButton = styled.button<StyledButtonProps>(
+  ({ theme }) => ({
+    fontFamily: theme.fonts.inter,
+    borderRadius: theme.radii.medium,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    opacity: 1,
+    pointerEvents: 'initial',
+    padding: '0 12px',
+    position: 'relative',
+    fontWeight: 500,
+    display: 'inline-flex',
+    appearance: 'none',
+    userSelect: 'none',
+    whiteSpace: 'nowrap',
+    outline: 'none',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    verticalAlign: 'middle',
+    width: 'auto',
+    border: 'none',
+
+    '&[data-focus-visible-added]:focus': {
+      boxShadow: theme.shadows.focus,
+      zIndex: 1,
+    },
+
+    '&:disabled': {
+      opacity: 0.5,
+      pointerEvents: 'none',
+    },
+  }),
+
+  ({ theme, $size, $hasLeftIcon, $hasRightIcon }) => {
+    switch ($size) {
+      case 'small':
+        return {
+          height: 24,
+          fontSize: theme.fontSizes.sm,
+          lineHeight: '24px',
+          paddingLeft: theme.space[4],
+          paddingRight: theme.space[4],
+        };
+      case 'medium':
+        return {
+          height: 36,
+          fontSize: theme.fontSizes.md,
+          lineHeight: '36px',
+          paddingLeft: theme.space[16],
+          paddingRight: theme.space[16],
+        };
+      case 'large':
+        return {
+          height: 48,
+          fontSize: theme.fontSizes.md,
+          lineHeight: '48px',
+          paddingLeft: $hasLeftIcon ? 20 : theme.space[24],
+          paddingRight: $hasRightIcon ? 20 : theme.space[24],
+        };
+    }
   },
 
-  '&:disabled': {
-    opacity: 0.5,
-    pointerEvents: 'none',
-  },
+  ({ theme, $variant }) => {
+    switch ($variant) {
+      case 'primary':
+        return {
+          background: theme.colors.primary500,
+          borderColor: theme.colors.primary500,
+          color: theme.colors.white,
 
-  variants: {
-    variant: {
-      primary: {
-        background: '$primary500',
-        borderColor: '$primary500',
-        color: '$white',
-
-        [`.${darkTheme} &`]: {
-          background: '$primary400',
-          borderColor: '$primary400',
-        },
-
-        '&:hover': {
-          background: '$primary600',
-          borderColor: '$primary600',
-
-          [`.${darkTheme} &`]: {
-            background: '$primary500',
-            borderColor: '$primary500',
+          '.darkTheme &': {
+            background: theme.colors.primary400,
+            borderColor: theme.colors.primary400,
           },
-        },
 
-        '&:active': {
-          background: '$primary700',
-          borderColor: '$primary700',
+          '&:hover': {
+            background: theme.colors.primary600,
+            borderColor: theme.colors.primary600,
 
-          [`.${darkTheme} &`]: {
-            background: '$primary400',
-            borderColor: '$primary400',
+            '.darkTheme &': {
+              background: theme.colors.primary500,
+              borderColor: theme.colors.primary500,
+            },
           },
-        },
-      },
 
-      secondary: {
-        background: '$bg',
-        border: 'none',
-        color: '$neutral600',
-        boxShadow: '$border',
+          '&:active': {
+            background: theme.colors.primary700,
+            borderColor: theme.colors.primary700,
 
-        '&[data-focus-visible-added]:focus': {
-          boxShadow: '$focus',
-          zIndex: 1,
-        },
-
-        '&:hover': {
-          background: '$neutral100',
-        },
-
-        '&:active': {
-          background: '$neutral200',
-        },
-
-        '&:disabled': {
-          boxShadow: '$borderDisabled',
-        },
-      },
-
-      error: {
-        background: '$error500',
-        borderColor: '$error500',
-        color: '$white',
-
-        [`.${darkTheme} &`]: {
-          background: '$error400',
-          borderColor: '$error400',
-        },
-
-        '&[data-focus-visible-added]:focus': {
-          boxShadow: '$focusError',
-          zIndex: 1,
-        },
-
-        '&:hover': {
-          background: '$error600',
-          borderColor: '$error600',
-
-          [`.${darkTheme} &`]: {
-            background: '$error500',
-            borderColor: '$error500',
+            '.darkTheme &': {
+              background: theme.colors.primary400,
+              borderColor: theme.colors.primary400,
+            },
           },
-        },
+        };
+      case 'secondary':
+        return {
+          background: theme.colors.bg,
+          border: 'none',
+          color: theme.colors.neutral600,
+          boxShadow: theme.shadows.border,
 
-        '&:active': {
-          background: '$error700',
-          borderColor: '$error700',
-
-          [`.${darkTheme} &`]: {
-            background: '$error400',
-            borderColor: '$error400',
+          '&[data-focus-visible-added]:focus': {
+            boxShadow: theme.shadows.focus,
+            zIndex: 1,
           },
-        },
-      },
 
-      ghost: {
-        background: 'transparent',
-        color: '$primary500',
-        border: 'none',
+          '&:hover': {
+            background: theme.colors.neutral100,
+          },
 
-        '&:focus': {
+          '&:active': {
+            background: theme.colors.neutral200,
+          },
+
+          '&:disabled': {
+            boxShadow: theme.shadows.borderDisabled,
+          },
+        };
+      case 'error':
+        return {
+          background: theme.colors.error500,
+          borderColor: theme.colors.error500,
+          color: theme.colors.white,
+
+          '.darkTheme &': {
+            background: theme.colors.error400,
+            borderColor: theme.colors.error400,
+          },
+
+          '&[data-focus-visible-added]:focus': {
+            boxShadow: theme.shadows.focusError,
+            zIndex: 1,
+          },
+
+          '&:hover': {
+            background: theme.colors.error600,
+            borderColor: theme.colors.error600,
+
+            '.darkTheme &': {
+              background: theme.colors.error500,
+              borderColor: theme.colors.error500,
+            },
+          },
+
+          '&:active': {
+            background: theme.colors.error700,
+            borderColor: theme.colors.error700,
+
+            '.darkTheme &': {
+              background: theme.colors.error400,
+              borderColor: theme.colors.error400,
+            },
+          },
+        };
+      case 'ghost':
+        return {
           background: 'transparent',
-        },
+          color: theme.colors.primary500,
+          border: 'none',
 
-        '&:hover': {
-          background: '$primary100',
-          color: '$primary600',
-        },
+          '&:focus': {
+            background: 'transparent',
+          },
 
-        '&:active': {
-          background: '$primary200',
-          color: '$primary600',
-        },
-      },
+          '&:hover': {
+            background: theme.colors.primary100,
+            color: theme.colors.primary600,
+          },
 
-      ghostGray: {
-        background: 'transparent',
-        color: '$neutral600',
-        border: 'none',
-
-        '&:focus': {
+          '&:active': {
+            background: theme.colors.primary200,
+            color: theme.colors.primary600,
+          },
+        };
+      case 'ghostGray':
+        return {
           background: 'transparent',
-        },
+          color: theme.colors.neutral600,
+          border: 'none',
 
-        '&:hover': {
-          background: '$neutral200',
-        },
+          '&:focus': {
+            background: 'transparent',
+          },
 
-        '&:active': {
-          background: '$neutral300',
-        },
-      },
+          '&:hover': {
+            background: theme.colors.neutral200,
+          },
 
-      link: {
-        padding: '0 2px',
-        color: '$primary500',
-        borderRadius: 'none',
-        lineHeight: '$md',
-        height: 'auto',
-        border: 'none',
+          '&:active': {
+            background: theme.colors.neutral300,
+          },
+        };
+      case 'link':
+        return {
+          padding: '0 2px',
+          color: theme.colors.primary500,
+          borderRadius: 0,
+          height: 'auto',
+          border: 'none',
+          lineHeight: '21px',
 
-        '&:hover': {
-          color: '$primary600',
-        },
-      },
-    },
-
-    size: {
-      small: {
-        height: 24,
-        fontSize: '$sm',
-        lineHeight: '24px',
-        paddingLeft: '$1',
-        paddingRight: '$1',
-      },
-
-      medium: {
-        height: 36,
-        fontSize: '$md',
-        lineHeight: '36px',
-        paddingLeft: '$4',
-        paddingRight: '$4',
-      },
-
-      large: {
-        height: 48,
-        fontSize: '$md',
-        lineHeight: '48px',
-        paddingLeft: '$5',
-        paddingRight: '$5',
-      },
-    },
-
-    hasLeftIcon: {
-      true: {
-        paddingLeft: '$3',
-      },
-    },
-
-    hasRightIcon: {
-      true: {
-        paddingLeft: '$3',
-      },
-    },
+          '&:hover': {
+            color: theme.colors.primary600,
+          },
+        };
+      default:
+        return {};
+    }
   },
-
-  compoundVariants: [
-    {
-      hasLeftIcon: true,
-      size: 'small',
-      css: {
-        paddingLeft: '$1',
-      },
-    },
-    {
-      hasLeftIcon: true,
-      size: 'large',
-      css: {
-        paddingLeft: 20,
-      },
-    },
-
-    {
-      hasRightIcon: true,
-      size: 'small',
-      css: {
-        paddingRight: '$1',
-      },
-    },
-    {
-      hasRightIcon: true,
-      size: 'large',
-      css: {
-        paddingRight: 20,
-      },
-    },
-  ],
-});
+);

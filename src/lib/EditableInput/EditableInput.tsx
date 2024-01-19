@@ -133,11 +133,12 @@ export const EditableInput: FC<Props> = ({
             value={state.internalValue}
             size={size}
             onChange={handleOnChange}
+            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
           {hasButtons && (
             <Buttons>
-              <IconButton type="submit" size="small" icon="check" css={{ mr: '$1' }} />
+              <IconButton type="submit" size="small" icon="check" style={{ marginRight: 4 }} />
               <IconButton size="small" variant="secondary" icon="x" onClick={handleCancel} />
             </Buttons>
           )}
@@ -145,8 +146,8 @@ export const EditableInput: FC<Props> = ({
       ) : (
         <Value
           as={isReadonly ? 'span' : 'button'}
-          size={size}
-          canEdit={!isReadonly}
+          $size={size}
+          $canEdit={!isReadonly}
           onClick={startEditing}
         >
           <Text title={value}>{value}</Text>

@@ -6,7 +6,7 @@ import { Main } from '../../components/common/Main';
 import PropsTable from '../../components/PropsTable/PropsTable';
 import { PROPS } from './Table.constants';
 
-const ModalDemo = () => {
+const TableView = () => {
   return (
     <Main>
       <header>
@@ -26,4 +26,4 @@ const ModalDemo = () => {
   );
 };
 
-export default ModalDemo;
+export default TableView;

@@ -1,18 +1,18 @@
 import React from 'react';
+import { styled } from 'styled-components';
 import PropTypes from 'prop-types';
-import { styled } from '../../lib';
 
-const Svg = styled('svg', {
+const Svg = styled.svg(({ theme }) => ({
   path: {
     '&:first-of-type': {
-      fill: '$secondary600',
+      fill: theme.colors.secondary600,
     },
 
     '&:last-of-type': {
-      fill: '$neutral600',
+      fill: theme.colors.neutral600,
     },
   },
-});
+}));
 
 const Logo = ({ size }) => {
   return (

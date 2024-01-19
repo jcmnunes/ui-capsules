@@ -1,11 +1,10 @@
 import React from 'react';
+import { styled } from 'styled-components';
 import {
   MenuList as RMenuList,
   MenuItem as RMenuItem,
   MenuButton as RMenuButton,
 } from '@reach/menu-button';
-import { darkTheme } from '../darkTheme';
-import { styled } from '../stitches.config';
 
 export { Menu, MenuPopover, MenuItems, MenuLink } from '@reach/menu-button';
 
@@ -13,32 +12,32 @@ export const MenuButton = ({ children = null, ...rest }) => {
   return <RMenuButton {...rest}>{children}</RMenuButton>;
 };
 
-export const MenuList = styled(RMenuList, {
-  boxShadow: '$500',
-  border: '1px solid $neutral200',
-  borderRadius: '$medium',
+export const MenuList = styled(RMenuList)(({ theme }) => ({
+  boxShadow: theme.shadows['500'],
+  border: `1px solid ${theme.colors.neutral200}`,
+  borderRadius: theme.radii.medium,
   minWidth: 240,
-  background: '$bg',
+  background: theme.colors.bg,
 
-  [`.${darkTheme} &`]: {
-    background: '$neutral50',
+  '.darkTheme &': {
+    background: theme.colors.neutral50,
   },
-});
+}));
 
-export const MenuItem = styled(RMenuItem, {
-  fontFamily: '$inter',
-  fontSize: '$md',
+export const MenuItem = styled(RMenuItem)(({ theme }) => ({
+  fontFamily: theme.fonts.inter,
+  fontSize: theme.fontSizes.md,
   fontWeight: 500,
-  color: '$neutral700',
+  color: theme.colors.neutral700,
   padding: '6px 12px',
-  background: '$bg',
+  background: theme.colors.bg,
 
-  [`.${darkTheme} &`]: {
-    background: '$neutral50',
+  '.darkTheme &': {
+    background: theme.colors.neutral50,
   },
 
   '&[data-reach-menu-item][data-selected]': {
-    color: '$neutral700',
-    background: '$neutral200',
+    color: theme.colors.neutral700,
+    background: theme.colors.neutral200,
   },
-});
+}));

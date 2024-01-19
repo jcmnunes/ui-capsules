@@ -1,11 +1,13 @@
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
 export type InputVariant = 'error' | 'success';
 
 // Hide spin box for Input type number
-export const Wrapper = styled('div', {
+export const Wrapper = styled.div({
   [`input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button`]: {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     '-webkit-appearance': 'none',
     margin: 0,
   },
@@ -18,7 +20,7 @@ export const Wrapper = styled('div', {
   isolation: 'isolate',
 });
 
-export const InputWrapper = styled('div', {
+export const InputWrapper = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -26,203 +28,148 @@ export const InputWrapper = styled('div', {
   position: 'relative',
 });
 
-export const IconWrapper = styled('div', {
-  position: 'absolute',
-  zIndex: 3,
-  color: '$neutral500',
-  pointerEvents: 'none',
+interface IconWrapperProps {
+  $size: 'small' | 'medium' | 'large';
+  $position: 'left' | 'right';
+}
 
-  variants: {
-    size: {
-      small: {
-        top: 8,
-        left: 'auto',
-        right: 6,
-      },
-
-      medium: {
-        top: 8,
-        left: 'auto',
-        right: 8,
-      },
-
-      large: {
-        top: 10,
-        left: 'auto',
-        right: 8,
-      },
-    },
-
-    position: {
-      left: {},
-      right: {},
-    },
-  },
-
-  compoundVariants: [
-    {
-      size: 'small',
-      position: 'left',
-      css: {
-        left: 6,
-        right: 'auto',
-      },
-    },
-    {
-      size: 'medium',
-      position: 'left',
-      css: {
-        left: 8,
-        right: 'auto',
-      },
-    },
-    {
-      size: 'large',
-      position: 'left',
-      css: {
-        left: 8,
-        right: 'auto',
-      },
-    },
-  ],
-});
-
-export const StyledInput = styled('input', {
-  fontFamily: '$inter',
-  background: '$bg',
-  color: '$neutral700',
-  borderRadius: '$medium',
-  border: 'none',
-  width: '100%',
-  boxShadow: '$border',
-  '-webkit-appearance': 'none',
-  appearance: 'none',
-
-  '&::placeholder': {
-    color: '$neutral400',
-  },
-
-  '&:hover': {
-    boxShadow: '$borderHover',
-  },
-
-  '&:focus': {
-    outline: 'none',
-    boxShadow: '$focus',
-  },
-
-  '&:disabled': {
-    color: '$neutral400',
-    background: '$neutral100',
-    borderColor: '$neutral300',
+export const IconWrapper = styled.div<IconWrapperProps>(
+  ({ theme }) => ({
+    position: 'absolute',
+    zIndex: 3,
+    color: theme.colors.neutral400,
     pointerEvents: 'none',
+  }),
+
+  ({ $size, $position }) => {
+    switch ($size) {
+      case 'small':
+        return {
+          top: 8,
+          left: $position === 'left' ? 6 : 'auto',
+          right: $position === 'right' ? 6 : 'auto',
+        };
+      case 'medium':
+        return {
+          top: 8,
+          left: $position === 'left' ? 8 : 'auto',
+          right: $position === 'right' ? 8 : 'auto',
+        };
+      case 'large':
+        return {
+          top: 10,
+          left: $position === 'left' ? 8 : 'auto',
+          right: $position === 'right' ? 8 : 'auto',
+        };
+    }
+  },
+);
+
+interface StyledInputProps {
+  $variant?: InputVariant;
+  $size: 'small' | 'medium' | 'large';
+  $hasLeftIcon: boolean;
+  $hasRightIcon: boolean;
+}
+
+export const StyledInput = styled.input<StyledInputProps>(
+  ({ theme }) => ({
+    fontFamily: theme.fonts.inter,
+    background: theme.colors.bg,
+    color: theme.colors.neutral700,
+    borderRadius: theme.radii.medium,
+    border: 'none',
+    width: '100%',
+    boxShadow: theme.shadows.border,
+    '-webkit-appearance': 'none',
+    appearance: 'none',
+
+    '&::placeholder': {
+      color: theme.colors.neutral400,
+    },
+
+    '&:hover': {
+      boxShadow: theme.shadows.borderHover,
+    },
+
+    '&:focus': {
+      outline: 'none',
+      boxShadow: theme.shadows.focus,
+    },
+
+    '&:disabled': {
+      color: theme.colors.neutral400,
+      background: theme.colors.neutral100,
+      borderColor: theme.colors.neutral300,
+      pointerEvents: 'none',
+    },
+  }),
+
+  ({ theme, $variant }) => {
+    switch ($variant) {
+      case 'success':
+        return {
+          boxShadow: theme.shadows.borderSuccess,
+
+          '&:hover': {
+            boxShadow: theme.shadows.borderSuccessHover,
+          },
+
+          '&:focus': {
+            outline: 'none',
+            boxShadow: theme.shadows.focusSuccess,
+          },
+        };
+
+      case 'error':
+        return {
+          boxShadow: theme.shadows.borderError,
+
+          '&:hover': {
+            boxShadow: theme.shadows.borderErrorHover,
+          },
+
+          '&:focus': {
+            outline: 'none',
+            boxShadow: theme.shadows.focusError,
+          },
+        };
+
+      default:
+        return {};
+    }
   },
 
-  variants: {
-    variant: {
-      success: {
-        boxShadow: '$borderSuccess',
+  ({ theme, $size, $hasLeftIcon, $hasRightIcon }) => {
+    switch ($size) {
+      case 'small':
+        return {
+          height: 32,
+          fontSize: theme.fontSizes.sm,
+          paddingRight: $hasRightIcon ? 26 : 8,
+          paddingLeft: $hasLeftIcon ? 26 : 8,
+        };
 
-        '&:hover': {
-          boxShadow: '$borderSuccessHover',
-        },
+      case 'medium':
+        return {
+          height: 36,
+          fontSize: theme.fontSizes.md,
+          paddingRight: $hasRightIcon ? 34 : 8,
+          paddingLeft: $hasLeftIcon ? 34 : 8,
+        };
 
-        '&:focus': {
-          outline: 'none',
-          boxShadow: '$focusSuccess',
-        },
-      },
+      case 'large':
+        return {
+          height: 40,
+          fontSize: theme.fontSizes.lg,
+          paddingRight: $hasRightIcon ? 38 : 8,
+          paddingLeft: $hasLeftIcon ? 38 : 8,
+        };
 
-      error: {
-        boxShadow: '$borderError',
-
-        '&:hover': {
-          boxShadow: '$borderErrorHover',
-        },
-
-        '&:focus': {
-          outline: 'none',
-          boxShadow: '$focusError',
-        },
-      },
-    },
-
-    inputSize: {
-      small: {
-        height: 32,
-        fontSize: '$sm',
-        pr: 8,
-        pl: 8,
-      },
-
-      medium: {
-        height: 36,
-        fontSize: '$md',
-        pr: 8,
-        pl: 8,
-      },
-
-      large: {
-        height: 40,
-        fontSize: '$lg',
-        pr: 8,
-        pl: 8,
-      },
-    },
-
-    hasLeftIcon: {
-      true: {},
-    },
-
-    hasRightIcon: {
-      true: {},
-    },
+      default:
+        return {};
+    }
   },
+);
 
-  compoundVariants: [
-    {
-      inputSize: 'small',
-      hasLeftIcon: true,
-      css: {
-        pl: 26,
-      },
-    },
-    {
-      inputSize: 'medium',
-      hasLeftIcon: true,
-      css: {
-        pl: 34,
-      },
-    },
-    {
-      inputSize: 'large',
-      hasLeftIcon: true,
-      css: {
-        pl: 38,
-      },
-    },
-    {
-      inputSize: 'small',
-      hasRightIcon: true,
-      css: {
-        pr: 26,
-      },
-    },
-    {
-      inputSize: 'medium',
-      hasRightIcon: true,
-      css: {
-        pr: 34,
-      },
-    },
-    {
-      inputSize: 'large',
-      hasRightIcon: true,
-      css: {
-        pr: 38,
-      },
-    },
-  ],
-});
-
-export const InputIcon = styled('div', {});
+export const InputIcon = styled.div``;

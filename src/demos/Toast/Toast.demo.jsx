@@ -16,6 +16,7 @@ const ToastDemo = () => {
         toast[toastType.value]({
           title: toastTitle,
           message: toastMessage,
+          options: { autoClose: false },
         })
       }
     >

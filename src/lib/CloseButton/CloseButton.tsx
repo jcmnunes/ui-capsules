@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
-import { styled } from '../stitches.config';
+import { styled } from 'styled-components';
 
-const StyledIconButton = styled(IconButton, {
+const StyledIconButton = styled(IconButton)({
   '&:hover': {
     background: 'transparent',
   },

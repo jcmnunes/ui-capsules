@@ -1,4 +1,3 @@
-import '../src/lib/styles/global.css';
 import React, { useEffect, useState } from 'react';
 import { Redirect, Route, useLocation } from 'react-router-dom';
 import AlertView from './demos/Alert/Alert.view';
@@ -27,16 +26,15 @@ import ToastView from './demos/Toast/Toast.view';
 import TooltipView from './demos/Tooltip/Tooltip.view';
 import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
-import { Editor } from './demos/Editor/Editor';
-import { Flex, IconButton, useGlobalStyles, useTheme } from './lib';
-import { SidebarOverlay, SidebarWrapper, ShowcaseWrapper, ShowcaseContent } from './App.styles';
+// import { Editor } from './demos/Editor/Editor';
+import { Flex, IconButton, useUiCapsContext } from './lib';
+import { ShowcaseContent, ShowcaseWrapper, SidebarOverlay, SidebarWrapper } from './App.styles';
+import UseUiCapsContextView from './demos/UseUiCapsContext/UseUiCapsContext.view';
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  useGlobalStyles();
-
-  const { isDark, setTheme } = useTheme();
+  const { isDarkTheme, setTheme } = useUiCapsContext();
 
   const { pathname } = useLocation();
 
@@ -48,7 +46,7 @@ const App = () => {
     <Flex css={{ height: '100%' }}>
       {isSidebarOpen && <SidebarOverlay onClick={() => setIsSidebarOpen(false)} />}
 
-      <SidebarWrapper isOpen={isSidebarOpen}>
+      <SidebarWrapper $isOpen={isSidebarOpen}>
         <Sidebar onClose={() => setIsSidebarOpen(false)} />
       </SidebarWrapper>
 
@@ -60,19 +58,19 @@ const App = () => {
               variant="ghostGray"
               onClick={() => setIsSidebarOpen(true)}
               aria-label="Open navigation"
-              css={{
-                '@md': {
+              css={({ theme }) => ({
+                [theme.media.md]: {
                   display: 'none',
                 },
-              }}
+              })}
             />
 
             <IconButton
-              icon={isDark ? 'moon' : 'sun'}
+              icon={isDarkTheme ? 'moon' : 'sun'}
               variant="ghostGray"
-              onClick={() => setTheme(isDark ? 'light' : 'dark')}
+              onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
               aria-label="Change theme"
-              css={{ ml: 'auto' }}
+              css={{ marginLeft: 'auto' }}
             />
           </Flex>
 
@@ -85,7 +83,7 @@ const App = () => {
           <Route path="/checkbox" component={CheckboxView} />
           <Route path="/dialog" component={DialogView} />
           <Route path="/editable-input" component={EditableInputView} />
-          <Route path="/editor" component={Editor} />
+          {/*<Route path="/editor" component={Editor} />*/}
           <Route path="/icon" component={IconView} />
           <Route path="/icon-button" component={IconButtonView} />
           <Route path="/illustrated-icon" component={IllustratedIconView} />
@@ -104,6 +102,8 @@ const App = () => {
           <Route path="/toast" component={ToastView} />
           <Route path="/tooltip" component={TooltipView} />
           <Route path="/truncated-text" component={TruncatedTextView} />
+
+          <Route path="/use-uicaps-context" component={UseUiCapsContextView} />
         </ShowcaseContent>
       </ShowcaseWrapper>
     </Flex>

@@ -1,10 +1,11 @@
 import React from 'react';
+import { styled } from 'styled-components';
 import { Paragraph, SubTitle, Title } from '../../components/common/Typography';
 import Usage from '../../components/Usage/Usage';
 import { Main } from '../../components/common/Main';
-import { Box, Flex, styled } from '../../lib';
+import { Box, Flex } from '../../lib';
 
-const StyledWrapper = styled(Main, {
+const StyledWrapper = styled(Main)({
   height: '100%',
   position: 'relative',
 });
@@ -12,7 +13,7 @@ const StyledWrapper = styled(Main, {
 export const Editor = () => {
   return (
     <StyledWrapper>
-      <Flex direction="column" css={{ height: '100%' }}>
+      <Flex $direction="column" css={{ height: '100%' }}>
         <section>
           <Title>Editor</Title>
           <Paragraph>The Editor component is available as a separate npm package.</Paragraph>

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, styled } from '../../lib';
+import { styled } from 'styled-components';
+import { Button } from '../../lib';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Usage from '../Usage/Usage';
 import { SubSubTitle, SubTitle } from '../common/Typography';
 
-export const Booleans = styled('div', {
+export const Booleans = styled.div({
   display: 'inline-flex',
   flexDirection: 'column',
 
@@ -14,51 +15,43 @@ export const Booleans = styled('div', {
   },
 });
 
-export const Inputs = styled('div', {
+export const Inputs = styled.div({
   '& > *': {
     margin: '8px 0',
     maxWidth: 264,
   },
 });
 
-export const DemoWrapper = styled('div', {
+export const DemoWrapper = styled.div(({ theme }) => ({
   borderRadius: '12px',
-  backgroundColor: '$neutral100',
-  padding: '$3',
+  backgroundColor: theme.colors.neutral100,
+  padding: theme.space[12],
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
 
-  '@lg': {
+  [theme.media.lg]: {
     flexDirection: 'row',
   },
-});
+}));
 
-export const Display = styled('div', {
+export const Display = styled.div(({ theme, $isDark }) => ({
   flex: 1,
-  background: '$bg',
-  borderRadius: '$medium',
+  background: $isDark ? theme.colors.neutral400 : theme.colors.bg,
+  borderRadius: theme.radii.medium,
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '$3',
+  padding: theme.space[12],
+}));
 
-  variants: {
-    isDark: {
-      true: {
-        background: '$neutral400',
-      },
-    },
-  },
-});
-
-export const PropAdjuster = styled('div', {
+export const PropAdjuster = styled.div({
   flex: 1,
   padding: '0 6px 0 18px',
 });
 
-const HeaderWrapper = styled('div', {
+const HeaderWrapper = styled.div({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'flex-end',
@@ -68,17 +61,17 @@ const HeaderWrapper = styled('div', {
   },
 });
 
-const Actions = styled('div', {
+const Actions = styled.div(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  color: '$neutral400',
-  marginBottom: '$3',
+  color: theme.colors.neutral400,
+  marginBottom: theme.space[12],
 
   '&:hover': {
-    color: '$neutral700',
+    color: theme.colors.neutral700,
   },
-});
+}));
 
 const Demo = ({ component, code, isDark, codeURL, children }) => {
   return (
@@ -100,7 +93,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
       </HeaderWrapper>
 
       <DemoWrapper>
-        <Display width="300px" isDark={isDark}>
+        <Display width="300px" $isDark={isDark}>
           {component}
         </Display>
         <PropAdjuster>
