@@ -34,9 +34,7 @@ export const Flex = styled(Box)<FlexProps>(
           flexDirection: 'column-reverse',
         };
       default:
-        return {
-          flexDirection: 'row',
-        };
+        return {};
     }
   },
 
@@ -63,9 +61,7 @@ export const Flex = styled(Box)<FlexProps>(
           alignItems: 'baseline',
         };
       default:
-        return {
-          alignItems: 'flex-start',
-        };
+        return {};
     }
   },
 
@@ -88,9 +84,7 @@ export const Flex = styled(Box)<FlexProps>(
           justifyContent: 'space-between',
         };
       default:
-        return {
-          justifyContent: 'flex-start',
-        };
+        return {};
     }
   },
 
@@ -109,9 +103,7 @@ export const Flex = styled(Box)<FlexProps>(
           flexWrap: 'wrap-reverse',
         };
       default:
-        return {
-          flexWrap: 'nowrap',
-        };
+        return {};
     }
   },
 
