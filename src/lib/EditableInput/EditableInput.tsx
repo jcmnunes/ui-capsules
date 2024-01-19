@@ -138,7 +138,7 @@ export const EditableInput: FC<Props> = ({
           />
           {hasButtons && (
             <Buttons>
-              <IconButton type="submit" size="small" icon="check" css={{ marginRight: 4 }} />
+              <IconButton type="submit" size="small" icon="check" style={{ marginRight: 4 }} />
               <IconButton size="small" variant="secondary" icon="x" onClick={handleCancel} />
             </Buttons>
           )}

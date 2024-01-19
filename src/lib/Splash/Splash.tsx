@@ -101,7 +101,7 @@ export const Splash: FC<Props> = ({ children, showSpinner = true, variant }) => 
         <Spinner
           size="large"
           variant={variant === 'spinner' ? 'light' : 'dark'}
-          css={{ marginTop: 16, marginBottom: 16 }}
+          style={{ marginTop: 16, marginBottom: 16 }}
         />
       )}
     </Container>,

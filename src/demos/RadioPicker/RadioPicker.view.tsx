@@ -31,6 +31,7 @@ const ButtonDemo = () => {
           {EXAMPLE_RADIOS.map(({ id, label, helpText }) => (
             <RadioPicker
               key={id}
+              name="example"
               checked={id === checked}
               onChange={() => setChecked(id)}
               label={label}

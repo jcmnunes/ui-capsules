@@ -29,11 +29,11 @@ const Sidebar: React.FC<Props> = ({ onClose }) => (
 
       <Text
         variant="smallCaps"
-        css={({ theme }) => ({
-          marginLeft: theme.space[12],
-          marginTop: theme.space[16],
-          marginBottom: theme.space[4],
-        })}
+        style={{
+          marginLeft: 12,
+          marginTop: 16,
+          marginBottom: 4,
+        }}
       >
         Components
       </Text>

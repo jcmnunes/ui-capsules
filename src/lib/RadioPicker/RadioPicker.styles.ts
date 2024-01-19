@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Text } from '../Text/Text';
 
 interface RadioPickerWrapperProps {
   $checked?: boolean;
@@ -46,3 +47,11 @@ export const RadioPickerWrapper = styled.label<RadioPickerWrapperProps>(
     }
   },
 );
+
+interface HelpTextProps {
+  checked: boolean;
+}
+
+export const HelpText = styled(Text)<HelpTextProps>(({ checked, theme }) => ({
+  color: checked ? theme.colors.primary600 : theme.colors.neutral600,
+}));

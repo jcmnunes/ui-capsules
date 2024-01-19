@@ -27,11 +27,11 @@ export const Alert = ({
       <StyledAlert $variant={variant}>
         <AlertIcon $alertVariant={variant} icon={ICON_MAP[variant]} />
 
-        <Flex $direction="column" css={{ flex: 1 }}>
+        <Flex $direction="column" style={{ flex: 1 }}>
           {!!title && (
             <Text
-              style={{ marginBottom: message ? 4 : 0 }}
-              css={{
+              style={{
+                marginBottom: message ? 4 : 0,
                 fontWeight: 600,
                 color: 'inherit',
               }}
@@ -40,20 +40,19 @@ export const Alert = ({
             </Text>
           )}
 
-          {!!message && <Text css={{ color: 'inherit' }}>{message}</Text>}
+          {!!message && <Text style={{ color: 'inherit' }}>{message}</Text>}
 
           {actions && (
-            <Flex css={({ theme }) => ({ marginTop: theme.space[8] })}>
+            <Flex style={{ marginTop: 8 }}>
               {actions.map(({ text, onClick }) => (
                 <Button
                   key={text}
                   variant="link"
                   onClick={onClick}
-                  css={({ theme }) => ({
-                    marginRight: theme.space[16],
+                  style={{
+                    marginRight: 16,
                     color: 'inherit',
-                    '&:hover': { color: 'inherit' },
-                  })}
+                  }}
                 >
                   {text}
                 </Button>
@@ -65,11 +64,10 @@ export const Alert = ({
         {onRequestClose && (
           <CloseButton
             onClick={onRequestClose}
-            css={({ theme }) => ({
-              ml: theme.space[16],
+            style={{
+              marginLeft: 16,
               color: 'inherit',
-              '&:hover': { color: 'inherit', background: 'transparent' },
-            })}
+            }}
           />
         )}
       </StyledAlert>

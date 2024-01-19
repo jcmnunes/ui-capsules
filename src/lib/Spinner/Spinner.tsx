@@ -43,7 +43,7 @@ export const Dot = styled.span<DotProps>(
     animationFillMode: 'both',
     animationIterationCount: 'infinite',
     animationDuration: '0.75s',
-    transformOrigin: 'center,'
+    transformOrigin: 'center,',
   },
 
   css`
@@ -95,17 +95,17 @@ export const Spinner = ({ dotColor, variant, size, ...rest }: Props) => {
   return (
     <Dots $size={size} {...rest}>
       <Dot
-        css={{ '&&': { animationDelay: '0.12s', backgroundColor: dotColor } }}
+        style={{ animationDelay: '0.12s', backgroundColor: dotColor }}
         $variant={variant}
         $size={size}
       />
       <Dot
-        css={{ '&&': { animationDelay: '0.24s', backgroundColor: dotColor } }}
+        style={{ animationDelay: '0.24s', backgroundColor: dotColor }}
         $variant={variant}
         $size={size}
       />
       <Dot
-        css={{ '&&': { animationDelay: '0.36s', backgroundColor: dotColor } }}
+        style={{ animationDelay: '0.36s', backgroundColor: dotColor }}
         $variant={variant}
         $size={size}
       />

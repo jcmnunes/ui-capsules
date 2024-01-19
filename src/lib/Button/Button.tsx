@@ -57,7 +57,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
           <Spinner
             variant="dark"
             dotColor={variant === 'primary' || variant === 'error' ? '#fff' : undefined}
-            css="position: absolute"
+            style={{ position: 'absolute' }}
           />
         )}
 

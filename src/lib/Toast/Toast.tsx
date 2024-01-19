@@ -45,6 +45,7 @@ const ToastContainer: React.FC<ToastContainerProps> = props => {
       autoClose={5000}
       limit={3}
       newestOnTop
+      hideProgressBar
       {...props}
     />
   );
@@ -61,17 +62,17 @@ export const Toast: React.FC<ToastProps> = ({ variant, title, message }) => {
 
   return (
     <ToastWrapper>
-      <Box css={{ position: 'absolute', top: 2, left: 0 }}>
+      <Box style={{ position: 'absolute', top: 1, left: 0 }}>
         <Icon
           icon={icons[variant].icon as IconType}
-          css={{ color: theme.colors[icons[variant].color as ColorKey] }}
+          style={{ color: theme.colors[icons[variant].color as ColorKey] }}
         />
       </Box>
 
-      <Flex $direction="column" css={{ marginLeft: 28 }}>
-        {title && <Text css={{ fontWeight: 600, color: 'white' }}>{title}</Text>}
+      <Flex $direction="column" style={{ marginLeft: 28 }}>
+        {title && <Text style={{ fontWeight: 600, color: 'white' }}>{title}</Text>}
 
-        {message && <Text css={{ color: 'white' }}>{message}</Text>}
+        {message && <Text style={{ color: 'white' }}>{message}</Text>}
       </Flex>
     </ToastWrapper>
   );

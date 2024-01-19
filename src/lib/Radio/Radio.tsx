@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
+import { CSSProp } from 'styled-components';
 import { Box } from '../Box/Box';
 import { DualSize } from '../types';
 import { CustomRadio, Label, StyledRadioInput } from './Radio.styles';
 
 interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   size?: DualSize;
+  css?: CSSProp;
 }
 
 export const Radio: FC<Props> = ({

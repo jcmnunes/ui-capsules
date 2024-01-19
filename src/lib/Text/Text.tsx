@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { CSSProp, styled } from 'styled-components';
 
 export type TextVariant = 'smallCaps' | 'label' | 'helper';
 
@@ -15,6 +15,7 @@ export interface TextProps {
   isTruncated?: boolean;
   variant?: TextVariant;
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+  css?: CSSProp;
 }
 
 export const Text = styled.span<TextProps>(

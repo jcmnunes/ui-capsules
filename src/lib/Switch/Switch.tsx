@@ -1,4 +1,5 @@
 import React, { ComponentPropsWithRef } from 'react';
+import { CSSProp } from 'styled-components';
 import { DualSize } from '../types';
 import {
   Icons,
@@ -14,6 +15,7 @@ export interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'> {
   size?: DualSize;
   checked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  css?: CSSProp;
 }
 
 export const Switch = React.forwardRef<HTMLInputElement, Props>(

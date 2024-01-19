@@ -47,7 +47,7 @@ export const StyledContainer = styled(RTToastContainer)(
 
     '.Toastify__toast-body': {
       margin: 'auto 0',
-      padding: '6px 6px 10px',
+      padding: 6,
       width: '100%',
       top: 2,
       left: 0,
@@ -73,7 +73,7 @@ export const StyledContainer = styled(RTToastContainer)(
       lineHeight: '16px',
       height: '16px',
 
-      'darkTheme &': {
+      '.darkTheme &': {
         color: theme.colors.neutral700,
       },
     },

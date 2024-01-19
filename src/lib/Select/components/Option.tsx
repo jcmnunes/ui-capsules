@@ -27,7 +27,7 @@ export const Option: ComponentType<OptionProps<{ label: string }>> = ({
 
   return (
     <OptionWrapper $isFocused={isFocused} ref={innerRef as any} {...innerProps}>
-      <Text css={{ fontWeight: 500 }}>{label}</Text>
+      <Text style={{ fontWeight: 500 }}>{label}</Text>
     </OptionWrapper>
   );
 };

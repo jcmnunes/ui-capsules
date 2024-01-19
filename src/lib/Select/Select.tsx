@@ -160,7 +160,7 @@ export function Select<
   return (
     <Box style={{ width: '100%' }}>
       {label && (
-        <Label labelId={inputId} css={({ theme }) => ({ marginBottom: theme.space[4] })}>
+        <Label labelId={inputId} style={{ marginBottom: 4 }}>
           {label}
         </Label>
       )}
