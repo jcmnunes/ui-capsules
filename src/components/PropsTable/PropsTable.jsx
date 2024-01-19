@@ -21,11 +21,11 @@ export const DefaultValue = styled.span(({ theme }) => ({
   },
 }));
 
-const StyledProp = styled.pre(({ theme }) => ({
+export const StyledProp = styled.pre(({ theme }) => ({
   color: theme.colors.neutral700,
 }));
 
-const StyledDescription = styled.div(({ theme }) => ({
+export const StyledDescription = styled.div(({ theme }) => ({
   fontSize: theme.fontSizes.sm,
   color: theme.colors.neutral700,
 }));

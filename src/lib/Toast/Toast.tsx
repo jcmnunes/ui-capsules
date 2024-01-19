@@ -37,7 +37,7 @@ const icons: Record<ToastVariant, { icon: string; color: string }> = {
   },
 };
 
-const ToastContainer: React.FC<ToastContainerProps> = props => {
+const Toaster: React.FC<ToastContainerProps> = props => {
   return (
     <StyledContainer
       position="bottom-right"
@@ -99,4 +99,4 @@ _toast.error = createToast('error');
 
 const toast = Object.assign(rtToast, _toast);
 
-export { ToastContainer, toast };
+export { Toaster, toast };

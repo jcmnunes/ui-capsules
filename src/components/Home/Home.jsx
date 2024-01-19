@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { Alert, Button } from '../../lib';
+import { Link } from 'react-router-dom';
+import { Alert, Anchor, Button } from '../../lib';
 import { Paragraph, SubTitle, Title } from '../common/Typography';
 import Usage from '../Usage/Usage';
 import { Main } from '../common/Main';
@@ -17,29 +18,39 @@ export const StyledParagraph = styled(Paragraph)({
   margin: '24px 0 16px',
 });
 
-export const providersExample = `import { ToastContainer } from '@binarycapsule/ui-capsules';
+export const providerExample = `import React from 'react';
+import ReactDOM from 'react-dom';
+import { UiCaps } from '@binarycapsule/ui-capsules';
+import { App } from './App.tsx';
 
 ReactDOM.render(
-  <React.StrictMode> 
-    <App />
-
-    <ToastContainer />
+  <React.StrictMode>
+    <UiCaps>
+      <App />
+    </UiCaps>
   </React.StrictMode>,
   document.getElementById('root'),
 );
 `;
 
-export const useThemeExample = `import { useGlobalStyles } from '@binarycapsule/ui-capsules';
+export const themeExample = `import React from 'react';
+import {
+  IconButton,
+  useUiCapsContext,
+} from '@binarycapsule/ui-capsules';
 
-function App() {
-  useGlobalStyles();
+const App = () => {
+  const { isDarkTheme, setTheme } = useUiCapsContext();
 
   return (
-    <div>
-      ...
-    </div>
+    <IconButton
+      icon={isDarkTheme ? 'moon' : 'sun'}
+      variant="ghostGray"
+      onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
+      aria-label="Change theme"
+    />
   );
-}
+};
 `;
 
 const Home = () => (
@@ -74,18 +85,21 @@ const Home = () => (
       <Usage>npm i @binarycapsule/ui-capsules</Usage>
 
       <StyledParagraph>The following peer dependencies should also be installed:</StyledParagraph>
-      <Usage>npm i react react-dom styled-components</Usage>
+      <Usage>npm i react@17 react-dom@17 styled-components@6</Usage>
 
       <SubTitle>Setup</SubTitle>
 
-      <StyledParagraph>Import the setup script at the entry point of you app:</StyledParagraph>
-      <Usage>import &apos;@binarycapsule/ui-capsules/dist/setup&apos;;</Usage>
+      <StyledParagraph>Wrap your application with UiCaps:</StyledParagraph>
+      <Usage>{providerExample}</Usage>
 
-      <StyledParagraph>Render the ToastContainer:</StyledParagraph>
-      <Usage>{providersExample}</Usage>
-
-      <StyledParagraph>Render the useGlobalStyles hook:</StyledParagraph>
-      <Usage>{useThemeExample}</Usage>
+      <StyledParagraph>
+        To toggle dark theme, use the{' '}
+        <Anchor as={Link} to="/use-uicaps-context" isInternal>
+          useUiCapsContext
+        </Anchor>{' '}
+        hook:
+      </StyledParagraph>
+      <Usage>{themeExample}</Usage>
     </div>
   </Main>
 );

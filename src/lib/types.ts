@@ -28,4 +28,4 @@ export type SelectOption<T> = { label: string; value: T };
 
 export type Status = 'success' | 'warning' | 'error';
 
-// export interface CSSProp {} // TODO
+export type Theme = typeof theme;

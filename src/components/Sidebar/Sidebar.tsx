@@ -2,13 +2,13 @@ import React from 'react';
 import {
   CloseButton,
   LogoLink,
+  SectionHeader,
   SidebarGroup,
   SidebarHeader,
   SidebarLink,
   StyledSidebar,
 } from './Sidebar.styles';
 import Logo from '../Svgs/Logo';
-import { Text } from '../../lib';
 
 interface Props {
   onClose(): void;
@@ -27,16 +27,7 @@ const Sidebar: React.FC<Props> = ({ onClose }) => (
     <SidebarGroup>
       <SidebarLink to="/getting-started">Getting Started</SidebarLink>
 
-      <Text
-        variant="smallCaps"
-        style={{
-          marginLeft: 12,
-          marginTop: 16,
-          marginBottom: 4,
-        }}
-      >
-        Components
-      </Text>
+      <SectionHeader>Components</SectionHeader>
 
       <SidebarLink to="/alert">Alert</SidebarLink>
       <SidebarLink to="/anchor">Anchor</SidebarLink>
@@ -63,6 +54,9 @@ const Sidebar: React.FC<Props> = ({ onClose }) => (
       <SidebarLink to="/truncated-text">TruncatedText</SidebarLink>
       <SidebarLink to="/toast">Toast</SidebarLink>
       <SidebarLink to="/tooltip">Tooltip</SidebarLink>
+
+      <SectionHeader>Hooks</SectionHeader>
+      <SidebarLink to="/use-uicaps-context">useUiCapsContext</SidebarLink>
     </SidebarGroup>
   </StyledSidebar>
 );

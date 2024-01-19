@@ -24,14 +24,22 @@ const StyledAnchor = styled.a(({ theme }) => ({
 interface Props extends ComponentPropsWithRef<'a'> {
   href: string;
   children: string;
+  isInternal?: boolean;
 }
 
-export const Anchor = forwardRef<HTMLAnchorElement, Props>(({ href, children, ...rest }, ref) => {
-  return (
-    <StyledAnchor ref={ref} href={href} target="_blank" rel="noreferrer noopener" {...rest}>
-      {children}
-    </StyledAnchor>
-  );
-});
+export const Anchor = forwardRef<HTMLAnchorElement, Props>(
+  ({ href, children, isInternal, ...rest }, ref) => {
+    const externalProps = {
+      target: '_blank',
+      rel: 'noreferrer noopener',
+    };
+
+    return (
+      <StyledAnchor ref={ref} href={href} {...(!isInternal ? externalProps : {})} {...rest}>
+        {children}
+      </StyledAnchor>
+    );
+  },
+);
 
 Anchor.displayName = 'Anchor';

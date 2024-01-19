@@ -9,7 +9,9 @@
 </div>
 
 ### 🚨 **Breakable toy - Do not use in real projects** 🚨
-**This library is a breakable toy. New versions will often contain breaking changes, even for non-major releases.**
+
+**This library is a breakable toy. New versions will often contain breaking
+changes, even for non-major releases.**
 
 ---
 
@@ -39,52 +41,55 @@ npm i @binarycapsule/ui-capsules
 The following peer dependencies should also be installed:
 
 ```
-npm i react react-dom styled-components
+npm i react@17 react-dom@17 styled-components@6
 ```
 
 ## Setup
 
-Import the setup script at the entry point of you app:
+Wrap your application with UiCaps:
 
 ```jsx
-import '@binarycapsule/ui-capsules/dist/setup';
-```
-
-Render the ToastContainer:
-
-```jsx
-import { ToastContainer } from '@binarycapsule/ui-capsules';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { UiCaps } from '@binarycapsule/ui-capsules';
+import { App } from './App.tsx';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-
-    <ToastContainer />
+    <UiCaps>
+      <App />
+    </UiCaps>
   </React.StrictMode>,
   document.getElementById('root'),
 );
-```
-
-Render the useGlobalStyles hook:
-
-```jsx
-import { useGlobalStyles } from '@binarycapsule/ui-capsules';
-
-function App() {
-  useGlobalStyles();
-
-  return (
-    <div>
-      ...
-    </div>
-  );
-}
 ```
 
 ## Usage
 
 Please refer to the [Components demo](https://uic.binarycapsule.tech) to get
 further instructions on how to use each component.
+
+### Dark Theme
+
+To toggle dark theme, use the `useUiCapsContext` hook:
+
+```jsx
+import React from 'react';
+import { IconButton, useUiCapsContext } from '@binarycapsule/ui-capsules';
+
+const App = () => {
+  const { isDarkTheme, setTheme } = useUiCapsContext();
+
+  return (
+    <IconButton
+      icon={isDarkTheme ? 'moon' : 'sun'}
+      variant="ghostGray"
+      onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
+      aria-label="Change theme"
+    />
+  );
+};
+```
 
 ## Licensing
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, styled } from '../../lib';
+import { styled } from 'styled-components';
+import { Button } from '../../lib';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Usage from '../Usage/Usage';
 import { SubSubTitle, SubTitle } from '../common/Typography';

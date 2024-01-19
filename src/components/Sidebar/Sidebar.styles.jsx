@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { IconButton } from '../../lib';
+import { IconButton, Text } from '../../lib';
 import { styled } from 'styled-components';
 
 export const StyledSidebar = styled.nav({
@@ -86,3 +86,7 @@ export const CloseButton = styled(IconButton)(({ theme }) => ({
     display: 'none',
   },
 }));
+
+export const SectionHeader = styled(Text).attrs({ as: 'p', variant: 'smallCaps' })({
+  margin: '16px 0 4px 12px',
+});

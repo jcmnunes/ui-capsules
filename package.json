@@ -17,7 +17,7 @@
     "format": "pretty-quick --staged",
     "clean": "rm -rf dist && rm -rf assets",
     "types": "tsc -p tsconfig.json",
-    "build": "npm run clean && tsc -p tsconfig.prod.json && cp -rf src/lib/styles assets && cp -rf src/lib/setup.js dist",
+    "build": "npm run clean && tsc -p tsconfig.prod.json && cp -rf src/assets assets",
     "validate": "npm-run-all --parallel types format lint build",
     "pack": "npm run build && npm pack",
     "semantic-release": "semantic-release"
