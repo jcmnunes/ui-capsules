@@ -17,7 +17,7 @@ changes, even for non-major releases.**
 
 React UI kit.
 
-The Components demo (wip) can be visited [here](https://uic.binarycapsule.tech).
+The Components demo (wip) can be visited [here](https://uic.josenunes.dev).
 
 <table>
 <tr>
@@ -66,7 +66,7 @@ ReactDOM.render(
 
 ## Usage
 
-Please refer to the [Components demo](https://uic.binarycapsule.tech) to get
+Please refer to the [Components demo](https://uic.josenunes.dev) to get
 further instructions on how to use each component.
 
 ### Dark Theme
