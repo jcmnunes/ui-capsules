@@ -26,7 +26,7 @@ import ToastView from './demos/Toast/Toast.view';
 import TooltipView from './demos/Tooltip/Tooltip.view';
 import TruncatedTextView from './demos/TruncatedText/TruncatedText.view';
 import Sidebar from './components/Sidebar/Sidebar';
-// import { Editor } from './demos/Editor/Editor';
+import { Editor } from './demos/Editor/Editor';
 import { Flex, IconButton, useUiCapsContext } from './lib';
 import { ShowcaseContent, ShowcaseWrapper, SidebarOverlay, SidebarWrapper } from './App.styles';
 import UseUiCapsContextView from './demos/UseUiCapsContext/UseUiCapsContext.view';
@@ -83,7 +83,7 @@ const App = () => {
           <Route path="/checkbox" component={CheckboxView} />
           <Route path="/dialog" component={DialogView} />
           <Route path="/editable-input" component={EditableInputView} />
-          {/*<Route path="/editor" component={Editor} />*/}
+          <Route path="/editor" component={Editor} />
           <Route path="/icon" component={IconView} />
           <Route path="/icon-button" component={IconButtonView} />
           <Route path="/illustrated-icon" component={IllustratedIconView} />

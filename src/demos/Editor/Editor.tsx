@@ -27,7 +27,7 @@ export const Editor = () => {
         <Box css={{ position: 'relative', height: '100vh' }}>
           <iframe
             title="Editor landing page"
-            src="https://editor.binarycapsule.tech/"
+            src="https://editor.josenunes.dev/"
             width="100%"
             height="100%"
             style={{ border: 'none' }}
