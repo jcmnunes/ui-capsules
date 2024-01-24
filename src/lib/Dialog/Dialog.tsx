@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Button } from '../Button/Button';
-import { Modal, ModalProps } from '../Modal/Modal';
+import { Modal, Props as ModalProps } from '../Modal/Modal';
 import { ModalBody } from '../Modal/ModalBody';
 import { ModalCloseButton } from '../Modal/ModalCloseButton';
 import { ModalFooter } from '../Modal/ModalFooter';
@@ -8,7 +8,7 @@ import { ModalHeader } from '../Modal/ModalHeader';
 import { Text } from '../Text/Text';
 import { Action } from '../types';
 
-interface Props extends ModalProps {
+export interface Props extends ModalProps {
   title?: string;
   message: string;
   actions: Action[];

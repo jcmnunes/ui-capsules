@@ -93,9 +93,7 @@ const Demo = ({ component, code, isDark, codeURL, children }) => {
       </HeaderWrapper>
 
       <DemoWrapper>
-        <Display width="300px" $isDark={isDark}>
-          {component}
-        </Display>
+        <Display $isDark={isDark}>{component}</Display>
         <PropAdjuster>
           <SubSubTitle>
             Knobs{' '}

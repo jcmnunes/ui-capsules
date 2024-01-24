@@ -1,5 +1,6 @@
 import React, {
   ChangeEvent,
+  ComponentPropsWithoutRef,
   FC,
   FocusEvent,
   FormEvent,
@@ -61,7 +62,7 @@ function reducer(state: State, action: Action) {
   }
 }
 
-interface Props {
+export interface Props extends ComponentPropsWithoutRef<'div'> {
   value: string;
   size?: ElementSize;
   isReadonly?: boolean;
@@ -75,6 +76,8 @@ export const EditableInput: FC<Props> = ({
   size = 'medium',
   isReadonly = false,
   hasButtons = false,
+  className,
+  style,
 }) => {
   const [state, dispatch] = useReducer<Reducer<State, Action>>(reducer, initialState);
 
@@ -126,7 +129,13 @@ export const EditableInput: FC<Props> = ({
   };
 
   return (
-    <StyledEditableInput onSubmit={handleSubmit} onKeyDown={handleKeyDown} onBlur={handleOnBlur}>
+    <StyledEditableInput
+      onSubmit={handleSubmit}
+      onKeyDown={handleKeyDown}
+      onBlur={handleOnBlur}
+      className={className}
+      style={style}
+    >
       {state.isInEditMode ? (
         <>
           <StyledInput

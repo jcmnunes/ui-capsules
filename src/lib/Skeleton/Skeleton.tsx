@@ -1,15 +1,17 @@
+import React, { ComponentPropsWithoutRef } from 'react';
 import { styled, keyframes, css } from 'styled-components';
-import { Box } from '../Box/Box';
 
 const loading = keyframes`
   100% { transform: translateX(100%) }
 `;
 
-interface SkeletonProps {
-  $circular: boolean;
+interface StyledSkeletonProps {
+  $isRound?: boolean;
+  $width: number;
+  $height: number;
 }
 
-export const Skeleton = styled(Box)<SkeletonProps>(
+const StyledSkeleton = styled.div<StyledSkeletonProps>(
   {},
 
   css`
@@ -18,10 +20,12 @@ export const Skeleton = styled(Box)<SkeletonProps>(
     }
   `,
 
-  ({ theme }) => ({
+  ({ theme, $width, $height, $isRound }) => ({
+    width: $width,
+    height: $height,
     position: 'relative',
     overflow: 'hidden',
-    borderRadius: theme.radii.medium,
+    borderRadius: $isRound ? theme.radii.full : theme.radii.medium,
     background: theme.colors.neutral200,
 
     '&:after': {
@@ -40,17 +44,19 @@ export const Skeleton = styled(Box)<SkeletonProps>(
       },
     },
   }),
-
-  ({ $circular, theme }) => {
-    if ($circular) {
-      return {
-        borderRadius: theme.radii.full,
-      };
-    }
-  },
 );
+
+export interface Props extends ComponentPropsWithoutRef<'div'> {
+  isRound?: boolean;
+  width: number;
+  height: number;
+}
+
+export const Skeleton = ({ isRound, width, height, ...rest }: Props) => {
+  return <StyledSkeleton $isRound={isRound} $width={width} $height={height} {...rest} />;
+};
 
 Skeleton.displayName = 'Skeleton';
 Skeleton.defaultProps = {
-  $circular: false,
+  isRound: false,
 };

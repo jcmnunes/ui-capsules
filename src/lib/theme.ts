@@ -99,7 +99,7 @@ export const theme = {
     errorDisabled: '#f496ae',
   },
 
-  get shadows(): Record<string, string> {
+  get shadows() {
     return {
       focus: `0px 0px 0px 3px ${this.colors.primary300}, inset 0px 0px 0px 1px ${this.colors.primary500}`,
       focusSuccess: `0px 0px 0px 3px ${this.colors.success200}, inset 0px 0px 0px 1px ${this.colors.success500}`,

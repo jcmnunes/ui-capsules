@@ -25,7 +25,7 @@ const code = `const Trigger = styled(IconButton)(({ theme }) => ({
     <MenuItem onSelect={() => {}}>Menu item #2</MenuItem>
     <MenuItem onSelect={() => {}}>Menu item #3</MenuItem>
     <MenuItem onSelect={() => {}}>
-      <Flex $align="center">
+      <Flex align="center">
         <Icon icon="beaker" css={{ marginRight: 4 }} />
         Beaker
       </Flex>
@@ -43,7 +43,7 @@ const MenuDemo = () => {
         <MenuItem onSelect={() => {}}>Menu item #2</MenuItem>
         <MenuItem onSelect={() => {}}>Menu item #3</MenuItem>
         <MenuItem onSelect={() => {}}>
-          <Flex $align="center">
+          <Flex align="center">
             <Icon icon="beaker" css={{ marginRight: 4 }} />
             Beaker
           </Flex>
@@ -54,7 +54,7 @@ const MenuDemo = () => {
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component} code={code}>
-      <Flex $direction="column">
+      <Flex direction="column">
         <Text>No knobs available</Text>
 
         <Text variant="helper">

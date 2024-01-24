@@ -8,13 +8,13 @@ const Wrapper = styled.span<{ $iconSize: number }>(({ $iconSize }) => ({
   display: 'inline-flex',
 }));
 
-export interface IconProps extends ComponentPropsWithoutRef<'span'> {
+export interface Props extends ComponentPropsWithoutRef<'span'> {
   icon: IconType;
   variant?: IconVariant;
   size?: number;
 }
 
-export const Icon = ({ icon, size, variant = 'solid', ...rest }: IconProps) => {
+export const Icon = ({ icon, size, variant = 'solid', ...rest }: Props) => {
   const iconSize = useMemo(() => {
     if (size) {
       return size;

@@ -12,7 +12,6 @@ import {
 } from './Input.styles';
 import { useId } from '@reach/auto-id';
 import { HelpText } from '../HelpText/HelpText';
-import { CSSProp } from 'styled-components';
 
 export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {
   size?: ElementSize;
@@ -23,7 +22,6 @@ export interface Props extends Omit<React.ComponentPropsWithoutRef<'input'>, 'si
   leftIcon?: IconType;
   rightIcon?: IconType;
   iconVariant?: IconVariant;
-  css?: CSSProp;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
@@ -38,7 +36,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       rightIcon,
       iconVariant,
       id,
-      css,
+      className,
+      style,
       ...rest
     },
     ref,
@@ -47,7 +46,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     const descriptionId = useId();
 
     return (
-      <Wrapper css={css}>
+      <Wrapper className={className} style={style}>
         {label && (
           <Label labelId={labelId} variant={variant} style={{ marginBottom: 4 }}>
             {label}

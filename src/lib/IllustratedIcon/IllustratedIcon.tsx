@@ -3,7 +3,7 @@ import { illustratedIcons } from './IllustratedIcon.constants';
 import { ColorKey, IllustratedIconType } from '../types';
 import { IllustratedIconWrapper } from './IllustratedIcon.styles';
 
-interface IllustratedIconProps extends ComponentPropsWithoutRef<'button'> {
+export interface Props extends ComponentPropsWithoutRef<'button'> {
   icon: IllustratedIconType;
   onClick?(e: MouseEvent<HTMLButtonElement>): void;
   size?: number;
@@ -13,7 +13,7 @@ interface IllustratedIconProps extends ComponentPropsWithoutRef<'button'> {
   secondaryColorHover?: ColorKey;
 }
 
-export const IllustratedIcon = forwardRef<HTMLButtonElement, IllustratedIconProps>(
+export const IllustratedIcon = forwardRef<HTMLButtonElement, Props>(
   (
     {
       icon,

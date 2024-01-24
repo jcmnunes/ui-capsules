@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from 'styled-components';
 
@@ -13,7 +13,9 @@ export const StyledPill = styled.span(({ theme }) => ({
   fontWeight: 600,
 }));
 
-export const Pill: FC = ({ children }) => <StyledPill>{children}</StyledPill>;
+export interface Props extends ComponentPropsWithoutRef<'span'> {}
+
+export const Pill = ({ children, ...rest }: Props) => <StyledPill {...rest}>{children}</StyledPill>;
 
 Pill.displayName = 'Pill';
 Pill.propTypes = {

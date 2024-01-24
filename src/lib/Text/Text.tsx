@@ -11,19 +11,20 @@ const truncatedStyle: React.CSSProperties = {
   display: 'block',
 };
 
-export interface TextProps {
+export interface Props {
   color?: ColorKey;
   isTruncated?: boolean;
   variant?: TextVariant;
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl';
+  fontWeight?: 400 | 500 | 600 | 700;
   css?: CSSProp;
 }
 
-export const Text = styled.span<TextProps>(
-  ({ theme, isTruncated }) => ({
+export const Text = styled.span<Props>(
+  ({ theme, isTruncated, fontWeight }) => ({
     fontFamily: theme.fonts.inter,
     fontVariantNumeric: 'tabular-nums',
-    fontWeight: 400,
+    fontWeight: fontWeight || 400,
     fontSize: theme.fontSizes.md,
     lineHeight: theme.lineHeights.md,
     color: theme.colors.neutral700,

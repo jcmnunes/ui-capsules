@@ -13,7 +13,7 @@ const StyledWrapper = styled(Main)({
 export const Editor = () => {
   return (
     <StyledWrapper>
-      <Flex $direction="column" css={{ height: '100%' }}>
+      <Flex direction="column" css={{ height: '100%' }}>
         <section>
           <Title>Editor</Title>
           <Paragraph>The Editor component is available as a separate npm package.</Paragraph>
@@ -27,7 +27,7 @@ export const Editor = () => {
         <Box css={{ position: 'relative', height: '100vh' }}>
           <iframe
             title="Editor landing page"
-            src="https://editor.binarycapsule.tech/"
+            src="https://editor.josenunes.dev/"
             width="100%"
             height="100%"
             style={{ border: 'none' }}

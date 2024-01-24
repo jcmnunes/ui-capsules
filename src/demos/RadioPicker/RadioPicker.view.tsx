@@ -27,7 +27,7 @@ const ButtonDemo = () => {
       <section>
         <SubTitle>Example</SubTitle>
 
-        <Flex $direction="column" $align="stretch" $gap={16}>
+        <Flex direction="column" align="stretch" gap={16}>
           {EXAMPLE_RADIOS.map(({ id, label, helpText }) => (
             <RadioPicker
               key={id}
