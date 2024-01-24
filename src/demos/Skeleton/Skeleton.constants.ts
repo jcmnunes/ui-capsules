@@ -5,20 +5,20 @@ export const PROPS = [
   {
     name: 'width',
     isRequired: true,
-    type: 'string',
+    type: 'number',
     description: 'Sets the element width',
   },
   {
     name: 'height',
     isRequired: true,
-    type: 'string',
+    type: 'number',
     description: 'Sets the element height',
   },
   {
-    name: 'circular',
+    name: 'isRound',
     isRequired: false,
     type: 'string',
     defaultValue: 'false',
-    description: 'When true, the element will be circular',
+    description: 'When true, the element will have a rounded shape',
   },
 ];

@@ -90,7 +90,7 @@ const StyledIcon = styled(Icon)<StyledIconProps>(({ theme, variant }) => {
   }
 });
 
-interface ModalHeaderProps {
+export interface Props {
   variant?: Status;
 }
 
@@ -100,7 +100,7 @@ const iconMap: Record<Status, IconType> = {
   error: 'exclamation_c',
 };
 
-export const ModalHeader: React.FC<ModalHeaderProps> = ({ variant, children }) => {
+export const ModalHeader: React.FC<Props> = ({ variant, children }) => {
   const icon = variant ? iconMap[variant] : null;
 
   return (

@@ -140,7 +140,7 @@ const StyledReactSelect = styled(RSelect)<StyledReactSelectProps>(({ uiTheme: th
   },
 }));
 
-interface Props<
+export interface Props<
   Option = unknown,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
@@ -153,12 +153,12 @@ export function Select<
   Option,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
->({ size = 'medium', label, id, ...rest }: Props<Option, IsMulti, Group>) {
+>({ size = 'medium', label, id, className, ...rest }: Props<Option, IsMulti, Group>) {
   const inputId = useId(id);
   const uiTheme = useTheme();
 
   return (
-    <Box style={{ width: '100%' }}>
+    <Box style={{ width: '100%' }} className={className}>
       {label && (
         <Label labelId={inputId} style={{ marginBottom: 4 }}>
           {label}

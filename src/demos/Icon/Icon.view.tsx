@@ -40,10 +40,10 @@ const ButtonDemo = () => {
       <PropsTable props={ICON_PROPS} />
 
       <section>
-        <Flex $justify="between" $align="end" css={{ marginTop: 12 }}>
+        <Flex justify="between" align="end" css={{ marginTop: 12 }}>
           <SubTitle id="icons">Icons</SubTitle>
 
-          <Flex $align="center" $gap={4} css="margin-bottom: 16px">
+          <Flex align="center" gap={4} css="margin-bottom: 16px">
             <Icon icon="beaker" variant="solid" size={24} />
             <Switch
               checked={isOutline}
@@ -74,7 +74,7 @@ const ButtonDemo = () => {
         </IconGrid>
 
         {icons.length === 0 && (
-          <Flex $align="center" $justify="center" $direction="column">
+          <Flex align="center" justify="center" direction="column">
             <Icon
               icon="emoji_sad"
               variant="outline"

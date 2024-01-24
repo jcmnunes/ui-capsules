@@ -4,27 +4,47 @@ import Demo, { Booleans, Inputs } from '../../components/Demo/Demo';
 import { GITHUB_URL } from './Skeleton.constants';
 
 const SkeletonDemo = () => {
-  const [circular, setCircular] = useState(false);
-  const [width, setWidth] = useState('150px');
-  const [height, setHeight] = useState('30px');
+  const [isRound, setIsRound] = useState(false);
+  const [width, setWidth] = useState(150);
+  const [height, setHeight] = useState(30);
 
-  const Component = <Skeleton $circular={circular} css={{ width, height }} />;
+  const Component = <Skeleton isRound={isRound} width={width} height={height} />;
 
   return (
     <Demo codeURL={GITHUB_URL} component={Component}>
       <Booleans>
-        <Checkbox checked={circular} onChange={() => setCircular(!circular)}>
-          <Text variant="label">circular</Text>
+        <Checkbox checked={isRound} onChange={() => setIsRound(!isRound)}>
+          <Text variant="label">isRound</Text>
         </Checkbox>
       </Booleans>
 
       <Inputs>
         <div>
-          <Input label="width" value={width} onChange={ev => setWidth(ev.target.value)} />
+          <Input
+            label="width"
+            value={width}
+            onChange={evt => {
+              const val = Number(evt.target.value);
+
+              if (!isNaN(val)) {
+                setWidth(Number(evt.target.value));
+              }
+            }}
+          />
         </div>
 
         <div>
-          <Input label="height" value={height} onChange={ev => setHeight(ev.target.value)} />
+          <Input
+            label="height"
+            value={height}
+            onChange={evt => {
+              const val = Number(evt.target.value);
+
+              if (!isNaN(val)) {
+                setHeight(Number(evt.target.value));
+              }
+            }}
+          />
         </div>
       </Inputs>
     </Demo>

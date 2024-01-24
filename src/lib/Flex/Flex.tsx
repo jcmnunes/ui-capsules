@@ -1,16 +1,17 @@
+import React, { ComponentPropsWithoutRef } from 'react';
 import { styled } from 'styled-components';
 import { Box } from '../Box/Box';
-import { theme } from '../theme';
 
 interface FlexProps {
+  $flex?: number | string;
   $direction?: 'row' | 'column' | 'rowReverse' | 'columnReverse';
   $align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
   $justify?: 'start' | 'center' | 'end' | 'between';
   $wrap?: 'noWrap' | 'wrap' | 'wrapReverse';
-  $gap?: keyof (typeof theme)['space'];
+  $gap?: number;
 }
 
-export const Flex = styled(Box)<FlexProps>(
+const StyledFlex = styled(Box)<FlexProps>(
   {
     display: 'flex',
   },
@@ -107,11 +108,43 @@ export const Flex = styled(Box)<FlexProps>(
     }
   },
 
-  ({ $gap, theme }) => {
+  ({ $gap }) => {
     if ($gap) {
       return {
-        gap: theme.space[$gap],
+        gap: $gap,
+      };
+    }
+  },
+
+  ({ $flex }) => {
+    if ($flex) {
+      return {
+        flex: $flex,
       };
     }
   },
 );
+
+export interface Props extends ComponentPropsWithoutRef<'div'> {
+  flex?: number | string;
+  direction?: 'row' | 'column' | 'rowReverse' | 'columnReverse';
+  align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+  justify?: 'start' | 'center' | 'end' | 'between';
+  wrap?: 'noWrap' | 'wrap' | 'wrapReverse';
+  gap?: number;
+  as?: React.ElementType;
+}
+
+export const Flex = ({ flex, direction, align, justify, wrap, gap, ...rest }: Props) => {
+  return (
+    <StyledFlex
+      $flex={flex}
+      $direction={direction}
+      $align={align}
+      $justify={justify}
+      $wrap={wrap}
+      $gap={gap}
+      {...rest}
+    />
+  );
+};

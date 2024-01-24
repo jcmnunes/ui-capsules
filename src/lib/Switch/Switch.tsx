@@ -1,5 +1,4 @@
 import React, { ComponentPropsWithRef } from 'react';
-import { CSSProp } from 'styled-components';
 import { DualSize } from '../types';
 import {
   Icons,
@@ -15,13 +14,12 @@ export interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'> {
   size?: DualSize;
   checked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  css?: CSSProp;
 }
 
 export const Switch = React.forwardRef<HTMLInputElement, Props>(
-  ({ children, size = 'large', checked, onChange, disabled, css, ...rest }, ref) => {
+  ({ children, size = 'large', checked, onChange, disabled, className, style, ...rest }, ref) => {
     return (
-      <StyledToggle disabled={disabled} css={css}>
+      <StyledToggle disabled={disabled} className={className} style={style}>
         <input
           ref={ref}
           type="checkbox"

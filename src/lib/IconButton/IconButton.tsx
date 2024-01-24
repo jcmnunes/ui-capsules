@@ -4,7 +4,7 @@ import { IconVariant } from '../types';
 import { solidIcons } from '../Icon/Icon.constants';
 import { Button } from '../Button/Button';
 
-export interface IconButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+export interface Props extends React.ComponentPropsWithoutRef<'button'> {
   icon: keyof typeof solidIcons;
   as?: 'button' | 'a';
   variant?: ButtonVariant;
@@ -18,7 +18,7 @@ const anchorProps = {
   rel: 'noreferrer noopener',
 };
 
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+export const IconButton = forwardRef<HTMLButtonElement, Props>(
   (
     {
       icon,
@@ -48,6 +48,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
           height: size === 'small' ? 24 : size === 'medium' ? 32 : 40,
           width: size === 'small' ? 24 : size === 'medium' ? 32 : 40,
           padding: 0,
+          ...rest.style,
         }}
       />
     );

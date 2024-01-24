@@ -27,7 +27,7 @@ export const Alert = ({
       <StyledAlert $variant={variant}>
         <AlertIcon $alertVariant={variant} icon={ICON_MAP[variant]} />
 
-        <Flex $direction="column" style={{ flex: 1 }}>
+        <Flex direction="column" flex={1}>
           {!!title && (
             <Text
               style={{

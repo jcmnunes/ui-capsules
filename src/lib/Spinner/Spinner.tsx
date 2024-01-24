@@ -85,7 +85,7 @@ export const Dot = styled.span<DotProps>(
   },
 );
 
-interface Props extends React.ComponentPropsWithRef<'span'> {
+export interface Props extends React.ComponentPropsWithRef<'span'> {
   size?: 'medium' | 'large';
   variant?: 'light' | 'dark';
   dotColor?: string;

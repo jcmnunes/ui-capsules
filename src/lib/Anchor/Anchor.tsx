@@ -21,7 +21,7 @@ const StyledAnchor = styled.a(({ theme }) => ({
   },
 }));
 
-interface Props extends ComponentPropsWithRef<'a'> {
+export interface Props extends ComponentPropsWithRef<'a'> {
   href: string;
   children: string;
   isInternal?: boolean;

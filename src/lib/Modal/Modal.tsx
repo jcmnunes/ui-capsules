@@ -90,7 +90,7 @@ const Content = styled(DialogContent)<DialogContentProps>(
   },
 );
 
-export interface ModalProps extends DialogOverlayProps {
+export interface Props extends DialogOverlayProps {
   isOpen: boolean;
   contentLabel: string;
   onClose?(): void;
@@ -98,7 +98,7 @@ export interface ModalProps extends DialogOverlayProps {
   isDialog?: boolean;
 }
 
-export const Modal: FC<ModalProps> = ({
+export const Modal: FC<Props> = ({
   isOpen,
   onClose,
   contentLabel,

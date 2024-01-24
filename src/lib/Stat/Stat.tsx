@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
 
-interface Props {
+export interface Props extends ComponentPropsWithoutRef<'div'> {
   label: string;
 }
 

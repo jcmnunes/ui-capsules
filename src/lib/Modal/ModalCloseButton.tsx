@@ -14,7 +14,7 @@ const StyledIconButton = styled(IconButton)({
   },
 });
 
-interface Props {
+export interface Props {
   size?: 'small' | 'medium';
   onClick(e: MouseEvent<HTMLButtonElement>): void;
 }

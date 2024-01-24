@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IconButton, IconButtonProps } from '../IconButton/IconButton';
+import { IconButton, Props as IconButtonProps } from '../IconButton/IconButton';
 import { styled } from 'styled-components';
 
 const StyledIconButton = styled(IconButton)({

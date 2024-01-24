@@ -13,7 +13,7 @@ const StyledWrapper = styled(Main)({
 export const Editor = () => {
   return (
     <StyledWrapper>
-      <Flex $direction="column" css={{ height: '100%' }}>
+      <Flex direction="column" css={{ height: '100%' }}>
         <section>
           <Title>Editor</Title>
           <Paragraph>The Editor component is available as a separate npm package.</Paragraph>

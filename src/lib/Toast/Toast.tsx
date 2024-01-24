@@ -51,13 +51,13 @@ const Toaster: React.FC<ToastContainerProps> = props => {
   );
 };
 
-interface ToastProps {
+interface Props {
   variant: ToastVariant;
   title?: string;
   message?: string;
 }
 
-export const Toast: React.FC<ToastProps> = ({ variant, title, message }) => {
+export const Toast: React.FC<Props> = ({ variant, title, message }) => {
   const theme = useTheme();
 
   return (
@@ -69,7 +69,7 @@ export const Toast: React.FC<ToastProps> = ({ variant, title, message }) => {
         />
       </Box>
 
-      <Flex $direction="column" style={{ marginLeft: 28 }}>
+      <Flex direction="column" style={{ marginLeft: 28 }}>
         {title && <Text style={{ fontWeight: 600, color: 'white' }}>{title}</Text>}
 
         {message && <Text style={{ color: 'white' }}>{message}</Text>}

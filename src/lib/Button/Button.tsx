@@ -34,7 +34,6 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
       children,
       disabled,
       isLoading,
-      className,
       ...rest
     },
     ref,
@@ -49,7 +48,6 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>(
         type={type}
         $hasLeftIcon={!!leftIcon}
         $hasRightIcon={!!rightIcon}
-        className={className}
         {...(as === 'a' ? anchorProps : {})}
         {...rest}
       >

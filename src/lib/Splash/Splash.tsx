@@ -75,7 +75,7 @@ const LargeText = styled.div<LargeTextProps>(
   },
 );
 
-interface Props {
+export interface Props {
   variant: SplashVariant;
   showSpinner?: boolean;
 }

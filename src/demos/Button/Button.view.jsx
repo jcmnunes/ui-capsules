@@ -26,7 +26,7 @@ const ButtonDemo = () => {
       <section>
         <SubTitle>Variants</SubTitle>
 
-        <Flex $align="baseline" css={{ marginBottom: 24 }}>
+        <Flex align="baseline" css={{ marginBottom: 24 }}>
           {['primary', 'secondary', 'error', 'ghost', 'ghostGray', 'link'].map(variant => (
             <Box key={variant} css={{ marginRight: 12 }}>
               <Button variant={variant}>

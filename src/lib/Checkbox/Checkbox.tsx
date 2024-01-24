@@ -2,16 +2,17 @@ import React, { ComponentPropsWithRef, forwardRef } from 'react';
 import { Box } from '../Box/Box';
 import { DualSize } from '../types';
 import { CustomCheckbox, Label, StyledInput } from './Checkbox.styles';
-import { CSSProp } from 'styled-components';
 
-interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'> {
+export interface Props extends Omit<ComponentPropsWithRef<'input'>, 'size'> {
   size?: DualSize;
-  css?: CSSProp;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, Props>(
-  ({ checked, size = 'medium', disabled = false, children, onChange, css, ...rest }, ref) => (
-    <Box css={css}>
+  (
+    { checked, size = 'medium', disabled = false, children, onChange, className, style, ...rest },
+    ref,
+  ) => (
+    <Box className={className} style={style}>
       <Label $size={size} onClick={e => e.stopPropagation()} $disabled={disabled}>
         {children && <span>{children}</span>}
 
