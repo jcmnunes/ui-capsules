@@ -4,13 +4,13 @@ export const GITHUB_URL =
 export const PROPS = [
   {
     name: 'width',
-    isRequired: true,
+    isRequired: false,
     type: 'number',
     description: 'Sets the element width',
   },
   {
     name: 'height',
-    isRequired: true,
+    isRequired: false,
     type: 'number',
     description: 'Sets the element height',
   },

@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef } from 'react';
+import React, { ComponentPropsWithRef, forwardRef } from 'react';
 import { styled } from 'styled-components';
 import { Box } from '../Box/Box';
 
@@ -125,7 +125,7 @@ const StyledFlex = styled(Box)<FlexProps>(
   },
 );
 
-export interface Props extends ComponentPropsWithoutRef<'div'> {
+export interface Props extends ComponentPropsWithRef<'div'> {
   flex?: number | string;
   direction?: 'row' | 'column' | 'rowReverse' | 'columnReverse';
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
@@ -135,16 +135,21 @@ export interface Props extends ComponentPropsWithoutRef<'div'> {
   as?: React.ElementType;
 }
 
-export const Flex = ({ flex, direction, align, justify, wrap, gap, ...rest }: Props) => {
-  return (
-    <StyledFlex
-      $flex={flex}
-      $direction={direction}
-      $align={align}
-      $justify={justify}
-      $wrap={wrap}
-      $gap={gap}
-      {...rest}
-    />
-  );
-};
+export const Flex = forwardRef<HTMLDivElement, Props>(
+  ({ flex, direction, align, justify, wrap, gap, ...rest }, ref) => {
+    return (
+      <StyledFlex
+        ref={ref}
+        $flex={flex}
+        $direction={direction}
+        $align={align}
+        $justify={justify}
+        $wrap={wrap}
+        $gap={gap}
+        {...rest}
+      />
+    );
+  },
+);
+
+Flex.displayName = 'Flex';

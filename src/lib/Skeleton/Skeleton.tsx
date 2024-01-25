@@ -7,8 +7,8 @@ const loading = keyframes`
 
 interface StyledSkeletonProps {
   $isRound?: boolean;
-  $width: number;
-  $height: number;
+  $width?: number | string;
+  $height?: number | string;
 }
 
 const StyledSkeleton = styled.div<StyledSkeletonProps>(
@@ -21,8 +21,8 @@ const StyledSkeleton = styled.div<StyledSkeletonProps>(
   `,
 
   ({ theme, $width, $height, $isRound }) => ({
-    width: $width,
-    height: $height,
+    width: $width || 'unset',
+    height: $height || 'unset',
     position: 'relative',
     overflow: 'hidden',
     borderRadius: $isRound ? theme.radii.full : theme.radii.medium,
@@ -48,8 +48,8 @@ const StyledSkeleton = styled.div<StyledSkeletonProps>(
 
 export interface Props extends ComponentPropsWithoutRef<'div'> {
   isRound?: boolean;
-  width: number;
-  height: number;
+  width?: number | string;
+  height?: number | string;
 }
 
 export const Skeleton = ({ isRound, width, height, ...rest }: Props) => {
